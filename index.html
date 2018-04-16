@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <ul class="module-list">
+    <li class="module">
+      <h5>Module 1</h5>
+      <ul>
+        <li>
+          <a href="lesson1.html">lesson-1</a>
+        </li>
+        <li>
+          <a href="lesson2.html">lesson-2</a>
+        </li>
+        <li>
+          <a href="lesson3.html">lesson-3</a>
+        </li>
+        <li>
+          <a href="lesson4.html">lesson-4</a>
+        </li>
+        <li>
+          <a href="lesson5.html">lesson-5</a>
+        </li>
+        <li>
+          <a href="lesson6.html">lesson-6</a>
+        </li>
+      </ul>
+    </li>
+    <li class="module">
+      <h5>Module 2</h5>
+      <ul>
+        <li>
+          <a href="lesson7.html">lesson-7</a>
+        </li>
+        <li>
+          <a href="lesson8.html">lesson-8</a>
+        </li>
+        <li>
+          <a href="lesson9.html">lesson-9</a>
+        </li>
+        <li>
+          <a href="lesson10.html">lesson-10</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+  <hr>
+
+  <div class="container">
+    <h3>Module 1</h3>
+    <fieldset>
+      <legend>lesson 1</legend>
+      <ol>
+        <li>
+          Короткое ознакомление с input.value и динамическое cоздание nodes
+        </li>
+        <li>
+          По клику вызов алерта со значением атрибута function a_value(o) { alert(o.value); }
+        </li>
+        <li>
+          Сумма чисел записаных в разные инпуты
+        </li>
+      </ol>
+    </fieldset>
+
+    <fieldset>
+      <legend>lesson 2</legend>
+      <ol>
+        <li>
+          Провверка на ввод чисел или стринги
+        </li>
+        <li>
+          Сумма чисел. Разбивка целого числа на массив. Закраска инпута в цвет ошибки
+        </li>
+        <li>
+          Из строки делает массив и получает среднее арифметическое их значения
+        </li>
+      </ol>
+    </fieldset>
+
+    <fieldset>
+      <legend>lesson 3</legend>
+      <ol>
+        <li>
+          Разбивает строку на отдельные слова и выводит их в рядом стоящие input's
+        </li>
+        <li>
+          Делает все буквы заглавными
+        </li>
+        <li>
+          Переводит первые буквы з заглавные во всех словах
+        </li>
+      </ol>
+    </fieldset>
+
+    <fieldset>
+      <legend>lesson 4</legend>
+      <ol>
+        <li>
+          Подссчитывает кол-во введенных слов
+        </li>
+        <li>
+          Кол-во букв в самом длинном слове. !! for перебирает кол-во букв в каждом слове и сравнивает значение с независимой переменной
+        </li>
+      </ol>
+    </fieldset>
+
+    <fieldset>
+      <legend>lesson 5</legend>
+      <ol>
+        <li>
+          Разбивает дату по знаку "-" и пушит в начало массива. Соеденяет числа знаком "."
+        </li>
+        <li>
+          Получает текущий год методом Date().getFullYear(). Вычисление узнаем возраст.
+        </li>
+        <li>
+          Сравнивает все буквы если есть отличия. Условие не проходит.
+        </li>
+        <li>
+          В консоль выводит сообщение. Содержит ли стринга число 3
+        </li>
+        <li>
+          Проставляет цифры для всех абзацов
+        </li>
+        <li>
+          Сортирует числа по возрастанию. Используя arr.sort(compareNumbers)
+        </li>
+      </ol>
+    </fieldset>
+
+    <fieldset>
+      <legend>lesson 6</legend>
+      <ol>
+        <li>
+          Достает значение аттрибута .getAttribute('href'). И записавает в название ссылки
+        </li>
+        <li>
+          К ссылке, адрес которой начинается с http://. Добавляет стрелку и окрашивает ее
+        </li>
+        <li>
+          Возводит в квадрат значение кнопку по клику
+        </li>
+        <li>
+          При ховере .addEventListener('mouseenter', увеличивает картинки. Используя при этом анимацию .
+          <pre>
+            setInterval(func, 10) -- задает интервал выполнения функции
+          </pre>
+        </li>
+        <li>
+          Начинает отсчет с задержкой .4сек и прекращает на значении 5. Результат в консоли 
+        </li>
+        <li>
+          Два клика. Две функции - Запуск и отмена.  
+          <pre>
+            Одна увеличивает картинку   -- this.addEventListener('click', dismiss),
+            другая уменьшает            -- this.removeEventListener('click', mess);
+          </pre>
+        </li>
+        <li>
+          Клонирует картинки this.cloneNode() и вставляет их ниже .appendChild(clone)
+        </li>
+        <li>
+          По аттрибуту находит кнопки "+" и "-". И увеличивает или уменьшает картинку
+        </li>
+      </ol>
+    </fieldset>
+
+    <h3>Module 2</h3>
+
+    <fieldset>
+      <legend>lesson 7</legend>
+      <ol>
+        <li>
+          При корректном и некоректном вводе меняем цвет бордера.
+        </li>
+        <li>
+          При отпускании мышки мы получаем фрагмент текста, который мы выделили
+          <pre>
+             selectText.addEventListener('mouseup', function() { 
+               let sel = window.getSelection().toString(); 
+               input2.value = sel; 
+              })
+          </pre>
+        </li>
+        <li>
+          Находит самое большое число среди существующих. Мы сравниваем все числа перебором с пустой переменной. Если число больше - записываем в нее текущее число.
+          <pre>
+             if (val[x] > char) { char = val[x] }
+          </pre> 
+        </li>
+        <li></li>
+        <li>
+          Math.random() выводит случайное число от 0-1. .CharAt() находит букву с таким номером. 
+          <pre>
+             for (let x = 0; x < 8; x++) { 
+               str += symbols.charAt(Math.random() * symbols.length); }
+          </pre>
+        </li>
+        <li>
+          Случайное число в интервале
+          <pre>
+             function getRandomArbitrary(min, max) { 
+               return Math.floor(Math.random() * (max - min) + min); }
+          </pre>
+        </li>
+      </ol>
+    </fieldset>
+
+    <fieldset>
+      <legend>lesson 8</legend>
+      <ol>
+        <li>
+          Нужно не забывать что повторяющаяся функция переписывает переменные на начальные, если они находятся в середине.
+          Также верхнее this можно положить опять таки в переменную, которую передать в функции пониже. 
+          <pre>
+             let that = this.value; 
+          </pre>
+        </li>
+        <li>
+
+        </li>
+      </ol>
+    </fieldset>
+
+    <fieldset>
+      <legend>lesson 9</legend>
+      <ol>
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+      </ol>
+    </fieldset>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <a href="index.html">home</a>
+  <blockquote>
+    <h3>practice</h3>
+    <ol>
+      <li>
+        стрелочная функция
+      </li>
+      <li>
+        метод перебора массива forEach
+      </li>
+      <li>
+        стрелочная функция для forEach
+      </li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>Напоминалка</legend>
+      <ol>
+        <li>
+          parseInt(somestring) to -> number
+        </li>
+        <li>
+          String(num) -> преобразовать в строку
+        </li>
+        <li>
+          querySelector('tag-or-class-or-id') -> найти нужный елемент
+        </li>
+        <li>
+          user-select: none -- отменяет выделение
+        </li>
+        <li>
+          .addEventListener('mouseup', func) -- срабатывает при отжатии мышки
+        </li>
+        <li>
+          input.setAttribute('disabled', 'disabled'); -- зделать input неактывным.
+        </li>
+        <li>
+          let interval = setInterval(countdown, 500) -- задать интервал выполнения
+        </li>
+        <li>
+          function stop() { window.clearInterval(interval) } -- прекратить интервал выполнения
+        </li>
+        <li></li>
+        <li></li>
+      </ol>
+    </fieldset>
+    <fieldset>
+      <legend>Теория Напоминалка</legend>
+      <ol>
+        <li>
+          Нужно не забывать что повторяющаяся функция переписывает переменные на начальные, если они находятся в середине.
+        </li>
+        <li>
+          Также верхнее this можно положить опять таки в переменную, которую передать в функции пониже.
+          <pre>let that = this.value;</pre>
+        </li>
+
+        <li></li>
+      </ol>
+    </fieldset>
+    <fieldset>
+      <legend>стрелочная функция</legend>
+      <p>Перевод input в верхний регистр</p>
+      <pre>
+        <b>old</b>
+         function toUpper(str) {return str.toUpperCase()}
+      </pre>
+      <pre>
+        <b>new</b>
+         let toUpper = str => str.toUpperCase();
+      </pre>
+      <input id="input" type="text" value="">
+    </fieldset>
+
+    <fieldset>
+      <legend>blur</legend>
+      <p>Передает параметры в консоль</p>
+      <input type="text" id="task">
+      <pre>
+        <b>old</b>
+         let task = document.getElementById('task'); 
+         function value(val) { 
+           console.log(val.value); // принимаем value с другой функции
+        и здесь мы можем делать с ним что угодно 
+        } 
+        task.onblur = function someFunc() { 
+          value(this) //передаем значение this при blure.
+          Получается мы здесь вызываем другую функцию дав ей в параметр то что нужно этой функции 
+        }
+      </pre>
+    </fieldset>
+
+    <fieldset>
+      <legend>forEach</legend>
+      <p>
+        let someArr = ['значение1', 'значение2', 'значение3'];
+      </p>
+      <pre>
+        <b>example</b>
+         someArr.forEach(function callback(currentValue, index, array) { 
+           div('this is value : ' + currentValue); 
+           div('this is index: ' + index); 
+           div('this is array : ' + array); 
+          });
+      </pre>
+      <button id="but">click</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>forEach стрелочная функция</legend>
+      <p>
+        let someArr = ['значение1', 'значение2', 'значение3']; выводит значения массива в дивы
+      </p>
+      <pre>
+        <b>example</b>        
+         someArr.forEach(callback = (currentValue, index, array) => (console.log(currentValue)));
+      </pre>
+      <button id="but2">click</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>setInterval ^ setTimeout</legend>
+      <p>
+        setInterval - задает интервал повторного выполнения функции, setTimeout - прекращает это. Третий пример с использованием
+        рекурсивного setTimeout - true way.
+      </p>
+      <pre>
+        <b>example</b>        
+          let timerId = setInterval(function func() { 
+            console.log('spoon'); 
+          }, 500); 
+          
+          setTimeout(function () { 
+            clearInterval(timerId);
+            console.log('stop') 
+          }, 1500);
+
+          let recursiveSetTimeout =  setTimeout(function tic() { 
+            console.log('tic'); clearInterval(tic, 500)
+          }, 1500);
+          
+      </pre>
+      <button id="but2">click</button>
+    </fieldset>
+    <fieldset>
+      <legend>get param</legend>
+      <p>
+        мы как-бы вызываем в другой фукции и передаем ей то что содержится в этой но не хватает в той, которой мы передаем.
+      </p>
+      <pre>
+        <b>example</b>        
+           function value(val) { return val.value; } 
+           
+           elem.onblur = function someFunc() { 
+             value(this); //здесь мы передаем this в функцию value() 
+            }
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>КЛИК ВКЛ - ВЫКЛ</legend>
+      <p>
+        Один клик включает что то второй выключает. Типа тригера.
+      </p>
+      <pre>
+        <b>example</b>        
+            colorSwitch2.addEventListener('click', startSortArr); 
+           
+            function startSortArr() { 
+              this.removeEventListener('click', startSortArr);
+              this.addEventListener('click', dismissSortArr); 
+              console.log('on'); 
+            } 
+          
+            function dismissSortArr () { 
+              this.removeEventListener('click', dismissSortArr); 
+              this.addEventListener('click', startSortArr); 
+              console.log('off'); 
+            }
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>ОБНУЛЕНИЕ СЧЕТЧИКА</legend>
+      <p>
+        Если что то превывает нужное кол-во. Мы можем его обнулить. Вот таким вот незамысловатым образом.
+      </p>
+      <pre>
+        <b>example</b>        
+            if (x >= colorArr.length) { 
+              x = 0 
+            }
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>ФУНКЦИЯ В функции и область видимости</legend>
+      <p>
+        вызов функции в другой функции
+      </p>
+
+      <pre>
+        <b>result: ___/''''\______/'\_</b>        
+          var landscape = function () { 
+            var result = ""; 
+            var flat = function (size) { 
+              for (var count = 0; count < size; count++) {
+                result +="_" ; 
+              } }; 
+            var mountain=f unction (size) { 
+              result +="/" ; for (
+              var count=0 ; 
+              count < size; 
+              count++) { 
+            result +="'"; 
+          } 
+          result +='\\' ; 
+        }; 
+        flat(3); 
+        mountain(4); 
+        flat(6); 
+        mountain(1); 
+        flat(1); 
+        return result; 
+      }; 
+      div(landscape());
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>ОБНУЛЕНИЕ СЧЕТЧИКА</legend>
+      <p>
+        Функция future() будет вызвана в любом месте кода - даже если она ниже места где мы ее вызывает. Она не будет работать по
+        правилу сверху-вниз в отличии от var future = function() {...}
+      </p>
+      <p>Также стандартами языка JS не нужно помещать функции внутрь условного блока или цикла</p>
+      <pre>
+        <b>result: The future says: We STILL have no flying cars.</b>        
+        console.log("The future says:", future()); 
+        
+        function future() { 
+          return "We STILL have no flying cars."; 
+        }
+      </pre>
+      <pre>
+        <b>example</b>        
+        function example() { 
+          function a() {} // Нормуль 
+          if (something) { 
+            function b() {} // Ай-яй-яй! 
+          }
+        }
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>Замыкания</legend>
+      <p>
+        Возможность использовать вызовы функций как переменные вкупе с тем фактом, что локальные переменные каждый раз при вызове
+        функции создаются заново. Дает нам возможность создавать функцию в функции. Параметры которых могут взаимодействовать
+        друг с другом.
+      </p>
+      <p>
+        Мы вкладываем функцию в переменную и функции даем параметр. А потом даем переменной параметр который будет параметром второй
+        функции - в функции которую положили в переменную. ГЕНИАЛЬНО!
+      </p>
+      <pre>
+        <b>result: 10</b>        
+         function multiplier(factor) { 
+           return function(number) { 
+             return number * factor; 
+            }; 
+          } 
+          var twice = multiplier(2); 
+          console.log(twice(5));
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>WHIle</legend>
+      <p>
+        Всегда число будет трех-значное.
+      </p>
+      <pre>
+        <b>result: 004, 044, 444</b>        
+         function inventory (cows) { 
+           let x = 0; 
+           let cowsStr = String(cows); 
+           while (cowsStr.length < 3) { 
+             cowsStr='0' + cowsStr; 
+             x++;
+          };
+            console.log(cowsStr); 
+          }; 
+          inventory(4);
+          inventory(44);
+          inventory(444);
+      </pre>
+      <pre>
+         while (true) { 
+           // ... 
+          }
+      </pre>
+    </fieldset>
+
+    <fieldset>
+      <legend>text</legend>
+      <p>
+        desription
+      </p>
+      <pre>
+        <b>result:</b>        
+        code
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>text</legend>
+      <p>
+        desription
+      </p>
+      <pre>
+        <b>result:</b>        
+        code
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>text</legend>
+      <p>
+        desription
+      </p>
+      <pre>
+        <b>result:</b>        
+        code
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>text</legend>
+      <p>
+        desription
+      </p>
+      <pre>
+        <b>result:</b>        
+        code
+      </pre>
+    </fieldset>
+
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/practice.js"></script>
+</body>
+
+</html>

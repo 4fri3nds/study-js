@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a href="index.html">home</a>
+  <a href="practice.html">practice</a>
+  <a href="costum.html">costum</a>
+
+  <blockquote>
+    <h3>lesson1</h3>
+    <p>
+      Даны 3 инпута и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в четвертый инпут.
+    </p>
+  </blockquote>
+
+  <div class="container">
+
+    <fieldset id="include1">
+      <legend>получите квадрат числа</legend>
+      <p> Квадрат числа. Иклудит результат в DOM</p>
+      <input class="num" type="text" value="">
+      <button id="but">click at me</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        введите что-нибудь
+      </legend>
+      <p>срабатывает при нажатии на enter выводит алерт - коротко и ясно</p>
+      <pre>
+        function a_value(o) { alert(o.value); }
+      </pre>
+      <input type="text" id="find" name="plz" onchange="a_value(this);" />
+    </fieldset>
+    <fieldset id="include3">
+      <legend>введите числа</legend>
+      <p>получите сумму чисел записаных в инпуты</p>
+      <input class="num3" type="text" value="">
+      <input class="num3" type="text" value="">
+      <input class="num3" type="text" value="">
+      <button id="but3">click at me</button>
+    </fieldset>
+  </div>
+
+  <script src="js/les1.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a href="index.html">home</a>
+  <a href="practice.html">practice</a>
+  <a href="costum.html">costum</a>
+
+  <blockquote>
+    <br>
+    <h3>lesson2</h3>
+    <ol>
+      <li>Проверить на ввод цифр в инпут. Если буквы будет ошибка.</li>
+      <li>Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.</li>
+      <li>Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить
+        на количество)</li>
+    </ol>
+    <br>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>введите число или слово</legend>
+      <p>при потере фокуса будет проверка на значение инпута</p>
+      <input id="input" type="text" value="">
+      <div class="error"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>введите целое число</legend>
+      <p>при потере фокуса целое число пройдет через for и мы получим их сумму</p>
+      <input id="input2" type="text" value="">
+      <div class="sum"></div>
+      <div class="error2"></div>
+    </fieldset>
+
+    <fieldset id="fieldset3">
+      <legend>введите числа через запятую</legend>
+      <p>из строки делает массив и получает среднее арифметическое их значения</p>
+      <input id="input3" type="text" value="">
+      <div class="sum3"></div>
+      <div class="error3"></div>
+    </fieldset>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/les2.js"></script>
+</body>
+
+</html>

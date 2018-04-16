@@ -1,0 +1,168 @@
+html,
+body {
+  font-family: sans-serif;
+}
+
+ol li {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 5px;
+  color: lightslategray;
+}
+
+pre {
+  line-height: 1.5;
+}
+
+a {
+  display: inline-block;
+  font-size: 18px;
+  color: black;
+  margin-right: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+h3 {
+  margin-left: 60px;
+  text-transform: uppercase;
+  color: cadetblue
+}
+
+.includer {
+  color: green;
+  padding: 5px;
+}
+
+fieldset {
+  background: #E1E3B8 url(http://htmlbook.ru/files/check-bg.png) no-repeat 100% 8%;
+  margin-bottom: 20px;
+}
+
+legend {
+  text-transform: uppercase;
+  color: #A35D43;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+blockquote {
+  padding: 10px;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+blockquote:before,
+blockquote:after {
+  font-size: 3em;
+  color: #800;
+}
+
+blockquote:before {
+  content: '«';
+  float: left;
+  margin-top: -0.4em;
+}
+
+blockquote:after {
+  content: '»';
+  float: right;
+  margin-top: -1.2em;
+}
+
+blockquote p {
+  margin: 1em 3em;
+}
+
+.num {
+  width: 100px;
+  display: inline-block;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+pre {
+  background-color: #fff;
+}
+.error {
+  color: rgb(194, 51, 51);
+  font-size: 10px;
+  font-style: italic;
+}
+
+.error2 {
+  color: lightcoral;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.focus-brd {
+  outline: 1px solid greenyellow;
+}
+
+.error-brd {
+  outline: 1px solid lightcoral;
+}
+
+.hidden {
+  display: none;
+}
+
+.img-container img {
+  width: 50px;
+  margin-left: 10px;
+}
+
+#cloned-img img {
+  width: 70px;
+  margin-left: 30px;
+}
+
+.img-wrap {
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.img-wrap img {
+  margin-right: 10px;
+}
+
+.img-wrap * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.module-list {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.module {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.module a {
+  text-transform: lowercase;
+  margin-bottom: 5px;
+}
+
+.module a:hover {
+  text-decoration: underline;
+}
+
+#indent {
+  cursor: pointer;
+  color: blue;
+}
