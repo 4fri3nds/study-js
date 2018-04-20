@@ -16,16 +16,6 @@ function attrCheck(elem) {
   }
 }
 
-// function checkOn() {
-//   this.addEventListener('click', checkOff);
-//   this.removeEventListener('click', checkOn);
-// }
-
-// function checkOff() {
-//   this.removeEventListener('click', checkOff);
-//   this.addEventListener('click', checkOn);
-// }
-
 // 2 task
 let checkBox2 = document.getElementsByClassName('check-box');
 let checkBtn2 = document.getElementById('check-switch2');
@@ -36,4 +26,27 @@ function checkOnAll() {
   for (let x = 0; x < checkBox2.length; x ++) {
     attrCheck(checkBox2[x])
   }
+}
+
+// 3 task
+let countChickens = document.getElementById('count_chickens');
+let countCows = document.getElementById('count_cows');
+let countBtn = document.getElementById('count_btn');
+
+countBtn.addEventListener('click', getCount);
+
+function getCount() {
+  let location = document.getElementById('result-zirro');
+  div('chickens' + ' = ' + addZiro(countChickens), location);
+  div('cows' + ' = ' + addZiro(countCows), location);
+}
+
+function addZiro(input) {
+  let value = input.value;
+
+  while (value.length < 3) {
+    value = '0' +  value;
+  }
+
+  return value;
 }

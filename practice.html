@@ -55,7 +55,7 @@
         <li>
           function stop() { window.clearInterval(interval) } -- прекратить интервал выполнения
         </li>
-        <li></li>
+        <li>while(true) { ... }</li>
         <li></li>
       </ol>
     </fieldset>
@@ -313,23 +313,30 @@
     </fieldset>
 
     <fieldset>
-      <legend>text</legend>
+      <legend>trigger</legend>
       <p>
-        desription
+        Кастомный тригер на on/off по клику
       </p>
       <pre>
         <b>result:</b>        
-        code
+         function checkOn() { 
+            this.addEventListener('click', checkOff); 
+            this.removeEventListener('click', checkOn); 
+          } 
+          function checkOff() { 
+            this.removeEventListener('click', checkOff); 
+            this.addEventListener('click', checkOn); 
+          }
       </pre>
     </fieldset>
     <fieldset>
-      <legend>text</legend>
+      <legend>querySelector</legend>
       <p>
-        desription
+        Заменяет getElementBy...
       </p>
       <pre>
         <b>result:</b>        
-        code
+         document.querySelectorAll(selectors);
       </pre>
     </fieldset>
     <fieldset>

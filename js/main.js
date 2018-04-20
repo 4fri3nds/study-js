@@ -9,15 +9,25 @@ function notNumber() {
 }
 
 //button 'click' create div with scenario
-function div(str) {
+function div(str, location) {
   let divEl = document.createElement('div');
 
   divEl.className = "includer";
   divEl.innerHTML = str;
-
-  document.body.appendChild(divEl)
+  // empty(location);
+  
+  if (location !== undefined) {
+    location.appendChild(divEl)
+  } else {
+    document.body.appendChild(divEl)
+  }
 }
-
+// remove all children node
+function empty(wrap) {
+  while (wrap.children.length > 0) {
+    wrap.removeChild(wrap.lastChild);
+  }
+};
 
 function countWords(count) {
   let str = count.split(" ");
@@ -39,3 +49,4 @@ function compareNumbers(a, b) {
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+
