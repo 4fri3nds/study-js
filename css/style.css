@@ -52,6 +52,10 @@ blockquote {
   border-bottom: 1px solid lightgrey;
 }
 
+label {
+  user-select: none;
+}
+
 .container {
   width: 90%;
   margin: auto;
@@ -165,4 +169,11 @@ pre {
 #indent {
   cursor: pointer;
   color: blue;
+}
+
+.popup {
+  padding: 20px;
+  border: 1px solid gray;
+  background-color: lightgray;
+  display: inline-block;
 }

@@ -62,6 +62,39 @@
            if (this.checked == true) {} the same(тоже самое) что 
            if (this.chicked) {}
         </li>
+        <li>
+           arr.push(item) - добавляет новый элемент в нач. массива
+        </li>
+        <li>
+           arr = value.split(',') - разбивает строку на массив по символу
+        </li>
+        <li>
+           arr.join(', ') - соеденить массив в строку и поставить кому между ел.
+        </li>
+        <li>
+          addEventListener('change') -- вешается на checkbox'ы
+        </li>
+        <li>
+          checkbox.checked -- достучатся до выбраного checkbox
+        </li>
+        <li>
+          Добавлять css через js 
+          1 элемент -- 
+          <pre>
+            elem.style.display = 'none';
+          </pre>
+          2 элемента -- 
+          <pre>
+            unvizInput.style = { 'display':'none'; 'color': 'orange' }; 
+          </pre>
+        </li>
+        <li>
+          elem.getAttribute() -- получить доступ к атрибуту
+          elem.setAttribute() -- дать эл. аттр.
+          elem.hasAttribute() -- приверить на наличие аттрибута
+          elem.removeAttribute(name) -- удаляет аттр.
+        </li>
+        <li></li>
       </ol>
     </fieldset>
     <fieldset>
@@ -74,7 +107,14 @@
           Также верхнее this можно положить опять таки в переменную, которую передать в функции пониже.
           <pre>let that = this.value;</pre>
         </li>
-
+        <li>
+          очень удобно, когда то что мы должны зделать с элементом лежит в самом элементе в VALUE = "..."
+          <pre>
+            input type="checkbox" value="font-weight:bold;">сделать жирным
+          </pre>
+        </li>
+        <li></li>
+        <li></li>
         <li></li>
       </ol>
     </fieldset>
@@ -277,7 +317,7 @@
       </p>
       <p>
         Мы вкладываем функцию в переменную и функции даем параметр. А потом даем переменной параметр который будет параметром второй
-        функции - в функции которую положили в переменную. ГЕНИАЛЬНО!
+        функции - в функции которую положили в переменную.
       </p>
       <pre>
         <b>result: 10</b>        

@@ -11,7 +11,7 @@ function notNumber() {
 //button 'click' create div with scenario
 function div(str, location) {
   let divEl = document.createElement('div');
-
+  
   divEl.className = "includer";
   divEl.innerHTML = str;
   // empty(location);
