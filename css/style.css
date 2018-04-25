@@ -138,7 +138,7 @@ pre {
   margin-right: 10px;
 }
 
-.img-wrap * {
+.img-wrap *, input, label {
   display: inline-block;
   vertical-align: middle;
 }
