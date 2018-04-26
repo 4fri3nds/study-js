@@ -7,7 +7,6 @@ ol li {
   font-size: 16px;
   font-style: italic;
   margin-bottom: 5px;
-  color: lightslategray;
 }
 
 pre {
@@ -146,6 +145,12 @@ pre {
   display: inline-block;
   vertical-align: middle;
 }
+button {
+  display: block;
+  font-size: 16px;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
 
 .module-list {
   margin-top: 0;
@@ -176,4 +181,10 @@ pre {
   border: 1px solid gray;
   background-color: lightgray;
   display: inline-block;
+}
+
+#random-num-table td{
+  padding: 10px;
+  border: 1px solid lightgray;
+  background: #fff;
 }

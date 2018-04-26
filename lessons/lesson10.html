@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <a href="../index.html">home</a>
+  <a href="../practice.html">practice</a>
+  <a href="../costum.html">costum</a>
+  <blockquote>
+    <h3>lesson-10</h3>
+    <ol>
+      <li>
+        В инпут через запятую вводятся страны. По нажатию на кнопку сделайте так, чтобы эти страны записались в ul под инпутом (каждая
+        страна отдельный li).
+      </li>
+      <li>
+        В инпут вводится страна и нажимается Enter. По нажатию на Enter сделайте так,чтобы введенные страны записывались в абзац
+        под инпутом через запятую. То есть по каждому нажатию Enter в абзац будут добавляться все новые и новые страны.
+      </li>
+      <li>
+        На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной
+        10 символов. И добавьте троеточие в конец обрезанного текста
+      </li>
+      <li>
+        Дана таблица. Рандомно заполнить ее ячейки числами. По нажатию на кнопку найдите ячейку, в которой хранится максимальное
+        число, и сделайте ее фон красным.
+      </li>
+      <li>
+        Дана таблица с числами. По нажатию на кнопку в инпут под таблицей выведите эти числа через запятую в порядке возрастания.
+      </li>
+      <li></li>
+      <li></li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>1. Внесите через запятую список стран и нажмите на кнопку</legend>
+      <p>Должен строку разбить на массив и вставить в каждую li ниже. Использовал метод clone()</p>
+      <input id="input-country" type="text" value="">
+      <button id="add-country">Add Countries</button>
+      <ul id="country-list">
+        <li>empty yet</li>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend>2. Вводите страны и нажимайте enter</legend>
+      <p>Чтобы вызвать событиe по enter. Нужно поставить слушатель на эту клавишу. В "жизни" лучше использовать onsubmit(),
+        submit() на форме.
+        <pre>
+           .addEventListener('keypress', function() { 
+             if (event.which == 13) { ...
+        </pre>
+      </p>
+      <input id="input-country2" type="text">
+      <div id="country-list2"></div>
+    </fieldset>
+    <fieldset>
+      <legend>3. По клику на кнопку обрежется текст в div до 10 символов</legend>
+      <p>
+        Чтобы вызвать событию по enter. Нужно поставить слушатель на эту клавишу.
+      </p>
+      <div class="text-lorem">Lorem ipsum dolor sit</div>
+      <div class="text-lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo voluptatum aperiam accusantium error quas eligendi
+        cumque distinctio autem necessitatibus</div>
+      <div class="text-lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo voluptatum aperiam </div>
+      <button id="cut-lorem">Cut text</button>
+    </fieldset>
+    <fieldset>
+      <legend>4. Найти мах. Кликните два раза на кнопку.</legend>
+      <p>
+        По клику один раз - заполнит случайными числами. Второй найдет найбольшее и закрасит эту ячейку
+      </p>
+      <table id="random-num-table">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <button id="get-max">FillEmpty/GetMax</button>
+    </fieldset>
+    <fieldset>
+      <legend>5. Отсортировать. Кликните два раза на кнопку.</legend>
+      <p>
+        По клику один раз - заполнит случайными числами. Второй найдет найбольшее и закрасит эту ячейку
+      </p>
+      <table id="sort-num-table">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <button id="get-sort">FillEmpty/GetMax</button>
+    </fieldset>
+  </div>
+  <script src="../js/main.js"></script>
+  <script src="../js/les10.js"></script>
+</body>
+
+</html>

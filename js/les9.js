@@ -157,4 +157,4 @@ for (let x=0; x < popup.length; x++) {
   button.addEventListener('click', function () {
     this.parentNode.style.display = 'none';
   })
-};
+}; 
