@@ -29,10 +29,20 @@
 
   <div class="container">
     <fieldset>
-      <legend>Напоминалка</legend>
+      <!-- \\__====|_ ПРАКТИКА _|===// -->
+      <legend>Напоминалка Code</legend>
       <ol>
         <li>
           parseInt(somestring) to -> number
+        </li>
+        <li>
+          Создать эл. и вставить
+          <pre>
+            let divEl = document.createElement('div');
+            divEl.className = "includer"; 
+            divEl.innerHTML = str;
+            location.appendChild(divEl);
+          </pre>
         </li>
         <li>
           String(num) -> преобразовать в строку
@@ -42,6 +52,9 @@
         </li>
         <li>
           user-select: none -- отменяет выделение
+        </li>
+        <li>
+          document.querySelectorAll(selectors) -- аналог getElement(s)By
         </li>
         <li>
           .addEventListener('mouseup', func) -- срабатывает при отжатии мышки
@@ -59,17 +72,16 @@
           while(true) { ... }
         </li>
         <li>
-           if (this.checked == true) {} the same(тоже самое) что 
-           if (this.chicked) {}
+          if (this.checked == true) {} the same(тоже самое) что if (this.chicked) {}
         </li>
         <li>
-           arr.push(item) - добавляет новый элемент в нач. массива
+          arr.push(item) - добавляет новый элемент в нач. массива
         </li>
         <li>
-           arr = value.split(',') - разбивает строку на массив по символу
+          arr = value.split(',') - разбивает строку на массив по символу
         </li>
         <li>
-           arr.join(', ') - соеденить массив в строку и поставить кому между ел.
+          arr.join(', ') - соеденить массив в строку и поставить кому между ел.
         </li>
         <li>
           addEventListener('change') -- вешается на checkbox'ы
@@ -78,21 +90,17 @@
           checkbox.checked -- достучатся до выбраного checkbox
         </li>
         <li>
-          Добавлять css через js 
-          1 элемент -- 
+          Добавлять css через js 1 элемент --
           <pre>
             elem.style.display = 'none';
-          </pre>
-          2 элемента -- 
+          </pre> 2 элемента --
           <pre>
             unvizInput.style = { 'display':'none'; 'color': 'orange' }; 
           </pre>
         </li>
         <li>
-          elem.getAttribute() -- получить доступ к атрибуту
-          elem.setAttribute() -- дать эл. аттр.
-          elem.hasAttribute() -- приверить на наличие аттрибута
-          elem.removeAttribute(name) -- удаляет аттр.
+          elem.getAttribute() -- получить доступ к атрибуту elem.setAttribute() -- дать эл. аттр. elem.hasAttribute() -- приверить
+          на наличие аттрибута elem.removeAttribute(name) -- удаляет аттр.
         </li>
         <li>
           Добавить и удалить класс
@@ -102,19 +110,46 @@
           </pre>
         </li>
         <li>
-          Методы строк
-           String.prototype.slice() Извлекает часть строки и возвращает новую строку. String.prototype.split() Разбивает объект String
-          на массив строк, разделёных указанной строкой на подстроки.
-
+          Методы строк String.prototype.slice() Извлекает часть строки и возвращает новую строку. String.prototype.split() Разбивает
+          объект String на массив строк, разделёных указанной строкой на подстроки.
         </li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>
+          Метод call позволяет вызвать функцию из другого обьекта.
+          <pre>
+             test.function_property.call(test2, 'user_1');
+          </pre>
+        </li>
+        <li>
+          Возвращает минимальное и максимальное значение массива
+          <pre>
+             Math.min.apply(null, [3,5,2]) //2
+             Math.max.apply(null, [3,5,2]) //5
+          </pre>
+        </li>
+        <li>
+          Удалить элемент из массива
+          <pre>
+            <p>result: ['bar', 'baz']</p>
+             var a = ['foo', 'bar', 'baz']; 
+             a.splice(0,1) -- удаляет один элемент начиная с позиции 0
+          </pre>
+        </li>
+        <li>
+          Сортировка массива
+          <pre>
+             function compareNumbers(a, b) { 
+               return a - b; 
+             } -- Функция для сортировки чисел
+             используется с методом sort
+             
+             arr.sort(compareNumbers) -- метод .Sort()
+          </pre>
+        </li>
         <li></li>
         <li></li>
       </ol>
     </fieldset>
+    <!-- \\__====|_ ТЕОРИЯ _|===// -->
     <fieldset>
       <legend>Теория Напоминалка</legend>
       <ol>
@@ -131,6 +166,20 @@
             input type="checkbox" value="font-weight:bold;">сделать жирным
           </pre>
         </li>
+        <li>
+          <h6>Литералы</h6>
+          Не стоит путать использование примитивных значений с использованием литералов — например :
+          <pre>
+             «test=new Array()» или как «test=[]»
+           </pre>
+        </li>
+        <li>
+
+        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
         <li></li>
         <li></li>
         <li></li>
@@ -174,7 +223,7 @@
         let someArr = ['значение1', 'значение2', 'значение3'];
       </p>
       <pre>
-        <b>example</b>
+        <b id="wrap-for-each1">result</b>
          someArr.forEach(function callback(currentValue, index, array) { 
            div('this is value : ' + currentValue); 
            div('this is index: ' + index); 
@@ -190,7 +239,7 @@
         let someArr = ['значение1', 'значение2', 'значение3']; выводит значения массива в дивы
       </p>
       <pre>
-        <b>example</b>        
+        <b id="wrap-for-each2">result</b>        
          someArr.forEach(callback = (currentValue, index, array) => (console.log(currentValue)));
       </pre>
       <button id="but2">click</button>
@@ -203,22 +252,20 @@
         рекурсивного setTimeout - true way.
       </p>
       <pre>
-        <b>example</b>        
-          let timerId = setInterval(function func() { 
-            console.log('spoon'); 
-          }, 500); 
-          
-          setTimeout(function () { 
-            clearInterval(timerId);
-            console.log('stop') 
-          }, 1500);
-
-          let recursiveSetTimeout =  setTimeout(function tic() { 
-            console.log('tic'); clearInterval(tic, 500)
-          }, 1500);
-          
+        <b id="wrap-set-interval">result</b>        
+      getIntervalgetTimeout.addEventListener('click', startTimer); 
+       function timerId() { 
+         div('spoon', setIntervalSetTimeout); 
+        };
+      function startTimer() { 
+        let variableTimerId = setInterval(timerId, 500); 
+        setTimeout(function () { 
+          clearInterval(variableTimerId);
+          div('stop', setIntervalSetTimeout); 
+        }, 1999); 
+      }
       </pre>
-      <button id="but2">click</button>
+      <button id="btn-get-interval">get Interval</button>
     </fieldset>
     <fieldset>
       <legend>get param</legend>
@@ -227,7 +274,9 @@
       </p>
       <pre>
         <b>example</b>        
-           function value(val) { return val.value; } 
+           function value(val) { 
+             return val.value; 
+            } 
            
            elem.onblur = function someFunc() { 
              value(this); //здесь мы передаем this в функцию value() 
@@ -275,7 +324,7 @@
       </p>
 
       <pre>
-        <b>result: ___/''''\______/'\_</b>        
+        <b id="wrap-scape-var">result:</b>        
           var landscape = function () { 
             var result = ""; 
             var flat = function (size) { 
@@ -393,13 +442,77 @@
       </pre>
     </fieldset>
     <fieldset>
-      <legend>querySelector</legend>
+      <legend>Обьект</legend>
       <p>
-        Заменяет getElementBy...
+        Создание нового обьекта
       </p>
       <pre>
         <b>result:</b>        
-         document.querySelectorAll(selectors);
+         test2=new Object() тоже что test = {};
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>Обьект</legend>
+      <p>
+        В обьектах могут находится как другие обьекты - так и функции. В функиях this будет ссылка на обьект в котором она используется.
+      </p>
+      <pre>
+        <b>result: Hello, Петя.</b>        
+         test= { simple_property: 'Hello', 
+         object_property: { 
+           user_1: 'Петя', 
+           user_2: 'Вася' 
+          }, 
+          function_property: function(user) { 
+            alert(this.simple_property + ', ' + this.object_property[user]); 
+          } 
+        } 
+        test.function_property('user_1'); //Hello, Петя.
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>метод Call для функций</legend>
+      <p>
+        this в любой функции ссылается на обьект, который вызывает эту функцию. Поэтому, кроме this, можно еще передавать другие
+        параметры.
+      </p>
+      <pre>
+        <b>result:</b>        
+        code
+      </pre>
+      <p id="method-call"></p>
+    </fieldset>
+    <fieldset>
+      <legend>text</legend>
+      <p>
+        desription
+      </p>
+      <pre>
+        <b id="future-says">result:</b>        
+         console.log("The future says:", future()); 
+         function future() { 
+           return "We STILL have no flying cars."; 
+          }
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>text</legend>
+      <p>
+        desription
+      </p>
+      <pre>
+        <b>result:</b>        
+        code
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>text</legend>
+      <p>
+        desription
+      </p>
+      <pre>
+        <b>result:</b>        
+        code
       </pre>
     </fieldset>
     <fieldset>

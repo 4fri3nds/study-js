@@ -35,7 +35,10 @@
       <li>
         Дана таблица с числами. По нажатию на кнопку в инпут под таблицей выведите эти числа через запятую в порядке возрастания.
       </li>
-      <li></li>
+      <li>
+        Дана таблица с числами. По нажатию на кнопку в последний ряд таблицы в каждую ячейку запишите сумму чисел в столбце таблицы,
+        расположенном над определенной ячейкой.
+      </li>
       <li></li>
     </ol>
   </blockquote>
@@ -106,7 +109,7 @@
     <fieldset>
       <legend>5. Отсортировать. Кликните два раза на кнопку.</legend>
       <p>
-        По клику один раз - заполнит случайными числами. Второй найдет найбольшее и закрасит эту ячейку
+        По клику один раз - заполнит случайными числами. Второй - отсортирует эти числа
       </p>
       <table id="sort-num-table">
         <tr>
@@ -132,6 +135,68 @@
         </tr>
       </table>
       <button id="get-sort">FillEmpty/GetMax</button>
+    </fieldset>
+    <fieldset>
+      <legend>6. Получить сумму столбца. Кликните два раза на кнопку.</legend>
+      <p>
+        По клику один раз - заполнит случайными числами. Второй - приплюсует столбец. for в for'e 
+      </p>
+      <table id="sum-num-table">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <button id="get-sum">FillEmpty/GetSum</button>
+    </fieldset>
+    <fieldset>
+      <legend>7. Получить сумму выбраных ячеек. Кликайте по числам, чтобы найти их сумму</legend>
+      <p>
+        По клику один раз - заполнит случайными числами. Второй - приплюсует столбец. for в for'e 
+      </p>
+      <table id="sum-cells-table">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <button id="random-cells">Fill</button>
+      <button id="get-cells-sum">Sum</button>
+      <button id="remove-selection">Clear</button>
     </fieldset>
   </div>
   <script src="../js/main.js"></script>

@@ -20,33 +20,44 @@ let toUpper = str => str.toUpperCase();
 
 // 2 перебор массива forEach
 let someArr = ['значение1', 'значение2', 'значение3'];
+let forEach1 = document.getElementById('wrap-for-each1');
 
 document.getElementById('but').addEventListener('click', function () {
 
   someArr.forEach(function callback(currentValue, index, array) {
-    div('this is value : ' + currentValue);
-    div('this is index : ' + index);
-    div('this is array : ' + array);
+    div('this is value : ' + currentValue, forEach1);
+    div('this is index : ' + index, forEach1);
+    div('this is array : ' + array, forEach1);
   });
 
 })
 
 // 3 перебор массива forEach
+let forEach2 = document.getElementById('wrap-for-each2');
 let but2 = document.getElementById('but2');
 
 but2.addEventListener('click', function () {
-  someArr.forEach(callback = (currentValue, index, array) => (console.log(currentValue)));
+  someArr.forEach(callback = (currentValue, index, array) => (div(currentValue, forEach2)));
 });
 
 // 4 setInterval
-let timerId = setInterval(function func() { 
-  console.log('spoon'); 
-}, 500);
+let setIntervalSetTimeout = document.getElementById('wrap-set-interval');
+let getIntervalgetTimeout = document.getElementById('btn-get-interval');
 
-setTimeout(function () { 
-  clearInterval(timerId); 
-  console.log('stop') 
-}, 1500);
+getIntervalgetTimeout.addEventListener('click', startTimer);
+
+function timerId() { 
+  div('spoon', setIntervalSetTimeout); 
+};
+
+function startTimer() {
+  let variableTimerId = setInterval(timerId, 500);
+
+  setTimeout(function () { 
+    clearInterval(variableTimerId); 
+    div('stop', setIntervalSetTimeout);
+  }, 1999);
+}
 
 // let recursiveSetTimeout = setTimeout(function tic() { 
 //   console.log('tic'); 
@@ -106,11 +117,20 @@ var landscape = function () {
 };
 
 let landScapeVar = landscape();
-div(landScapeVar);
+let wrapScapeVar = document.getElementById('wrap-scape-var');
+div(landScapeVar, wrapScapeVar);
 
 // 7 функции
-console.log("The future says:", future());
+let futureSays = document.getElementById('future-says');
+div("The future says:" + future(), futureSays);
 
 function future() {
   return "We STILL have no flying cars.";
+}
+
+// 8 метод call для функций
+let wrapCall = document.getElementById('method-call');
+
+function showFullName() {
+  div('asdf', wrapCall);  
 }

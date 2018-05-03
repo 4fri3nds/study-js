@@ -1,15 +1,19 @@
-var elems = document.getElementsByTagName('td');
-var trigger = document.querySelector('button');
-trigger.addEventListener('click', func);
-var max = '';
-var n = 0;
 
-function func() {
-  for (var i = 0; i < elems.length; i++) {
-    if (+elems[i].innerHTML > max) {
-      max = +elems[i].innerHTML;
-      n = i;
+function check() {
+  let arr = [1, 2, 3, 4],
+      triger = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == 3) {
+      triger = 1;
     }
   }
-  elems[n].style.background = 'red';
-}
+  
+  if (triger == 1) {
+    console.log('finded')
+  } else {
+    console.log('nope')
+  }
+};
+
+check();

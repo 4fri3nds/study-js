@@ -183,8 +183,24 @@ button {
   display: inline-block;
 }
 
-#random-num-table td{
+#random-num-table td,
+#sort-num-table td,
+#sum-num-table td,
+#sum-cells-table td {
   padding: 10px;
   border: 1px solid lightgray;
   background: #fff;
+  user-select: none;
+}
+
+#sum-num-table tr.sum-cells td {
+  border: 2px solid black;
+}
+
+#sum-cells-table td {
+  cursor: pointer;
+}
+
+#sum-cells-table ~ button {
+  display: inline-block;
 }

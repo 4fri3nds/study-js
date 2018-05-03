@@ -40,13 +40,17 @@ function children(elem) {
   return elem
 }
 
-// metod sort - el.sort(compareNumbers)
+// Сортировка массива
 function compareNumbers(a, b) {
   return a - b;
 }
 
-// method случайного числа
+// Случайное число
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+// getRandom function
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
