@@ -39,7 +39,15 @@
         Дана таблица с числами. По нажатию на кнопку в последний ряд таблицы в каждую ячейку запишите сумму чисел в столбце таблицы,
         расположенном над определенной ячейкой.
       </li>
-      <li></li>
+      <li>
+        Дана таблица с числами. По нажатию на ячейку она активируется и становится красного цвета. Активировать можно много ячеек.
+        Под таблицей кнопка. По нажатию по этой кнопке в абзац ниже выведите сумма активированных ячеек. Реализуйте кнопку
+        'сбросить активированные ячейки'.
+      </li>
+      <li>
+        Дана таблица. По нажатию на ячейку в ней появляется инпут с содержимым этой ячейки и кнопка сохранить. Можно поредактировать
+        текст в инпуте, сохранить - и текст ячейки поменяется.
+      </li>
     </ol>
   </blockquote>
 
@@ -139,7 +147,7 @@
     <fieldset>
       <legend>6. Получить сумму столбца. Кликните два раза на кнопку.</legend>
       <p>
-        По клику один раз - заполнит случайными числами. Второй - приплюсует столбец. for в for'e 
+        По клику один раз - заполнит случайными числами. Второй - приплюсует столбец. for в for'e
       </p>
       <table id="sum-num-table">
         <tr>
@@ -167,37 +175,64 @@
       <button id="get-sum">FillEmpty/GetSum</button>
     </fieldset>
     <fieldset>
-      <legend>7. Получить сумму выбраных ячеек. Кликайте по числам, чтобы найти их сумму</legend>
+      <legend>7. Кликайте по числам, чтобы найти их сумму</legend>
       <p>
-        По клику один раз - заполнит случайными числами. Второй - приплюсует столбец. for в for'e 
+        По клику один раз - заполнит случайными числами. Второй - приплюсует столбец. for в for'e
       </p>
-      <table id="sum-cells-table">
+      <div class="table-wrap clearfix">
+        <table id="sum-cells-table">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+
+        <div id="container-check-sum">
+          <div class="container-check-sum-item">
+            <input type="checkbox" id="select-all-cells">
+            <label for="select-all-cells">Реверсия</label>
+          </div>
+          <div id="show-arr"></div>
+        </div>
+      </div>
+      <div>
+        <p id="result-cells-sum"></p>
+        <p id="instant-result"></p>
+        <button id="random-cells">Fill</button>
+        <button id="get-cells-sum">Sum</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>8. Кликайте по ячейкам, чтобы изменить их значение</legend>
+      <p>
+        По клику можно будет сохранить новое значение
+      </p>
+      <table id="change-cells-table">
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>555</td>
+          <td>999</td>
+          <td>777</td>
         </tr>
       </table>
-      <button id="random-cells">Fill</button>
-      <button id="get-cells-sum">Sum</button>
-      <button id="remove-selection">Clear</button>
     </fieldset>
+
   </div>
   <script src="../js/main.js"></script>
   <script src="../js/les10.js"></script>

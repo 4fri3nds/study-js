@@ -1,0 +1,135 @@
+.calc {
+  width: 450px;
+  border-radius: 13em/1em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  user-select: none;
+}
+
+.calc__top {
+  background-color: #DDEBE7;
+  padding: 10px;
+}
+
+.calc__top--logo {
+  position: relative;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.calc__top--logo img {
+  display: inline-block;
+  height: 50px;
+}
+
+.calc__top--logo span {
+  float: right;
+  vertical-align: bottom;
+  line-height: 50px;
+  color: #818285;
+}
+
+.calc__top--input {
+  position: relative;
+  padding: 10px 40px;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
+  border-radius: 3em 0.5em/9em 0.5em;
+}
+
+.calc__top--input .input {
+  font-family: 'calc';
+  background-color: #45513E;
+  line-height: 70px;
+  padding-right: 10px;
+  width: 100%;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  outline: none;
+  color: white;
+  font-size: 56px;
+  text-transform: uppercase;
+  font-weight: 100;
+  margin: 0;
+  text-align: right;
+}
+
+.calc__top--input .max {
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  display: block;
+  top: 20px;
+  left: 50px;
+  color: lightgray;
+  opacity: .1;
+}
+
+.calc__top--input .char {
+  font-family: 'calc';
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  display: block;
+  top: 40px;
+  left: 50px;
+  color: lightgray;
+}
+
+.calc__top--input .max.active {
+  opacity: 1;
+}
+
+.calc__bottom--wrap {
+  background-color: #DDEBE7;
+}
+
+.calc__bottom {
+  background-color: #161C1D;
+  border-top-left-radius: 10em 16em;
+  padding: 15px;
+}
+
+.calc__bottom>div {
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  user-select: none;
+  width: calc(100% / 5 - 15px);
+  border-radius: 13em/1em;
+  text-transform: uppercase;
+  margin-right: 11px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn.bl {
+  background: linear-gradient(to bottom, #2F2F2F, #383E3E);
+  color: #DDEBE7;
+}
+
+.btn.bl:hover {
+  background: linear-gradient(to top, #2F2F2F, #1F1F1F);
+}
+
+.btn.wh {
+  background-color: #DDEBE7;
+  color: #161C1D;
+}
+
+.btn.wh:hover {
+  background-color: rgb(193, 211, 205);
+}
+
+.btn.sm {
+  line-height: 35px;
+}
+
+.btn.lg {
+  line-height: 45px;
+}
+
+.btn.ac {
+  background-color: #B50000;
+}

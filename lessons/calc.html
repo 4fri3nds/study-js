@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/calc.css">
+</head>
+
+<body>
+  <a href="../index.html">home</a>
+  <blockquote>
+    <h3>lesson-20</h3>
+    <ol>
+      <li>Создать калькулятор</li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <div class="calc">
+      <div class="calc__top">
+        <div class="calc__top--logo">
+          <img src="https://s-media-cache-ak0.pinimg.com/originals/de/38/0f/de380fc8b28025586f862cf72198fef9.png" alt="logo">
+          <span>8 digits</span>
+        </div>
+        <div class="calc__top--input">
+          <input class="input" type="text">
+          <span class="max">max</span>
+          <span class="char"></span>
+        </div>
+      </div>
+      <div class="calc__bottom--wrap">
+        <div class="calc__bottom">
+          <div class="calc__bottom--row">
+            <div data-value="ac" class="btn sm wh ac">ac</div>
+            <div data-value="mute" class="btn sm wh">mute</div>
+            <div data-value="time" class="btn sm wh">time</div>
+            <div data-value="rpt" class="btn sm wh">rpt</div>
+            <div data-value="backspace" class="btn sm wh">&#8592;</div>
+          </div>
+          <div class="calc__bottom--row">
+            <div data-value="mrc" class="btn sm wh">mrc</div>
+            <div data-value="m+" class="btn sm wh">m+</div>
+            <div data-value="m-" class="btn sm wh">m-</div>
+            <div data-value="squareRoot" class="btn sm wh">&radic;</div>
+            <div data-value="percent" class="btn sm wh">%</div>
+          </div>
+          <div class="calc__bottom--row">
+            <div data-value="7" class="btn lg bl num">7</div>
+            <div data-value="8" class="btn lg bl num">8</div>
+            <div data-value="9" class="btn lg bl num">9</div>
+            <div data-value="segmentation" data-simple-op="/" class="btn lg wh simple-op">&#247;</div>
+            <div data-value="square" class="btn lg wh">x&#178;</div>
+          </div>
+          <div class="calc__bottom--row">
+            <div data-value="4" class="btn lg bl num">4</div>
+            <div data-value="5" class="btn lg bl num">5</div>
+            <div data-value="6" class="btn lg bl num">6</div>
+            <div data-value="multiplication" data-simple-op="*" class="btn lg wh simple-op">*</div>
+            <div data-value="sin" class="btn lg wh">sin</div>
+          </div>
+          <div class="calc__bottom--row">
+            <div data-value="1" class="btn lg bl num">1</div>
+            <div data-value="2" class="btn lg bl num">2</div>
+            <div data-value="3" class="btn lg bl num">3</div>
+            <div data-value="minus" data-simple-op="-" class="btn lg wh simple-op">-</div>
+            <div data-value="cos" class="btn lg wh">cos</div>
+          </div>
+          <div class="calc__bottom--row">
+            <div data-value="dot" class="btn lg bl">.</div>
+            <div data-value="0" class="btn lg bl num">0</div>
+            <div data-value="equally" class="btn lg bl">=</div>
+            <div data-value="plus" data-simple-op="+" class="btn lg wh simple-op">+</div>
+            <div data-value="tg" class="btn lg wh">tg</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/calc.js"></script>
+</body>
+
+</html>

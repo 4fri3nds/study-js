@@ -33,7 +33,11 @@
       <legend>Напоминалка Code</legend>
       <ol>
         <li>
-          parseInt(somestring) to -> number
+          Преображение типов данных
+          <pre>
+            parseInt(somestring) to -> number
+            String(num) -> преобразовать в строку
+          </pre>
         </li>
         <li>
           Создать эл. и вставить
@@ -45,62 +49,94 @@
           </pre>
         </li>
         <li>
-          String(num) -> преобразовать в строку
-        </li>
-        <li>
-          querySelector('tag-or-class-or-id') -> найти нужный елемент
-        </li>
-        <li>
-          user-select: none -- отменяет выделение
-        </li>
-        <li>
-          document.querySelectorAll(selectors) -- аналог getElement(s)By
-        </li>
-        <li>
-          .addEventListener('mouseup', func) -- срабатывает при отжатии мышки
-        </li>
-        <li>
-          input.setAttribute('disabled', 'disabled'); -- зделать input неактывным.
-        </li>
-        <li>
-          let interval = setInterval(countdown, 500) -- задать интервал выполнения
-        </li>
-        <li>
-          function stop() { window.clearInterval(interval) } -- прекратить интервал выполнения
-        </li>
-        <li>
-          while(true) { ... }
-        </li>
-        <li>
-          if (this.checked == true) {} the same(тоже самое) что if (this.chicked) {}
-        </li>
-        <li>
-          arr.push(item) - добавляет новый элемент в нач. массива
-        </li>
-        <li>
-          arr = value.split(',') - разбивает строку на массив по символу
-        </li>
-        <li>
-          arr.join(', ') - соеденить массив в строку и поставить кому между ел.
-        </li>
-        <li>
-          addEventListener('change') -- вешается на checkbox'ы
-        </li>
-        <li>
-          checkbox.checked -- достучатся до выбраного checkbox
-        </li>
-        <li>
-          Добавлять css через js 1 элемент --
+          задать интервал выполнения
+          прекратить интервал выполнения
           <pre>
-            elem.style.display = 'none';
-          </pre> 2 элемента --
-          <pre>
-            unvizInput.style = { 'display':'none'; 'color': 'orange' }; 
+            let interval = setInterval(countdown, 500)
+            function stop() { window.clearInterval(interval) } 
           </pre>
         </li>
         <li>
-          elem.getAttribute() -- получить доступ к атрибуту elem.setAttribute() -- дать эл. аттр. elem.hasAttribute() -- приверить
-          на наличие аттрибута elem.removeAttribute(name) -- удаляет аттр.
+          <p>Метод WHILE</p>
+          <pre>
+            while(true) { ... }
+          </pre>
+        </li>
+        <li>
+          Добавить и удалить классы
+          <pre>
+            document.body.classList.add('thisClass'); 
+            document.body.classList.remove('thatClass');
+            document.body.classList.toggle('anotherClass'); 
+
+            body.classList.contains('thatClass') -- проверка на наличие
+          </pre>
+        </li>
+        <li>
+          Управление DOM елементами
+          <pre>
+            - getElementById id - везде 
+            - getElementsByName name - везде   
+            - getElementsByTagName - тег или '*' - получить всех потомков, 
+            - getElementsByClassName
+            - querySelector 
+            - querySelectorAll - ('ul > li:last-child')
+
+            - elem.matches(css) ничего не ищет, а проверяет, удовлетворяет ли elem селектору css. Он возвращает true либо false.
+            
+            elem.closest(css)
+            parentNode возвращает родитель элемента.
+            parentElement
+            childNodes()
+            children - только дочерние узлы-элементы, то есть соответствующие тегам
+            firstChild, lastChild -  – соответственно, первый и последний дети-элементы
+            previousElementSibling, nextElementSibling – соседи-элементы
+          </pre>
+        </li>
+        <li>
+          <p>МАССИВЫ</p>
+          <pre>
+            arr.push(item) - добавляет новый элемент в нач. массива
+            arr.join(', ') - соеденить массив --> строку и поставить кому между ел.
+          </pre>
+        </li>
+        <li>
+          <p>СТРОКИ</p>
+          <pre>
+            arr = value.split(',') - разбивает строку --> массив по символу
+            slice(start, end) 
+            substring(start, end) 
+            substr(start, length)
+            charAt -- узнаем какой именно символ(на этой позиции)
+          </pre>
+        </li>
+        <li>
+        </li>
+        <li>
+          addEventListener события
+          <pre>
+            checkbox.addEventListener('change') -- вешается на checkbox'ы
+            checkbox.addEventListener('checked') -- вешается на checkbox'ы
+            .addEventListener('mouseup', func) -- срабатывает при отжатии мышки
+          </pre>
+        </li>
+        <li>
+          Добавлять css через js
+          <pre>
+            elem.style.display = 'none';
+            css - user-select: none -- отменяет выделение          
+          </pre>
+        </li>
+        <li>
+          <p>АТТРИБУТЫ</p>
+          <pre>
+            elem.getAttribute() -- получить доступ к атрибуту 
+            elem.setAttribute() -- дать эл. аттр. 
+            elem.hasAttribute() -- приверить на наличие аттрибута 
+            elem.removeAttribute(name) -- удаляет аттр.
+
+            input.setAttribute('disabled', 'disabled'); -- зделать input неактывным.
+          </pre>
         </li>
         <li>
           Добавить и удалить класс
@@ -131,6 +167,7 @@
           <pre>
             <p>result: ['bar', 'baz']</p>
              var a = ['foo', 'bar', 'baz']; 
+             
              a.splice(0,1) -- удаляет один элемент начиная с позиции 0
           </pre>
         </li>
@@ -139,12 +176,32 @@
           <pre>
              function compareNumbers(a, b) { 
                return a - b; 
-             } -- Функция для сортировки чисел
-             используется с методом sort
+             } -- Функция для сортировки чисел, используется с методом sort
              
              arr.sort(compareNumbers) -- метод .Sort()
           </pre>
         </li>
+        <li>
+          Передача и использование this в универсальной функции
+          <pre>
+            func.call(elem, x1, x2)
+            func.apply(elem, [x1, x2]) 
+            func.bind(elem)
+          </pre>
+        </li>
+        <li>
+          Вот так засунуть выполнение функции в true - false
+          <pre>
+            var bool = true;
+
+            if (bool) { var func = function () { alert('!'); } 
+            } else { var func = function () { alert('!!'); } } 
+            
+            func();
+          </pre>
+        </li>
+        <li></li>
+        <li></li>
         <li></li>
         <li></li>
       </ol>
@@ -174,13 +231,89 @@
            </pre>
         </li>
         <li>
-
+          Употребление this в функции.
+          Чтобы передать this - нужно передать это в параметр. Откуда ее вызываем.
+          <pre>
+            triggerClassActive(this, sumCellsArr, x);    
+          </pre>
         </li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>
+           LexicalEnvironment - ¬се переменные внутри функции Ц это свойства специального внутреннего объекта LexicalEnvironment, который
+          создаЄтс€ при еЄ запуске. «амыкани€, функции изнутри
+        </li>
+        <li>
+           let - let, которое работает как var, но создаЄт переменные, локальные дл€ любого данного блока, а не только дл€ функции.
+          Ѕлок имеетс€ ввиду все что стоит в фигурных скобках - {}
+        </li>
+        <li>
+           ѕор€док вызова функций ћесто, где компьютер запоминает контекст, называетс€ стеком. function greet(who) { console.log("ѕривет,
+          " + who); //first } greet("—емЄн"); console.log("ѕокеда"); //second  аждый раз при вызове функции, текущий контекст помещаетс€
+          наверх стека.  огда функци€ возвращаетс€, она забирает верхний контекст из стека и использует его дл€ продолжени€ работы.
+        </li>
+        <li>
+           ѕовторение цикла по-научному называетс€ Ђитераци€ї
+        </li>
+        <li>
+          <pre>
+            //Function Declaration: function func() { alert('!'); }); 
+            
+            //Function Expression: var func = function() { alert('!'); });
+          </pre>
+        </li>
+        <li>
+          Использование 'use strict' может вызвать кучу ошибок.
+          <pre>
+            "use strict"; 
+            var bool = true; 
+            if (bool) { 
+              function func() { 
+                alert('!'); } 
+              } 
+            func(); //выдаст ошибку - тут функция не видна!
+          </pre>
+        </li>
+        <li>
+          В js функции не копируются, а ссылаются друг на друга. 
+          <pre>
+            function func() { alert('!'); }); 
+            var test = func; //И test и func указывают на одну и ту же функцию
+          </pre>
+        </li>
+        <li>
+          Можно передать функцию параметром
+          <pre>
+             var get1 = function() { return 1; } var get2 = function() { return 2; }
+             
+             function go(func1, func2) { 
+               alert(func1() + func2()); 
+              } 
+              
+              go(get1, get2); //выведет 3
+          </pre>
+        </li>
+        <li>
+          Так можно использовать анонимную функцию
+          <pre>
+             function go(func) { 
+               func(); 
+              }); 
+              go(function() { 
+                alert('!'); 
+              });
+          </pre>
+        </li>
+        <li>
+          функция возвращает внутреннюю функцию. Вызвать внутреннюю можно func()()
+          <pre>
+              function func() { 
+                return function() { 
+                  return '!'; 
+                }; 
+              } 
+              
+              alert( func()() ); //увидим '!'
+          </pre>
+        </li>
         <li></li>
         <li></li>
       </ol>
@@ -496,27 +629,52 @@
       </pre>
     </fieldset>
     <fieldset>
-      <legend>text</legend>
+      <legend>this и универсальные функции</legend>
       <p>
-        desription
+        Только при вызове функции мы указывает this(где мы указываем элементы с которымм что-то должна зделать функция). В сасой функции универсальной фун-ции this будет window или undefined. 
       </p>
       <pre>
-        <b>result:</b>        
-        code
+        function addEvent(remove, add, elem) { 
+          elem.removeEventListener('click', remove); 
+          elem.addEventListener('click', add); 
+        };
+        addEvent(this, first, lost);
       </pre>
     </fieldset>
     <fieldset>
-      <legend>text</legend>
+      <legend>методы this</legend>
       <p>
-        desription
+        func.call(elem, x1, x2)
+        func.apply(elem, [x1, x2])
+        func.bind(elem)
       </p>
       <pre>
-        <b>result:</b>        
-        code
+        <b>result: Значение этого элемента : 66</b>        
+          let elem = document.getElementsByTagName('input')[0]; 
+         
+          function func(x1, x2) { 
+           console.log("Значение" + x1 + x2 + this.value);
+          } 
+          
+          func.call(elem, ' этого', ' элемента : ');        I method
+          func.apply(elem, [' этого', ' элемента : ']);     II method
+          
+          let arr = [' этого', ' элемента : ']; 
+          func.apply(elem, arr);                            III method
+
+          let newFunc = func.bind(elem);                   IV method
+          newFunc("один", "два"); //это аналог func(), если мы что-то меняем изначальной функции меняется и в newFunc(). Мы точно такжне можем передать в нее параметры
+          console.log('​newFunc();', newFunc);
+
+          //Если нету addEventListener такое не будет работать
+          function func1(v) { 
+            console.log(v); 
+          } 
+          div(func1(this));
       </pre>
     </fieldset>
     <fieldset>
-      <legend>text</legend>
+      <legend>text</legend> 
       <p>
         desription
       </p>

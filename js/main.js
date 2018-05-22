@@ -9,12 +9,15 @@ function notNumber() {
 }
 
 //button 'click' create div with scenario
-function div(str, location) {
+function div(str, location, cleaner) {
   let divEl = document.createElement('div');
   
   divEl.className = "includer";
   divEl.innerHTML = str;
-  // empty(location);
+
+  if (cleaner == true) {
+    empty(location);
+  }
   
   if (location !== undefined) {
     location.appendChild(divEl)

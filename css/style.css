@@ -1,6 +1,14 @@
+@font-face {
+  font-family: 'calc';
+  src: url('./../assets/digital_counter_7_italic.ttf');
+}
+
 html,
 body {
-  font-family: sans-serif;
+  font-family: sans-serif, 'calc';
+  padding-bottom: 50px;
+  /* -webkit-font-smoothing: antialiased; */
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 ol li {
@@ -186,7 +194,8 @@ button {
 #random-num-table td,
 #sort-num-table td,
 #sum-num-table td,
-#sum-cells-table td {
+#sum-cells-table td,
+#change-cells-table td {
   padding: 10px;
   border: 1px solid lightgray;
   background: #fff;
@@ -201,6 +210,21 @@ button {
   cursor: pointer;
 }
 
-#sum-cells-table ~ button {
+#sum-cells-table td.active {
+  background: green;
+  color: white;
+}
+
+#result-cells-sum ~ button {
   display: inline-block;
+}
+
+#sum-cells-table {
+float: left;
+}
+
+.clearfix:after, .clearfix:before {
+  display: block;
+  content: '';
+  clear: both;
 }

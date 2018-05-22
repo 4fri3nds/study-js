@@ -14,18 +14,32 @@
   <a href="../practice.html">practice</a>
   <a href="../costum.html">costum</a>
   <blockquote>
-    <h3>lesson-12</h3>
+    <h3>lesson-12 functions</h3>
     <ol>
-      <li>Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате
-        2016-12-31</li>
+      <li>Если переменная a больше нуля - то в ggg запишем функцию, которая выводит один first, иначе запишем функцию, которая
+        выводит два second.</li>
+      <li>
+        Функция принимает 2 параметра: число и степень
+      </li>
     </ol>
   </blockquote>
-  
+
   <div class="container">
     <fieldset>
-      <legend>1.  1</legend>
-      <p> Квадрат числа. Иклудит результат в DOM</p>
-      <input id="input" type="text" value="">
+      <legend>1. Передать результат двух функций</legend>
+      <input id="check1" class="check1" name="t1" type="radio" value="">
+      <label for="check1">check 1</label>
+      <input id="check2" class="check1" name="t1" type="radio" value="">
+      <label for="check2">check 2</label>
+      <p id="result1"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. Возвести в степень</legend>
+      <input type="text" class="num-count" id="num2">
+      <input type="text" class="num-count" id="degree2">
+      <button id="but2">=</button>
+      <p id="result2"></p>
     </fieldset>
   </div>
   <script src="../js/main.js"></script>

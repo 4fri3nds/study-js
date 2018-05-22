@@ -14,18 +14,46 @@
   <a href="../practice.html">practice</a>
   <a href="../costum.html">costum</a>
   <blockquote>
-    <h3>lesson-11</h3>
+    <h3>lesson-11 - this</h3>
     <ol>
-      <li>Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате
-        2016-12-31</li>
+      <li>Вернуть или присвоить значение this</li>
     </ol>
   </blockquote>
   
   <div class="container">
-    <fieldset>
-      <legend>1.  1</legend>
-      <p> Квадрат числа. Иклудит результат в DOM</p>
-      <input id="input" type="text" value="">
+    <fieldset name="fieldset1">
+      <legend>1. Методы this - метод bind</legend>
+      <pre>
+        func.bind(elem); 
+        let newFunc = func.bind(elem); 
+        newFunc("1 аргумент, ", "2 аргумент, "); // это не вызов как не странно,
+          а просто передача параметров
+      </pre>
+      <input id="input1" type="text" name="input1" value="66">
+      <p id="wrap1"></p>
+    </fieldset>
+    <fieldset name="fieldset1">
+      <legend>2. Методы this -- call</legend>
+      <pre>funcCall.call(elem2)</pre>
+      <input id="elem2" value="привет">
+      <p id="wrap2"></p>      
+    </fieldset>
+    <fieldset name="fieldset1">
+      <legend>3. Методы this -- apply</legend>
+      <pre>
+        funcCall.call(elem, name.sur, name.na)
+        funcCall.apply(elem, [arr])
+      </pre>
+      <input id="elem3" value="привет">
+      <p id="wrap3"></p>      
+    </fieldset>
+    <fieldset name="fieldset1">
+      <legend>4. Методы this -- bind</legend>
+      <pre>
+        func = func.bind(elem); 
+        func('Иванов', 'Иван'); //'привет, Иванов Иван' 
+        func('Петров', 'Петр'); //'привет, Петров Петр'
+      </pre>
     </fieldset>
   </div>
   <script src="../js/main.js"></script>

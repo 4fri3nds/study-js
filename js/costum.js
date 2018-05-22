@@ -1,19 +1,12 @@
 
-function check() {
-  let arr = [1, 2, 3, 4],
-      triger = 0;
+var elem = document.getElementById('elem');
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == 3) {
-      triger = 1;
-    }
-  }
-  
-  if (triger == 1) {
-    console.log('finded')
-  } else {
-    console.log('nope')
-  }
-};
+function func(surname, name) {
+  alert(this.value + ', ' + surname + ' ' + name);
+}
 
-check();
+//Тут напишите конструкцию с bind()
+func = func.bind(elem);
+
+func('Иванов', 'Иван'); //тут должно вывести 'привет, Иванов Иван'
+func('Петров', 'Петр'); //тут должно вывести 'привет, Петров Петр'
