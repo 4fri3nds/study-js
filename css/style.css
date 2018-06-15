@@ -3,6 +3,10 @@
   src: url('./../assets/digital_counter_7_italic.ttf');
 }
 
+* {
+  outline: none;
+}
+
 html,
 body {
   font-family: sans-serif, 'calc';
@@ -18,7 +22,7 @@ ol li {
 }
 
 pre {
-  line-height: 1.5;
+  margin: 0;
 }
 
 a {
@@ -42,7 +46,7 @@ h3 {
 }
 
 fieldset {
-  background: #E1E3B8 url(http://htmlbook.ru/files/check-bg.png) no-repeat 100% 8%;
+  background: #f0f0f0 url(http://htmlbook.ru/files/check-bg.png) no-repeat 100% 8%;
   margin-bottom: 20px;
 }
 
@@ -103,9 +107,6 @@ h3 {
   font-weight: normal;
 }
 
-pre {
-  background-color: #fff;
-}
 .error {
   color: rgb(194, 51, 51);
   font-size: 10px;
@@ -149,10 +150,13 @@ pre {
   margin-right: 10px;
 }
 
-.img-wrap *, input, label {
+.img-wrap *,
+input,
+label {
   display: inline-block;
   vertical-align: middle;
 }
+
 button {
   display: block;
   font-size: 16px;
@@ -191,11 +195,7 @@ button {
   display: inline-block;
 }
 
-#random-num-table td,
-#sort-num-table td,
-#sum-num-table td,
-#sum-cells-table td,
-#change-cells-table td {
+table td {
   padding: 10px;
   border: 1px solid lightgray;
   background: #fff;
@@ -215,16 +215,110 @@ button {
   color: white;
 }
 
-#result-cells-sum ~ button {
+#result-cells-sum~button {
   display: inline-block;
 }
 
 #sum-cells-table {
-float: left;
+  float: left;
 }
 
-.clearfix:after, .clearfix:before {
+.clearfix:after,
+.clearfix:before {
   display: block;
   content: '';
   clear: both;
+}
+
+.sq {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+input.sq {
+  width: 24px;
+  font-size: 20px;
+  margin: 0;
+  margin-right: 5px;
+}
+
+.err {
+  color: rgb(194, 51, 51);
+  font-size: 10px;
+  font-style: italic;
+  display: none;
+}
+
+/*-----------------*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 15px 0.5em 0.5em 30px;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+pre {
+  background: #f6f6ae url(../assets/school-book.png);
+  border-top: solid 2px #d2e8b9;
+  border-bottom: solid 1px #d2e8b9;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #005599;
+  font-weight: bold;
+}
+
+.hljs,
+.hljs-subst {
+  color: #3e5915;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-attribute,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-link {
+  color: #2c009f;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #e60415;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-name,
+.hljs-selector-id,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
 }

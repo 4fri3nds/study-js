@@ -1,12 +1,16 @@
-
-var elem = document.getElementById('elem');
-
-function func(surname, name) {
-  alert(this.value + ', ' + surname + ' ' + name);
+function showTitle() {
+  alert(this.title);
 }
 
-//Тут напишите конструкцию с bind()
-func = func.bind(elem);
+var objectA = {
+  "title": "Title A",
+  "showTitle": showTitle
+};
 
-func('Иванов', 'Иван'); //тут должно вывести 'привет, Иванов Иван'
-func('Петров', 'Петр'); //тут должно вывести 'привет, Петров Петр'
+var objectB = {
+  "title": "Title B",
+  "showTitle": showTitle
+};
+
+objectA.showTitle();
+objectB.showTitle();

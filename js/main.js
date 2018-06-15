@@ -49,11 +49,41 @@ function compareNumbers(a, b) {
 }
 
 // Случайное число
-function getRandomArbitrary(min, max) {
+function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
 // getRandom function
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
+};
+
+// флаг. Наличия элемента в массиве
+function hasElem(mass, num) {
+  for (let i = 0; i < mass.length; i++) {
+    if (num == mass[i]) {
+      return true;
+    }
+  }
+  return false;
+};
+
+// вывести массив в табличку dom
+function dispArr(mass, elem) {
+  let table = document.createElement('table'),
+    tr = document.createElement('tr');
+
+  elem.parentElement.insertBefore(table, elem);
+  table.appendChild(tr);
+
+  for (let i = 0; i < mass.length; i++) {
+    let td = document.createElement('td');
+    tr.appendChild(td);
+    td.innerHTML = mass[i];
+  }
+};
+
+// получить случайное число из массива
+function randNumArr(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
 };

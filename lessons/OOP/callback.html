@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <a href="../../index.html">home</a>
+  <a href="../../practice.html">practice</a>
+  <a href="../../costum.html">costum</a>
+  <blockquote>
+    <h3>Callback</h3>
+    <ol>
+      <li>
+        Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
+      </li>
+      <li>
+        Мы можем использовать callback-функции, чтобы получить его асинхронно
+      </li>
+      <li>
+        (в идеальном случае единственное выражение return в конце функции: одна точка входа и одна точка выхода). Это имеет смысл.
+        Функции — это, в сущности, маршруты между вводом и выводом.
+      </li>
+      <li>
+        Это полезно для случаев, когда требуется много времени для завершения, например, при AJAX-запросах, ведь мы не можем приостановить
+        браузер. Мы можем продолжить заниматься другими делами в ожидании вызова колбека. Фактически, очень часто от нас
+        требуется (или, точнее, нам настоятельно рекомендуется) делать всё асинхронно в Javascript'е.
+      </li>
+      <li>
+        Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
+      </li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>1. Нажмите на кнопку result</legend>
+      <p>Функция doHomework подтянет вызов alertFinished</p>
+      <p>Сначала будет выведено сообщение с текстом Starting my math homework., потом — с текстом Finished my homework.</p>
+      <p>
+        Функции обратного вызова совсем необязательно создавать непосредственно при вызове функций, которым они передаются. Как здесь
+      </p>
+      <pre>
+        <h3>callback можно передавать непосредственно в вызове главной функции</h3>
+           doHomework('math', function() { alert('Finished my homework'); });
+        </pre>
+      <pre>
+        <h3>или создать отдельно функцию и передать ее в callback</h3>
+        
+        function doHomework(subject, callback) { 
+          alert(`Starting my ${subject} homework.`); 
+          callback(); 
+        } 
+        
+        function alertFinished() {
+          alert('Finished my homework'); 
+        } 
+        
+        doHomework('math', alertFinished);
+      </pre>
+
+      <button id="result1" style="display: inline-block; text-align: center; padding: 3px 10px; border-radius: 3px;">
+        <h2 style="text-align: center; margin: 0; font-weight: 100;">result</h2>
+      </button>
+
+      <span>При нажатии вызов второй функции произойдет с первой, в том заданом порядке</span>
+    </fieldset>
+    <fieldset>
+      <legend>2. Использование колбеков в twitter</legend>
+      <p>
+        Это функция, которая выполняет get-запрос к Twitter API. У функции три аргумента. Первый — 'search/tweets', представляет
+        собой маршрут запроса. Здесь мы собираемся выполнить поиск по твитам. Второй аргумент — params — это параметры поиска.
+        Третий аргумент — анонимная функция, которая и является функцией обратного вызова. </p>
+      <p>Функция обратного вызова здесь весьма важна, так как, прежде чем продолжать работу, нужно дождаться ответа от сервера.
+        Неизвестно, будет ли обращение к API успешным, поэтому, после отправки параметров поиска по маршруту search/tweet
+        с помощью get-запроса, приходится ждать. Как только Twitter ответит на запрос, будет выполнена функция обратного
+        вызова. Если что-то пошло не так, в ней мы получим объект ошибок (err). Если запрос обработан нормально, в аргументе
+        err будет значение, эквивалентное false, а значит, во-первых, будет исполнена ветвь if условного оператора, а во-вторых
+        — можно будет рассчитывать на то, что в объекте response окажутся некие полезные данные, с которыми уже можно что-то
+        делать.</p>
+      <pre>
+        T.get('search/tweets', params, function(err, data, response) { 
+          if(!err) { 
+            // Именно здесь можно работать с тем, что вернёт нам Twitter 
+          } else { 
+            console.log(err); 
+          } 
+        }); 
+        
+        T.get()
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>3. Передавать функцию в качестве аргумента просто</legend>
+      <p>Аргумент callback является</p>
+      <pre>
+          // определяем нашу функцию с аргументом 
+        callback function some_function(arg1, arg2, callback) { 
+            // переменная, генерирующая случайное число в интервале между arg1 и arg2 
+          var my_number = Math.ceil(Math.random() * (arg1 - arg2) + arg2); 
+          // теперь всё готово и мы вызываем callback, куда передаём наш результат 
+          
+          callback(my_number); 
+        } 
+          // вызываем функцию 
+        some_function(5, 15, function (num) { 
+          // эта анонимная функция выполнится после вызова callback-функции 
+          console.log("callback called! " + num); 
+        });
+      </pre>
+      <button id="result2" class="sq">
+        result
+      </button>
+      <div id="displayResult2"></div>
+    </fieldset>
+    <fieldset>
+      <legend>4. Предавать callback в жизни</legend>
+      <p>Аргумент callback является</p>
+      <pre>
+ function some_function2(url, callback) { 
+   var httpRequest; 
+   // создаём наш XMLHttpRequest-объект 
+   
+   if (window.XMLHttpRequest) { 
+     httpRequest = new XMLHttpRequest(); 
+    } else if (window.ActiveXObject) { 
+      // для дурацкого Internet Explorer'а 
+      httpRequest = new ActiveXObject("Microsoft.XMLHTTP"); 
+    } 
+    
+    httpRequest.onreadystatechange = function () { 
+      // встраиваем функцию проверки статуса нашего запроса 
+      // это вызывается при каждом изменении статуса 
+      if (httpRequest.readyState === 4 && httpRequest.status === 200) { 
+        callback.call(httpRequest.responseXML); 
+        // вызываем колбек 
+      } 
+    }; 
+    httpRequest.open('GET', url); 
+    httpRequest.send();
+} 
+// вызываем функцию 
+some_function2("text.xml", function () { 
+  console.log(this); 
+}); 
+
+console.log("это выполнится до вышеуказанного колбека");
+      </pre>
+    </fieldset>
+  </div>
+  <script src="../../js/main.js"></script>
+  <script src="../../js/oop/callback.js"></script>
+</body>
+
+</html>

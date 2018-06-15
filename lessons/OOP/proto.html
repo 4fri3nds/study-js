@@ -16,21 +16,101 @@
   <blockquote>
     <h3>Замыкания</h3>
     <ol>
-      <li>Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате
-        2016-12-31
+      <li>
+        <fieldset>
+          <legend>Работа с обьектом и прототипом</legend>
+          <p>
+            Работать с объектами в JavaScript очень просто — нужно всего лишь объявить объект и назначить ему свойства и методы
+          </p>
+          
+          <pre>
+            <code>
+              var dog = { 
+                "name": "Rocky", 
+                "age": "5", 
+                "talk": function(){ 
+                  alert('Name: ' + this.name + ', Age: ' + this.age); 
+                } 
+              };
+            </code>
+          </pre>
+          <p>Если у нас много объектов, то удобнее будет сделать отдельную функцию, возвращающую объект</p>
+          <pre>
+            <code>
+              <b>result:</b>        
+              function getDog(name, age){ 
+                return { 
+                  "name": name, 
+                  "age": age, 
+                  "talk": function(){ 
+                    alert('Name: ' + this.name + ', Age: ' + this.age); 
+                  } 
+                }; 
+              } 
+              var rocky = getDog('Rocky', 5); 
+              var jerry = getDog('Jerry', 3);
+              </code>
+            </pre>
+          <p>То же самое можно сделать с использованием прототипов</p>
+          <pre>
+            <code>
+              <b>result:</b>        
+              function Dog(name, age){ 
+                this['name'] = name; 
+                this.age = age; 
+              } 
+              Dog.prototype = { 
+                "talk": function(){ 
+                  alert('Name: ' + this.name + ', Age: ' + this.age); 
+                } 
+              }; 
+              var rocky = new Dog('Rocky', 5); 
+              var jerry = new Dog('Jerry', 3);
+            </code>
+          </pre>
+        </fieldset>
       </li>
     </ol>
   </blockquote>
 
   <div class="container">
     <fieldset>
-      <legend>1. 1</legend>
-      <p> Квадрат числа. Иклудит результат в DOM</p>
-      <input id="input" type="text" value="">
+      <legend>1. Узнать день недели</legend>
+      <p>Без использования прототипа</p>
+      <pre>
+        <code>
+        function getDayName(date) { 
+          var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; 
+          return days[date.getDay()]; 
+        };
+        
+        var today = new Date(); 
+        alert(getDayName(today));
+        </code>
+      </pre>
+      <button id="but1" class="btn">click</button>
+      <hr>
+      <p>С использованием прототипа</p>
+      <p>Но расширяет втроеный обьект даты</p>
+      <pre>
+        <code>
+          Date.prototype.getDayName = function(){ 
+            var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            return days[this.getDay()]; 
+          };
+          
+          var today = new Date(); 
+          alert(today.getDayName());
+        </code>
+      </pre>
+      <button id="but2">click</button>
     </fieldset>
   </div>
+
+  <script src='http://yastatic.net/highlightjs/8.2/highlight.min.js' /></script>
+  <script type='text/javascript'>hljs.initHighlightingOnLoad();</script>
   <script src="../../js/main.js"></script>
-  <script src="../../js/oop/closures.js"></script>
+  <script src="../../js/oop/proto.js"></script>
 </body>
 
 </html>
