@@ -7,17 +7,6 @@
 
 //------------------> Разбор полетов
 // 1 стрелочные функции
-let input = document.getElementById('input');
-
-input.addEventListener('blur', blurDate);
-
-function blurDate() {
-  this.value = toUpper(this.value)
-}
-
-let toUpper = str => str.toUpperCase();
-
-
 // 2 перебор массива forEach
 let someArr = ['значение1', 'значение2', 'значение3'];
 let forEach1 = document.getElementById('wrap-for-each1');

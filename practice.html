@@ -138,7 +138,7 @@
           <p>Map - для каждого элемента массива делает тоже самое</p>
           <b>
             Он создаёт новый массив, который будет состоять из результатов вызова callback(item, i, arr) для каждого элемента arr
-          </b> 
+          </b>
           <pre>
             var names = ['HTML', 'CSS', 'JavaScript']; 
             
@@ -155,7 +155,7 @@
           </b>
           <ul>
             <li>
-              every возвращает true if callback == true для каждого элемента arr. 
+              every возвращает true if callback == true для каждого элемента arr.
             </li>
             <li>
               some возвращает true if callback == true для какого-нибудь элемента arr.
@@ -172,14 +172,16 @@
             alert( arr.some(isPositive) ); // true, есть хоть одно положительное
           </pre>
           <hr>
-          <p><b>Случайное число из массива</b></p>
+          <p>
+            <b>Случайное число из массива</b>
+          </p>
           <pre>
             var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"]; 
             
             var rand = Math.floor(Math.random() * arr.length); 
             
             alert( arr[rand] );
-          </pre>     
+          </pre>
         </li>
         <li>
           Добавить и удалить классы
@@ -245,8 +247,8 @@
           </pre>
           <h3>перебор обьектов</h3>
           <p>
-            for..in 
-              -- При этом for..in последовательно переберёт свойства объекта obj, имя каждого свойства будет записано в key и вызвано тело цикла.
+            for..in -- При этом for..in последовательно переберёт свойства объекта obj, имя каждого свойства будет записано в key и вызвано
+            тело цикла.
           </p>
           <pre>
             for (var key in menu) { // ... }
@@ -352,7 +354,44 @@
           </pre>
         </li>
         <li>
-
+          <h3>
+            <u>Методы math</u>
+          </h3>
+          <ul>
+            <li>
+              <b>Math.round(x)</b>
+              - округляет число(по нормальному)
+            </li>
+            <li>
+              <b>Math.ceil(x)</b>
+              округляет до большего целого числа
+            </li>
+            <li>
+              <b>Math.floor(x)</b>
+              - округляет в меньшую сторону
+            </li>
+            <li>
+              <b>Math.pow(x, y)</b>
+              - возвращает степень
+            </li>
+            <li>
+              <b>Math.random()</b>
+              - случайное число в диапазоне 0-1
+            </li>
+            <li>
+              <b>Math.max([x[, y[, …]]])
+              </b>
+              Возвращает найбольшее число из своих аргументов
+            </li>
+            <li>
+              <b>Math.min([x[, y[, …]]])</b>
+              Возвращает наименьшее число из своих аргументов
+            </li>
+            <li>
+              <b>Math.sqrt(x)</b>
+              Возвращает квадратный корень числа
+            </li>
+          </ul>
         </li>
         <li>
           <h3>ES6 - Метод filter()</h3>
@@ -400,7 +439,9 @@
             
             delete person.age // удалить св age из обьекта person
           </pre>
-          <i>Доступ через точку используется, если мы на этапе написания программы уже знаем название свойства. А если оно будет определено по ходу выполнения, например, введено посетителем и записано в переменную, то единственный выбор – квадратные скобки.</i>
+          <i>Доступ через точку используется, если мы на этапе написания программы уже знаем название свойства. А если оно будет
+            определено по ходу выполнения, например, введено посетителем и записано в переменную, то единственный выбор –
+            квадратные скобки.</i>
           <h3>Перебор обьектов</h3>
           <pre>
             obj = {name: 'Вася', age: 32};
@@ -525,7 +566,7 @@
       </ol>
     </fieldset>
     <fieldset>
-      <legend>стрелочная функция</legend>
+      <legend>стрелочные функции</legend>
       <p>Перевод input в верхний регистр</p>
       <pre>
         <b>old</b>
@@ -535,7 +576,12 @@
         <b>new</b>
          let toUpper = str => str.toUpperCase();
       </pre>
-      <input id="input" type="text" value="">
+      <p>this в стрелочных функциях не существует поэтому он ищет контекст уровнем выше</p>
+      <pre>
+        $('.current-time').each(function () { 
+          setInterval(() => $(this).text(Date.now()), 1000); 
+        });
+      </pre>
     </fieldset>
 
     <fieldset>
@@ -557,6 +603,28 @@
     </fieldset>
 
     <fieldset>
+      <legend>arguments - псевдомассив аргументов в функциях</legend>
+      <p>arguments[0], arguments[1]</p>
+      <pre>
+        <b>Когда мы не предаем аргуметы изначально</b>
+        function sayHi() { 
+          for (var i = 0; i < arguments.length; i++) { 
+            alert( "Привет, " + arguments[i] ); 
+          } 
+        } 
+        sayHi( "Винни", "Пятачок"); // 'Привет, Винни', 'Привет, Пятачок'
+      </pre>
+      <br>
+      <pre>
+        <b>мы можем создать массив из аргументов</b>
+        var args = []; 
+        for (var i = 0; i < arguments.length; i++) { 
+          args[i] = arguments[i]; 
+        };
+      </pre>
+    </fieldset>
+
+    <fieldset>
       <legend>forEach</legend>
       <p>
         let someArr = ['значение1', 'значение2', 'значение3'];
@@ -568,6 +636,10 @@
            div('this is index: ' + index); 
            div('this is array : ' + array); 
           });
+      </pre>
+      <span>OR</span>
+      <pre>
+        arr.forEach( item => console.log(item) );  
       </pre>
       <button id="but">click</button>
     </fieldset>
@@ -780,18 +852,34 @@
           }
       </pre>
     </fieldset>
+
     <fieldset>
       <legend>Обьект</legend>
-      <p>
-        Создание нового обьекта
-      </p>
+      <p>Создание нового обьекта</p>
       <pre>
         <b>result:</b>        
          test2=new Object() тоже что test = {};
       </pre>
-    </fieldset>
-    <fieldset>
-      <legend>Обьект</legend>
+      <p>Скопировать свойства из одного-несколько обьектов в один метод COPY</p>
+      <div>
+        <b>copy(dst, src1, src2…)</b>
+        <p>
+          Копирует свойства из объектов src1, src2,... в объект dst
+        </p>
+      </div>
+      <pre>
+        var vasya = { age: 21, name: 'Вася', surname: 'Петров' }; 
+        var user = { isAdmin: false, isEmailConfirmed: true }; 
+        var student = { university: 'My university' }; 
+
+        <b>copy(vasya, user, student);</b>
+
+        alert( vasya.isAdmin); // false 
+        alert( vasya.university ); // My university
+
+        // скопирует все свойства в пустой объект 
+        var userClone = copy({}, user);
+      </pre>
       <p>
         В обьектах могут находится как другие обьекты - так и функции. В функиях this будет ссылка на обьект в котором она используется.
       </p>

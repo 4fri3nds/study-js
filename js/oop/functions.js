@@ -14,3 +14,5 @@ var showTitle = exampleObject.showTitle; // вначале забираем сс
 but1.onclick = function() {
   showTitle(); // а тут вызываем функцию без ссылки на объект
 };
+
+// 2. 
