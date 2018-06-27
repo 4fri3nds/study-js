@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+<div class="nav">
+  <div id="bread-crumps"></div>
+  <div class="search">
+    <span>&#64;</span>
+    <input type="text">
+    <button>search</button>
+  </div>
+</div>
+<div class="header">
+  <div id="menu"></div>
+</div>
+  <blockquote>
+    <h3>Check, Radio inputs</h3>
+    <ol>
+      <li>
+        Дана ссылка. Дан чекбокс. По нажатию на ссылку меняйте состояние чекбокса с отмеченного на неотмеченное и наоборот.
+      </li>
+      <li>Даны чекбокс. Дана кнопка. По нажатию на кнопку сделайте все чекбоксы отмеченными.</li>
+      <li>
+        Есть ферма нужно написать универсальную функцию, которая добавляет то трех нулей вперед. Куры и коровы, кол-во вводите произвольно
+        через инпут
+      </li>
+      <li>
+        Спросите у пользователя какой язык (html, css, js, php) он знает с помощью радио кнопочек. Выведите этот язык в абзац.
+      </li>
+      <li>
+        Спросите у пользователя какие языки (html, css, js, php) он знает с помощью чекбоксов. Выбранные языки должны выводится в
+        абзац ниже через запятую.
+      </li>
+      <li>
+        Дан чекбокс. Дан инпут. Сделайте так, что если чекбокс отмечен - инпут видимый, если не отмечен - не видимый.
+      </li>
+      <li>
+        Дан инпут. Даны li. В инпут пишется номер. Сделайте так, чтобы по вводу числа, li с заданным номером покрасился в соответствующий
+        цвет.
+      </li>
+      <li>
+        Дан абзац. Даны чекбоксы 'перечеркнуть', 'сделать жирным', 'сделать красным'. Если соответствующий чекбокс отмечен - заданное
+        действие происходит с абзацем (становится красным, например). Если чекбоксу снять отметку - действие отменяется.
+      </li>
+      <li>
+        Дан блок с кнопкой 'закрыть блок'. По нажатию на эту кнопку блок должен исчезнуть. Кнопка размещается внутри блока и должна
+        исчезнуть вместе с ним. Блоков может быть любое количество, каждый из них закрывает своя кнопка.
+      </li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>1. Нажмите на кнопку</legend>
+      <p>При нажатии переключатся чекбокс</p>
+      <input id="check-box" type="checkbox" value="">
+      <button id="check-switch">Switch Check</button>
+    </fieldset>
+    <fieldset>
+      <legend>2. Нажмите на кнопку</legend>
+      <p>При нажатии переключаются все чекбоксы но используя одну функцию</p>
+      <input class="check-box" type="checkbox" value="">
+      <input class="check-box" type="checkbox" value="">
+      <input class="check-box" type="checkbox" value="">
+      <button id="check-switch2">Switch Check</button>
+    </fieldset>
+    <fieldset>
+      <legend>3. Введите кол-во в инпуты</legend>
+      <p>Добавляет нули до трех знаков. Используя метод WHILE</p>
+      <input type="text" id="count_cows">
+      <input type="text" id="count_chickens">
+      <button id="count_btn">cli</button>
+      <p id="result-zirro"></p>
+    </fieldset>
+    <fieldset>
+      <legend>4. Выберите язык</legend>
+      <p>Спросите у пользователя какой язык (html, css, js, php) он знает с помощью радио кнопочек. Выведите этот язык в абзац.
+      </p>
+      <input type="radio" name="prog-lang" value="HTML" class="prog-lang" id="prog-html">
+      <label for="prog-html">HTML</label>
+      <input type="radio" name="prog-lang" value="JAVA-SCRIPT" class="prog-lang" id="prog-javascript">
+      <label for="prog-javascript">JAVA-SCRIPT</label>
+      <input type="radio" name="prog-lang" value="PHP" class="prog-lang" id="prog-php">
+      <label for="prog-php">PHP</label>
+      <p id="result-lang"></p>
+    </fieldset>
+    <fieldset>
+      <legend>5. Выберите языки для изучения</legend>
+      <p>Спросите у пользователя какой язык (html, css, js, php) он знает с помощью чекбоксов. Выведите этот язык в абзац.
+      </p>
+      <input type="checkbox" name="prog-study" value="HTML" class="prog-study" id="study-html">
+      <label for="study-html">HTML</label>
+      <input type="checkbox" name="prog-study" value="JAVA-SCRIPT" class="prog-study" id="study-javascript">
+      <label for="study-javascript">JAVA-SCRIPT</label>
+      <input type="checkbox" name="prog-study" value="PHP" class="prog-study" id="study-php">
+      <label for="study-php">PHP</label>
+      <button id="btn-study">study</button>
+      <p id="result-study"></p>
+    </fieldset>
+    <fieldset>
+      <legend>6. По чекбоксу добавляет и убирает элемент</legend>
+      <p>Дан чекбокс. Дан инпут. Сделайте так, что если чекбокс отмечен - инпут видимый, если не отмечен - не видимый.
+      </p>
+      <input type="checkbox" id="visibleInput">
+      <label for="visibleInput">Make input visible</label>
+      <input type="text" id="hiddenInput">
+    </fieldset>
+    <fieldset>
+      <legend>7. Введите в инпут номер цвета, который вы хотите выделить</legend>
+      <p>Дан инпут. Даны li. В инпут пишется номер. Сделайте так, чтобы по вводу числа, li с заданным номером покрасился в соответствующий
+        цвет. </p>
+      <input type="text" id="get-color">
+      <ol style="display: inline-block; vertical-align: middle;">
+        <li class="list-color" data-col="green">green</li>
+        <li class="list-color" data-col="red">red</li>
+        <li class="list-color" data-col="yellow">yellow</li>
+        <li class="list-color" data-col="blue">blue</li>
+        <li class="list-color" data-col="gray">gray</li>
+        </ul>
+        <p id="wrong-color" style="display: none; color: red;">Вводимая цифра должна соответствовать номеру списка</p>
+    </fieldset>
+    <fieldset>
+      <legend>8. Выберите или уберите действие чекбокса</legend>
+      <p>
+         Дан блок с кнопкой 'закрыть блок'. По нажатию на эту кнопку блок должен исчезнуть. Кнопка размещается внутри блока и должна
+        исчезнуть вместе с ним. Блоков может быть любое количество, каждый из них закрывает своя кнопка.</p>
+      <div class="popup"><button>X (закрыть окошко)</button></div>
+      <div class="popup"><button>X (закрыть окошко)</button></div>
+      <div class="popup"><button>X (закрыть окошко)</button></div>
+      <div class="popup"><button>X (закрыть окошко)</button></div>
+    </fieldset>
+  </div>
+  <script src="./../../js/main/dynamic.js"></script>
+  <script src="./../../js/practice/les9.js"></script>
+  <script src="./../../js/main/main.js"></script>
+</body>
+
+</html>

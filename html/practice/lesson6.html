@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+<div class="nav">
+  <div id="bread-crumps"></div>
+  <div class="search">
+    <span>&#64;</span>
+    <input type="text">
+    <button>search</button>
+  </div>
+</div>
+<div class="header">
+  <div id="menu"></div>
+</div>
+  <blockquote>
+    <h3>Interval, Img, Clone</h3>
+    <ol>
+      <li>Даны ссылки. По загрузке страницы добавьте в конец каждой ссылки ее href в круглых скобках.</li>
+      <li>Даны ссылки. По загрузке страницы, если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так:
+        &rarr;).
+      </li>
+      <li>Даны N абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится.</li>
+      <li>По (mouseenter) увеличивает плавно увеличивает картинки (setInterval) </li>
+      <li>По (setInterval) делает отчет до 5 с интервалом 3 милисекунды и прекращает.</li>
+      <li>Даны картинки. По первому нажатию на любую картинку увеличьте ее в 2 раза. По второму нажатию - уменьшите обратно.</li>
+      <li>Даны N картинок размера 50px. По нажатию на картинку под ними эта картинка появляется размером в 70px.</li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>1. method 1</legend>
+      <p> выводит содержимое аттрибута href в html</p>
+      <div id="wrap">
+        <a href="google.com"></a>
+        <a href="yandex.com"></a>
+        <a href="mail.com"></a>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. method 2</legend>
+      <p> добавляет стрелку с ссылке и меняет ее цвет, которая начитается с http:// </p>
+      <div id="wrap2">
+        <a href="https://www.google.com/">link</a>
+        <a href="http://yandex.com">link</a>
+        <a href="mail.com">link</a>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>3. Нажимайте на кнопки</legend>
+      <p>Возводит в квадрат число которое в кнопке</p>
+      <div id="wrap3">
+        <button>7</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>4. Наведите на картинки</legend>
+      <p>Увеличивает вдвое картинки при mouseenter</p>
+      <div class="img-container">
+        <img src="https://www.elega.lt/site-images/9584/3000/3000/kvadratnyj-alyuminievyj-profil-slot6-25x25-mm.jpg" alt="">
+        <img src="https://images.ua.prom.st/818174887_w0_h0_cid2776279_pid545359991-466d6730.jpg" alt="">
+        <img src="https://polivaem.com.ua/images/3/mufta-soedinitelnaja-irritec-25x25-63202944604886_small6.jpg" alt="">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. setInterval</legend>
+      <p>Выводит в консоль числа с интервалом .3сек до 5 -> break</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>6. Нажимайте на картинки</legend>
+      <p>При первом клике увеличивает при втором уменьшает картинки. Задействован addEventListener & removeEventListener</p>
+      <div class="img-container">
+        <img src="https://www.elega.lt/site-images/9584/3000/3000/kvadratnyj-alyuminievyj-profil-slot6-25x25-mm.jpg" alt="">
+        <img src="https://images.ua.prom.st/818174887_w0_h0_cid2776279_pid545359991-466d6730.jpg" alt="">
+        <img src="https://polivaem.com.ua/images/3/mufta-soedinitelnaja-irritec-25x25-63202944604886_small6.jpg" alt="">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>7. Клонирует картинки</legend>
+      <p>Нужно нажать на картинки. Использовал методы cloneNode(), .appendChild(item)</p>
+      <div class="img-container">
+        <img src="https://www.elega.lt/site-images/9584/3000/3000/kvadratnyj-alyuminievyj-profil-slot6-25x25-mm.jpg" alt="">
+        <img src="https://images.ua.prom.st/818174887_w0_h0_cid2776279_pid545359991-466d6730.jpg" alt="">
+        <img src="https://polivaem.com.ua/images/3/mufta-soedinitelnaja-irritec-25x25-63202944604886_small6.jpg" alt="">
+      </div>
+      <div id="cloned-img"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>8. Увеличивает и уменьшает картинки</legend>
+      <p>Нужно нажать кнопки рядом с картинками</p>
+      <div class="img-container">
+        <div class="img-wrap">
+          <button class="img-ctrl" data-minus>-</button>
+          <img src="https://www.elega.lt/site-images/9584/3000/3000/kvadratnyj-alyuminievyj-profil-slot6-25x25-mm.jpg" alt="">
+          <button class="img-ctrl" data-plus>+</button>
+        </div>
+       <div class="img-wrap">
+          <button class="img-ctrl" data-minus>-</button>
+          <img src="https://images.ua.prom.st/818174887_w0_h0_cid2776279_pid545359991-466d6730.jpg" alt="">
+          <button class="img-ctrl" data-plus>+</button>
+        </div>
+        <div class="img-wrap">
+          <button class="img-ctrl" data-minus>-</button>
+          <img src="https://polivaem.com.ua/images/3/mufta-soedinitelnaja-irritec-25x25-63202944604886_small6.jpg" alt="">
+          <button class="img-ctrl" data-plus>+</button>
+        </div>
+      </div> 
+    </fieldset>
+  </div>
+  <script src="./../../js/main/dynamic.js"></script>
+  <script src="./../../js/practice/les6.js"></script>
+  <script src="./../../js/main/main.js"></script>
+</body>
+
+</html>

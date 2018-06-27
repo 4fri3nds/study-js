@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+<div class="nav">
+  <div id="bread-crumps"></div>
+  <div class="search">
+    <span>&#64;</span>
+    <input type="text">
+    <button>search</button>
+  </div>
+</div>
+<div class="header">
+  <div id="menu"></div>
+</div>
+  <blockquote>
+    <h3>this</h3>
+    <ol>
+      <li>Вернуть или присвоить значение this</li>
+      <li>call - func.call(context, arg1, arg2)</li>
+      <li>apply - func.apply(context, [arg1, arg2]);</li>
+      <li>bind - var sayHi = bind(user.sayHi, user);</li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>Call, Apply, Bind</legend>
+      <pre>
+        func.call(context, arg1, arg2, ...)
+
+        showFullName.call(user) // this = user
+      </pre>
+      <ul>
+        <h4>call</h4>
+        <li>
+          Передать параметры в ручную
+        </li>
+        <h4>apply</h4>
+        <li>
+          Вызов функции при помощи func.apply работает аналогично func.call, но принимает массив аргументов вместо списка.</li>
+        <h4>bind</h4>
+        <li>
+          Навсегда привязать к определенному this
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset name="fieldset1">
+      <legend>1. Методы this - метод bind</legend>
+      <pre>
+        func.bind(elem); 
+        let newFunc = func.bind(elem); 
+        newFunc("1 аргумент, ", "2 аргумент, "); // это не вызов как не странно,
+          а просто передача параметров
+      </pre>
+      <input id="input1" type="text" name="input1" value="66">
+      <p id="wrap1"></p>
+    </fieldset>
+    <fieldset>
+      <legend>2. Методы this -- call</legend>
+      <pre>funcCall.call(elem2)</pre>
+      <input id="elem2" value="привет">
+      <p id="wrap2"></p>
+    </fieldset>
+    <fieldset>
+      <legend>3. Методы this -- apply</legend>
+      <pre>
+        funcCall.call(elem, name.sur, name.na)
+        funcCall.apply(elem, [arr])
+      </pre>
+      <input id="elem3" value="привет">
+      <p id="wrap3"></p>
+    </fieldset>
+    <fieldset>
+      <legend>4. Методы this -- bind</legend>
+      <pre>
+        func = func.bind(elem); 
+        func('Иванов', 'Иван'); //'привет, Иванов Иван' 
+        func('Петров', 'Петр'); //'привет, Петров Петр'
+      </pre>
+    </fieldset>
+  </div>
+  <script src="./../../js/main/dynamic.js"></script>
+  <script src="./../../js/practice/les11.js"></script>
+  <script src="./../../js/main/main.js"></script>
+</body>
+
+</html>

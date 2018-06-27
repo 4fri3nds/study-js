@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div id="menu"></div>
+  <blockquote>
+    <h3>Функции</h3>
+    <ol>
+      <li>
+        Функции в Javascript'е — немного странные штуки. Функции в Javascript'е — на самом деле объекты. А именно, объекты класса
+        Function, создаваемые конструктором Function. В объекте Function содержится строка с JS-кодом данной функции.
+      </li>
+      <li>
+        Первый пример вызовит функцию без клика
+        <pre>
+          <code>
+            but.onclick = func(x, y); //вызов без клика
+            but.onclick = func() { func(x, y) }; //вызов по клику
+          </code>
+        </pre>
+      </li>
+      <li>
+        <p>обращаясь к методу arguments[i] мы можем передать любое кол-во параметров</p>
+        <pre>
+          <code>
+            function display() {
+              var z = 1;
+              for(var i=0; i < arguments.length; i++) {
+                z *= arguments[i];
+                console.log(z);
+              }
+            };
+            
+            display(6); // 6
+            display(6, 4) // 24
+            display(6, 4, 5) // 120
+          </code>
+        </pre>
+      </li>
+      <li>
+        <p>Вызов из анонимной замыкающей функции</p>
+        <pre>
+          <code>
+            (function(){ 
+              var title = "Hello World"; 
+              function showTitle(){ 
+                alert(title); 
+              } 
+              window.showSimpleTitle = showTitle; 
+            })();
+            
+            showSimpleTitle();
+          </code>
+        </pre>
+      </li>
+      <li>
+        <p>Вызов функций из обьекта</p>
+        <pre>
+          <code>
+            var exampleObject = { 
+              "title": "Example Title", 
+              "showTitle": function(){ 
+                alert(this.title); 
+              } 
+            };
+            
+            exampleObject.showTitle();
+          </code>
+        </pre>
+      </li>
+      <li>
+        <p>Вызов функции в контексте обьекта</p>
+        <pre>
+          <code>
+            function showTitle() { 
+              alert(this.title); 
+            } 
+            
+            var objectA = { 
+              "title": "Title A", 
+              "showTitle": showTitle 
+            }; 
+            
+            var objectB = { 
+              "title": "Title B", 
+              "showTitle": showTitle 
+            };
+            
+            objectA.showTitle(); 
+            objectB.showTitle();
+          </code>
+        </pre>
+      </li>
+      <li>
+        Вывод первого задания
+        <b>
+          Итого: если функция вызвана как свойство объекта, то this будет ссылаться на этот объект. Если вызывающего объекта нет, this
+          будет ссылаться на глобальный объект window.
+        </b>
+      </li>
+      <li>
+        Частая ошибка чтобы this в функции showTitle ссылалась на обьект exampleObject - нужно эту функцию запускать в контексте
+        обьекта
+        <pre>
+          <code>
+            exampleObject.showTitle - плохо
+            exampleObject.showTitle() - хорошо
+          </code>
+        </pre>
+      </li>
+      <li>
+
+      </li>
+      <li>
+
+      </li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>1. 1</legend>
+      <p>This внутри функции и обьекта exampleObject будет указывать не на этот обьект а на глоб обьект window</p>
+      <p>
+        из-за того, что в строке var showTitle = exampleObject.showTitle мы получаем ссылку только функцию, и при вызове showTitle()
+        нет ссылки на исходный объект exampleObject, отчего this начинает ссылаться на объект window.
+      </p>
+      <pre>
+        <code>
+          var title = "Global Title"; 
+          var exampleObject = { 
+            "title": "Example Title", 
+            "showTitle": function(){ 
+              alert(this.title);
+            } 
+          }; 
+          
+          var showTitle = exampleObject.showTitle; // вначале забираем ссылку на функцию
+          showTitle(); // а тут вызываем функцию без ссылки на объект
+        </code>
+      </pre>
+      <button id="but1">click</button>
+    </fieldset>
+    <fieldset>
+      <legend>2. </legend>
+      
+    </fieldset>
+  </div>
+
+  <script src='http://yastatic.net/highlightjs/8.2/highlight.min.js'/></script>
+ 
+  <script src="../../js/main/dynamic.js"></script>
+  <script src="../../js/main/main.js"></script>
+  <script src="../../js/theory/functions.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+<div class="nav">
+  <div id="bread-crumps"></div>
+  <div class="search">
+    <span>&#64;</span>
+    <input type="text">
+    <button>search</button>
+  </div>
+</div>
+<div class="header">
+  <div id="menu"></div>
+</div>
+  <blockquote>
+    <h3>functions, closures</h3>
+    <ol>
+      <li>
+        Функция принимает 2 параметра: число и анонимную функцию, которая возводит число в квадрат. Возведите число в 4-тую степень с помощью этой функции.
+      </li>
+      <li>
+        Функция принимает 2 параметра: анонимную функцию, которая возвращает 3 и анонимную функцию, которая возвращает 4. Верните
+        результатом функции сумму 3 и 4
+      </li>
+      <li>
+        Дана функция. Она требует первым параметром число, вторым функцию, которая возводит в квадрат, а третьим параметром функцию,
+        которая возводит в куб. Эти функции есть как Function Declaration - kvadrat, kub. Пусть функция вернет сумму квадрата и куба числа.
+      </li>
+      <li>
+        Сделайте функцию each, которая первым параметром принимает массив, а вторым - функцию, которая применится к каждому элементу
+        массива. Функция each должна вернуть измененный массив - корень кв из каждого числа.
+      </li>
+      <li>
+
+      </li>
+    </ol>
+  </blockquote>
+
+  <div class="container">
+    <fieldset>
+      <legend>1. Передать функцию как параметр</legend>
+      <p> Функция, которая принимает параметром себя же</p>
+      <pre>
+        let quoterDegry = function(num, func) { 
+          return func(num); 
+          }; 
+          let quoter = function(x) { 
+            return Math.pow(x, 2); 
+          }; 
+          
+          // quoterDegry(2, quoter) - вторым параметром идет функция - без func()
+
+          div( quoterDegry(quoterDegry(2, quoter), quoter) );
+      </pre>
+      <div id="result1"></div>
+    </fieldset>
+    <fieldset>
+      <legend>2. Простой пример функций, которые служат аргуменатми другой функции</legend>
+      <p> В качестве аргументов служат две функции</p>
+      <pre>
+        function a() { return 3 }; 
+        function b() { return 4 }; 
+        function abc(a, b) { return a() + b() }; 
+        
+        div( abc(a, b), result2);
+      </pre>
+      <div>OR</div>
+      <pre>
+        let a = () => 3; 
+        let b = () => 4; 
+        let abc = (a, b) => a() + b(); 
+        
+        div( abc(a, b), result2);
+      </pre>
+      <div id="result2"></div>
+    </fieldset>
+    <fieldset>
+      <legend>3. Квадрат числа + Куб числа</legend>
+      <p>Мы передаем число и две разные функции, на выходе число</p>
+      <pre>
+        let dg2 = (num) => Math.pow(num, 2); 
+        let dg3 = (num) => Math.pow(num, 3); 
+        let sumDg = (num, func1, func2) => func1(num) + func2(num); 
+        
+        div(sumDg(3, dg2, dg3), result3);
+      </pre>
+      <div id="result3"></div>
+    </fieldset>
+    <fieldset>
+      <legend>4. 1</legend>
+      <p> Квадрат числа. Иклудит результат в DOM</p>
+      <pre>
+
+      </pre>
+      <div id="result4"></div>
+    </fieldset>
+    <fieldset>
+      <legend>4. 1</legend>
+      <p> Квадрат числа. Иклудит результат в DOM</p>
+      <pre>
+
+      </pre>
+    </fieldset>
+  </div>
+  <script src="./../../js/main/dynamic.js"></script>
+  <script src="./../../js/practice/les13.js"></script>
+  <script src="./../../js/main/main.js"></script>
+</body>
+
+</html>
