@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div class="nav">
+    <div id="bread-crumps"></div>
+    <div class="search">
+      <span>&#64;</span>
+      <input type="text">
+      <button>search</button>
+    </div>
+  </div>
+  <div class="header">
+    <div id="menu"></div>
+  </div> 
+  <div class="content">
+
+    <div class="info">
+      <div class="info-left">
+        <h4 class="links-themes-title">Методы перебора</h4>
+        <!-- TABS NAV-->
+        <ul class="tabs-nav-list">
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">
+            Методы перебора
+          </li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Методы перебора массивов</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+        </ul>
+        <!-- END NAV -->
+      </div>
+      <div class="info-right">
+        <div id="extra-menu" class="links-themes-list"></div>
+        <ul class="tabs-content-list info-right-content">
+          <li id="mark1" class="tabs-content-item active">
+            <!-- 1 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Методы перебора</div>
+
+            <ul>
+              <li>
+                <p>Метод WHILE</p>
+                <pre>
+                  <code>
+                    while(true) { ... }
+                  </code>
+                </pre>
+                <hr>
+
+
+              </li>
+            </ul>
+            <!-- end 1 -->
+          </li>
+          <li id="mark2" class="tabs-content-item">
+            <!-- 2 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Методы перебора массивов</div>
+            <ul>
+              <p>forEach</p>
+              <b>Этой функции он передаёт три параметра callback(item, i, arr) </b>
+              <ul>
+                <li>item – очередной элемент массива. </li>
+                <li>i – его номер. </li>
+                <li>arr – массив, который перебирается.</li>
+              </ul>
+              <pre>
+                  <code>
+                    var arr = ["Яблоко", "Апельсин", "Груша"]; 
+                    arr.forEach(function(item, i, arr) { 
+                      alert( i + ": " + item + " (массив:" + arr + ")" ); });
+                    </code>
+                </pre>
+              <hr>
+              <p>
+                Filter -- Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
+              </p>
+              Можно использовать, чтобы получить разницу чисел одного массива
+              <pre>
+                  <code>
+                    let difference = arr1.filter(x => arr2.indexOf(x) == -1);
+                    
+                    аналог: 
+                    let difference = arr1.filter(
+                      function(x) { 
+                        return arr2.indexOf(x) == -1; 
+                      });
+                    </code>
+                </pre> Чтобы получить разницу обоих массивов
+              <pre>
+                  <code>
+                    let difference = arr1 
+                    .filter(x => arr2.indexOf(x) == -1) 
+                    .concat(arr2.filter(x => arr1.indexOf(x) == -1));
+                  </code>
+                </pre>
+              <hr>
+              <p>Map - для каждого элемента массива делает тоже самое</p>
+              <b>
+                Он создаёт новый массив, который будет состоять из результатов вызова callback(item, i, arr) для каждого элемента arr
+              </b>
+              <pre>
+                  <code>
+                    var names = ['HTML', 'CSS', 'JavaScript']; 
+                    
+                    var nameLengths = names.map(function(name) { 
+                      return name.length; 
+                    }); // получили массив с длинами 
+                    
+                    alert( nameLengths ); // 4,3,10
+                  </code>
+                </pre>
+              <hr>
+              <p>every/some</p>
+              <b>
+                Эти методы используются для проверки массива.
+              </b>
+              <ul>
+                <li>
+                  every возвращает true if callback == true для каждого элемента arr.
+                </li>
+                <li>
+                  some возвращает true if callback == true для какого-нибудь элемента arr.
+                </li>
+              </ul>
+              <pre>
+                  <code>
+                    var arr = [1, -1, 2, -2, 3]; 
+                    
+                    function isPositive(number) { 
+                      return number > 0; 
+                    };
+                    
+                    alert( arr.every(isPositive) ); // false, не все положительные
+                    alert( arr.some(isPositive) ); // true, есть хоть одно положительное
+                  </code>
+                </pre>
+              <hr>
+              <p>
+                <b>Случайное число из массива</b>
+              </p>
+              <pre>
+                  <code>
+                    var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"]; 
+                    
+                    var rand = Math.floor(Math.random() * arr.length); 
+                    
+                    alert( arr[rand] );
+                  </code>
+                </pre>
+            </ul>
+            <!-- end 2 -->
+          </li>
+          <li id="mark3" class="tabs-content-item">
+            <!-- 3 -->
+            <div class="sub-title">Main</div>
+            <div class="title">title</div>
+            <ul>
+
+            </ul>
+            <!-- end 3-->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/main/hilight.js"></script>
+  <script src="../../js/main/dynamic.js"></script>
+  <script src="../../js/main/main.js"></script>
+  <script src="../../js/theory/enumeration.js"></script>
+
+</body>
+
+</html>

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 
-<body> 
+<body>
   <div class="nav">
     <div id="bread-crumps"></div>
     <div class="search">
@@ -25,53 +25,120 @@
 
     <div class="info">
       <div class="info-left">
-        <h4 class="links-themes-title">Pseudo Massive</h4>
+        <h4 class="links-themes-title">Dom</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item"  onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item"  onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Найти дом элементы</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Добавление и удаление узлов(node)</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Добавить и удалить классы</li>
         </ul>
         <!-- END NAV -->
       </div>
       <div class="info-right">
         <div id="extra-menu" class="links-themes-list"></div>
         <ul class="tabs-content-list info-right-content">
-          <!-- 1 -->
           <li id="mark1" class="tabs-content-item active">
-            <div class="update">
-              <span>&#8634;</span>
-            </div>
+            <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Welcome to our theme</div>
-            <div class="title-remark">
-              Added by blblblb, 12 23 2009 12:33
-            </div>
-            <div class="text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat facilis quo enim culpa hic, ratione tempora facere impedit?
-            </div>
-            <pre>
-              <code>
-              let forEach2 = document.getElementById('wrap-for-each2'); 
-              let but2 = document.getElementById('but2'); 
+            <div class="title">Найти нужный элемент</div>
+            <ul>
+              <li>
+                Управление DOM елементами
+                <pre>
+                  <code>
+                    - getElementById id - везде 
+                    - getElementsByName name - везде   
+                    - getElementsByTagName - тег или '*' - получить всех потомков, 
+                    - getElementsByClassName
+                    - querySelector 
+                    - querySelectorAll - ('ul > li:last-child')
 
-              but2.addEventListener('click',function () { 
-                someArr.forEach(callback = (
-                  currentValue, index, array) => (div(currentValue, forEach2))); 
-                });
-              </code>
-            </pre>
+                    - elem.matches(css) ничего не ищет, а проверяет, удовлетворяет ли elem селектору css. Он возвращает true либо false.
+                    
+                    elem.closest(css)
+                    parentNode возвращает родитель элемента.
+                    parentElement
+                    childNodes()
+                    children - только дочерние узлы-элементы, то есть соответствующие тегам
+                    firstChild, lastChild -  – соответственно, первый и последний дети-элементы
+                    previousElementSibling, nextElementSibling – соседи-элементы
+                  </code>
+                </pre>
+              </li>
+            </ul>
+            <!-- end 1 -->
           </li>
-          <!-- 2 -->
           <li id="mark2" class="tabs-content-item">
-            <h1>content2</h1>
+            <!-- 2 -->
+            <div class="sub-title">Main</div>
+            <div class="title">
+              ДОБАВЛЕНИЕ И УДАЛЕНИЕ УЗЛОВ
+            </div>
+            <ul>
+              <li>
+                <h3>
+                  Создать эл. и вставить
+                </h3>
+                <pre>
+                  <code>
+                    let divEl = document.createElement('div');
+                    divEl.className = "includer"; //divEl.classList = "cl-1 cl-2..."
+                    divEl.innerHTML = str;
+                    location.appendChild(divEl);
+                  </code>
+                </pre>
+                <hr>
+                <h3>
+                  Clone скопировать эл. и вставить
+                </h3>
+                <pre>
+                  <code>
+                    var div2 = div.cloneNode(true); // копию можно подправить 
+                    div2.querySelector('strong').innerHTML = 'Супер!'; 
+                    // вставим её после текущего сообщения 
+                    div.parentNode.insertBefore(div2, div.nextSibling);
+                  </code>
+                </pre>
+                <hr>
+                <h3>insertBefore</h3>
+                <p>Вставить до и после конкретного элемента</p>
+                <pre>
+                  <code>
+                    // this.parentElement.insertBefore(el, this); мой вариант
+                    
+                    var insertedElement = parentElement.insertBefore(newElement, referenceElement);
+                  </code>
+                </pre>
+                <ul style="list-style-type: disc;">
+                  <li>insertedElement Вставленный элемент.</li>
+                  <li>parentElement Родитель для нового элемента.</li>
+                  <li>newElement Элемент для вставки.</li>
+                  <li>referenceElement Элемент, перед которым будет вставлен newElement.</li>
+                </ul>
+              </li>
+            </ul>
+            <!-- end 2 -->
           </li>
-          <!-- 3 -->
           <li id="mark3" class="tabs-content-item">
-            <h1>content3</h1>
+            <!-- 3 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Добавить и удалить классы</div>
+            <ul>
+              <li>
+                Добавить и удалить классы
+                <pre>
+                  <code>
+                    document.body.classList.add('thisClass'); 
+                    document.body.classList.remove('thatClass');
+                    document.body.classList.toggle('anotherClass'); 
+                    
+                    body.classList.contains('thatClass') -- проверка на наличие
+                  </code>
+                </pre>
+              </li>
+            </ul>
+            <!-- end 3-->
           </li>
-          <!-- end -->
-
         </ul>
       </div>
     </div>

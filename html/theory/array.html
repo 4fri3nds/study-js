@@ -25,7 +25,7 @@
 
     <div class="info">
       <div class="info-left">
-        <h4 class="links-themes-title">Pseudo Massive</h4>
+        <h4 class="links-themes-title">Array</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
@@ -37,41 +37,53 @@
       <div class="info-right">
         <div id="extra-menu" class="links-themes-list"></div>
         <ul class="tabs-content-list info-right-content">
-          <!-- 1 -->
           <li id="mark1" class="tabs-content-item active">
-            <div class="update">
-              <span>&#8634;</span>
-            </div>
+            <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Welcome to our theme</div>
-            <div class="title-remark">
-              Added by blblblb, 12 23 2009 12:33
-            </div>
-            <div class="text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat facilis quo enim culpa hic, ratione tempora facere impedit?
-            </div>
+            <div class="title">Title</div>
+
+            <p>МАССИВЫ - Array методы</p>
             <pre>
               <code>
-              let forEach2 = document.getElementById('wrap-for-each2'); 
-              let but2 = document.getElementById('but2'); 
-
-              but2.addEventListener('click',function () { 
-                someArr.forEach(callback = (
-                  currentValue, index, array) => (div(currentValue, forEach2))); 
-                });
+    arr.push(item) -- добавляет новый элемент в конец! массива
+    arr.pop() -- Удаляет последний элемент из массива и возвращает его
+    arr.shift() -- Удаляет из массива первый элемент
+    arr.unshift('apple') -- Добавляет в начало массива элемент
+    <i>Методы push и unshift могут добавлять сразу по несколько элементов:</i>
+    
+    arr.join(', ') - соеденить массив --> строку и поставить кому между ел.
+    arr.splice(1, 1); - начиная с позиции 1, удалить 1 элемент
+    split(s) - который позволяет превратить строку в массив, разбив ее по разделителю s
+    arr.join(str) делает в точности противоположное split. Он берет массив и склеивает его в строку, используя str как разделитель 
+    slice(begin, end) копирует участок массива от begin до end, не включая end. Если не указать end – копирование будет до конца массива
+    arr.sort(fn) нужно передать функцию fn от двух элементов, которая умеет сравнивать их.
+    arr.reverse() меняет порядок элементов в массиве на обратный.
+    arr.concat(arr2) - обьеденяет массивы
+    arr.indexOf(searchElement[, fromIndex]) - возвращает номер элемента searchElement в массиве arr или -1, если его нет.
+    arr.lastIndexOf(searchElement[, fromIndex])» ищет справа-налево: с конца массива или с номера fromIndex, если он указан
+    Object.keys(obj) -- for...in для массивов
               </code>
             </pre>
+            <!-- end 1 -->
           </li>
-          <!-- 2 -->
           <li id="mark2" class="tabs-content-item">
-            <h1>content2</h1>
-          </li>
-          <!-- 3 -->
-          <li id="mark3" class="tabs-content-item">
-            <h1>content3</h1>
-          </li>
-          <!-- end -->
+            <!-- 2 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Title</div>
+            <ul>
 
+            </ul>
+            <!-- end 2 -->
+          </li>
+          <li id="mark3" class="tabs-content-item">
+            <!-- 3 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Title</div>
+            <ul>
+
+            </ul>
+            <!-- end -->
+          </li>
         </ul>
       </div>
     </div>

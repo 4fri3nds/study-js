@@ -1,6 +1,6 @@
 var JSON = {
   menu: [
-    { title: 'Practice 1', 
+    { title: 'Practice Module 1', 
       submenu: [
         { linkname: 'DOM, elems', link: '../practice/lesson1.html'},
         { linkname: 'input, events', link: '../practice/lesson2.html'},
@@ -12,7 +12,7 @@ var JSON = {
         { linkname: 'num, timers', link: '../practice/lesson8.html' }, 
         { linkname: 'check, radio', link: '../practice/lesson9.html' }]
     },
-    { title: 'Practice 2',
+    { title: 'Practice Module 2',
       submenu: [
         { linkname: 'tables, random, sort', link: '../practice/lesson10.html' },
         { linkname: 'this', link: '../practice/lesson11.html' }, 
@@ -24,27 +24,28 @@ var JSON = {
         { linkname: 'lesson-17', link: '../practice/lesson17.html' },
         { linkname: 'lesson-18', link: '../practice/lesson18.html' }]
     },
-    { title: 'Theory simple',
+    { title: 'Theory Primary',
       submenu: [
         { linkname: 'Data types', link: '../theory/data-types.html'},
-        { linkname: 'Sort', link: '../theory/Sort.html' },
-        { linkname: 'Array', link: '../theory/Array.html' },
-        { linkname: 'Object', link: '../theory/object.html' },
+        { linkname: 'Массивы', link: '../theory/Array.html' },
+        { linkname: 'Обьекты', link: '../theory/object.html' },
+        { linkname: 'Функции', link: '../theory/functions.html'},
         { linkname: 'Dom, Bom', link: '../theory/dom.html' },
-        { linkname: 'Browser', link: '../theory/browser.html' },
         { linkname: 'Events', link: '../theory/events.html' },
+        { linkname: 'Sort, Enum', link: '../theory/enumeration.html' },
         { linkname: 'Animation', link: '../theory/animation.html' }]
-    },
-    { title: 'Theory advanced',
+      },
+      { title: 'Theory Advanced',
       submenu: [
-        { linkname: 'Functions', link: '../theory/functions.html'},
         { linkname: 'Callback', link: '../theory/callback.html' },
-        { linkname: 'Closures', link: '../theory/closures.html' },
-        { linkname: 'Contecst', link: '../theory/contecst.html' },
+        { linkname: 'Замыкания', link: '../theory/closures.html' },
+        { linkname: 'Контекст', link: '../theory/contecst.html' },
         { linkname: 'OOP', link: '../theory/oop.html' },
-        { linkname: 'ajax', link: '../theory/ajax.html' },
-        { linkname: 'json', link: '../theory/json.html' },
-        { linkname: 'ES15-16', link: '../theory/ecmascript.html' }]
+        { linkname: 'Прототипы', link: '../theory/proto.html' },
+        { linkname: 'json, ajax', link: '../theory/json.html' },
+        { linkname: 'Интересное', link: '../theory/native-js.html' },
+        { linkname: 'TypeScript', link: '../theory/typescript.html' },
+        { linkname: 'EcmaScript', link: '../theory/ecmascript.html' }]
     }],
 
   breadcrumps: [
