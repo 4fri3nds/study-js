@@ -39,35 +39,28 @@
         <ul class="tabs-content-list info-right-content">
           <!-- 1 -->
           <li id="mark1" class="tabs-content-item active">
-            <ul>
-              <h3>Для чего нужны замыкания</h3>
-              <li>
-                Первое — это возможность не засорять глобальную область видимости.
-              </li>
-              <li>
-                Для изоляции jQuery от глобальной области видимости
-                <pre>
-                  <i>так</i>
-                  (function(){ 
-                    var $ = jQuery; 
-                    $('.hidden').hide(); 
-                  })();
-                </pre>
-                <pre>
-                  <i>или более изящный вариант</i>
-                  (function($){ 
-                    /* Код, использующий $ */ 
-                  })(jQuery);
-                </pre>
-                <pre>
-                  <i>или более понятный вариант - обьявили и сразу запустили</i>
-                  function __run($){ 
-                    /* code */ 
-                  }; 
-                  __run(jQuery);
-                </pre>
-              </li>
-              </ul>
+            <div class="update">
+              <span>&#8634;</span>
+            </div>
+            <div class="sub-title">Main</div>
+            <div class="title">Welcome to our theme</div>
+            <div class="title-remark">
+              Added by blblblb, 12 23 2009 12:33
+            </div>
+            <div class="text">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat facilis quo enim culpa hic, ratione tempora facere impedit?
+            </div>
+            <pre>
+              <code>
+              let forEach2 = document.getElementById('wrap-for-each2'); 
+              let but2 = document.getElementById('but2'); 
+
+              but2.addEventListener('click',function () { 
+                someArr.forEach(callback = (
+                  currentValue, index, array) => (div(currentValue, forEach2))); 
+                });
+              </code>
+            </pre>
           </li>
           <!-- 2 -->
           <li id="mark2" class="tabs-content-item">
@@ -87,7 +80,7 @@
   <script src="../../js/main/hilight.js"></script>
   <script src="../../js/main/dynamic.js"></script>
   <script src="../../js/main/main.js"></script>
-  <script src="../../js/theory/dom.js"></script>
+  <script src="../../js/theory/sort.js"></script>
 
 </body>
 

@@ -503,6 +503,7 @@ pre {
 #menu > ol > li {
   display: inline-block;
   width: 230px;
+  vertical-align: top;
 }
 
 #menu > ol > li > ol {

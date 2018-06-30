@@ -26,15 +26,14 @@ var JSON = {
     },
     { title: 'Theory simple',
       submenu: [
-        { linkname: 'Data types', link: '../theory/functions.html'},
+        { linkname: 'Data types', link: '../theory/data-types.html'},
         { linkname: 'Sort', link: '../theory/Sort.html' },
         { linkname: 'Array', link: '../theory/Array.html' },
         { linkname: 'Object', link: '../theory/object.html' },
         { linkname: 'Dom, Bom', link: '../theory/dom.html' },
         { linkname: 'Browser', link: '../theory/browser.html' },
         { linkname: 'Events', link: '../theory/events.html' },
-        { linkname: 'Animation', link: '../theory/animation.html' },
-        { linkname: 'lesson-9', link: '../theory/lesson9.html' }]
+        { linkname: 'Animation', link: '../theory/animation.html' }]
     },
     { title: 'Theory advanced',
       submenu: [
@@ -42,8 +41,7 @@ var JSON = {
         { linkname: 'Callback', link: '../theory/callback.html' },
         { linkname: 'Closures', link: '../theory/closures.html' },
         { linkname: 'Contecst', link: '../theory/contecst.html' },
-        { linkname: 'OOP-func', link: '../theory/oop-func.html' },
-        { linkname: 'OOP-proto', link: '../theory/oop-proto.html' },
+        { linkname: 'OOP', link: '../theory/oop.html' },
         { linkname: 'ajax', link: '../theory/ajax.html' },
         { linkname: 'json', link: '../theory/json.html' },
         { linkname: 'ES15-16', link: '../theory/ecmascript.html' }]

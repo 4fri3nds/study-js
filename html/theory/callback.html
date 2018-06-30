@@ -10,44 +10,82 @@
 </head>
 
 <body>
-  <div id="menu"></div>
-  <blockquote>
-    <h3>Callback</h3>
-    <ol>
-      <li>
-        Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
-      </li>
-      <li>
-        Мы можем использовать callback-функции, чтобы получить его асинхронно
-      </li>
-      <li>
-        (в идеальном случае единственное выражение return в конце функции: одна точка входа и одна точка выхода). Это имеет смысл.
-        Функции — это, в сущности, маршруты между вводом и выводом.
-      </li>
-      <li>
-        Это полезно для случаев, когда требуется много времени для завершения, например, при AJAX-запросах, ведь мы не можем приостановить
-        браузер. Мы можем продолжить заниматься другими делами в ожидании вызова колбека. Фактически, очень часто от нас
-        требуется (или, точнее, нам настоятельно рекомендуется) делать всё асинхронно в Javascript'е.
-      </li>
-      <li>
-        Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
-      </li>
-    </ol>
-  </blockquote>
+  <div class="nav">
+    <div id="bread-crumps"></div>
+    <div class="search">
+      <span>&#64;</span>
+      <input type="text">
+      <button>search</button>
+    </div>
+  </div>
+  <div class="header">
+    <div id="menu"></div>
+  </div>
+  <div class="content">
 
-  <div class="container">
-    <fieldset>
-      <legend>1. Нажмите на кнопку result</legend>
-      <p>Функция doHomework подтянет вызов alertFinished</p>
-      <p>Сначала будет выведено сообщение с текстом Starting my math homework., потом — с текстом Finished my homework.</p>
-      <p>
-        Функции обратного вызова совсем необязательно создавать непосредственно при вызове функций, которым они передаются. Как здесь
-      </p>
-      <pre>
+    <div class="info">
+      <div class="info-left">
+        <h4 class="links-themes-title">Pseudo Massive</h4>
+        <!-- TABS NAV-->
+        <ul class="tabs-nav-list">
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Теория</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Практическое применение</li>
+        </ul>
+        <!-- END NAV -->
+      </div>
+      <div class="info-right">
+        <div id="extra-menu" class="links-themes-list"></div>
+        <ul class="tabs-content-list info-right-content">
+          <li id="mark1" class="tabs-content-item active">
+              <!-- 1 -->
+         
+            <div class="sub-title">Main</div>
+            <div class="title">Callback</div>
+
+              <h3>Callback</h3>
+              <ol>
+                <li>
+                  Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
+                </li>
+                <li>
+                  Мы можем использовать callback-функции, чтобы получить его асинхронно
+                </li>
+                <li>
+                  (в идеальном случае единственное выражение return в конце функции: одна точка входа и одна точка выхода). Это имеет смысл.
+                  Функции — это, в сущности, маршруты между вводом и выводом.
+                </li>
+                <li>
+                  Это полезно для случаев, когда требуется много времени для завершения, например, при AJAX-запросах, ведь мы не можем приостановить
+                  браузер. Мы можем продолжить заниматься другими делами в ожидании вызова колбека. Фактически, очень часто
+                  от нас требуется (или, точнее, нам настоятельно рекомендуется) делать всё асинхронно в Javascript'е.
+                </li>
+                <li>
+                  Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
+                </li>
+              </ol>
+
+            <!-- end 1 -->
+          </li>
+          <!-- 2 -->
+          <li id="mark2" class="tabs-content-item">
+            <h1>content2</h1>
+          </li>
+          <li id="mark3" class="tabs-content-item">
+            <!-- 3 -->
+<div class="container">
+  <fieldset>
+    <legend>1. Нажмите на кнопку result</legend>
+    <p>Функция doHomework подтянет вызов alertFinished</p>
+    <p>Сначала будет выведено сообщение с текстом Starting my math homework., потом — с текстом Finished my homework.</p>
+    <p>
+      Функции обратного вызова совсем необязательно создавать непосредственно при вызове функций, которым они передаются. Как здесь
+    </p>
+    <pre>
         <h3>callback можно передавать непосредственно в вызове главной функции</h3>
            doHomework('math', function() { alert('Finished my homework'); });
         </pre>
-      <pre>
+    <pre>
         <h3>или создать отдельно функцию и передать ее в callback</h3>
         
         function doHomework(subject, callback) { 
@@ -62,26 +100,26 @@
         doHomework('math', alertFinished);
       </pre>
 
-      <button id="result1" style="display: inline-block; text-align: center; padding: 3px 10px; border-radius: 3px;">
-        <h2 style="text-align: center; margin: 0; font-weight: 100;">result</h2>
-      </button>
+    <button id="result1" style="display: inline-block; text-align: center; padding: 3px 10px; border-radius: 3px;">
+      <h2 style="text-align: center; margin: 0; font-weight: 100;">result</h2>
+    </button>
 
-      <span>При нажатии вызов второй функции произойдет с первой, в том заданом порядке</span>
-    </fieldset>
-    <fieldset>
-      <legend>2. Использование колбеков в twitter</legend>
-      <p>
-        Это функция, которая выполняет get-запрос к Twitter API. У функции три аргумента. Первый — 'search/tweets', представляет
-        собой маршрут запроса. Здесь мы собираемся выполнить поиск по твитам. Второй аргумент — params — это параметры поиска.
-        Третий аргумент — анонимная функция, которая и является функцией обратного вызова. </p>
-      <p>Функция обратного вызова здесь весьма важна, так как, прежде чем продолжать работу, нужно дождаться ответа от сервера.
-        Неизвестно, будет ли обращение к API успешным, поэтому, после отправки параметров поиска по маршруту search/tweet
-        с помощью get-запроса, приходится ждать. Как только Twitter ответит на запрос, будет выполнена функция обратного
-        вызова. Если что-то пошло не так, в ней мы получим объект ошибок (err). Если запрос обработан нормально, в аргументе
-        err будет значение, эквивалентное false, а значит, во-первых, будет исполнена ветвь if условного оператора, а во-вторых
-        — можно будет рассчитывать на то, что в объекте response окажутся некие полезные данные, с которыми уже можно что-то
-        делать.</p>
-      <pre>
+    <span>При нажатии вызов второй функции произойдет с первой, в том заданом порядке</span>
+  </fieldset>
+  <fieldset>
+    <legend>2. Использование колбеков в twitter</legend>
+    <p>
+      Это функция, которая выполняет get-запрос к Twitter API. У функции три аргумента. Первый — 'search/tweets', представляет
+      собой маршрут запроса. Здесь мы собираемся выполнить поиск по твитам. Второй аргумент — params — это параметры поиска.
+      Третий аргумент — анонимная функция, которая и является функцией обратного вызова. </p>
+    <p>Функция обратного вызова здесь весьма важна, так как, прежде чем продолжать работу, нужно дождаться ответа от сервера.
+      Неизвестно, будет ли обращение к API успешным, поэтому, после отправки параметров поиска по маршруту search/tweet с
+      помощью get-запроса, приходится ждать. Как только Twitter ответит на запрос, будет выполнена функция обратного вызова.
+      Если что-то пошло не так, в ней мы получим объект ошибок (err). Если запрос обработан нормально, в аргументе err будет
+      значение, эквивалентное false, а значит, во-первых, будет исполнена ветвь if условного оператора, а во-вторых — можно
+      будет рассчитывать на то, что в объекте response окажутся некие полезные данные, с которыми уже можно что-то делать.
+    </p>
+    <pre>
         T.get('search/tweets', params, function(err, data, response) { 
           if(!err) { 
             // Именно здесь можно работать с тем, что вернёт нам Twitter 
@@ -92,11 +130,11 @@
         
         T.get()
       </pre>
-    </fieldset>
-    <fieldset>
-      <legend>3. Передавать функцию в качестве аргумента просто</legend>
-      <p>Аргумент callback является</p>
-      <pre>
+  </fieldset>
+  <fieldset>
+    <legend>3. Передавать функцию в качестве аргумента просто</legend>
+    <p>Аргумент callback является</p>
+    <pre>
           // определяем нашу функцию с аргументом 
         callback function some_function(arg1, arg2, callback) { 
             // переменная, генерирующая случайное число в интервале между arg1 и arg2 
@@ -111,15 +149,15 @@
           console.log("callback called! " + num); 
         });
       </pre>
-      <button id="result2" class="sq">
-        result
-      </button>
-      <div id="displayResult2"></div>
-    </fieldset>
-    <fieldset>
-      <legend>4. Предавать callback в жизни</legend>
-      <p>Аргумент callback является</p>
-      <pre>
+    <button id="result2" class="sq">
+      result
+    </button>
+    <div id="displayResult2"></div>
+  </fieldset>
+  <fieldset>
+    <legend>4. Предавать callback в жизни</legend>
+    <p>Аргумент callback является</p>
+    <pre>
  function some_function2(url, callback) { 
    var httpRequest; 
    // создаём наш XMLHttpRequest-объект 
@@ -149,11 +187,20 @@ some_function2("text.xml", function () {
 
 console.log("это выполнится до вышеуказанного колбека");
       </pre>
-    </fieldset>
-  </div>
-<script src="../../js/main/dynamic.js"></script>
-<script src="../../js/main/main.js"></script>
-<script src="../../js/theory/callback.js"></script>
+  </fieldset>
+              <!-- end 3-->
+          </li>
+
+        </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/main/hilight.js"></script>
+    <script src="../../js/main/dynamic.js"></script>
+    <script src="../../js/main/main.js"></script>
+    <script src="../../js/theory/callback.js"></script>
+
 </body>
 
 </html>

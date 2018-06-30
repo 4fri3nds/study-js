@@ -10,130 +10,166 @@
 </head>
 
 <body>
-  <div id="menu"></div>
-  <blockquote>
-    <h3>Функции</h3>
-    <ol>
-      <li>
-        Функции в Javascript'е — немного странные штуки. Функции в Javascript'е — на самом деле объекты. А именно, объекты класса
-        Function, создаваемые конструктором Function. В объекте Function содержится строка с JS-кодом данной функции.
-      </li>
-      <li>
-        Первый пример вызовит функцию без клика
-        <pre>
-          <code>
-            but.onclick = func(x, y); //вызов без клика
-            but.onclick = func() { func(x, y) }; //вызов по клику
-          </code>
-        </pre>
-      </li>
-      <li>
-        <p>обращаясь к методу arguments[i] мы можем передать любое кол-во параметров</p>
-        <pre>
-          <code>
-            function display() {
-              var z = 1;
-              for(var i=0; i < arguments.length; i++) {
-                z *= arguments[i];
-                console.log(z);
-              }
-            };
-            
-            display(6); // 6
-            display(6, 4) // 24
-            display(6, 4, 5) // 120
-          </code>
-        </pre>
-      </li>
-      <li>
-        <p>Вызов из анонимной замыкающей функции</p>
-        <pre>
-          <code>
-            (function(){ 
-              var title = "Hello World"; 
-              function showTitle(){ 
-                alert(title); 
-              } 
-              window.showSimpleTitle = showTitle; 
-            })();
-            
-            showSimpleTitle();
-          </code>
-        </pre>
-      </li>
-      <li>
-        <p>Вызов функций из обьекта</p>
-        <pre>
-          <code>
-            var exampleObject = { 
-              "title": "Example Title", 
-              "showTitle": function(){ 
-                alert(this.title); 
-              } 
-            };
-            
-            exampleObject.showTitle();
-          </code>
-        </pre>
-      </li>
-      <li>
-        <p>Вызов функции в контексте обьекта</p>
-        <pre>
-          <code>
-            function showTitle() { 
-              alert(this.title); 
-            } 
-            
-            var objectA = { 
-              "title": "Title A", 
-              "showTitle": showTitle 
-            }; 
-            
-            var objectB = { 
-              "title": "Title B", 
-              "showTitle": showTitle 
-            };
-            
-            objectA.showTitle(); 
-            objectB.showTitle();
-          </code>
-        </pre>
-      </li>
-      <li>
-        Вывод первого задания
-        <b>
-          Итого: если функция вызвана как свойство объекта, то this будет ссылаться на этот объект. Если вызывающего объекта нет, this
-          будет ссылаться на глобальный объект window.
-        </b>
-      </li>
-      <li>
-        Частая ошибка чтобы this в функции showTitle ссылалась на обьект exampleObject - нужно эту функцию запускать в контексте
-        обьекта
-        <pre>
-          <code>
-            exampleObject.showTitle - плохо
-            exampleObject.showTitle() - хорошо
-          </code>
-        </pre>
-      </li>
-      <li>
+  <div class="nav">
+    <div id="bread-crumps"></div>
+    <div class="search">
+      <span>&#64;</span>
+      <input type="text">
+      <button>search</button>
+    </div>
+  </div>
+  <div class="header">
+    <div id="menu"></div>
+  </div>
+  <div class="content">
 
-      </li>
-      <li>
-
-      </li>
-    </ol>
-  </blockquote>
-
-  <div class="container">
-    <fieldset>
-      <legend>1. 1</legend>
-      <p>This внутри функции и обьекта exampleObject будет указывать не на этот обьект а на глоб обьект window</p>
-      <p>
-        из-за того, что в строке var showTitle = exampleObject.showTitle мы получаем ссылку только функцию, и при вызове showTitle()
-        нет ссылки на исходный объект exampleObject, отчего this начинает ссылаться на объект window.
-      </p>
-      <pre>
+    <div class="info">
+      <div class="info-left">
+        <h4 class="links-themes-title">Pseudo Massive</h4>
+        <!-- TABS NAV-->
+        <ul class="tabs-nav-list">
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Практическое применение</li>
+        </ul>
+        <!-- END NAV -->
+      </div>
+      <div class="info-right">
+        <div id="extra-menu" class="links-themes-list"></div>
+        <ul class="tabs-content-list info-right-content">
+          <li id="mark1" class="tabs-content-item active">
+            <!-- 1 -->
+            <div class="update">
+              <span>&#8634;</span>
+            </div>
+            <div class="sub-title">Main</div>
+            <div class="title">Welcome to our theme</div>
+            <div class="title-remark">
+              Added by blblblb, 12 23 2009 12:33
+            </div>
+            <ul>
+              <li>
+                Функции в Javascript'е — немного странные штуки. Функции в Javascript'е — на самом деле объекты. А именно, объекты класса
+                Function, создаваемые конструктором Function. В объекте Function содержится строка с JS-кодом данной функции.
+              </li>
+              <li>
+                Первый пример вызовит функцию без клика
+                <pre>
+                <code>
+                  but.onclick = func(x, y); //вызов без клика
+                  but.onclick = func() { func(x, y) }; //вызов по клику
+                </code>
+              </pre>
+              </li>
+              <li>
+                <p>обращаясь к методу arguments[i] мы можем передать любое кол-во параметров</p>
+                <pre>
+                <code>
+                  function display() {
+                    var z = 1;
+                    for(var i=0; i < arguments.length; i++) {
+                      z *= arguments[i];
+                      console.log(z);
+                    }
+                  };
+                  
+                  display(6); // 6
+                  display(6, 4) // 24
+                  display(6, 4, 5) // 120
+                </code>
+              </pre>
+              </li>
+              <li>
+                <p>Вызов из анонимной замыкающей функции</p>
+                <pre>
+              <code>
+                (function(){ 
+                  var title = "Hello World"; 
+                  function showTitle(){ 
+                    alert(title); 
+                  } 
+                  window.showSimpleTitle = showTitle; 
+                })();
+                
+                showSimpleTitle();
+              </code>
+            </pre>
+              </li>
+              <li>
+                <p>Вызов функций из обьекта</p>
+                <pre>
+                <code>
+                  var exampleObject = { 
+                    "title": "Example Title", 
+                    "showTitle": function(){ 
+                      alert(this.title); 
+                    } 
+                  };
+                  
+                  exampleObject.showTitle();
+                </code>
+              </pre>
+              </li>
+              <li>
+                <p>Вызов функции в контексте обьекта</p>
+                <pre>
+              <code>
+                function showTitle() { 
+                  alert(this.title); 
+                } 
+                
+                var objectA = { 
+                  "title": "Title A", 
+                  "showTitle": showTitle 
+                }; 
+                
+                var objectB = { 
+                  "title": "Title B", 
+                  "showTitle": showTitle 
+                };
+                
+                objectA.showTitle(); 
+                objectB.showTitle();
+              </code>
+            </pre>
+              </li>
+              <li>
+                Вывод первого задания
+                <b>
+                  Итого: если функция вызвана как свойство объекта, то this будет ссылаться на этот объект. Если вызывающего объекта нет, this
+                  будет ссылаться на глобальный объект window.
+                </b>
+              </li>
+              <li>
+                Частая ошибка чтобы this в функции showTitle ссылалась на обьект exampleObject - нужно эту функцию запускать в контексте
+                обьекта
+                <pre>
+                <code>
+                  exampleObject.showTitle - плохо
+                  exampleObject.showTitle() - хорошо
+                </code>
+              </pre>
+                <!-- end 1 -->
+              </li>
+            </ul>
+          </li>
+          <li id="mark2" class="tabs-content-item">
+            <!-- 2 -->
+            <h1>content2</h1>
+            <!-- end 2 -->
+          </li>
+          <li id="mark3" class="tabs-content-item">
+            <!-- 3 -->
+            <h1>Практическое использование</h1>
+            <div class="container">
+              <fieldset>
+                <legend>1. 1</legend>
+                <p>This внутри функции и обьекта exampleObject будет указывать не на этот обьект а на глоб обьект window</p>
+                <p>
+                  из-за того, что в строке var showTitle = exampleObject.showTitle мы получаем ссылку только функцию, и при вызове showTitle()
+                  нет ссылки на исходный объект exampleObject, отчего this начинает ссылаться на объект window.
+                </p>
+                <pre>
         <code>
           var title = "Global Title"; 
           var exampleObject = { 
@@ -147,19 +183,26 @@
           showTitle(); // а тут вызываем функцию без ссылки на объект
         </code>
       </pre>
-      <button id="but1">click</button>
-    </fieldset>
-    <fieldset>
-      <legend>2. </legend>
-      
-    </fieldset>
+                <button id="but1">click</button>
+              </fieldset>
+              <fieldset>
+                <legend>2. </legend>
+
+              </fieldset>
+            </div>
+            <!-- end 3-->
+          </li>
+
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <script src='http://yastatic.net/highlightjs/8.2/highlight.min.js'/></script>
- 
+  <script src="../../js/main/hilight.js"></script>
   <script src="../../js/main/dynamic.js"></script>
   <script src="../../js/main/main.js"></script>
   <script src="../../js/theory/functions.js"></script>
+
 </body>
 
 </html>
