@@ -28,9 +28,9 @@
         <h4 class="links-themes-title">Array</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Методы</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Сортировка</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Код</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -40,48 +40,80 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-
-            <p>МАССИВЫ - Array методы</p>
-            <pre>
-              <code>
-    arr.push(item) -- добавляет новый элемент в конец! массива
-    arr.pop() -- Удаляет последний элемент из массива и возвращает его
-    arr.shift() -- Удаляет из массива первый элемент
-    arr.unshift('apple') -- Добавляет в начало массива элемент
-    <i>Методы push и unshift могут добавлять сразу по несколько элементов:</i>
-    
-    arr.join(', ') - соеденить массив --> строку и поставить кому между ел.
-    arr.splice(1, 1); - начиная с позиции 1, удалить 1 элемент
-    split(s) - который позволяет превратить строку в массив, разбив ее по разделителю s
-    arr.join(str) делает в точности противоположное split. Он берет массив и склеивает его в строку, используя str как разделитель 
-    slice(begin, end) копирует участок массива от begin до end, не включая end. Если не указать end – копирование будет до конца массива
-    arr.sort(fn) нужно передать функцию fn от двух элементов, которая умеет сравнивать их.
-    arr.reverse() меняет порядок элементов в массиве на обратный.
-    arr.concat(arr2) - обьеденяет массивы
-    arr.indexOf(searchElement[, fromIndex]) - возвращает номер элемента searchElement в массиве arr или -1, если его нет.
-    arr.lastIndexOf(searchElement[, fromIndex])» ищет справа-налево: с конца массива или с номера fromIndex, если он указан
-    Object.keys(obj) -- for...in для массивов
-              </code>
-            </pre>
+            <div class="title">МАССИВЫ - Array</div>
+            <fieldset>
+              <legend>Методы</legend>
+              <pre>
+                <code>
+                  <b>Добавить</b>
+                  arr.push(item) -- добавляет новый элемент в конец! массива
+                  arr.unshift('apple') -- Добавляет в начало массива элемент
+                  arr.concat(arr2) -- обьеденяет массивы
+                  <i>-- Методы push и unshift могут добавлять сразу по несколько элементов</i>
+                  
+                  <b>Удалить</b>
+                  arr.pop() -- Удаляет последний элемент из массива и возвращает его
+                  arr.shift() -- Удаляет из массива первый элемент
+                  arr.splice(0, 1); -- с позиции 0 - удаляет один элемент
+                  
+                  <b>Преобразовать</b>
+                  arr.join(', ') -- соеденить массив в строку и поставить кому между ел.
+                  split(s) -- который позволяет превратить строку в массив, разбив ее по разделителю s
+                  arr.join(str) -- делает в точности противоположное split. Он берет массив и склеивает его в строку, используя str как разделитель
+                  
+                  <b>Скопировать</b>
+                  slice(begin, end) -- копирует участок массива от begin до end, не включая end. Если не указать end – копирование будет до конца массива
+                  
+                  <b>Отсортировать</b>
+                  arr.sort(fn) -- нужно передать функцию fn от двух элементов, которая умеет сравнивать их.
+                  arr.reverse() -- меняет порядок элементов в массиве на обратный.
+                  
+                  <b>Поиск</b>
+                  arr.indexOf(searchElement[, fromIndex]) -- возвращает номер элемента searchElement в массиве arr или -1, если его нет.
+                  arr.lastIndexOf(searchElement[, fromIndex]) -- ищет справа-налево: с конца массива или с номера fromIndex, если он указан
+                  
+                  <b>Минимальное и максимальное значение массива</b>
+                  Math.min.apply(null, [3,5,2]) -- минимальное число 2
+                  Math.max.apply(null, [3,5,2]) -- максимальное число 5
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">Сортировка</div>
+            <fieldset>
+              <legend>Сортировка чисел</legend>
+              <pre class="code">
+                <code>
+                  function compareNumbers(a, b) { 
+                    return a - b; 
+                  } -- Функция для сортировки чисел, используется с методом sort
+                  
+                  arr.sort(compareNumbers) -- метод .Sort()
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">Код</div>
+            <fieldset>
+              <legend>3. Проверка на уникальность элементов массива</legend>
+              <p>
+                Cлучай из задачника. Нужно зделать уникальные елементы и чтобы они не повторялись. Я назначил провел их через обьект назначая
+                каждому уникальному значению массива true в обьекте.
+              </p>
+              <pre>
+                <code>
+                  <b>obj[arr[i]] = true</b> -- уникальным элементам массива мы в обьекте даем значение true. Tак они больше не повторяются
+                </code>
+              </pre>
+            </fieldset>
             <!-- end -->
           </li>
         </ul>

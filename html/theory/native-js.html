@@ -41,37 +41,58 @@
             <!-- 1 -->
             <div class="sub-title">Main</div>
             <div class="title">Прикольные практики или просто красивый код</div>
-            <ul>
-              <li>
-                <p>Прикольные записи</p>
-                <pre>
-               <code>
-                 if(y === undefined) y = 5;
-                 (y === undefined) ? (do...) : (else do ...)
-                 mass == [1,2,3]; ...mass // 1 2 3; 
-                 func(...mass) == func(1,2,3) //true  
-                </pre>
+            <fieldset>
+              <legend>1. Короткая запись</legend>
+              <pre>
+                <code>
+                  if(y === undefined) y = 5; -- если нету else и условие достаточно короткое
+                  (y === undefined) ? (do...) : (else do ...) -- короткая запись if-else
+                  mass == [1,2,3]; ...mass // 1 2 3 -- отображает содержание массива
+                  func(...mass) == func(1,2,3) //true  -- ...(три точки) можно передавать массив в качестве параметров функции
                 </code>
-              </li>
-            </ul>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Проверить повторяющийся код</legend>
+              <h3>
+                Вот так засунуть выполнение функции в true - false
+              </h3>
+              <pre class="code">
+                <code>
+                  var bool = true;
+                  
+                  if (bool) { 
+                    var func = function () { 
+                      alert('!'); 
+                    } 
+                  } else { 
+                    var func = function () { 
+                      alert('!!'); 
+                    } 
+                  };
+                  
+                  func();
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
             <div class="title">title</div>
-            <ul>
-              
-            </ul>
+            <fieldset>
+              <legend>1. title</legend>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
             <div class="title">title</div>
-            <ul>
-  
-            </ul>
+            <fieldset>
+              <legend>1. title</legend>
+            </fieldset>
             <!-- end 3-->
           </li>
         </ul>

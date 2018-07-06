@@ -41,93 +41,95 @@
             <!-- 1 -->
             <div class="sub-title">Main</div>
             <div class="title">Работа с обьектом и прототипом</div>
-            <ul>
-              <li>
-                <p>
-                  Работать с объектами в JavaScript очень просто — нужно всего лишь объявить объект и назначить ему свойства и методы
-                </p>
-                <pre>
-                  <code>
-                    var dog = { 
-                      "name": "Rocky", 
-                      "age": "5", 
-                      "talk": function(){ 
-                        alert('Name: ' + this.name + ', Age: ' + this.age); 
-                      } 
-                    };
-                  </code>
-                </pre>
-                <p>Если у нас много объектов, то удобнее будет сделать отдельную функцию, возвращающую объект</p>
-                <pre>
-                  <code>
-                    <b>result:</b>        
-                    function getDog(name, age){ 
-                      return { 
-                        "name": name, 
-                        "age": age, 
-                        "talk": function(){ 
-                          alert('Name: ' + this.name + ', Age: ' + this.age); 
-                        } 
-                      }; 
+            <fieldset>
+              <legend>1. Свойства и методы обьектов</legend>
+              <p>
+                Работать с объектами в JavaScript очень просто — нужно всего лишь объявить объект и назначить ему свойства и методы
+              </p>
+              <pre class="code">
+                <code>
+                  var dog = { 
+                    "name": "Rocky", 
+                    "age": "5", 
+                    "talk": function(){ 
+                      alert('Name: ' + this.name + ', Age: ' + this.age); 
                     } 
-                    var rocky = getDog('Rocky', 5); 
-                    var jerry = getDog('Jerry', 3);
-                  </code>
-                </pre>
-                <p>То же самое можно сделать с использованием прототипов</p>
-                <pre>
-                  <code>
-                    <b>result:</b>        
-                    function Dog(name, age){ 
-                      this['name'] = name; 
-                      this.age = age; 
-                    } 
-                    Dog.prototype = { 
+                  };
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Переиспользование обьекта</legend>
+              <p>Если объект, нужно переиспользовать то удобнее будет сделать отдельную функцию, возвращающую объект</p>
+              <pre class="code">
+                <code>
+                  <b>result:</b>        
+                  function getDog(name, age){ 
+                    return { 
+                      "name": name, 
+                      "age": age, 
                       "talk": function(){ 
                         alert('Name: ' + this.name + ', Age: ' + this.age); 
                       } 
                     }; 
-                    var rocky = new Dog('Rocky', 5); 
-                    var jerry = new Dog('Jerry', 3);
-                  </code>
-                </pre>
-              </li>
-            </ul>
+                  } 
+                  var rocky = getDog('Rocky', 5); 
+                  var jerry = getDog('Jerry', 3);
+                </code>
+              </pre>
+              <p>То же самое можно сделать с использованием прототипов</p>
+              <pre class="code">
+                <code>
+                  <b>result:</b>        
+                  function Dog(name, age){ 
+                    this['name'] = name; 
+                    this.age = age; 
+                  } 
+                  Dog.prototype = { 
+                    "talk": function(){ 
+                      alert('Name: ' + this.name + ', Age: ' + this.age); 
+                    } 
+                  }; 
+                  var rocky = new Dog('Rocky', 5); 
+                  var jerry = new Dog('Jerry', 3);
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
             <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <fieldset>
+              <legend>1. title</legend>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Практика</div>
-            <div class="container">
-              <fieldset>
-                <legend>1. Узнать день недели</legend>
-                <p>Без использования прототипа</p>
-                <pre>
+            <div class="title">Код</div>
+            <fieldset>
+              <legend>1. Узнать день недели</legend>
+
+              <p>Без использования прототипа</p>
+              <pre class="code">
                   <code>
-                  function getDayName(date) { 
-                    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; 
-                    return days[date.getDay()]; 
-                  };
-                  
-                  var today = new Date(); 
-                  alert(getDayName(today));
+                    function getDayName(date) { 
+                      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; 
+                      return days[date.getDay()]; 
+                    };
+                    
+                    var today = new Date(); 
+                    alert(getDayName(today));
                   </code>
                 </pre>
-                <button id="but1" class="btn">click</button>
-                <hr>
-                <p>С использованием прототипа</p>
-                <p>Но расширяет втроеный обьект даты</p>
-                <pre>
+              <button id="but1" class="btn">click</button>
+              <hr>
+              <p>С использованием прототипа</p>
+              <p>Но расширяет втроеный обьект даты</p>
+              <pre class="code">
                   <code>
                     Date.prototype.getDayName = function(){ 
                       var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -138,10 +140,9 @@
                     alert(today.getDayName());
                   </code>
                 </pre>
-                <button id="but2">click</button>
-              </fieldset>
-            </div>
-            <!-- end -->
+              <button id="but2">click</button>
+            </fieldset>
+            <!-- end 3-->
           </li>
         </ul>
       </div>

@@ -28,9 +28,9 @@
         <h4 class="links-themes-title">Замыкания</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Применение</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">заголовок</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">заголовок</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -39,53 +39,109 @@
         <ul class="tabs-content-list info-right-content">
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
-            <ul>
-              <h3>Для чего нужны замыкания</h3>
-              <li>
-                Первое — это возможность не засорять глобальную область видимости.
-              </li>
-              <li>
-                Для изоляции jQuery от глобальной области видимости
-                <pre>
-                  <i>так</i>
-                  (function(){ 
-                    var $ = jQuery; 
-                    $('.hidden').hide(); 
-                  })();
+            <fieldset>
+              <legend>1. Для чего нужны замыкания</legend>
+              <p>Первое — это возможность не засорять глобальную область видимости.</p>
+              <p>Для изоляции jQuery от глобальной области видимости</p>
+              <pre class="code">
+                  <code>
+                    <i>так</i>
+                    (function(){ 
+                      var $ = jQuery; 
+                      $('.hidden').hide(); 
+                    })();
+                  </code>
                 </pre>
-                <pre>
-                  <i>или более изящный вариант</i>
-                  (function($){ 
-                    /* Код, использующий $ */ 
-                  })(jQuery);
+              <pre class="code">
+                  <code>
+                    <i>или более изящный вариант</i>
+                    (function($){ 
+                      /* Код, использующий $ */ 
+                    })(jQuery);
+                  </code>
                 </pre>
-                <pre>
-                  <i>или более понятный вариант - обьявили и сразу запустили</i>
-                  function __run($){ 
-                    /* code */ 
-                  }; 
-                  __run(jQuery);
+              <pre class="code">
+                  <code>
+                    <i>или более понятный вариант - обьявили и сразу запустили</i>
+                    function __run($){ 
+                      /* code */ 
+                    }; 
+                    __run(jQuery);
+                  </code>
                 </pre>
-              </li>
-              </ul>
+            </fieldset>
+            <fieldset>
+              <legend>2. Замыкания</legend>
+              <p>
+                Возможность использовать вызовы функций как переменные вкупе с тем фактом, что локальные переменные каждый раз при вызове
+                функции создаются заново. Дает нам возможность создавать функцию в функции. Параметры которых могут взаимодействовать
+                друг с другом.
+              </p>
+              <p>
+                Мы вкладываем функцию в переменную и функции даем параметр. А потом даем переменной параметр который будет параметром второй
+                функции - в функции которую положили в переменную.
+              </p>
+              <pre class="code">
+                <code>
+                  <b>result: 10</b>        
+                  function multiplier(factor) { 
+                    return function(number) { 
+                      return number * factor; 
+                    }
+                  } 
+                  var twice = multiplier(2); 
+                  console.log(twice(5));
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. WHILE</legend>
+              <p>
+                Всегда число будет трех-значное.
+              </p>
+              <pre class="code">
+                  <code>
+                    <b>result: 004, 044, 444</b>        
+                    function inventory (cows) { 
+                      let x = 0; 
+                      let cowsStr = String(cows); 
+                      while (cowsStr.length < 3) { 
+                        cowsStr='0' + cowsStr; 
+                        x++;
+                      };
+                      console.log(cowsStr); 
+                    }; 
+                    inventory(4);
+                    inventory(44);
+                    inventory(444);
+                  </code>
+                </pre>
+              <pre class="code">
+                  <code>
+                    while (true) { 
+                      // ... 
+                    }
+                  </code>
+                </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
             <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <fieldset>
+              <legend>1. Заголовок</legend>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
             <div class="title">Title</div>
-            <ul>
-  
-            </ul>
+            <fieldset>
+              <legend>1. Заголовок</legend>
+            </fieldset>
             <!-- end 3-->
           </li>
         </ul>

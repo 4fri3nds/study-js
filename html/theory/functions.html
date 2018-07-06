@@ -28,9 +28,12 @@
         <h4 class="links-themes-title">Functions</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Практическое применение</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Примеры кода</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">This</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Return</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Практическое применение</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Arguments</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark6')">title</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -39,31 +42,55 @@
         <ul class="tabs-content-list info-right-content">
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
-            <div class="update">
-              <span>&#8634;</span>
-            </div>
             <div class="sub-title">Main</div>
-            <div class="title">Welcome to our theme</div>
-            <div class="title-remark">
-              Added by blblblb, 12 23 2009 12:33
-            </div>
-            <ul>
-              <li>
+            <div class="title">Примеры использования</div>
+            <fieldset>
+              <legend>1. Функции на самом деле</legend>
+              <p>
                 Функции в Javascript'е — немного странные штуки. Функции в Javascript'е — на самом деле объекты. А именно, объекты класса
                 Function, создаваемые конструктором Function. В объекте Function содержится строка с JS-кодом данной функции.
-              </li>
-              <li>
-                Первый пример вызовит функцию без клика
-                <pre>
+              </p>
+
+              <h3>
+                Нужно не забывать что повторяющаяся функция переписывает переменные на начальные, если они находятся в середине.
+              </h3>
+            </fieldset>
+            <fieldset>
+              <legend>2. Функции не копируются</legend>
+              <h3>В js функции не копируются, а ссылаются друг на друга.</h3>
+              <pre>
+                <code>
+                  function func() { alert('!'); }); 
+                  var test = func; //И test и func указывают на одну и ту же функцию
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Разновидности функций</legend>
+              <h3>Есть два вида обьявления</h3>
+              <pre>
+                <code>
+                  <b>Function - Declaration:</b> ее вызов будет работать в любом месте
+                  function func() { //... }); |
+                  <b>Function - Expression:</b> ее вызов будет работать только с кодом сверху-вниз
+                  func = function() { //... });
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Функция суть - код который повторяется</legend>
+              <b>Ошибка:</b> Первый пример вызовит функцию без клика
+              <pre>
                 <code>
                   but.onclick = func(x, y); //вызов без клика
                   but.onclick = func() { func(x, y) }; //вызов по клику
                 </code>
               </pre>
-              </li>
-              <li>
-                <p>обращаясь к методу arguments[i] мы можем передать любое кол-во параметров</p>
-                <pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Метод Arguments</legend>
+              <h3>обращаясь к методу arguments[i] мы можем передать любое кол-во параметров</h3>
+              <pre class="code">
                 <code>
                   function display() {
                     var z = 1;
@@ -78,26 +105,28 @@
                   display(6, 4, 5) // 120
                 </code>
               </pre>
-              </li>
-              <li>
-                <p>Вызов из анонимной замыкающей функции</p>
-                <pre>
-              <code>
-                (function(){ 
-                  var title = "Hello World"; 
-                  function showTitle(){ 
-                    alert(title); 
-                  } 
-                  window.showSimpleTitle = showTitle; 
-                })();
-                
-                showSimpleTitle();
-              </code>
-            </pre>
-              </li>
-              <li>
-                <p>Вызов функций из обьекта</p>
-                <pre>
+            </fieldset>
+            <fieldset>
+              <legend>6. Проброс функции в глобальную область</legend>
+              <h3>Вызов из анонимной замыкающей функции</h3>
+              <pre class="code">
+                <code>
+                  (function(){ 
+                    var title = "Hello World"; 
+                    function showTitle(){ 
+                      alert(title); 
+                    } 
+                    window.showSimpleTitle = showTitle; 
+                  })();
+                  
+                  showSimpleTitle();
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>7. Функция как часть обьекта</legend>
+              <h3>Вызов функций из обьекта</h3>
+              <pre class="code">
                 <code>
                   var exampleObject = { 
                     "title": "Example Title", 
@@ -109,93 +138,322 @@
                   exampleObject.showTitle();
                 </code>
               </pre>
-              </li>
-              <li>
-                <p>Вызов функции в контексте обьекта</p>
-                <pre>
-              <code>
-                function showTitle() { 
-                  alert(this.title); 
-                } 
-                
-                var objectA = { 
-                  "title": "Title A", 
-                  "showTitle": showTitle 
-                }; 
-                
-                var objectB = { 
-                  "title": "Title B", 
-                  "showTitle": showTitle 
-                };
-                
-                objectA.showTitle(); 
-                objectB.showTitle();
-              </code>
-            </pre>
-              </li>
-              <li>
-                Вывод первого задания
-                <b>
-                  Итого: если функция вызвана как свойство объекта, то this будет ссылаться на этот объект. Если вызывающего объекта нет, this
-                  будет ссылаться на глобальный объект window.
-                </b>
-              </li>
-              <li>
-                Частая ошибка чтобы this в функции showTitle ссылалась на обьект exampleObject - нужно эту функцию запускать в контексте
-                обьекта
-                <pre>
+            </fieldset>
+            <fieldset>
+              <legend>8. Общая функция на два обьекта</legend>
+              <h3>Вызов функции в контексте обьекта</h3>
+              <pre class="code">
                 <code>
-                  exampleObject.showTitle - плохо
-                  exampleObject.showTitle() - хорошо
+                  function showTitle() { 
+                    alert(this.title); 
+                  } 
+                  
+                  var objectA = { 
+                    "title": "Title A", 
+                    "showTitle": showTitle 
+                  }; 
+                  
+                  var objectB = { 
+                    "title": "Title B", 
+                    "showTitle": showTitle 
+                  };
+                  
+                  objectA.showTitle(); 
+                  objectB.showTitle();
                 </code>
               </pre>
-                <!-- end 1 -->
-              </li>
-            </ul>
+              <i> !!! Частая ошибка чтобы this в функции showTitle ссылалась на обьект exampleObject - нужно эту функцию запускать
+                в контексте обьекта</i>
+              <pre>
+                  <code>
+                    exampleObject.showTitle - плохо
+                    exampleObject.showTitle() - хорошо
+                  </code>
+                </pre>
+            </fieldset>
+            <fieldset>
+              <legend>9. Функция как параметр</legend>
+              <h3>Можно передать функцию параметром</h3>
+              <pre class="code"> 
+                <code>
+                  var get1 = function() { return 1; } 
+                  var get2 = function() { return 2; }
+                  
+                  function go(func1, func2) { 
+                    alert(func1() + func2()); 
+                  } 
+                  
+                  go(get1, get2); //выведет 3
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>10. При вызове функции в ее аргумент записываем функцию - и получаем слияние функций</legend>
+              <h3>Так можно использовать анонимную функцию</h3>
+              <pre>
+                <code>
+                  function go(func) { 
+                    func(); // а здесь мы говорим что аргумент этой функции - функция которая будет вызвана при ее передаче в качестве аргумента
+                  }); 
+                  
+                  go(function() { alert('!') }); // при вызове передаем саму функцию аргументом
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>11. Вызов функции с другой функции</legend>
+              <h3>функция возвращает внутреннюю функцию. Вызвать внутреннюю можно
+                <b>func()()</b>
+              </h3>
+              <pre class="code">
+                <code>
+                  function func() { 
+                    return function() { 
+                      return 'yam!'; 
+                    }; 
+                  } 
+                  
+                  alert( func()() ); // 'yam!'
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>12. Просто космос</legend>
+              <h3>Жанглирование вызовами функции. или Функция-в-функции
+                <div class="sub-title">Догадайся что будет на выходе</div>
+              </h3>
+              <pre class="code">
+                <code>
+                  function getTitle (){ 
+                    var title = "default title"; 
+                    var showTitle = function(){ 
+                      alert(title); 
+                    }; 
+                    var setTitle = function(newTitle){
+                      title = newTitle; 
+                    }; return { 
+                      "showTitle": showTitle, 
+                      "setTitle": setTitle 
+                    }; 
+                  } 
+                  var t = getTitle(); 
+                  t.showTitle(); 
+                  t.setTitle("Hello World"); 
+                  t.showTitle();
+                  
+                  var t1 = getTitle(); 
+                  t1.setTitle("Hello World 1"); 
+                  var t2 = getTitle(); 
+                  t2.setTitle("Hello World 2"); 
+                  t1.showTitle(); 
+                  t2.showTitle();
+                </pre>
+              </code>
+            </fieldset>
+            <fieldset>
+              <legend>13. Обнуление счетчика</legend>
+              <h3>
+                Если что то превывает нужное кол-во. Мы можем его обнулить. Вот таким вот незамысловатым образом.
+              </h3>
+              <pre class="code">
+                <code>
+                  if (x >= colorArr.length) { 
+                    x = 0 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>14. Космос-2 или фигурки</legend>
+              <p>ФУНКЦИЯ В функции и область видимости</p>
+              <p>
+                вызов функции в другой функции
+              </p>
+
+              <pre class="code">
+                <code>    
+                  var landscape = function () { 
+                    var result = ""; 
+                    var flat = function (size) { 
+                      for (var count = 0; count < size; count++) {
+                        result +="_" ; 
+                      } 
+                    }; 
+                    
+                    var mountain = function (size) { 
+                      result +="/" ; for (var count=0 ; count < size; count++) { 
+                        result +="'"; 
+                      } 
+                      result +='\\' ; 
+                    }; 
+                    
+                    flat(3); 
+                    mountain(4); 
+                    flat(6); 
+                    mountain(1); 
+                    flat(1); 
+                    return result; 
+                  };
+                  
+                  div(landscape());
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Практическое использование</div>
-            <ul>
-              
-            </ul>
+            <div class="title">This</div>
+            <fieldset>
+              <legend>1. This</legend>
+              <h3>
+                Передача и использование this в функции
+              </h3>
+              <p>
+                Также верхнее this можно положить опять таки в переменную, которую передать в функции пониже.
+              </p>
+              <pre><code>let that = this.value;</code></pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Методы this</legend>
+              <pre>
+                <code>
+                  func.call(elem, x1, x2)
+                  func.apply(elem, [x1, x2]) 
+                  func.bind(elem)
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>методы this</legend>
+              <p>
+                func.call(elem, x1, x2) func.apply(elem, [x1, x2]) func.bind(elem)
+              </p>
+              <pre>
+                <code>
+                  <b>result: Значение этого элемента : 66</b>        
+                  let elem = document.getElementsByTagName('input')[0]; 
+                  
+                  function func(x1, x2) { 
+                    console.log("Значение" + x1 + x2 + this.value);
+                  } 
+                  
+                  func.call(elem, ' этого', ' элемента : ');        I method
+                  func.apply(elem, [' этого', ' элемента : ']);     II method
+                  
+                  let arr = [' этого', ' элемента : ']; 
+                  func.apply(elem, arr);                            III method
+                  
+                  let newFunc = func.bind(elem);                   IV method
+                  newFunc("один", "два"); //это аналог func(), если мы что-то меняем изначальной функции меняется и в newFunc(). Мы точно такжне можем передать в нее параметры
+                  
+                  //Если нету addEventListener такое не будет работать
+                  function func1(v) { 
+                    console.log(v); 
+                  } 
+                  div(func1(this));
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. this аргументом</legend>
+              <h3>Также можно передать this с одной функции другой параметром</h3>
+              <p>
+                мы как-бы вызываем в другой фукции и передаем ей то что содержится в этой но не хватает в той, которой мы передаем.
+              </p>
+              <pre class="code">
+                <code>
+                  function value(val) { 
+                    return val.value; 
+                  } 
+                  elem.onblur = function someFunc() { 
+                    value(this); //здесь мы передаем this в функцию
+                    value() }
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
+            <div class="title">Return</div>
+            <fieldset>
+              <legend>1. title</legend>
+            </fieldset>
+            <!-- end 3 -->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
             <div class="title">Практическое использование</div>
-            <div class="container">
-              <fieldset>
-                <legend>1. 1</legend>
-                <p>This внутри функции и обьекта exampleObject будет указывать не на этот обьект а на глоб обьект window</p>
-                <p>
-                  из-за того, что в строке var showTitle = exampleObject.showTitle мы получаем ссылку только функцию, и при вызове showTitle()
-                  нет ссылки на исходный объект exampleObject, отчего this начинает ссылаться на объект window.
-                </p>
-                <pre>
-        <code>
-          var title = "Global Title"; 
-          var exampleObject = { 
-            "title": "Example Title", 
-            "showTitle": function(){ 
-              alert(this.title);
-            } 
-          }; 
-          
-          var showTitle = exampleObject.showTitle; // вначале забираем ссылку на функцию
-          showTitle(); // а тут вызываем функцию без ссылки на объект
-        </code>
-      </pre>
-                <button id="but1">click</button>
-              </fieldset>
-              <fieldset>
-                <legend>2. </legend>
+            <fieldset>
+              <legend>Потеря контекста</legend>
+              <p>This внутри функции и обьекта exampleObject будет указывать не на этот обьект а на глоб обьект window</p>
+              <p>
+                из-за того, что в строке var showTitle = exampleObject.showTitle мы получаем ссылку только функцию, и при вызове showTitle()
+                нет ссылки на исходный объект exampleObject, отчего this начинает ссылаться на объект window.
+              </p>
+              <pre class="code">
+                  <code>
+                    var title = "Global Title"; 
+                    var exampleObject = { 
+                      "title": "Example Title", 
+                      "showTitle": function(){ 
+                        alert(this.title);
+                      } 
+                    }; 
+                    
+                    var showTitle = exampleObject.showTitle; // вначале забираем ссылку на функцию
+                    showTitle(); // а тут вызываем функцию без ссылки на объект
+                  </code>
+                </pre>
+            </fieldset>
+            <!-- end 4 -->
+          </li>
+          <li id="mark5" class="tabs-content-item">
+            <!-- 5 -->
+            <div class="sub-title">Main</div>
+            <div class="title">arguments - псевдомассив аргументов в функциях</div>
+            <fieldset>
+              <legend>1. Arguments</legend>
+              <p class="sub-title">arguments[0], arguments[1]</p>
+              <h3>Когда мы не предаем аргуметы изначально</h3>
+              <pre class="code">
+                <code>
+                  function sayHi() { 
+                    for (var i = 0; i < arguments.length; i++) { 
+                      alert( "Привет, " + arguments[i] ); 
+                    } 
+                  } 
+                  sayHi( "Винни", "Пятачок"); // 'Привет, Винни', 'Привет, Пятачок'
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Массив аргументов</legend>
 
-              </fieldset>
-            </div>
-            <!-- end 3-->
+              <h3>Мы можем создать массив из аргументов</h3>
+              <pre class="code">
+                <code>
+                  var args = []; 
+                  for (var i = 0; i < arguments.length; i++) { 
+                    args[i] = arguments[i]; 
+                  };
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 5 -->
+          </li>
+          <li id="mark6" class="tabs-content-item">
+            <!-- 6 -->
+            <div class="sub-title">Main</div>
+            <div class="title">title</div>
+            <fieldset>
+              <legend>1. Title</legend>
+            </fieldset>
+            <!-- end 6 -->
           </li>
 
         </ul>

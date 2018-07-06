@@ -31,6 +31,10 @@
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Найти дом элементы</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Добавление и удаление узлов(node)</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Добавить и удалить классы</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Стили через скрипты</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Аттрибуты</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Фишки</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark7')">Теги</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -41,103 +45,176 @@
             <!-- 1 -->
             <div class="sub-title">Main</div>
             <div class="title">Найти нужный элемент</div>
-            <ul>
-              <li>
-                Управление DOM елементами
-                <pre>
-                  <code>
-                    - getElementById id - везде 
-                    - getElementsByName name - везде   
-                    - getElementsByTagName - тег или '*' - получить всех потомков, 
-                    - getElementsByClassName
-                    - querySelector 
-                    - querySelectorAll - ('ul > li:last-child')
-
-                    - elem.matches(css) ничего не ищет, а проверяет, удовлетворяет ли elem селектору css. Он возвращает true либо false.
-                    
-                    elem.closest(css)
-                    parentNode возвращает родитель элемента.
-                    parentElement
-                    childNodes()
-                    children - только дочерние узлы-элементы, то есть соответствующие тегам
-                    firstChild, lastChild -  – соответственно, первый и последний дети-элементы
-                    previousElementSibling, nextElementSibling – соседи-элементы
-                  </code>
-                </pre>
-              </li>
-            </ul>
+            <fieldset>
+              <legend>1. Управление DOM елементами</legend>
+              <pre>
+                <code>
+                  - getElementById id - везде 
+                  - getElementsByName name - везде   
+                  - getElementsByTagName - тег или '*' - получить всех потомков, 
+                  - getElementsByClassName
+                  - querySelector 
+                  - querySelectorAll - ('ul > li:last-child')
+                  
+                  - elem.matches(css) ничего не ищет, а проверяет, удовлетворяет ли elem селектору css. Он возвращает true либо false.
+                  
+                  elem.closest(css)
+                  parentNode возвращает родитель элемента.
+                  parentElement
+                  childNodes()
+                  children - только дочерние узлы-элементы, то есть соответствующие тегам
+                  firstChild, lastChild -  – соответственно, первый и последний дети-элементы
+                  previousElementSibling, nextElementSibling – соседи-элементы
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">
-              ДОБАВЛЕНИЕ И УДАЛЕНИЕ УЗЛОВ
-            </div>
-            <ul>
-              <li>
-                <h3>
-                  Создать эл. и вставить
-                </h3>
-                <pre>
-                  <code>
-                    let divEl = document.createElement('div');
-                    divEl.className = "includer"; //divEl.classList = "cl-1 cl-2..."
-                    divEl.innerHTML = str;
-                    location.appendChild(divEl);
-                  </code>
-                </pre>
-                <hr>
-                <h3>
-                  Clone скопировать эл. и вставить
-                </h3>
-                <pre>
-                  <code>
-                    var div2 = div.cloneNode(true); // копию можно подправить 
-                    div2.querySelector('strong').innerHTML = 'Супер!'; 
-                    // вставим её после текущего сообщения 
-                    div.parentNode.insertBefore(div2, div.nextSibling);
-                  </code>
-                </pre>
-                <hr>
-                <h3>insertBefore</h3>
-                <p>Вставить до и после конкретного элемента</p>
-                <pre>
-                  <code>
-                    // this.parentElement.insertBefore(el, this); мой вариант
-                    
-                    var insertedElement = parentElement.insertBefore(newElement, referenceElement);
-                  </code>
-                </pre>
-                <ul style="list-style-type: disc;">
-                  <li>insertedElement Вставленный элемент.</li>
-                  <li>parentElement Родитель для нового элемента.</li>
-                  <li>newElement Элемент для вставки.</li>
-                  <li>referenceElement Элемент, перед которым будет вставлен newElement.</li>
-                </ul>
-              </li>
-            </ul>
+            <div class="title">Добавление и удаление елементов</div>
+            <fieldset>
+              <legend>1. Создать эл. и вставить</legend>
+              <pre>
+                <code>
+                  let divEl = document.createElement('div');
+                  divEl.className = "includer"; //divEl.classList = "cl-1 cl-2..."
+                  divEl.innerHTML = str;
+                  location.appendChild(divEl);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Clone скопировать эл. и вставить</legend>
+              <pre>
+                <code>
+                  var div2 = div.cloneNode(true); // копию можно подправить 
+                  div2.querySelector('strong').innerHTML = 'Супер!';  // вставим её после текущего сообщения 
+                  div.parentNode.insertBefore(div2, div.nextSibling);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. insertBefore</legend>
+              <h3>Вставить до и после конкретного элемента</h3>
+              <pre>
+                <code>
+                  // this.parentElement.insertBefore(el, this); мой вариант
+                  
+                  var insertedElement = parentElement.insertBefore(newElement, referenceElement);
+                  <ul style="list-style-type: disc;">
+                    <li>"insertedElement" Вставленный элемент.</li>
+                    <li>"parentElement" Родитель для нового элемента.</li>
+                    <li>"newElement" Элемент для вставки.</li>
+                    <li>"referenceElement" Элемент, перед которым будет вставлен newElement.</li>
+                  </ul>
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Удалить элемент из дом</legend>
+              <pre>
+                <code>
+                  elem.remove()
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
             <div class="title">Добавить и удалить классы</div>
-            <ul>
-              <li>
-                Добавить и удалить классы
-                <pre>
-                  <code>
-                    document.body.classList.add('thisClass'); 
-                    document.body.classList.remove('thatClass');
-                    document.body.classList.toggle('anotherClass'); 
-                    
-                    body.classList.contains('thatClass') -- проверка на наличие
-                  </code>
-                </pre>
-              </li>
-            </ul>
+            <fieldset>
+              <legend>1. Добавить и удалить классы</legend>
+              <pre>
+                <code>
+                  document.body.classList.add('thisClass'); // добавить класс
+                  document.body.classList.remove('thatClass'); // удалить класс
+                  document.body.classList.toggle('anotherClass'); // если есть класс то убарать иначе добавить
+                  
+                  body.classList.contains('thatClass') -- проверка на наличие
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 3-->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Стили через скрипты</div>
+            <fieldset>
+              <legend>1. Назначить стили динамичесски</legend>
+              <pre>
+              <code>
+                elem.style.display = 'none'; // скрыть элемент
+              </code>
+            </pre>
+            </fieldset>
+            <!-- end 4 -->
+          </li>
+          <li id="mark5" class="tabs-content-item">
+            <!-- 5 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Аттрибуты</div>
+            <fieldset>
+              <legend>1. Методы</legend>
+
+              <pre>
+                <code>
+                  elem.getAttribute() -- получить доступ к атрибуту 
+                  elem.setAttribute() -- дать эл. аттр. 
+                  elem.hasAttribute() -- прoверить на наличие аттрибута 
+                  elem.removeAttribute(name) -- удаляет аттр.
+                  
+                  input.setAttribute('disabled', 'disabled'); -- зделать input неактывным.
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 5 -->
+          </li>
+          <li id="mark6" class="tabs-content-item">
+            <!-- 6 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Фишки</div>
+            <fieldset>
+              <legend>1. Назначить стили динамичесски</legend>
+
+              очень удобно, Через скрипты активировать элементы у которых в атрибуте уже указано что с ними нужно зделать например: data-atr="//..."
+              <pre>
+                <code>
+                  div type="checkbox" data-atr="color: red;">сделать красным
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 6 -->
+          </li>
+          <li id="mark7" class="tabs-content-item">
+            <!-- 7 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Теги</div>
+            <fieldset>
+              <legend>1. Назначить стили динамичесски</legend>
+
+              <h3>Тег form - на enter && клик</h3>
+              <pre class="code">
+                <code>
+                  <b>HTML</b>
+                  form method="POST" action="" id="form_who_should_be_checked">
+                  input name="anything" value="text">
+                  input type="submit">
+                  
+                  <b>JS</b>
+                  document.getElementById("form_who_should_be_checked").onsubmit = 
+                  function () { 
+                    alert(this.anything.value); 
+                    return false;
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 7 -->
           </li>
         </ul>
       </div>

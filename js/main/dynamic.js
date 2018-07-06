@@ -33,17 +33,18 @@ var JSON = {
         { linkname: 'Dom, Bom', link: '../theory/dom.html' },
         { linkname: 'Events', link: '../theory/events.html' },
         { linkname: 'Sort, Enum', link: '../theory/enumeration.html' },
+        { linkname: 'Styles', link: '../theory/styles.html' },
         { linkname: 'Animation', link: '../theory/animation.html' }]
       },
       { title: 'Theory Advanced',
       submenu: [
         { linkname: 'Callback', link: '../theory/callback.html' },
         { linkname: 'Замыкания', link: '../theory/closures.html' },
-        { linkname: 'Контекст', link: '../theory/contecst.html' },
+        { linkname: 'Классы', link: '../theory/clases.html' },
         { linkname: 'OOP', link: '../theory/oop.html' },
         { linkname: 'Прототипы', link: '../theory/proto.html' },
         { linkname: 'json, ajax', link: '../theory/json.html' },
-        { linkname: 'Интересное', link: '../theory/native-js.html' },
+        { linkname: 'Native JS', link: '../theory/native-js.html' },
         { linkname: 'TypeScript', link: '../theory/typescript.html' },
         { linkname: 'EcmaScript', link: '../theory/ecmascript.html' }]
     }],

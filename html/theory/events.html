@@ -28,9 +28,9 @@
         <h4 class="links-themes-title">Events</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Типы событий</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events trigger</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Title</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -40,28 +40,53 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">addEventListener события</div>
+            <fieldset>
+              <legend>1. Title</legend>
+              <pre>
+                <code>
+                  checkbox.addEventListener('change') -- вешается на checkbox'ы
+                  checkbox.addEventListener('checked') -- вешается на checkbox'ы
+                  .addEventListener('mouseup', func) -- срабатывает при отжатии мышки
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">По клику дать и забрать функцию на событие</div>
+            <fieldset>
+              <legend>2. КЛИК ВКЛ - ВЫКЛ</legend>
+              <p>
+                Один клик включает что то второй выключает. Типа тригера.
+              </p>
+              <pre class="code">
+                <code>       
+                  colorSwitch2.addEventListener('click', startSortArr); 
+                  
+                  function startSortArr() { 
+                    this.removeEventListener('click', startSortArr);
+                    this.addEventListener('click', dismissSortArr); 
+                  } 
+                  
+                  function dismissSortArr () { 
+                    this.removeEventListener('click', dismissSortArr); 
+                    this.addEventListener('click', startSortArr); 
+                  }
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
             <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <fieldset>
+              <legend>1. Title</legend>
+            </fieldset>
             <!-- end -->
           </li>
         </ul>

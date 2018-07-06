@@ -20,7 +20,7 @@
   </div>
   <div class="header">
     <div id="menu"></div>
-  </div> 
+  </div>
   <div class="content">
 
     <div class="info">
@@ -28,11 +28,10 @@
         <h4 class="links-themes-title">Методы перебора</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">
-            Методы перебора
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Методы перебора
           </li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Методы перебора массивов</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">getRandom</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -43,28 +42,59 @@
             <!-- 1 -->
             <div class="sub-title">Main</div>
             <div class="title">Методы перебора</div>
+            <fieldset>
+              <legend>1. For</legend>
+              <pre>
+                <code>
+                  for(let i=0; i < 5; i++) { ... }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. For in</legend>
+              <pre>
+                <code>
+                  for( key in item) { ... }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. While</legend>
+              <pre>
+                <code>
+                  while(true) { ... }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. forEach</legend>
+              <pre>
+                <code>
+                  let someArr = ['значение1', 'значение2', 'значение3'];
 
-            <ul>
-              <li>
-                <p>Метод WHILE</p>
-                <pre>
-                  <code>
-                    while(true) { ... }
-                  </code>
-                </pre>
-                <hr>
-
-
-              </li>
-            </ul>
+                  someArr.forEach(function callback(currentValue, index, array) { 
+                    div('this is value : ' + currentValue); 
+                    div('this is index: ' + index); 
+                    div('this is array : ' + array); 
+                  });
+                  <hr>
+                  <b>OR</b>
+                  arr.forEach( item => console.log(item) );  
+                  <hr>
+                  <b>OR</b>
+                  someArr.forEach(callback = (currentValue, index, array) => (console.log(currentValue)));
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
             <div class="title">Методы перебора массивов</div>
-            <ul>
-              <p>forEach</p>
+            <fieldset>
+              <legend>1. forEach</legend>
+              <h3>forEach</h3>
               <b>Этой функции он передаёт три параметра callback(item, i, arr) </b>
               <ul>
                 <li>item – очередной элемент массива. </li>
@@ -72,41 +102,50 @@
                 <li>arr – массив, который перебирается.</li>
               </ul>
               <pre>
-                  <code>
-                    var arr = ["Яблоко", "Апельсин", "Груша"]; 
-                    arr.forEach(function(item, i, arr) { 
-                      alert( i + ": " + item + " (массив:" + arr + ")" ); });
-                    </code>
-                </pre>
-              <hr>
+              <code>
+                var arr = ["Яблоко", "Апельсин", "Груша"]; 
+                arr.forEach(function(item, i, arr) { 
+                  alert( i + ": " + item + " (массив:" + arr + ")" ); });
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. filter()</legend>
               <p>
-                Filter -- Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
+                <h3>Filter -- Метод filter()</h3> создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в
+                передаваемой функции.
               </p>
               Можно использовать, чтобы получить разницу чисел одного массива
-              <pre>
-                  <code>
-                    let difference = arr1.filter(x => arr2.indexOf(x) == -1);
-                    
-                    аналог: 
-                    let difference = arr1.filter(
-                      function(x) { 
-                        return arr2.indexOf(x) == -1; 
-                      });
-                    </code>
-                </pre> Чтобы получить разницу обоих массивов
-              <pre>
-                  <code>
-                    let difference = arr1 
-                    .filter(x => arr2.indexOf(x) == -1) 
-                    .concat(arr2.filter(x => arr1.indexOf(x) == -1));
-                  </code>
-                </pre>
-              <hr>
-              <p>Map - для каждого элемента массива делает тоже самое</p>
+              <pre class="code">
+              <code>
+                let difference = arr1.filter(x => arr2.indexOf(x) == -1);
+                
+                аналог: 
+                let difference = arr1.filter(
+                  function(x) { 
+                    return arr2.indexOf(x) == -1; 
+                  });
+                </code>
+              </pre>
+              <h3>
+                Чтобы получить разницу обоих массивов
+              </h3>
+              <pre class="code">
+                <code>
+                  let difference = arr1 
+                  .filter(x => arr2.indexOf(x) == -1) 
+                  .concat(arr2.filter(x => arr1.indexOf(x) == -1));
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Map</legend>
+              <p>
+                <h3>Map</h3> - для каждого элемента массива делает тоже самое</p>
               <b>
                 Он создаёт новый массив, который будет состоять из результатов вызова callback(item, i, arr) для каждого элемента arr
               </b>
-              <pre>
+              <pre class="code">
                   <code>
                     var names = ['HTML', 'CSS', 'JavaScript']; 
                     
@@ -117,8 +156,10 @@
                     alert( nameLengths ); // 4,3,10
                   </code>
                 </pre>
-              <hr>
-              <p>every/some</p>
+            </fieldset>
+            <fieldset>
+              <legend>4. Every/some</legend>
+              <h3>every/some</h3>
               <b>
                 Эти методы используются для проверки массива.
               </b>
@@ -130,23 +171,61 @@
                   some возвращает true if callback == true для какого-нибудь элемента arr.
                 </li>
               </ul>
-              <pre>
-                  <code>
-                    var arr = [1, -1, 2, -2, 3]; 
-                    
-                    function isPositive(number) { 
-                      return number > 0; 
-                    };
-                    
-                    alert( arr.every(isPositive) ); // false, не все положительные
-                    alert( arr.some(isPositive) ); // true, есть хоть одно положительное
-                  </code>
-                </pre>
-              <hr>
+              <pre class="code">
+                <code>
+                  var arr = [1, -1, 2, -2, 3]; 
+                  
+                  function isPositive(number) { 
+                    return number > 0; 
+                  };
+                  
+                  alert( arr.every(isPositive) ); // false, не все положительные
+                  alert( arr.some(isPositive) ); // true, есть хоть одно положительное
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Случайное число из массива</legend>
               <p>
                 <b>Случайное число из массива</b>
               </p>
               <pre>
+                <code>
+                  var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"]; 
+                  
+                  var rand = Math.floor(Math.random() * arr.length); 
+                  
+                  alert( arr[rand] );
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 2 -->
+          </li>
+          <li id="mark3" class="tabs-content-item">
+            <!-- 3 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Получить случайное число в этом промежутке</div>
+            <fieldset>
+              <legend>1. GetRandom num</legend>
+              <p>
+                Получить случайное число в этом промежутке
+              </p>
+              <pre class="code">
+                <code>
+                  <b>result: ~min-max</b>        
+                  function getRandom(min, max) { 
+                    return Math.floor(Math.random() * (max - min) + min); 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. GetRandom arr</legend>
+              <li>
+                <p>
+                  <b>Случайное число из массива</b>
+                </p>
+                <pre class="code">
                   <code>
                     var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"]; 
                     
@@ -155,16 +234,7 @@
                     alert( arr[rand] );
                   </code>
                 </pre>
-            </ul>
-            <!-- end 2 -->
-          </li>
-          <li id="mark3" class="tabs-content-item">
-            <!-- 3 -->
-            <div class="sub-title">Main</div>
-            <div class="title">title</div>
-            <ul>
-
-            </ul>
+            </fieldset>
             <!-- end 3-->
           </li>
         </ul>

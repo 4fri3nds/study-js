@@ -28,9 +28,9 @@
         <h4 class="links-themes-title">Object</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Применение</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">title</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Код</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -40,28 +40,152 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">Обьекты и их использование</div>
+            <fieldset>
+              <legend>1. Object</legend>
+              <h3>ОБЬЕКТЫ – это ассоциативные массивы</h3>
+              <pre>
+                <code>
+                  <b>Обратится</b>
+                  obj.key -- обратится к свойству обьекта
+                  user.size.top -- более глубокое свойство
+                  obj[key] -- обратится к свойству обьекта
+                  <i>Доступ через точку используется, если мы на этапе написания программы уже знаем название свойства. А если оно будет определено по ходу выполнения, например, введено посетителем и записано в переменную, то единственный выбор – квадратные скобки.</i>
+                  
+                  <b>Получить значения</b>
+                  Object.keys(obj) -- Получить значения обьекта
+                  
+                  <b>Удалить</b>
+                  delete person.age -- удалить age из обьекта obj
+                  
+                  <b>Перебрать</b>
+                  for (var key in menu) { ... } 
+                  -- for..in -- При этом for..in последовательно переберёт свойства объекта obj, имя каждого свойства будет записано в key
+                  
+                  <b>более короткий перебор -- !! стоит попробовать</b>
+                  Object.keys(menu).length
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Копирование обьекта. Метод copy(1,2,3)</legend>
+              <pre>
+                <code>
+                  <h4>Скопировать свойства метод - copy()</h4>
+                  test2=new Object() тоже что test = {};
+                  
+                  <h4>Копирует свойства из объектов src1, src2,... в объект dst</h4>
+                  copy(dst, src1, src2…)
+                
+                  <b>Пример</b>
+                  var vasya = { age: 21, name: 'Вася', surname: 'Петров' }; 
+                  var user = { isAdmin: true, isEmailConfirmed: true }; 
+                  var student = { university: 'My university' }; 
+                  
+                  <h5>//скопирует все свойства</h5>
+                  copy(vasya, user, student);
+                  
+                  alert( vasya.isAdmin); // true
+                  alert( vasya.university ); // My university
+                  
+                  <h5>//вставить скопированные свойства в пустой объект</h5>
+                  var userClone = copy({}, user);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Проверка на свойство</legend>
+              <h3>Проверить на наличие нужно свойства в обьекте</h3>
+              <p>проверить существование свойства – получив его и сравнив с undefined:</p>
+              <pre>
+                <code>
+                  var person = { name: "Василий" }; 
+                  alert( person.lalala === undefined ); // true, свойства нет 
+                  alert( person.name === undefined); // false, свойство есть.
+                </code>
+              </pre>
+              <p>проверить существование свойства – оператором undefined:</p>
+              <pre>
+                <code>
+                  var obj = {}; 
+                  obj.test = undefined; 
+                  alert( "test" in obj ); // true 
+                  alert( "blabla" in obj ); // false
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>this глобальный обьект window</legend>
+              <p>
+                Только при вызове функции мы указывает this(где мы указываем элементы с которымм что-то должна зделать функция). В сасой
+                функции универсальной фун-ции this будет window или undefined.
+              </p>
+              <pre class="code">
+                <code>
+                  function addEvent(remove, add, elem) { 
+                    elem.removeEventListener('click', remove); 
+                    elem.addEventListener('click', add); 
+                  };
+                  addEvent(this, first, lost);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>Функции и обьекты в обьекте</legend>
+              <p>
+                В обьектах могут находится как другие обьекты - так и функции. В функиях this будет ссылка на обьект в котором она используется.
+              </p>
+              <pre class="code">
+                <code>
+                  <b>result: Hello, Петя.</b>        
+                  test = { 
+                    simple_property: 'Hello', 
+                    object_property: { 
+                      user_1: 'Петя', 
+                      user_2: 'Вася' 
+                    }, 
+                    function_property: function(user) { 
+                    alert(this.simple_property + ', ' + this.object_property[user]); 
+                  } 
+                } 
+                test.function_property('user_1'); //Hello, Петя.
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">Методы обьектов</div>
+            <fieldset>
+              <legend>1. title</legend>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">Код</div>
+            <fieldset>
+              <legend>1. Переиспользование обьекта</legend>
+              <p>Если объект, нужно переиспользовать то удобнее будет сделать отдельную функцию, возвращающую объект</p>
+              <pre class="code">
+                <code>
+                  function getDog(name, age){ 
+                    return { 
+                      "name": name, 
+                      "age": age, 
+                      "talk": function(){ 
+                        alert('Name: ' + this.name + ', Age: ' + this.age); 
+                      } 
+                    }; 
+                  } 
+                  var rocky = getDog('Rocky', 5); 
+                  var jerry = getDog('Jerry', 3);
+                </code>
+              </pre>
+            </fieldset>
             <!-- end -->
           </li>
         </ul>

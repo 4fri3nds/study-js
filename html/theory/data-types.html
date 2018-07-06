@@ -28,9 +28,13 @@
         <h4 class="links-themes-title">Типы данных</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Примитивные типы данных</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Преображение типов данных</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Интерессные селекторы CSS</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Типы данных</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Строки</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Числа</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Флаги</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Примеры кода</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Словарик</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark7')">Плохие практики</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -40,85 +44,201 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Примитивные типы данных</div>
-            
-            <div class="text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat facilis quo enim culpa hic, ratione tempora facere impedit?
-            </div>
-            <pre>
-              <code>
-              let forEach2 = document.getElementById('wrap-for-each2'); 
-              let but2 = document.getElementById('but2'); 
+            <div class="title">Типы данных</div>
 
-              but2.addEventListener('click',function () { 
-                someArr.forEach(callback = (
-                  currentValue, index, array) => (div(currentValue, forEach2))); 
-                });
-              </code>
-            </pre>
+            <fieldset>
+              <legend>1. Преображение типов данных</legend>
+              <pre>
+                <code>
+                  <b>Str -> Num</b>
+                  parseInt(somestring) to -> number
+                  
+                  <b>Num -> Str</b>
+                  String(num) -> преобразовать в строку
+                  
+                  <b>Arr -> Str</b>
+                  arr.join(', ') - соеденить массив в строку и поставить кому между ел. 
+                  arr.join(str) берет массив и склеивает его в строку, используя str как разделитель
+                  
+                  <b>Str -> Arr</b>
+                  [ num(str) ] -> преобразовать в массив
+                  split(s) - который позволяет превратить строку в массив,разбив ее по разделителю s 
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Преображение типов данных</div>
+            <div class="title">Строки</div>
 
-            <pre>
-              <code>
-                parseInt(somestring) to -> number
-                String(num) -> преобразовать в строку
-                [ num(str) ] -> преобразовать в массив
-              </code>
-            </pre>
+            <fieldset>
+              <legend>1. Методы строк</legend>
+              <pre>
+                <code>
+                  arr = value.split(',') - разбивает строку на массив по символу
+                  slice(start, end) - Извлекает часть строки и возвращает новую строку.
+                  substring(start, end) 
+                  substr(start, length)
+                  charAt -- узнаем какой именно символ(на этой позиции)
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Интерессные селекторы CSS</div>
-            <ul>
-              <li>
-                <p>Заглавные буквы во всех новых словах</p>
-                <pre>
-                  <code>
-                    text-transform: capitalize;
-                  </code>
-                </pre>
-              </li>
-              <li>
-                <p>Для шрифтов</p>
-                <pre>
-                  <code>
-                    -webkit-font-smoothing: antialiased; 
-                    -webkit-tap-highlight-color: transparent; 
-                    -webkit-font-smoothing: subpixel-antialiased;
-                  </code>
-                </pre>
-              </li>
-              <li>
-                <p>Для переносов с теге pre</p>
-                <pre>
-                  <code>
-                    pre {
-                      width:90%;
-                      border:#a0a0c0 1px solid;
-                      background:#e8faff;
-                      color:black;
-                      margin:10px 0 10px 30px;
-                      padding:10px; 
-
-                      white-space: pre; // для использования code/ в pre
-                      white-space: pre-wrap;
-                      white-space: -moz-pre-wrap; 
-                      white-space: -pre-wrap; 
-                      white-space: -o-pre-wrap; 
-                      word-wrap: break-word;
+            <div class="title">Числа</div>
+            <fieldset>
+              <legend>1. Методы чисел</legend>
+              <pre>
+                <code>
+                  num
+                </code>
+              </pre>
+              <h3>Методы Math</h3>
+              <pre>
+                <code>
+                  <ul>
+                    <li>
+                      <b>Math.round(x)</b> -- округляет число(стандартно)
+                    </li>
+                    <li>
+                      <b>Math.ceil(x)</b> -- округляет до большего целого числа
+                    </li>
+                    <li>
+                      <b>Math.floor(x)</b> -- округляет в меньшую сторону
+                    </li>
+                    <li>
+                      <b>Math.pow(x, y)</b> -- возвращает степень
+                    </li>
+                    <li>
+                      <b>Math.random()</b> -- случайное число в диапазоне 0-1
+                    </li>
+                    <li>
+                      <b>Math.max([x[, y[, …]]])</b> -- Возвращает найбольшее число из своих аргументов
+                    </li>
+                    <li>
+                      <b>Math.min([x[, y[, …]]])</b> -- Возвращает наименьшее число из своих аргументов
+                    </li>
+                    <li>
+                      <b>Math.sqrt(x)</b> -- Возвращает квадратный корень числа
+                    </li>
+                  </ul>
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 3 -->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Флаги - Flags</div>
+            <fieldset>
+              <legend>1. Применение</legend>
+              <p>
+                Флаги полезны когда нужно вернуть только булеан
+              </p>
+              <pre class="code">
+                <code>
+                  <b>result: true or false</b>        
+                  let mas = ['a','b','c','d','e','c']; 
+                  function hasElem(mass, num) { 
+                    for (let i=0; i < mass.length; i++) { 
+                      if (num==m ass[i]) { 
+                        return true; 
+                      } 
+                    } 
+                    return false; 
+                  }; 
+                  alert(hasElem(mas, 'c'));
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 4 -->
+          </li>
+          <li id="mark5" class="tabs-content-item">
+            <!-- 5 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Примеры кода</div>
+            <fieldset>
+              <legend>1. Использование</legend>
+              <b>'use strict'</b> может вызвать кучу ошибок.
+              <pre class="code">
+                <code>
+                  "use strict"; 
+                  var bool = true; 
+                  if (bool) { 
+                    function func() { 
+                      alert('!'); 
+                    } 
+                  }; 
+                  
+                  func(); //выдаст ошибку - тут функция не видна!
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 5 -->
+          </li>
+          <li id="mark6" class="tabs-content-item">
+            <!-- 6 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Словарь терминов</div>
+            <fieldset>
+              <legend>1. Термины</legend>
+              <pre>
+                <code>
+                  <b>LexicalEnvironment</b> - все переменные внутри функции - это свойства специального внутреннего объекта LexicalEnvironment, который создается при ее запуске. Замыкание функции изнутри.
+                  <hr>
+                  <b>Литералы</b>
+                  test=new Array()
+                  <hr>
+                  <b>let</b> - let, которое работает как var, но создает переменные, локальные для любого данного блока, а не только для функции. Блок имеется ввиду все что стоит в фигурных скобках - {}
+                  <hr>
+                  <b>Стэк</b> - Порядок вызова функций где компьютер запоминает контекст, называется стеком. 
+                  function greet(who) { 
+                    console.log("привет, " + who); //first 
+                  } 
+                  
+                  greet("Семен"); 
+                  
+                  console.log("покеда"); //second  
+                  
+                  каждый раз при вызове функции, текущий контекст помещается наверх стека.  Тогда функция возвращается, она забирает верхний контекст из стека и использует его для продолжения работы.
+                  <hr>
+                  <b>Этерация</b> - повторение цикла
+                  <hr>
+                  <b>Function - Declaration:</b> 
+                  function func() { //... }); 
+                  |
+                  <b>Function - Expression:</b> 
+                  func = function() { //... });
+                  <hr>
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 6 -->
+          </li>
+          <li id="mark7" class="tabs-content-item">
+            <!-- 7 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Плохие практики</div>
+            <fieldset>
+              <legend>1. Заголовок</legend>
+              <pre class="code">
+                <code>     
+                  function example() { 
+                    function a() {} // Нормуль 
+                    if (something) { 
+                      function b() {} // Ай-яй-яй! 
                     }
-                  </code>
-                </pre>
-              </li>
-            </ul>
-            <!-- end 3-->
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 7 -->
           </li>
         </ul>
       </div>

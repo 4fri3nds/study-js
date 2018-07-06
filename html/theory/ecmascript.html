@@ -28,42 +28,110 @@
         <h4 class="links-themes-title">EcmaScript</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Стрелочные функции</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Новые методы</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">title</li>
         </ul>
         <!-- END NAV -->
       </div>
       <div class="info-right">
         <div id="extra-menu" class="links-themes-list"></div>
         <ul class="tabs-content-list info-right-content">
-          <li id="mark1" class="tabs-content-item active">
+          <fieldset id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
+            <div class="title">Стрелочные функции</div>
+            <fieldset>
+              <legend>1. Синтаксис</legend>
+              <h3>Разница</h3>
+              <pre>
+                <code>
+                  "old" function toUpper(str) { return str.toUpperCase() } 
+                  "new" let toUpper = str => str.toUpperCase();
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Сравнение</legend>
+              <pre>
+                <code>
+                  function () { return 1; } 
+                  () => { return 1; } 
+                  () => 1 
 
-            </ul>
+                  function (a) { return a * 2; } 
+                  (a) => { return a * 2; } 
+                  (a) => a * 2 
+                  a => a * 2 
+
+                  function (a, b) { return a * b; } 
+                  (a, b) => { return a * b; } 
+                  (a, b) => a * b 
+
+                  function () { return arguments[0];} 
+                  (...args) => args[0] 
+                  () => {} // undefined 
+                  () => ({}) // {}
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. this в стрелочных ф-ях</legend>
+              <i>this в стрелочных функциях не существует поэтому он ищет контекст уровнем выше</i>
+              <pre>
+                <code>
+                  $('.current-time').each(function () { 
+                    setInterval(() => $(this).text(Date.now()), 1000); 
+                  });
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>1. Схожесть с Coffe Script</legend>
+              <i>Синтаксис очень похож на Coffe Script</i>
+              <p>Не обязательно писать все в одну строку</p>
+              <pre>
+                <code>
+                  const getVerifiedToken = selector => 
+                  getUsers() 
+                  .then(users => users[0]) 
+                  .then(verifyUser) 
+                  .then((user, verifiedToken) => verifiedToken) 
+                  .catch(err => log(err.stack));
+                </code>
+              </pre>
+            </fieldset>>
             <!-- end 1 -->
-          </li>
-          <li id="mark2" class="tabs-content-item">
-            <!-- 2 -->
-            <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
-            <!-- end 2 -->
-          </li>
-          <li id="mark3" class="tabs-content-item">
-            <!-- 3 -->
-            <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
-            <!-- end -->
-          </li>
+            </li>
+            <li id="mark2" class="tabs-content-item">
+              <!-- 2 -->
+              <div class="sub-title">Main</div>
+              <div class="title">Методы</div>
+              <fieldset>
+                <legend>1. ES6 - Метод filter()</legend>
+                <h3></h3>
+                Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
+                <pre>
+                  <code>
+                    const words = ["spray", "limit", "elite", "exuberant", "destruction", "present", "happy"]; 
+                    
+                    let longWords = words.filter(word => word.length > 6); -- задаем метод filter()
+                    
+                    // Отфильтрованный массив longWords ["exuberant", "destruction", "present"]
+                  </code>
+                </pre>
+              </fieldset>
+              <!-- end 2 -->
+            </li>
+            <li id="mark3" class="tabs-content-item">
+              <!-- 3 -->
+              <div class="sub-title">Main</div>
+              <div class="title">Title</div>
+              <fieldset>
+                <legend>1. title</legend>
+              </fieldset>
+              <!-- end -->
+            </li>
         </ul>
       </div>
     </div>

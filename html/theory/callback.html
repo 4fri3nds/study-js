@@ -29,8 +29,8 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Теория</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Практическое применение</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">КОНТЕКСТ</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Применение</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -41,36 +41,38 @@
             <!-- 1 -->
             <div class="sub-title">Main</div>
             <div class="title">Callback</div>
-            <h3>Callback</h3>
-            <ol>
-              <li>
-                Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
-              </li>
-              <li>
-                Мы можем использовать callback-функции, чтобы получить его асинхронно
-              </li>
-              <li>
-                (в идеальном случае единственное выражение return в конце функции: одна точка входа и одна точка выхода). Это имеет смысл.
-                Функции — это, в сущности, маршруты между вводом и выводом.
-              </li>
-              <li>
-                Это полезно для случаев, когда требуется много времени для завершения, например, при AJAX-запросах, ведь мы не можем приостановить
-                браузер. Мы можем продолжить заниматься другими делами в ожидании вызова колбека. Фактически, очень часто
-                от нас требуется (или, точнее, нам настоятельно рекомендуется) делать всё асинхронно в Javascript'е.
-              </li>
-              <li>
-                Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
-              </li>
-            </ol>
+            <fieldset>
+              <legend>Применение</legend>
+              <ol>
+                <li>
+                  Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
+                </li>
+                <li>
+                  Мы можем использовать callback-функции, чтобы получить его асинхронно
+                </li>
+                <li>
+                  (в идеальном случае единственное выражение return в конце функции: одна точка входа и одна точка выхода). Это имеет смысл.
+                  Функции — это, в сущности, маршруты между вводом и выводом.
+                </li>
+                <li>
+                  Это полезно для случаев, когда требуется много времени для завершения, например, при AJAX-запросах, ведь мы не можем приостановить
+                  браузер. Мы можем продолжить заниматься другими делами в ожидании вызова колбека. Фактически, очень часто
+                  от нас требуется (или, точнее, нам настоятельно рекомендуется) делать всё асинхронно в Javascript'е.
+                </li>
+                <li>
+                  Колбеки нужны для того, чтобы одна функция выполнилась после другой функции.
+                </li>
+              </ol>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">КОНТЕКСТ</div>
+            <fieldset>
+              <legend>Заголовок</legend>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
@@ -89,11 +91,9 @@
                     doHomework('math', function() { alert('Finished my homework'); });
                   </code>
                 </pre>
-                <pre>
+                <b>или создать отдельно функцию и передать ее в callback</b>
+                <pre class="code">
                   <code>
-
-                    <h3>или создать отдельно функцию и передать ее в callback</h3>
-                    
                     function doHomework(subject, callback) { 
                       alert(`Starting my ${subject} homework.`); 
                       callback(); 
@@ -106,11 +106,6 @@
                     doHomework('math', alertFinished);
                   </code>
                 </pre>
-
-                <button id="result1" style="display: inline-block; text-align: center; padding: 3px 10px; border-radius: 3px;">
-                  <h2 style="text-align: center; margin: 0; font-weight: 100;">result</h2>
-                </button>
-
                 <span>При нажатии вызов второй функции произойдет с первой, в том заданом порядке</span>
               </fieldset>
               <fieldset>
@@ -127,7 +122,7 @@
                   исполнена ветвь if условного оператора, а во-вторых — можно будет рассчитывать на то, что в объекте response
                   окажутся некие полезные данные, с которыми уже можно что-то делать.
                 </p>
-                <pre>
+                <pre class="code">
                   <code>
 
                     T.get('search/tweets', params, function(err, data, response) { 
@@ -145,9 +140,8 @@
               <fieldset>
                 <legend>3. Передавать функцию в качестве аргумента просто</legend>
                 <p>Аргумент callback является</p>
-                <pre>
+                <pre class="code">
                   <code>
-
                     // определяем нашу функцию с аргументом 
                     callback function some_function(arg1, arg2, callback) { 
                       // переменная, генерирующая случайное число в интервале между arg1 и arg2 
@@ -171,9 +165,8 @@
               <fieldset>
                 <legend>4. Предавать callback в жизни</legend>
                 <p>Аргумент callback является</p>
-                <pre>
+                <pre class="code">
                   <code>
-
                     function some_function2(url, callback) { 
                       var httpRequest; 
                       // создаём наш XMLHttpRequest-объект 

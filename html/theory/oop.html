@@ -28,9 +28,9 @@
         <h4 class="links-themes-title">OOP</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Примеры кода</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">title</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">title</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -40,28 +40,55 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
+            <div class="title">Код</div>
+            <fieldset>
+              <legend>1. title</legend>
+              <pre class="code">
+                ___________________________
+              < I'm an expert in my field. >
+                ---------------------------
+                      \    ^__^
+                        \  (oo)\_______
+                          (__)\       )\/\
+                              ||----w |
+                              ||     ||
+              </pre>
+              <h3>Использование конструктора ......</h3>
+              <pre class="code">
+                  <code>
+                    class Elem { 
+                      constructor(selector) { 
+                        this.menu = document.querySelector(selector); 
+                      }; 
+                      html(text) { 
+                        this.menu.innerHTML = text; 
+                      } 
+                    }; 
+                    
+                    let menu = new Elem('#menu'); 
+                    menu.html('hello');
+                  </code>
+                </pre>
+            </fieldset>
 
-            </ul>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <div class="title">title</div>
+            <fieldset>
+              <legend>1. title</legend>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
             <div class="title">Title</div>
-            <ul>
-
-            </ul>
+            <fieldset>
+              <legend>1. title</legend>
+            </fieldset>
             <!-- end -->
           </li>
         </ul>
