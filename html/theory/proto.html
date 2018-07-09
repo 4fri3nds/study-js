@@ -62,8 +62,7 @@
               <legend>2. Переиспользование обьекта</legend>
               <p>Если объект, нужно переиспользовать то удобнее будет сделать отдельную функцию, возвращающую объект</p>
               <pre class="code">
-                <code>
-                  <b>result:</b>        
+                <code>     
                   function getDog(name, age){ 
                     return { 
                       "name": name, 
@@ -79,8 +78,7 @@
               </pre>
               <p>То же самое можно сделать с использованием прототипов</p>
               <pre class="code">
-                <code>
-                  <b>result:</b>        
+                <code>  
                   function Dog(name, age){ 
                     this['name'] = name; 
                     this.age = age; 
@@ -94,6 +92,9 @@
                   var jerry = new Dog('Jerry', 3);
                 </code>
               </pre>
+            </fieldset>
+            <fieldset>
+              <legend></legend>
             </fieldset>
             <!-- end 1 -->
           </li>

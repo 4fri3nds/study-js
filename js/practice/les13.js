@@ -30,15 +30,40 @@ let sumDg = (num, func1, func2) => func1(num) + func2(num);
 
 div(sumDg(3, dg2, dg3), result3);
 
-//4 task func each
-let arr = [11,22,33,44,55];
+//4 корень квадратный из каждого числа массива
+let arr4 = [4, 9, 16, 25, 36, 49, 64, 81, 100];
+let func4 = (arr, f) => f(arr);
 
-function each(arr, func) {
-  
-};
+function root(arr) {
+  let newArr = [];
 
-function changeArr(arr) {
-  arr.forEach( item => console.log(item) );
-};
+  arr.forEach(item => newArr.push(Math.sqrt(item)))
 
-changeArr(arr);
+  return newArr;
+}
+
+let resultArr4 = func4(arr4, root);
+
+div('Старый массив ' + arr4, document.getElementById('result4'));
+div('Новый массив ' + resultArr4, document.getElementById('result4'));
+
+//5 
+let arr5 = ['arrNum__1', 'arrNum__2', 'arrNum__3', 'arrNum__4', 'arrNum__5', 'arrNum__6'];
+let emptyArr5 = [];
+let f1 = (el) => 'func__1 : ' + el + '<br/>';
+let f2 = (el) => 'func__2 : ' + el + '<br/>';
+let f3 = (el) => 'func__3 : ' + el + '<br/>';
+
+let arrFunc5 = [f1, f2, f3];
+
+function func5(arrNum, arrF) {
+  for (let i = 0; i < arr5.length; i++) {
+    for (let j = 0; j < arrFunc5.length; j++) {
+      let x = arrF[j](arrNum[i]); // три разных функции к одному числу
+      emptyArr5.push(x);
+    }   
+  }
+}
+
+func5(arr5, arrFunc5);
+div(emptyArr5,document.getElementById('result5'));

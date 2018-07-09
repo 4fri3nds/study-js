@@ -22,7 +22,7 @@
   <div id="menu"></div>
 </div>
   <blockquote>
-    <h3>functions, closures</h3>
+    <h1>13. functions</h1>
     <ol>
       <li>
         Функция принимает 2 параметра: число и анонимную функцию, которая возводит число в квадрат. Возведите число в 4-тую степень с помощью этой функции.
@@ -36,11 +36,10 @@
         которая возводит в куб. Эти функции есть как Function Declaration - kvadrat, kub. Пусть функция вернет сумму квадрата и куба числа.
       </li>
       <li>
-        Сделайте функцию each, которая первым параметром принимает массив, а вторым - функцию, которая применится к каждому элементу
-        массива. Функция each должна вернуть измененный массив - корень кв из каждого числа.
+        Сделайте функцию each, которая первым параметром принимает массив, а вторым - функцию, которая применится к каждому элементу массива. Функция each должна вернуть измененный массив - корень кв из каждого числа.
       </li>
       <li>
-
+        Сделайте функцию each, которая первым параметром принимает массив, а вторым - массив функций, которые по очереди применятся к каждому элементу массива.
       </li>
     </ol>
   </blockquote>
@@ -50,16 +49,19 @@
       <legend>1. Передать функцию как параметр</legend>
       <p> Функция, которая принимает параметром себя же</p>
       <pre>
-        let quoterDegry = function(num, func) { 
-          return func(num); 
+        <code>
+
+          let quoterDegry = function(num, func) { 
+            return func(num); 
           }; 
           let quoter = function(x) { 
             return Math.pow(x, 2); 
           }; 
           
           // quoterDegry(2, quoter) - вторым параметром идет функция - без func()
-
+          
           div( quoterDegry(quoterDegry(2, quoter), quoter) );
+        </code>
       </pre>
       <div id="result1"></div>
     </fieldset>
@@ -67,19 +69,22 @@
       <legend>2. Простой пример функций, которые служат аргуменатми другой функции</legend>
       <p> В качестве аргументов служат две функции</p>
       <pre>
-        function a() { return 3 }; 
-        function b() { return 4 }; 
-        function abc(a, b) { return a() + b() }; 
-        
-        div( abc(a, b), result2);
-      </pre>
-      <div>OR</div>
-      <pre>
-        let a = () => 3; 
-        let b = () => 4; 
-        let abc = (a, b) => a() + b(); 
-        
-        div( abc(a, b), result2);
+        <code>
+          function a() { return 3 }; 
+          function b() { return 4 }; 
+          function abc(a, b) { return a() + b() }; 
+          
+          div( abc(a, b), result2);
+
+        <div>OR</div>
+
+          let a = () => 3; 
+          let b = () => 4; 
+          let abc = (a, b) => a() + b(); 
+          
+          div( abc(a, b), result2);
+          
+        </code>
       </pre>
       <div id="result2"></div>
     </fieldset>
@@ -87,33 +92,53 @@
       <legend>3. Квадрат числа + Куб числа</legend>
       <p>Мы передаем число и две разные функции, на выходе число</p>
       <pre>
-        let dg2 = (num) => Math.pow(num, 2); 
-        let dg3 = (num) => Math.pow(num, 3); 
-        let sumDg = (num, func1, func2) => func1(num) + func2(num); 
-        
-        div(sumDg(3, dg2, dg3), result3);
+        <code>
+
+          let dg2 = (num) => Math.pow(num, 2); 
+          let dg3 = (num) => Math.pow(num, 3); 
+          let sumDg = (num, func1, func2) => func1(num) + func2(num); 
+          
+          div(sumDg(3, dg2, dg3), result3);
+        </code>
       </pre>
       <div id="result3"></div>
     </fieldset>
     <fieldset>
-      <legend>4. 1</legend>
-      <p> Квадрат числа. Иклудит результат в DOM</p>
+      <legend>4. Функция - принимает функцию и массив в качестве аргументов</legend>
+      <p>Находит корень квадратный каждого элемента массива</p>
       <pre>
+        <code>
+          <b>перебор массива стрелочной функцией методом forEach</b>
+          arr.forEach( item => console.log(item));
+          
+          let func = (somefunc, arr) => somefunc(arr);
 
+          Math.sqrt(x) -- Возвращает квадратный корень числа
+
+          В конце функции обязательно писать return
+        </code>
       </pre>
       <div id="result4"></div>
     </fieldset>
     <fieldset>
-      <legend>4. 1</legend>
-      <p> Квадрат числа. Иклудит результат в DOM</p>
+      <legend>5. Массив функций к массиву чисел</legend>
+      <p> For в fore пройдетca каждой функцией по каждому числу массива</p>
       <pre>
+        <code>
+          // внутрь нужно помещать всегда то чего меньше
 
+           let x = arrF[j](arrNum[i]); // три разных функции к одному числу 
+           let x = arrF[i](arrNum[j]); // три разных числа к одному на одну функцию 
+        </code>
       </pre>
+      <div id="result5"></div>
     </fieldset>
   </div>
+
+  <script src="../../js/main/hilight.js"></script>
   <script src="./../../js/main/dynamic.js"></script>
-  <script src="./../../js/practice/les13.js"></script>
   <script src="./../../js/main/main.js"></script>
+  <script src="./../../js/practice/les13.js"></script>
 </body>
 
 </html>

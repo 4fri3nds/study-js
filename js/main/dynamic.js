@@ -17,8 +17,8 @@ var JSON = {
         { linkname: 'tables, random, sort', link: '../practice/lesson10.html' },
         { linkname: 'this', link: '../practice/lesson11.html' }, 
         { linkname: 'array', link: '../practice/lesson12.html' },
-        { linkname: 'functions, closures', link: '../practice/lesson13.html' },
-        { linkname: 'lesson-14', link: '../practice/lesson14.html' },
+        { linkname: 'functions', link: '../practice/lesson13.html' },
+        { linkname: 'closures', link: '../practice/lesson14.html' },
         { linkname: 'lesson-15', link: '../practice/lesson15.html' },
         { linkname: 'lesson-16', link: '../practice/lesson16.html' },
         { linkname: 'lesson-17', link: '../practice/lesson17.html' },
@@ -93,6 +93,8 @@ function parseDom(elem, parse) {
       parseDom(li, parse[i].submenu)
     };
   }
+  
+  hljs.initHighlightingOnLoad();
 };
 
 parseDom(document.getElementById('menu'), JSON.menu);
@@ -100,11 +102,12 @@ parseDom(document.getElementById('menu'), JSON.menu);
 let breadcrumps = document.getElementById('bread-crumps');
 let extramenu = document.getElementById('extra-menu');
 
-if (breadcrumps || extramenu) {
+if (breadcrumps) {
   parseDom(breadcrumps, JSON.breadcrumps);
-
-  parseDom(extramenu, JSON.extramenu);
-
-  hljs.initHighlightingOnLoad();
 }
+
+if (extramenu) {
+  parseDom(extramenu, JSON.extramenu);
+}
+
   

@@ -13,7 +13,7 @@ function div(str, location, cleaner) {
   let divEl = document.createElement('div');
 
   divEl.className = "includer";
-  divEl.innerHTML = 'Ваш результат: ' + str;
+  divEl.innerHTML = 'Ваш результат: ' + '<br/>' + str;
 
   if (cleaner == true) {
     empty(location);

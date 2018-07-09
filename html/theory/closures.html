@@ -39,47 +39,83 @@
         <ul class="tabs-content-list info-right-content">
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Для чего нужны замыкания</div>
             <fieldset>
-              <legend>1. Для чего нужны замыкания</legend>
-              <p>Первое — это возможность не засорять глобальную область видимости.</p>
-              <p>Для изоляции jQuery от глобальной области видимости</p>
+              <legend>1. сохранить переменную</legend>
+              <blockquote>
+                Вся фишка в том что переменная outerLet внутри outer. Будет сохранять свое значение между вызовами и при этом она инкапсулирована.
+              </blockquote>
               <pre class="code">
-                  <code>
-                    <i>так</i>
+                <code>
+                   function outer(par) { -- замыкаемая функция(так как ее просто так уже не вызвать)
+                     let outerLet = 1; 
+                     
+                     return function inner() { -- замыкающая функция
+                       console.log(outerLet, par);
+                       outerLet++;
+                       <h5>//возваращаемая функция из return имеет доступ 
+                         к переменным и параметрам в самой функции</h5>
+                      } 
+                    };
+
+                    outer(12)();
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. сохранить аргумент</legend>
+              <blockquote>В примере ниже переменная sayHelloHabrahabr запомнила передаваемый аргумент</blockquote>
+              <pre>
+                <code>
+                  var createHelloFunction = function(name) { 
+                    return function() { 
+                      alert('Hello, ' + name); 
+                    } 
+                  }
+                  
+                  var sayHelloHabrahabr = createHelloFunction('Habrahabr');
+                  sayHelloHabrahabr(); //alerts «Hello, Habrahabr»
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Изоляция переменных</legend>
+              <blockquote>Возможность не засорять глобальную область видимости.</blockquote>
+              <pre class="code">
+                <code>
+                  <b>jQuery</b>
                     (function(){ 
                       var $ = jQuery; 
                       $('.hidden').hide(); 
                     })();
-                  </code>
-                </pre>
-              <pre class="code">
-                  <code>
-                    <i>или более изящный вариант</i>
+                  <i>или более изящный вариант</i>
                     (function($){ 
                       /* Код, использующий $ */ 
                     })(jQuery);
-                  </code>
-                </pre>
-              <pre class="code">
-                  <code>
-                    <i>или более понятный вариант - обьявили и сразу запустили</i>
+                  <i>или более понятный вариант - обьявили и сразу запустили</i>
                     function __run($){ 
                       /* code */ 
                     }; 
                     __run(jQuery);
-                  </code>
-                </pre>
+
+                  <b>JS</b>
+                    let fn = (function() { 
+                      //this here 
+                    }).call(this);
+                </code>
+              </pre>
             </fieldset>
+              
+             
             <fieldset>
-              <legend>2. Замыкания</legend>
-              <p>
-                Возможность использовать вызовы функций как переменные вкупе с тем фактом, что локальные переменные каждый раз при вызове
-                функции создаются заново. Дает нам возможность создавать функцию в функции. Параметры которых могут взаимодействовать
-                друг с другом.
-              </p>
+              <legend>4. замыкающий параметр</legend>
+              <blockquote>
+                Параметры функций могут взаимодействовать друг с другом.
+              </blockquote>
               <p>
                 Мы вкладываем функцию в переменную и функции даем параметр. А потом даем переменной параметр который будет параметром второй
-                функции - в функции которую положили в переменную.
+                функции
               </p>
               <pre class="code">
                 <code>
@@ -93,36 +129,6 @@
                   console.log(twice(5));
                 </code>
               </pre>
-            </fieldset>
-            <fieldset>
-              <legend>3. WHILE</legend>
-              <p>
-                Всегда число будет трех-значное.
-              </p>
-              <pre class="code">
-                  <code>
-                    <b>result: 004, 044, 444</b>        
-                    function inventory (cows) { 
-                      let x = 0; 
-                      let cowsStr = String(cows); 
-                      while (cowsStr.length < 3) { 
-                        cowsStr='0' + cowsStr; 
-                        x++;
-                      };
-                      console.log(cowsStr); 
-                    }; 
-                    inventory(4);
-                    inventory(44);
-                    inventory(444);
-                  </code>
-                </pre>
-              <pre class="code">
-                  <code>
-                    while (true) { 
-                      // ... 
-                    }
-                  </code>
-                </pre>
             </fieldset>
             <!-- end 1 -->
           </li>

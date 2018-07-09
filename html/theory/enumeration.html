@@ -59,10 +59,30 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>3. While</legend>
-              <pre>
+              <legend>5. WHILE</legend>
+              <p>
+                Всегда число будет трех-значное.
+              </p>
+              <pre class="code">
                 <code>
-                  while(true) { ... }
+                  <b>result: 004, 044, 444</b>        
+                  function inventory (cows) { 
+                    let x = 0; 
+                    let cowsStr = String(cows); 
+                    while (cowsStr.length < 3) { 
+                      cowsStr='0' + cowsStr; 
+                      x++;
+                    };
+                    console.log(cowsStr); 
+                  }; 
+                  inventory(4);
+                  inventory(44);
+                  inventory(444);
+            
+                  <b>синтаксис</b>
+                  while (true) { 
+                    // ... 
+                  }
                 </code>
               </pre>
             </fieldset>
@@ -236,7 +256,7 @@
                 </pre>
             </fieldset>
             <!-- end 3-->
-          </li>
+            </li>
         </ul>
       </div>
     </div>

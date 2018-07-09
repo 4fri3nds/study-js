@@ -30,14 +30,14 @@
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Стрелочные функции</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Новые методы</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">title</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Let, Const, Var</li>
         </ul>
         <!-- END NAV -->
       </div>
       <div class="info-right">
         <div id="extra-menu" class="links-themes-list"></div>
         <ul class="tabs-content-list info-right-content">
-          <fieldset id="mark1" class="tabs-content-item active">
+          <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
             <div class="title">Стрелочные функции</div>
@@ -100,18 +100,17 @@
                   .catch(err => log(err.stack));
                 </code>
               </pre>
-            </fieldset>>
+            </fieldset>
             <!-- end 1 -->
-            </li>
-            <li id="mark2" class="tabs-content-item">
-              <!-- 2 -->
-              <div class="sub-title">Main</div>
-              <div class="title">Методы</div>
-              <fieldset>
-                <legend>1. ES6 - Метод filter()</legend>
-                <h3></h3>
-                Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
-                <pre>
+          </li>
+          <li id="mark2" class="tabs-content-item">
+            <!-- 2 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Методы</div>
+            <fieldset>
+              <legend>1. ES6 - Метод filter()</legend>
+              Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
+              <pre>
                   <code>
                     const words = ["spray", "limit", "elite", "exuberant", "destruction", "present", "happy"]; 
                     
@@ -120,18 +119,123 @@
                     // Отфильтрованный массив longWords ["exuberant", "destruction", "present"]
                   </code>
                 </pre>
-              </fieldset>
-              <!-- end 2 -->
-            </li>
-            <li id="mark3" class="tabs-content-item">
-              <!-- 3 -->
-              <div class="sub-title">Main</div>
-              <div class="title">Title</div>
-              <fieldset>
-                <legend>1. title</legend>
-              </fieldset>
-              <!-- end -->
-            </li>
+            </fieldset>
+            <!-- end 2 -->
+          </li>
+          <li id="mark3" class="tabs-content-item">
+            <!-- 3 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Let, Const, Var</div>
+            <fieldset>
+              <legend>1. Let</legend>
+              <div class="title">Let</div>
+              <pre class="code">
+                  <code>
+                    var a = 10; 
+                    { let a = 20; console.log(a); // 20 } 
+                    console.log(a); // 10
+                  </code>
+                </pre>
+              <h3>Таким образом, при выполнении следующего кода переменная i не будет доступна вне цикла:</h3>
+              <pre class="code">
+                  <code>
+                    for (let i = 0; i < 5; i++) { 
+                      console.log(i); // 0 1 2 3 4 
+                    } 
+                    
+                    console.log(i); // ReferenceError: i is not defined
+                  </code>
+                </pre>
+              <h3>Hoisting</h3>
+              <pre class="code">
+                  <code>
+                    if (true) { 
+                      let num = 10; 
+                      console.log(num); // 10 
+                    } 
+
+                    console.log(num); // ReferenceError: num is not defined
+                  </code>
+                </pre>
+              <h3>Временная мёртвая зона не распространяется на функции до первого их вызова:</h3>
+              <pre class="code">
+                  <code>
+                    var f = function() { 
+                    return num; 
+                    }; 
+                    
+                    let num = 10; 
+                    console.log(f()); // 10
+                  </code>
+                </pre>
+              <h3>Тем не менее, если вы попытаетесь вызвать функцию f до того, как будет объявлена переменная num, то получите
+                ошибку:
+              </h3>
+              <pre class="code">
+                  <code>
+                    var f = function() { 
+                    return num; 
+                    }; 
+                    console.log(f()); // ReferenceError: num is not defined 
+                    let num = 10;
+                  </code>
+                </pre>
+            </fieldset>
+            <fieldset>
+              <legend>Const</legend>
+              <div class="title">Const</div>
+              <h3>Новое присваивание значения переменной num выведет ошибку.</h3>
+              <pre class="code">
+                <code>                 
+                  const num = 10; 
+                  console.log(num); // 10 
+                  num = 20; // TypeError: 'num' is read-only
+                </code>
+              </pre>
+              <h3>Заново инициализировать переменную с помощью оператора</h3>
+              <pre>
+                <code>
+                  const тоже не получится:</h5>
+                  const a = 20; 
+                  let a = 10; // TypeError: 'a' is read-only
+                </code>
+              </pre>
+              <h3>На первый взгяд, может показаться, что всё, что было записано в константу невозможно изменить. Но, на самом
+                деле, нельзя менять только литерал или ссылку:</h3>
+              <pre>
+                <code>
+                  const lit = 4; lit = 5; // TypeError: Литерал изменить нельзя 
+                  
+                  const obj = { a: 1 }; obj.a = 2; // Значения внутри объекта
+                  изменить можно 
+                  
+                  console.log(obj); // { a: 2 } 
+                  obj = { a: 3 }; // TypeError: Ссылку менять нельзя 
+
+                  const arr =[1, 2, 3]; 
+                  arr.push(4); // Значения внутри массива изменить можно 
+                  
+                  console.log(arr); // [1, 2, 3, 4] 
+                  obj = [4, 3, 2, 1]; // TypeError: Ссылку менять нельзя  
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>Var</legend>
+              <div class="title">Var</div>
+              <h3>Переменная i до сих пор доступна</h3>
+              <pre class="code">
+                <code>                 
+                  for (var i = 0; i < 5; i++) { 
+                    console.log( 'Что-то было сделано ' + i + ' раз'); // 0 1 2 3 4 
+                  } 
+                  
+                  console.log('Переменная i до сих пор доступна и равна ' + i); // 5
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 3-->
+          </li>
         </ul>
       </div>
     </div>

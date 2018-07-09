@@ -29,6 +29,7 @@ ul li {
 ul li:last-child {
   border-bottom: none;
 }
+
 ol li {
   font-size: 16px;
   font-style: italic;
@@ -46,6 +47,7 @@ pre.code {
   white-space: pre-wrap;
   transform: translateX(-150px);
 }
+
 pre b {
   color: black;
   font-weight: bold;
@@ -103,8 +105,11 @@ legend {
 blockquote {
   position: relative;
   padding: 10px;
-  border-top: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
+  padding-left: 2rem;
+  border-left: .3rem solid #e74c3c;
+  font-style: italic;
+  color: #888;
+  margin-left: 2rem;
 }
 
 label {
@@ -114,32 +119,6 @@ label {
 .container {
   width: 90%;
   margin: auto;
-}
-
-blockquote:before,
-blockquote:after {
-  font-size: 3em;
-  color: #400;
-}
-
-blockquote:before {
-  content: '«';
-  display: inline-block;
-  margin: auto;
-  position: absolute;
-  left: -25px;
-  top: 0;
-  bottom: 0;
-}
-
-blockquote:after {
-  content: '»';
-  display: inline-block;
-  margin: auto;
-  position: absolute;
-  right: -25px;
-  top: 0;
-  bottom: 0;
 }
 
 blockquote p {
@@ -211,9 +190,26 @@ label {
 
 button {
   display: block;
-  font-size: 16px;
-  padding: 5px 10px;
+  background: none;
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button {
   margin: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 3px;
+  padding: 0.25em 1em;
+  background: transparent;
+  color: palevioletred;
+  border: 2px solid palevioletred;
+}
+
+button:hover {
+  background-color: #fff;
 }
 
 .module-list {
@@ -414,6 +410,8 @@ input.sq {
 .nav .search button {
   border-radius: 0 20px 20px 0;
   transform: translateX(-107%);
+  border: none;
+  color: inherit;
 }
 
 .links-themes-title {
@@ -581,7 +579,7 @@ input.sq {
   animation: fadeEffect .3s;
 }
 
-.tabs-content-item ul li{
+.tabs-content-item ul li {
   overflow: hidden;
 }
 

@@ -32,6 +32,7 @@
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Итерессные теги</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Анимация css</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Код</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Reset</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -162,6 +163,70 @@
               </pre>
             </fieldset>
             <!-- end 4-->
+          </li>
+          <li id="mark5" class="tabs-content-item">
+            <!-- 5 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Reset</div>
+            <fieldset>
+              <legend>1. Повесить анимацию</legend>
+              <pre class="code">
+                <code>
+                  * margin: 0; 
+                    padding: 0; 
+                    box-sizing: border-box 
+                    
+                  html, body 
+                    width: 100%; 
+                    font-size: 16px; 
+                  
+                  body 
+                    font-family: 'rubik', sans-serif;
+                  
+                  li 
+                    list-style-type: none; 
+                    
+                  a 
+                    text-decoration: none; 
+                    &:hover 
+                      cursor: pointer 
+                      
+                  button 
+                    display: block; 
+                    background: none; 
+                    position: relative; 
+                    border: none; 
+                    outline: none; 
+                    cursor: pointer; 
+                  
+                  input 
+                    outline: none; 
+                    
+                  i 
+                    font-style: normal 
+                    
+                  img,a,span 
+                    height: 100%
+                    display: inline-block 
+                    vertical-align: middle 
+                  
+                  p 
+                    display: inline-block 
+                    vertical-align: middle 
+                    
+                  *:hover 
+                    transition: .2s ease-out
+
+                  h1,h2,h3,h4,h5,h6 
+                    margin: 0 
+                    
+                  input:focus, select:focus, textarea:focus, button:focus 
+                    outline: none;
+
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 5-->
           </li>
         </ul>
       </div>
