@@ -5,6 +5,12 @@ let result3 = document.getElementById('result3');
 let result4 = document.getElementById('result4');
 let result5 = document.getElementById('result5');
 
+let get1 = document.getElementById('get1');
+let get2 = document.getElementById('get2');
+let get3 = document.getElementById('get3');
+let get4 = document.getElementById('get4');
+let get5 = document.getElementById('get5');
+
 // 1 task
 let quoterDegry = function(num, func) {
   return func(num);
@@ -14,21 +20,21 @@ let quoter = function(x) {
   return Math.pow(x, 2); 
 };
 
-div( quoterDegry(quoterDegry(2, quoter), quoter), result1 );
+get1.onclick = () => div(quoterDegry(quoterDegry(2, quoter), quoter), result1 );
 
 // 2 task
 let a = () => 3;
 let b = () => 4;
 let abc = (a, b) => a() + b();
 
-div( abc(a, b), result2);
+get2.onclick = () => div( abc(a, b), result2);
 
 //3 task
 let dg2 = (num) => Math.pow(num, 2);
 let dg3 = (num) => Math.pow(num, 3);
 let sumDg = (num, func1, func2) => func1(num) + func2(num);
 
-div(sumDg(3, dg2, dg3), result3);
+get3.onclick = () => div(sumDg(3, dg2, dg3), result3);
 
 //4 корень квадратный из каждого числа массива
 let arr4 = [4, 9, 16, 25, 36, 49, 64, 81, 100];
@@ -44,8 +50,10 @@ function root(arr) {
 
 let resultArr4 = func4(arr4, root);
 
-div('Старый массив ' + arr4, document.getElementById('result4'));
-div('Новый массив ' + resultArr4, document.getElementById('result4'));
+get4.onclick = () => (
+  div('Старый массив ' + arr4, document.getElementById('result4')),
+  div('Новый массив ' + resultArr4, document.getElementById('result4'))
+);
 
 //5 
 let arr5 = ['arrNum__1', 'arrNum__2', 'arrNum__3', 'arrNum__4', 'arrNum__5', 'arrNum__6'];
@@ -66,4 +74,5 @@ function func5(arrNum, arrF) {
 }
 
 func5(arr5, arrFunc5);
-div(emptyArr5,document.getElementById('result5'));
+
+get5.onclick = () => div(emptyArr5,document.getElementById('result5'));

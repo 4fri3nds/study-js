@@ -326,7 +326,7 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>методы this</legend>
+              <legend>2. методы this</legend>
               <p>
                 func.call(elem, x1, x2) func.apply(elem, [x1, x2]) func.bind(elem)
               </p>
@@ -373,6 +373,22 @@
                 </code>
               </pre>
             </fieldset>
+                <fieldset>
+                  <legend>4. Дать и забрать аттр по клику</legend>
+                  <p>
+                    Только при вызове функции мы указывает this(где мы указываем элементы с которымм что-то должна зделать функция). В сасой
+                    функции универсальной фун-ции this будет window или undefined.
+                  </p>
+                  <pre class="code">
+                    <code>
+                      function addEvent(remove, add, elem) { 
+                        elem.removeEventListener('click', remove); 
+                        elem.addEventListener('click', add); 
+                      };
+                      addEvent(this, first, lost);
+                    </code>
+                  </pre>
+                </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">

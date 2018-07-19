@@ -23,26 +23,78 @@
 </div>
 
   <blockquote>
-    <h3>dom</h3>
     <p>
-      Даны 3 инпута и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в четвертый инпут.
+      1. Даны 3 инпута и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в четвертый инпут.
+    </p>
+    <p>
+      2. Инпут срабатывающий на клик и ентер
+    </p>
+    <p>
+      3. Посчитает сумму чисел в инпутах и запишет ее в 4 инпут
+    </p>
+    <p>
+      4. С помощью цикла for сформируйте строку '-9-8-7-6-5-4-3-2-1-' и запишите ее в переменную str.
+    </p>
+    <p>
+      <b>5. Нарисуйте</b>
+      <pre>
+         x 
+         xx 
+         xxx 
+         xxxx 
+         xxxxx
+      </pre>
+    </p>
+    <p>
+      <b>6. Нарисуйте</b>
+      <pre>
+        1 
+        22 
+        333 
+        4444
+        55555 
+        666666 
+        7777777 
+        88888888 
+        999999999
+      </pre>
+    </p>
+    <p>
+      <b>7. Нарисуйте</b>
+      <pre>
+        xx 
+        xxxx 
+        xxxxxx 
+        xxxxxxxx 
+        xxxxxxxxxx
+      </pre>
+    </p>
+    <p>
+      <b>8. Нарисуйте</b>
+      <pre>
+        x x x x 
+        &nbsp;x x x x 
+        x x x x 
+        &nbsp;x x x x 
+        x x x x
+      </pre>
     </p>
   </blockquote>
 
   <div class="container">
 
     <fieldset id="include1">
-      <legend>получите квадрат числа</legend>
-      <p> Квадрат числа. Иклудит результат в DOM</p>
+      <legend>Введите число</legend>
+      <p> Посчитает квадрат числа</p>
       <input class="num" type="text" value="">
-      <button id="but">click at me</button>
+      <button id="but">click</button>
     </fieldset>
 
     <fieldset>
       <legend>
         введите что-нибудь
       </legend>
-      <p>срабатывает при нажатии на enter выводит алерт - коротко и ясно</p>
+      <p>срабатывает при нажатии на enter выводит алерт - c input.value</p>
       <pre>
         function a_value(o) { alert(o.value); }
       </pre>
@@ -54,7 +106,81 @@
       <input class="num3" type="text" value="">
       <input class="num3" type="text" value="">
       <input class="num3" type="text" value="">
-      <button id="but3">click at me</button>
+      <button id="but3">click</button>
+    </fieldset>
+    <fieldset id="include4">
+      <legend>Склеит числа в цикле</legend>
+      <p>-9-8-7-6-5-4-3-2-1-'</p>
+      <pre>
+        <code>
+           let el4 = '-'; 
+           
+           for (let i = 9; i >= 1; i--) { 
+             el4 += (i+'-'); 
+            } 
+            
+            but4.onclick = () => div(el4, result4);
+        </code>
+      </pre>
+      <button id="but4">click</button>
+      <div id="result4"></div>
+    </fieldset>
+    <fieldset id="include5">
+      <legend>Пирамидка</legend>
+      <pre class="code" style="margin-left: 50px;">
+        <code>
+          let pyr5 = function () { for (let i = 1; i < 10; i++) { 
+            let div = document.createElement('div'); 
+            for (let z=1; z<=i; z++) { 
+              let span = document.createElement('span'); 
+              span.innerHTML='x'; 
+              div.appendChild(span); 
+              result5.appendChild(div); 
+            } 
+          }
+        };
+        
+        but5.onclick=()=> pyr5();
+        </code>
+      </pre>
+      <button id="but5">click</button>
+      <div id="result5"></div>
+    </fieldset>
+    <fieldset id="include6">
+      <legend>Пирамидка из чисел</legend>
+      <button id="but6">click</button>
+      <div id="result6"></div>
+    </fieldset>
+    <fieldset id="include7">
+      <legend>Пирамидка с интервалом</legend>
+      <button id="but7">click</button>
+      <div id="result7"></div>
+    </fieldset>
+    <fieldset id="include8">
+      <legend>Решетка</legend>
+      <p></p>
+      <pre class="code">
+        <code>
+           let cell8 = function (str, eter) { 
+             for (let i = 0; i< eter; i++) { 
+               let div=document.createElement('div'); 
+               if (i % 2 !==0) { 
+                 div.innerHTML='&nbsp;'; 
+                } 
+                
+                for (let z=0; z < eter; z++) { 
+                  let span=document.createElement('span'); 
+                  span.innerHTML=str; 
+                  div.appendChild(span); 
+                  result8.appendChild(div); 
+                } 
+              } 
+            }; 
+            but8.onclick=()=> cell8('# ', 5);
+        </code>
+      </pre>
+      <button id="but8">click</button>
+      <div id="result8"></div>
     </fieldset>
   </div>
 

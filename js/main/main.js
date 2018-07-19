@@ -25,6 +25,7 @@ function div(str, location, cleaner) {
     document.body.appendChild(divEl)
   }
 }
+
 // remove all children node
 function empty(wrap) {
   while (wrap.children.length > 0) {

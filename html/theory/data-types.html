@@ -34,7 +34,8 @@
           <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Флаги</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Примеры кода</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Словарик</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark7')">Плохие практики</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark7')">Напоминалка</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark8')">Чаво</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -66,22 +67,70 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>2. Остаток от деления %</legend>
+              <blockquote>
+                 Взятие остатка % Оператор взятия остатка % интересен тем, что его результат a % b – это остаток от деления a на b.
+              </blockquote>
+              <pre>
+                <code>
+                   Например: 
+                   alert( 5 % 2 ); // 1
+                   alert(8 % 3 ); // 2
+                   alert( 6 % 3 ); // 0
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Строки</div>
+            <div class="title">Строки/ String</div>
 
             <fieldset>
               <legend>1. Методы строк</legend>
               <pre>
                 <code>
-                  arr = value.split(',') - разбивает строку на массив по символу
-                  slice(start, end) - Извлекает часть строки и возвращает новую строку.
-                  substring(start, end) 
-                  substr(start, length)
-                  charAt -- узнаем какой именно символ(на этой позиции)
+                  <b>Преобразовать</b>
+                  String.prototype.toString() -- Преобразует в строку
+                  String.prototype.split() -- разбивает строку на массив по символу
+                  String.prototype.quote() -- Оборачивает строку в двойные кавычки (""")
+                  
+                  <b>Трансформировать</b>
+                  String.prototype.concat() -- Объединяет 2 строки в одну
+                  String.prototype.repeat() -- Дублирует строку
+
+                  <b>Заменить участок</b>
+                  String.prototype.replace() -- Заменяет совпавшую строку на новую
+                  String.prototype.slice() -- Извлекает часть строки и возвращает новую строку  
+
+                  <b>Обрезать</b>
+                  String.prototype.substring() -- Возвращает символы в строке между двумя индексами
+
+                  <b>Вернуть символ</b>
+                  String.prototype.indexOf() -- Возвращает индекс символа в строке
+                  String.prototype.lastIndexOf() -- Возвращает индекс последнего вхождения
+                  String.prototype.charAt() -- Возвращает символ по указанному индексу
+                  String.prototype.substr() -- Возвращает указанное количество символов в строке, начинающихся с указанной позиции
+                  
+                  <b>Найти</b>
+                  String.prototype.search() -- Выполняет поиск со строкой
+                  
+                  <b>Убрать пробелы, Регистр</b>
+                  String.prototype.trim() -- Обрезает пробелы в начале и в конце строки 
+                  String.prototype.trimLeft() -- Обрезает пробелы с левой стороны строки 
+                  String.prototype.trimRight() -- Обрезает пробелы с правой стороны
+
+                  String.prototype.toLowerCase() -- Переводит в нижний регистр
+                  String.prototype.toUpperCase() -- Переводит в верхний регистр
+                  
+                  <b>Инфо</b>
+                  String.prototype.startsWith() -- Определяет, начинается ли строка символами другой строки
+                  String.prototype.includes() -- Определяет, находится ли строка внутри другой строки 
+                  String.prototype.constructor -- Определяет функцию, создающую прототип этого объекта. 
+                  String.prototype.endsWith() -- Определяет, заканчивается ли строка символами другой строки 
+                  String.prototype.match() -- Используется для сопоставления строке регулярного выражения
                 </code>
               </pre>
             </fieldset>
@@ -223,8 +272,6 @@
                   получает все объявления переменных, все идентификаторы. При этом никакой код не выполняется, методы не вызываются. При втором
                   проходе собственно происходит выполнение. И даже если переменная определена после непосредственного использования, ошибки
                   не возникнет, так как при первом проходе компилятору уже известны все переменные.</blockquote>
-
-
                   <hr>
                 </code>
               </pre>
@@ -253,6 +300,27 @@
               </pre>
             </fieldset>
             <!-- end 7 -->
+          </li>
+          <li id="mark8" class="tabs-content-item">
+            <!-- 8 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Чаво</div>
+            <fieldset>
+              <legend>1. Хз</legend>
+              <blockquote>Почему стрелочная функция не работает а обычная работает?</blockquote>
+              <pre class="code">
+                <code>     
+                  let MyApp = { 
+                    name: 'zerro', 
+                    age: 12, 
+                    size: 3, 
+                    diff: () => this.age+this.size 
+                    // diff: function() { return this.age + this.size } 
+                  }     
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 8 -->
           </li>
         </ul>
       </div>

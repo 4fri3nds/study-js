@@ -24,16 +24,154 @@
   <blockquote>
     <h1>14. Замыкания</h1>
     <ol>
-      <li>Сделайте функцию, которая считает и выводит количество своих вызовов.</li>
+      <li>
+        Сделайте функцию, которая считает и выводит количество своих вызовов.
+      </li>
+      <li>
+        Даны кнопки. Привяжите к каждой кнопке событие по клику, которое будет считать количество нажатий по кнопке и выводить его в текст кнопки. Количество нажатий для каждой кнопки должно хранится в замыкании.
+      </li>
+      <li>
+        Дан массив цветов. Даны абзацы. По первому нажатию на абзац он должен покраситься в первый цвет из массива, по второму нажатию - во второй и так далее. Все абзацы работают независимо. Показать решение.
+      </li>
+      <li>
+        Сделайте так, чтобы инпут хранил историю своих изменений. Каждый инпут свою. Изменением считается событие onchange. История должна хранится в замыкании. 
+      </li>
+      <li>
+         Сделайте функцию, каждый вызов который будет генерировать случайные числа от 1 до 10, но так, чтобы они не повторялись, пока не будут перебраны все числа из этого промежутка. Решите задачу через замыкания - в замыкании должен хранится массив чисел, которые уже были сгенерированы функцией
+      </li>
     </ol>
   </blockquote>
   
-  <div class="container">
+  <div class="container closures">
     <fieldset>
       <legend>1. Количество вызовов себя</legend>
-      <p>Функция, которая возвращает функцию, которая считает сколько раз вызвали возвращающую(замыкаюемую) функцию.</p>
+      <blockquote>Функция, которая возвращает функцию, которая считает сколько раз вызвали возвращающую(замыкаюемую) функцию.</blockquote>
+      <pre class="code">
+        <code>
+           function showCalls() { 
+             let calls = 1; 
+             return function () { 
+               return calls++ 
+              } 
+            } 
+            
+            let fn = showCalls();
+        </code>
+      </pre>
+      <button id="get1">Result</button>
       <div id="result1"></div>
-
+    </fieldset>
+    <fieldset>
+      <legend>2. Кол-во нажатий на кнопки через замыкание</legend>
+      <button class="but2">Click</button>
+      <button class="but2">Click</button>
+      <button class="but2">Click</button>
+      <pre class="code">
+        <code>
+            function funClick() { 
+              let count=0 ; 
+              return function () { 
+                return this.innerHTML=++count; 
+              } 
+            }
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>3. Разукрась абзацы</legend>
+      <div class="colors3"></div>
+      <div class="colors3"></div>
+      <div class="colors3"></div>
+      <pre class="code">
+        <code>
+          function chgCol3() { 
+            let z = 0; 
+            return function () { 
+              if (z == arr3.length) { 
+                z = 0; 
+              }; 
+              
+              return this.style.background = arr3[z++]
+            } 
+          }
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>4. История инпутов</legend> 
+      <h4>Кажется я начинаю понимать зачем нужны замыкания</h4>
+      <div class="form4">
+        <input type="text" class="input4">
+        <button class="enter">enter</button>
+      </div>
+      <div class="form4">
+        <input type="text" class="input4">
+        <button class="enter">enter</button>
+      </div>
+      <div class="form4">
+        <input type="text" class="input4">
+        <button class="enter">enter</button>
+      </div>
+      <div id="result4"></div>
+      <pre class="code">
+        <code>
+            return ( 
+             arr.push(this.value), 
+             this.value = '', 
+             div(arr, document.getElementById('result4')) 
+            )
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>5. Случайные числа от 1 - 10</legend> 
+      <h4>Числа не должны повторятся</h4>
+      <div class="form5">
+        <button class="enter">generate</button>
+        <table><tr></tr></table>
+        <div id="result5"></div>
+      </div>
+      <pre class="code">
+        <code>
+             let form5 = document.getElementsByClassName('form5')[0]; 
+             let enter5 = form5.getElementsByClassName('enter')[0]; 
+             let result5 = document.querySelector('#result5'); 
+             let obj5 = {}; 
+             let arr5 = []; 
+             let altArr = []; 
+             
+             enter5.onclick = rand5(); 
+             altArr[0] = 5; 
+             altArr[1] = 6; 
+             
+             while (Object.keys(obj5).length < 9) { 
+               let rand=getRandom(1, 10); 
+               obj5[rand]=true; 
+               arr5.push(rand);
+              }; 
+              
+              iteration: for (let i=0 ; i < arr5.length; i++) { 
+                let x=a rr5[i]; for (let z=0 ; z < altArr.length; z++) { 
+                  let y=altArr[z];
+                  
+                  if(x==y ) continue iteration; 
+                } 
+                altArr.push(arr5[i]); 
+              }; 
+              
+              function rand5() { 
+                let x=0; 
+                return function () { 
+                  let td=d ocument.createElement('td'); 
+                  return ( 
+                    td.innerHTML=a ltArr[x++], 
+                    form5.getElementsByTagName('table')[0]
+                      .getElementsByTagName('tr')[0].appendChild(td)
+                  ) 
+                }
+              };
+        </code>
+      </pre>
     </fieldset>
   </div>
   <script src="../../js/main/hilight.js"></script>

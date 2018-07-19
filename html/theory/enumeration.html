@@ -52,9 +52,16 @@
             </fieldset>
             <fieldset>
               <legend>2. For in</legend>
-              <pre>
+              <pre class="code">
                 <code>
                   for( key in item) { ... }
+
+                  <b>Пример</b>
+                  let str = 'hello world'; 
+
+                  for (i in str) { 
+                    console.log(str[i]); // 'hello world'
+                  };
                 </code>
               </pre>
             </fieldset>
@@ -103,6 +110,34 @@
                   <hr>
                   <b>OR</b>
                   someArr.forEach(callback = (currentValue, index, array) => (console.log(currentValue)));
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Continue</legend>
+              <blockquote>Директива continue прекращает выполнение текущей итерации цикла.</blockquote>
+              <pre>
+                <code>        
+                  for( key in item) { ... }
+
+                  <b>Пример</b>
+                  let str = 'hello world'; 
+
+                  for (i in str) { 
+                    if (str[i] == 'o') { 
+                      continue 
+                    } else { 
+                      console.log(str[i]); //'hell wrld'
+                    } 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>6. Break</legend>
+              <pre>
+                <code>
+
                 </code>
               </pre>
             </fieldset>
@@ -257,6 +292,90 @@
             </fieldset>
             <!-- end 3-->
             </li>
+            <li id="mark4" class="tabs-content-item">
+              <!-- 4 -->
+              <div class="sub-title">Main</div>
+              <div class="title">Уникальные числа из массива</div>
+              <fieldset>
+                <legend>1. Unique - Уникальные числа/слова перебором</legend>
+                <blockquote>Этот метод медленнее чем обьектом</blockquote>
+                <pre class="code">
+                <code>
+                  function unique(arr) { 
+                    var result = [];
+
+                    nextInput: for (var i = 0; i < arr.length; i++) { 
+                      var str=a rr[i]; // для каждого элемента 
+                      for (var j=0 ; j < result.length; j++) { // ищем, был ли он уже? 
+                      if (result[j]==s tr) continue nextInput; // если да, то следующий 
+                    } 
+                      result.push(str); 
+                    } 
+                    return result; 
+                  } 
+                  
+                  var strings=[ "кришна", "кришна", "харе", "харе", "харе", "харе",
+                    "кришна", "кришна", "8-()" ]; console.log(unique(strings));
+                </code>
+              </pre>
+              </fieldset>
+              <fieldset>
+                <legend>2. Unique - Уникальные слова массива</legend>
+                <li>
+                  <p>
+                    <b>Уникальные
+                      <u>слова!</u> из массива</b>
+                  </p>
+                  <pre class="code">
+                  <code>
+                      function unique(arr) { 
+                        var obj = {}; 
+                        
+                        for (var i = 0; i < arr.length; i++) { 
+                            var str=a rr[i]; 
+                            obj[str]=true; // запомнить строку в виде свойства объекта 
+                          }
+
+                        return Object.keys(obj); 
+                      }
+
+                      var strings=["кришна", "кришна", "харе", "харе", "харе", "харе", "кришна", "кришна", "8-()" ]; 
+                      
+                      alert( unique(strings) );
+                  </code>
+                </pre>
+              </fieldset>
+              <fieldset>
+                <legend>3. Unique - Уникальные числа массива</legend>
+                <li>
+                  <p>
+                    <b>Уникальные <u>числа!</u> из массива</b>
+                  </p>
+                  <pre class="code">
+                  <code>
+                    var obj = {}; 
+
+                    function unique(arr) { 
+                      
+                      for (var i = 0; i < arr.length; i++) { 
+                          var str=a rr[i]; 
+                          obj[str]=true; // запомнить строку в виде свойства объекта 
+                        }
+                    }
+
+                    var strings = ['t5','t2','t5','t8','t3','t2','t5','t7','t4','t5','t4'];
+                    // к массив чисел нужно преобразовать в строку иначе они отсортируются в obj
+                    
+                    unique(strings); 
+                    
+                    for (let i = 0; i < Object.keys(obj).length; i++) { 
+                      console.log(Object.keys(obj)[i][1]); //получаем только цифру
+                    }
+                  </code>
+                </pre>
+              </fieldset>
+              <!-- end 4-->
+              </li>
         </ul>
       </div>
     </div>

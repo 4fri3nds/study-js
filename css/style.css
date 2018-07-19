@@ -204,12 +204,14 @@ button {
   border-radius: 3px;
   padding: 0.25em 1em;
   background: transparent;
-  color: palevioletred;
-  border: 2px solid palevioletred;
+  color: white;
+  background-color: tomato;
+  border: 2px solid tomato;
 }
 
 button:hover {
-  background-color: #fff;
+  background-color: white;
+  color: tomato;
 }
 
 .module-list {
@@ -290,7 +292,7 @@ table td {
 }
 
 input.sq {
-  width: 24px;
+  width: 45px;
   font-size: 20px;
   margin: 0;
   margin-right: 5px;
@@ -301,6 +303,39 @@ input.sq {
   font-size: 10px;
   font-style: italic;
   display: none;
+}
+
+.closures .colors3 {
+  height: 50px;
+  width: 50px;
+  background-color: lightblue;
+  border: 1px solid; 
+  display: inline-block;
+  margin: 10px;
+  user-select: none;
+}
+
+button {
+  user-select: none;
+}
+
+.closures .colors3:hover {
+  cursor: pointer; 
+  border: 1px solid lightblue;
+}
+
+.prev, .next, .enter  {
+  display: inline-block;
+  background: transparent;
+  color: tomato;
+}
+
+input {
+  line-height: 28px;
+  border: 2px solid tomato;
+  border-radius: 2px;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 /*-----------------*/
@@ -319,7 +354,7 @@ input.sq {
 
 .hljs,
 .hljs-subst {
-  color: #3e5915;
+  color: #333;
 }
 
 .hljs-string,
@@ -401,6 +436,7 @@ input.sq {
   padding-left: 30px;
   padding-right: 85px;
   font-size: 18px;
+  border-color: gray;
 }
 
 .nav .search span {
@@ -409,9 +445,11 @@ input.sq {
 
 .nav .search button {
   border-radius: 0 20px 20px 0;
-  transform: translateX(-107%);
+  transform: translateX(-106%);
   border: none;
-  color: inherit;
+  color: white;
+  border-color: gray;
+  background: gray;
 }
 
 .links-themes-title {
@@ -564,7 +602,7 @@ input.sq {
 }
 
 .tabs-nav-item {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #000 !important;
   border-radius: 5px 0 0 5px;
   list-style: none;
   margin-bottom: 3px;

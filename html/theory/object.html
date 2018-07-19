@@ -29,8 +29,9 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Применение</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">title</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Методы</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Код</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Get,Set</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -115,23 +116,7 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>this глобальный обьект window</legend>
-              <p>
-                Только при вызове функции мы указывает this(где мы указываем элементы с которымм что-то должна зделать функция). В сасой
-                функции универсальной фун-ции this будет window или undefined.
-              </p>
-              <pre class="code">
-                <code>
-                  function addEvent(remove, add, elem) { 
-                    elem.removeEventListener('click', remove); 
-                    elem.addEventListener('click', add); 
-                  };
-                  addEvent(this, first, lost);
-                </code>
-              </pre>
-            </fieldset>
-            <fieldset>
-              <legend>Функции и обьекты в обьекте</legend>
+              <legend>4. Функции и обьекты в обьекте</legend>
               <p>
                 В обьектах могут находится как другие обьекты - так и функции. В функиях this будет ссылка на обьект в котором она используется.
               </p>
@@ -149,6 +134,30 @@
                   } 
                 } 
                 test.function_property('user_1'); //Hello, Петя.
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Методы обьектов</legend>
+              <blockquote>
+                Это функции в обьекте. И судя по тому что доступ они имеют только к свойствам этого обьекта они изолированые от глобальной видимости.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <b>result: Hello, Петя.</b>        
+                   let MyApp = { 
+                     name: 'zerro', 
+                     age: 12, 
+                     size: 3, 
+                     sayName: function(name) { 
+                       return "Hello " + name.toUpperCase() 
+                      }, 
+                    sayPreved: function() { 
+                      return this.sayName(this.name) 
+                    } 
+                  } 
+                  
+                  MyApp.sayPreved()
                 </code>
               </pre>
             </fieldset>
@@ -186,7 +195,52 @@
                 </code>
               </pre>
             </fieldset>
-            <!-- end -->
+            <!-- end 3-->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Геттеры, Сеттеры</div>
+            <fieldset>
+              <legend>1. Дескрипторы</legend>
+              <blockquote>Основной метод для управления свойствами – Object.defineProperty. Он позволяет объявить свойство объекта и, что самое главное,
+              тонко настроить его особые аспекты, которые никак иначе не изменить.</blockquote>
+              <pre><code>
+                <b>Синтаксис:</b>Object.defineProperty(obj, prop, descriptor)
+                 
+                <b>obj</b> Объект, в котором объявляется свойство. 
+                <b>prop</b> Имя свойства, которое нужно объявить или модифицировать. 
+                <b>descriptor</b> Дескриптор – объект, который описывает поведение свойства.
+              </code></pre>
+
+              В нём могут быть следующие поля:
+              <ul style="list-style-type: disc;">
+                <li><b>value</b> – значение свойства, по умолчанию undefined</li>
+                <li><b>writable</b> – значение свойства можно менять, если true. По умолчанию false.</li>
+                <li><b>configurable</b> – если true, то свойство можно удалять, а также менять его в дальнейшем при помощи новых вызовов defineProperty.
+                По умолчанию false.</li>
+                <li><b>enumerable</b> – если true, то свойство просматривается в цикле for..in и методе Object.keys(). По умолчанию false.</li>
+                <li><b>get</b> – функция, которая возвращает значение свойства. По умолчанию undefined.</li>
+                <li><b>set</b> – функция, которая записывает значение свойства. По умолчанию undefined.</li>
+              </ul>
+              <br>
+              <h4>Два таких вызова работают одинаково:</h4>
+              <pre class="code">
+                <code>
+                   var user = {};
+                   <b>1. простое присваивание</b> 
+                   user.name = "Вася"; //
+                   <b>2. указание значения через дескриптор</b> 
+                    Object.defineProperty(user, "name", { 
+                      value: "Вася", 
+                      configurable: true, 
+                      writable: true, 
+                      enumerable: true 
+                    });
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 4-->
           </li>
         </ul>
       </div>

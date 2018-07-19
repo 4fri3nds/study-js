@@ -43,7 +43,7 @@
             <div class="title">Стрелочные функции</div>
             <fieldset>
               <legend>1. Синтаксис</legend>
-              <h3>Разница</h3>
+              <blockquote>Разница</blockquote>
               <pre>
                 <code>
                   "old" function toUpper(str) { return str.toUpperCase() } 
@@ -76,8 +76,8 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>3. this в стрелочных ф-ях</legend>
-              <i>this в стрелочных функциях не существует поэтому он ищет контекст уровнем выше</i>
+              <legend>3. нету this хорошо</legend>
+              <blockquote>this в стрелочных функциях не существует поэтому он ищет контекст уровнем выше - <br> Поэтому их не получится использовать в обьектах. Из них не получится метод</blockquote>
               <pre>
                 <code>
                   $('.current-time').each(function () { 
@@ -87,7 +87,24 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>1. Схожесть с Coffe Script</legend>
+              <legend>3.5 нету this плохо</legend>
+              <blockquote>Эти два метода отработают по-разному</blockquote>
+              <pre>
+                <code>
+                   const name = 'Alisa'; 
+                   const obj = { 
+                     name: 'John', 
+                     getArrowName: () => `Hello, ${this.name}`, 
+                     getName: function() { return `Hello, ${this.name}`; }; 
+                    }; 
+                    
+                    obj.getArrowName(); //"Hello, Alisa" 
+                    obj.getName(); //"Hello, John"
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Схожесть с Coffe Script</legend>
               <i>Синтаксис очень похож на Coffe Script</i>
               <p>Не обязательно писать все в одну строку</p>
               <pre>

@@ -30,7 +30,7 @@
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Типы событий</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events trigger</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Title</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Code</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -83,9 +83,17 @@
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Code</div>
             <fieldset>
-              <legend>1. Title</legend>
+              <legend>1. this - addEventListener - замыкание</legend>
+              <pre>
+                <h4>
+                  так можно передать this в замыкание
+                </h4>
+                <code>
+                  but2[i].addEventListener('click', funClick(this));
+                </code>
+              </pre>
             </fieldset>
             <!-- end -->
           </li>
