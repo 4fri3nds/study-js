@@ -45,7 +45,7 @@ pre {
 
 pre.code {
   white-space: pre-wrap;
-  transform: translateX(-150px);
+  transform: translateX(-120px);
 }
 
 pre b {
@@ -412,13 +412,14 @@ input {
 }
 
 #bread-crumps li a:after {
-  content: '\27A4';
+  content: ' \27A4';
   font-size: 14px;
   padding-left: 7px;
 }
 
 #bread-crumps li:last-child a:after {
   content: '';
+  display: none;
 }
 
 .nav * {
@@ -428,6 +429,7 @@ input {
 
 .nav .search {
   float: right;
+  line-height: 80px;
 }
 
 .nav .search input {
@@ -557,16 +559,20 @@ input {
 }
 
 #menu.active h5:after {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
+  text-align: center;
+  height: 25px;
 }
 
 #menu h5:after {
-  content: ' \2039';
+  content: '\276F';
+  font-style: normal;
   display: inline-block;
-  font-size: 23px;
+  text-align: right;
+  font-size: 13px;
+  width: 15px;
+  line-height: 1;
   vertical-align: middle;
-  transform: rotate(270deg);
-  margin-right: -10px;
 }
 
 #menu>ol {
@@ -641,4 +647,25 @@ input {
 
 .tabs-nav-item:hover {
   cursor: pointer;
+}
+
+#bread-crumps li a i {
+  font-size: 33px;
+  vertical-align: middle;
+}
+
+.home-link:hover:before {
+  content: "\f494";
+}
+
+.sandbox-link:before {
+  content: "\f286";
+}
+
+.sandbox-link:hover:before {
+  content: "\f3a3";
+}
+
+.cookie-link:hover:before {
+  content: "\f564";
 }

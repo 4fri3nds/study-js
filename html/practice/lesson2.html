@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 
@@ -37,9 +39,26 @@
   <div class="container">
     <fieldset>
       <legend>введите число или слово</legend>
-      <p>при потере фокуса будет проверка на значение инпута</p>
+      <p>при потере фокуса если будут буквы то будет ошибка если цифры то все ок </p>
       <input id="input" type="text" value="">
       <div class="error"></div>
+      <pre class="code mg">
+        <code>
+           input.onfocus = function() { /* .onfocus фокус на инпут */ 
+            error.innerHTML = ''; 
+          } 
+            input.onblur = function() { /* .onblur потеря фокуса */ 
+            if (isNaN(this.value)) { 
+              this.classList.add("error-brd"); 
+              error.innerHTML = notNumber() 
+            } else { 
+              this.classList.remove('error-brd');
+              error.innerHTML = ''; 
+              this.classList.add('focus-brd'); 
+            } 
+          }
+        </code>
+      </pre>
     </fieldset>
 
     <fieldset>
@@ -48,6 +67,16 @@
       <input id="input2" type="text" value="">
       <div class="sum"></div>
       <div class="error2"></div>
+      <pre class="code mg">
+        <code>
+         var sum = 0; 
+         var str = this.value; 
+         for(var x=0; x < str.length; x++) { 
+           sum +=p arseInt(str[x]); 
+          } 
+          
+        </code>
+      </pre>
     </fieldset>
 
     <fieldset id="fieldset3">
@@ -56,6 +85,30 @@
       <input id="input3" type="text" value="">
       <div class="sum3"></div>
       <div class="error3"></div>
+      <pre class="code">
+        <code>
+           input3.onblur = function() { 
+             var value = this.value, 
+                  sumArr = 0; 
+                  arr = value.split(','); 
+                  
+            if ( isNaN(arr[0]) ) { 
+              div.innerHTML = notNumber() 
+              document.getElementById('fieldset3')
+                .appendChild(div); 
+              } else { 
+                for(var x=0; x < arr.length; x++) { 
+                  sumArr +=parseInt(arr[x]) / arr.length; 
+            } 
+            
+            div.innerHTML="Среднее арифметичесское введенных чисел равняется = "
+            + sumArr; 
+            document.getElementById( 'fieldset3').appendChild(div); } }
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>4. </legend>
     </fieldset>
   </div>
   <script src="../../js/main/hilight.js"></script>

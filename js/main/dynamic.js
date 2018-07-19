@@ -50,9 +50,13 @@ var JSON = {
     }],
 
   breadcrumps: [
-    { linkname: 'Dashboard',link: '#'},
-    { linkname: 'Main',link: '#'},
-    { linkname: 'Home',link: '#'}
+    {
+      linkname: '<i class="fas fa-home home-link"></i>',link: './../../index.html'},
+    {
+      linkname: '<i class="fab fa-fort-awesome-alt sandbox-link"></i>',link: './../main/costum.html'},
+    { 
+      linkname: '<i class="fas fa-cookie cookie-link"></i>',link: './../theory/data-types.html'
+    }
   ],
 
   extramenu: [

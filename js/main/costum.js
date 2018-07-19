@@ -1,16 +1,15 @@
-function showTitle() {
-  alert(this.title);
-}
 
-var objectA = {
-  "title": "Title A",
-  "showTitle": showTitle
+var foo = 6;
+
+function test() {
+  var foo = 7;
+  function more() {
+    var foo = 8;
+    console.log(foo);  // 1
+  }
+  more();
+  console.log(foo);  // 2
 };
 
-var objectB = {
-  "title": "Title B",
-  "showTitle": showTitle
-};
-
-objectA.showTitle();
-objectB.showTitle();
+test();
+​console.log(foo);​  // 3
