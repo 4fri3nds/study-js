@@ -8,6 +8,10 @@
   outline: none;
 }
 
+.db {
+  display: inline-block;
+}
+
 html,
 body {
   font-family: sans-serif, 'calc';
@@ -32,8 +36,7 @@ ul li:last-child {
 
 ol li {
   font-size: 16px;
-  font-style: italic;
-  margin-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 pre {
@@ -54,6 +57,13 @@ pre b {
   border-bottom: 1px solid #000;
 }
 
+h4 span {
+  color: darkred !important;
+}
+
+b span {
+  color: royalblue !important;
+}
 a {
   display: inline-block;
   font-size: 18px;
@@ -107,8 +117,10 @@ blockquote {
   padding: 10px;
   padding-left: 2rem;
   border-left: .3rem solid #e74c3c;
-  font-style: italic;
-  color: #888;
+  letter-spacing: 1.2px;
+  font-weight: 400;
+  line-height: 1.5;
+  background: ghostwhite;
   margin-left: 2rem;
 }
 
@@ -467,12 +479,12 @@ input {
 .links-themes-list li {
   list-style: none;
   display: inline-block;
-  border-right: 2px solid black;
   margin-right: 8px;
+  font-family: cursive;
+  
 }
 
 .links-themes-list li a {
-  text-decoration: underline;
   text-transform: capitalize;
   color: cornflowerblue;
 }
@@ -549,11 +561,13 @@ input {
 
 #menu * {
   user-select: none;
+  border-bottom: none;
 }
 
 #menu h5 {
   font-size: 1em;
   line-height: 50px;
+  font-family: fantasy;
   margin: 0;
   cursor: pointer;
 }
@@ -575,21 +589,47 @@ input {
   vertical-align: middle;
 }
 
-#menu>ol {
+#menu>ul {
   list-style-type: none;
 }
 
-#menu>ol>li {
+#menu>ul>li {
   display: inline-block;
   width: 230px;
   vertical-align: top;
 }
 
-#menu>ol>li>ol {
+#menu>ul>li>ul {
   display: none;
 }
 
-#menu.active>ol>li>ol {
+#menu>ul>li>ul>li {
+  padding-bottom: 3px;
+  position: relative;
+}
+
+#menu>ul>li>ul>li:hover a:after {
+  transition: .25s ease-in-out;
+  width: 100%;
+}
+
+#menu>ul>li>ul>li a:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  height: 1px;
+  width: 0%;
+  background: black;
+  left: 0;
+  bottom: 0;
+}
+
+#menu>ul>li>ul>li>a {
+  font-family: serif;
+  position: relative;
+}
+
+#menu.active>ul>li>ul {
   display: block;
 }
 
@@ -625,6 +665,13 @@ input {
 
 .tabs-content-item ul li {
   overflow: hidden;
+}
+
+.tabs-content-item pre code li {
+  margin: 0;
+  padding-top: 0;
+  line-height: 1;
+  border-bottom: 1px solid indigo;
 }
 
 @keyframes fadeEffect {

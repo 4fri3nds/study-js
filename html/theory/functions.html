@@ -451,7 +451,6 @@
             </fieldset>
             <fieldset>
               <legend>2. Массив аргументов</legend>
-
               <h3>Мы можем создать массив из аргументов</h3>
               <pre class="code">
                 <code>
@@ -459,6 +458,38 @@
                   for (var i = 0; i < arguments.length; i++) { 
                     args[i] = arguments[i]; 
                   };
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Вызов аргументов в самой функции</legend>
+              <h3>В этой функции на момент ее написания мы еще не передали аргументы</h3>
+              <pre class="code">
+                <code>
+                   function func1() { 
+                     console.log(arguments[0]); // 1 
+                     console.log(arguments[1]); // 2 
+                     console.log(arguments[2]); // 3 
+                     console.log(arguments[3]); // undefined 
+                    } 
+                    
+                    func1(1, 2, 3);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Вызов аргументов в самой функции</legend>
+              <h3>В этой функции на момент ее написания мы еще не передали аргументы</h3>
+              <pre class="code">
+                <code>
+                   function func1() { 
+                     console.log(arguments[0]); // 1 
+                     console.log(arguments[1]); // 2 
+                     console.log(arguments[2]); // 3 
+                     console.log(arguments[3]); // undefined 
+                    } 
+                    
+                    func1(1, 2, 3);
                 </code>
               </pre>
             </fieldset>

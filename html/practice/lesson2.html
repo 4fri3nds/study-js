@@ -25,20 +25,28 @@
 </div>
 
   <blockquote>
-    <br>
-    <h3>input, events</h3>
+    <h3>Рекурсия, Математика</h3>
     <ol>
       <li>Проверить на ввод цифр в инпут. Если буквы будет ошибка.</li>
       <li>Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.</li>
-      <li>Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить
-        на количество)</li>
+      <li>
+        Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднеe    арифметическое этих чисел (сумма делить на количество)</li>
+      <li>
+         Дан массив с числами. Проверьте, что в этом массиве есть число 5. Если есть - выведите 'да', а если нет - выведите 'нет'.
+      </li>
+      <li>
+         Дано число, например 31. Проверьте, что это число не делится ни на одно другое число кроме себя самого и единицы. То есть в нашем случае нужно проверить, что число 31 не делится на все числа от 2 до 30. Если число не делится - выведите 'false', а если делится - выведите 'true'.
+      </li>
+      <li>
+        Напишите функцию sumTo(n), которая для данного n вычисляет сумму чисел от 1 до n, например.
+        Через рекурсию, перебором и формулой a_n=n*(n+1)/2
+      </li>
     </ol>
-    <br>
   </blockquote>
 
   <div class="container">
     <fieldset>
-      <legend>введите число или слово</legend>
+      <legend>1. введите число или слово</legend>
       <p>при потере фокуса если будут буквы то будет ошибка если цифры то все ок </p>
       <input id="input" type="text" value="">
       <div class="error"></div>
@@ -60,27 +68,25 @@
         </code>
       </pre>
     </fieldset>
-
     <fieldset>
-      <legend>введите целое число</legend>
+      <legend>2. введите целое число</legend>
       <p>при потере фокуса целое число пройдет через for и мы получим их сумму</p>
       <input id="input2" type="text" value="">
       <div class="sum"></div>
       <div class="error2"></div>
       <pre class="code mg">
         <code>
-         var sum = 0; 
-         var str = this.value; 
-         for(var x=0; x < str.length; x++) { 
-           sum +=p arseInt(str[x]); 
-          } 
-          
+        var sum = 0; 
+        var str = this.value; 
+        for(var x=0; x < str.length; x++) { 
+          sum +=p arseInt(str[x]); 
+        } 
         </code>
       </pre>
     </fieldset>
 
     <fieldset id="fieldset3">
-      <legend>введите числа через запятую</legend>
+      <legend>3. введите числа через запятую</legend>
       <p>из строки делает массив и получает среднее арифметическое их значения</p>
       <input id="input3" type="text" value="">
       <div class="sum3"></div>
@@ -107,14 +113,117 @@
         </code>
       </pre>
     </fieldset>
-    <fieldset>
-      <legend>4. </legend>
+    <fieldset id="fieldset4">
+      <legend>4. Проверить на наличия числа '5' в массиве</legend>
+      <p id="arrHere4">
+      </p>
+      <button id="refresh4" class="db">
+        <i class="fas fa-sync-alt"></i>
+      </button>
+      <button id="but4" class="db">Result</button>
+      <div id="result4"></div>
+      <pre class="code">
+        <code>
+           function ref4() { 
+             arr4 = []; 
+             let table = document.getElementById('fieldset4')
+                .getElementsByTagName('table')[0]; 
+                
+              if (table) { table.remove(); }; 
+              
+              for (let i = 0; i < 5; i++) { arr4.push(getRandom(1,6)) }; 
+              
+              dispArr(arr4, arrHere4); 
+              
+              for (let i=0 ; i < arr4.length; i++) { 
+                if (arr4[i]==5 ) { 
+                  flag4=true; break 
+                } 
+                
+                flag4=false; 
+              }; 
+            };
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset id="fieldset5">
+      <legend>5. Получить все числа на которые делится без остатка вводимое число</legend>
+      <h3>Введите число (31,11) или обычное</h3>
+      <input type="text" id="input5">
+      <button id="but5">Result</button>
+      <div id="result5"></div>
+      <pre class="code">
+        <code>
+          let arr5 = []; 
+          
+          function getArr5(num) { 
+            arr5 = []; 
+            for (let i = 1; i <= num; i++) { 
+              if (num % i==0 ) arr5.push(i) 
+            }; 
+            dispArr(arr5, result5, true); 
+          }; 
+          
+          document.getElementById('input5').onchange=checkNum5; 
+          
+          function checkNum5() { 
+            let num=this.value; 
+            if (!isNaN(num)) { 
+              getArr5(num); 
+              empty(result5);
+
+              (arr5.length==2) ? this.value='Это число-рудкит' : this.value='Это обычное число'; 
+            } else { 
+              div('Это не число число', result5, true) 
+            };
+          };
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset id="fieldset6">
+      <legend>6. </legend>
+      <h3>Ари</h3>
+      <input type="text" id="input6">
+      <button id="but6">Result</button>
+      <div id="result6"></div>
+      <pre class="code">
+        <code>
+          <b>перебором</b>
+
+          <b>рекурсия</b>
+           
+          <b>формула a_n = n * (n + 1)/2</b>
+       
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset id="fieldset7">
+      <legend>7. </legend>
+      <input type="text" id="input7">
+      <button id="but7">Result</button>
+      <div id="result7"></div>
+      <pre class="code">
+        <code>
+
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset id="fieldset8">
+      <legend>8. </legend>
+      <input type="text" id="input8">
+      <button id="but8">Result</button>
+      <div id="result8"></div>
+      <pre class="code">
+        <code>
+
+        </code>
+      </pre>
     </fieldset>
   </div>
   <script src="../../js/main/hilight.js"></script>
   <script src="./../../js/main/dynamic.js"></script>
-  <script src="./../../js/practice/les2.js"></script>
   <script src="./../../js/main/main.js"></script>
+  <script src="./../../js/practice/les2.js"></script>
 
 </body>
 

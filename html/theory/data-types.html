@@ -33,11 +33,11 @@
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Типы данных</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Строки</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Числа</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Флаги</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Примеры кода</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Boolean</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Null, undefined</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Словарик</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark7')">Напоминалка</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark8')">Чаво</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark7')">Переменные</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark8')">Тестовые</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -66,20 +66,51 @@
                   <b>Str -> Arr</b>
                   [ num(str) ] -> преобразовать в массив
                   split(s) - который позволяет превратить строку в массив,разбив ее по разделителю s 
+
+                  <b>isNaN(num)</b> -- проверяет является ли строка числом
                 </code>
               </pre>
             </fieldset>
             <fieldset>
-              <legend>2. Остаток от деления %</legend>
+              <legend>2. Короткие записи</legend>
+              <pre>
+                <code>
+                   if(y === undefined) y = 5; -- если нету else и условие достаточно короткое 
+                   
+                   (y === undefined) ? (do...) : (else do ...) -- короткая запись if-else 
+                   
+                   mass == [1,2,3]; ...mass // 1 2 3 -- отображает содержание массива 
+                   
+                   func(...mass) == func(1,2,3) //true -- ...(три точки) можно передавать массив в качестве параметров функции 
+                   
+                   var x = v || 10 -- else можно вписать и в переменную
+                  
+                   var direction = (x > 100) ? 1 : -1;
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Остаток от деления %</legend>
               <blockquote>
-                 Взятие остатка % Оператор взятия остатка % интересен тем, что его результат a % b – это остаток от деления a на b.
+                Взятие остатка % Оператор взятия остатка % интересен тем, что его результат a % b – это остаток от деления a на b.
               </blockquote>
               <pre>
                 <code>
                    Например: 
                    alert( 5 % 2 ); // 1
-                   alert(8 % 3 ); // 2
+                   alert( 8 % 3 ); // 2
                    alert( 6 % 3 ); // 0
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Операторы сравнения</legend>
+              <pre>
+                <code>
+                   null == undefined, //true 
+                   "\t\r\n" == 0, //true 
+                   0 == "", //true 
+                   false == "false" //false
                 </code>
               </pre>
             </fieldset>
@@ -111,7 +142,7 @@
                   String.prototype.substring() -- Возвращает символы в строке между двумя индексами
 
                   <b>Вернуть символ</b>
-                  String.prototype.indexOf() -- Возвращает индекс символа в строке
+                  String.prototype.indexOf() -- Возвращает индекс символа в строке (indexOf применяется и к Array.prototype.indexOf)
                   String.prototype.lastIndexOf() -- Возвращает индекс последнего вхождения
                   String.prototype.charAt() -- Возвращает символ по указанному индексу
                   String.prototype.substr() -- Возвращает указанное количество символов в строке, начинающихся с указанной позиции
@@ -144,40 +175,17 @@
             <div class="title">Числа</div>
             <fieldset>
               <legend>1. Методы чисел</legend>
-              <pre>
-                <code>
-                  num
-                </code>
-              </pre>
               <h3>Методы Math</h3>
               <pre>
                 <code>
-                  <ul>
-                    <li>
-                      <b>Math.round(x)</b> -- округляет число(стандартно)
-                    </li>
-                    <li>
-                      <b>Math.ceil(x)</b> -- округляет до большего целого числа
-                    </li>
-                    <li>
-                      <b>Math.floor(x)</b> -- округляет в меньшую сторону
-                    </li>
-                    <li>
-                      <b>Math.pow(x, y)</b> -- возвращает степень
-                    </li>
-                    <li>
-                      <b>Math.random()</b> -- случайное число в диапазоне 0-1
-                    </li>
-                    <li>
-                      <b>Math.max([x[, y[, …]]])</b> -- Возвращает найбольшее число из своих аргументов
-                    </li>
-                    <li>
-                      <b>Math.min([x[, y[, …]]])</b> -- Возвращает наименьшее число из своих аргументов
-                    </li>
-                    <li>
-                      <b>Math.sqrt(x)</b> -- Возвращает квадратный корень числа
-                    </li>
-                  </ul>
+                  <b>Math.round(x)</b> -- округляет число(стандартно)
+                  <b>Math.ceil(x)</b> -- округляет до большего целого числа
+                  <b>Math.floor(x)</b> -- округляет в меньшую сторону
+                  <b>Math.pow(x, y)</b> -- возвращает степень
+                  <b>Math.random()</b> -- случайное число в диапазоне 0-1
+                  <b>Math.max([x[, y[, …]]])</b> -- Возвращает найбольшее число из своих аргументов
+                  <b>Math.min([x[, y[, …]]])</b> -- Возвращает наименьшее число из своих аргументов
+                  <b>Math.sqrt(x)</b> -- Возвращает квадратный корень числа
                 </code>
               </pre>
             </fieldset>
@@ -186,9 +194,9 @@
           <li id="mark4" class="tabs-content-item">
             <!-- 4 -->
             <div class="sub-title">Main</div>
-            <div class="title">Флаги - Flags</div>
+            <div class="title">Boolean: true/false</div>
             <fieldset>
-              <legend>1. Применение</legend>
+              <legend>1. Флаги - Flags</legend>
               <p>
                 Флаги полезны когда нужно вернуть только булеан
               </p>
@@ -213,21 +221,11 @@
           <li id="mark5" class="tabs-content-item">
             <!-- 5 -->
             <div class="sub-title">Main</div>
-            <div class="title">Примеры кода</div>
+            <div class="title">Null, Undefined</div>
             <fieldset>
-              <legend>1. Использование</legend>
-              <b>'use strict'</b> может вызвать кучу ошибок.
+              <legend>1. </legend>
               <pre class="code">
                 <code>
-                  "use strict"; 
-                  var bool = true; 
-                  if (bool) { 
-                    function func() { 
-                      alert('!'); 
-                    } 
-                  }; 
-                  
-                  func(); //выдаст ошибку - тут функция не видна!
                 </code>
               </pre>
             </fieldset>
@@ -236,68 +234,177 @@
           <li id="mark6" class="tabs-content-item">
             <!-- 6 -->
             <div class="sub-title">Main</div>
-            <div class="title">Словарь терминов</div>
+            <div class="title">Словарь</div>
             <fieldset>
               <legend>1. Термины</legend>
               <pre>
                 <code>
-                  <b>LexicalEnvironment</b> - все переменные внутри функции - это свойства специального внутреннего объекта LexicalEnvironment, который создается при ее запуске. Замыкание функции изнутри.
-                  <hr>
-                  <b>Литералы</b>
-                  test=new Array()
-                  <hr>
-                  <b>let</b> - let, которое работает как var, но создает переменные, локальные для любого данного блока, а не только для функции. Блок имеется ввиду все что стоит в фигурных скобках - {}
-                  <hr>
-                  <b>Стэк</b> - Порядок вызова функций где компьютер запоминает контекст, называется стеком. 
-                  function greet(who) { 
-                    console.log("привет, " + who); //first 
-                  } 
-                  
-                  greet("Семен"); 
-                  
-                  console.log("покеда"); //second  
-                  
-                  каждый раз при вызове функции, текущий контекст помещается наверх стека.  Тогда функция возвращается, она забирает верхний контекст из стека и использует его для продолжения работы.
-                  <hr>
-                  <b>Этерация</b> - повторение цикла
-                  <hr>
-                  <b>Function - Declaration:</b> 
-                  function func() { //... }); 
-                  
-                  <b>Function - Expression:</b> 
-                  func = function() { //... });
-
-                  <hr>
-                  <b>Hoisting - Всплытие</b>
-                  <blockquote>Hoisting представляет процесс доступа к переменным до их определения. Возможно, данная концепция выглядит немного странно,
-                  но она связана с работой компилятора JavaScript. Компиляция кода происходит в два прохода. При первом проходе компилятор
-                  получает все объявления переменных, все идентификаторы. При этом никакой код не выполняется, методы не вызываются. При втором
-                  проходе собственно происходит выполнение. И даже если переменная определена после непосредственного использования, ошибки
-                  не возникнет, так как при первом проходе компилятору уже известны все переменные.</blockquote>
-                  <hr>
+                  <ol>
+                    <li>
+                        <b>LexicalEnvironment</b> - все переменные внутри функции
+                    </li>
+                    <li>
+                      <b>Scope</b> - создается вместе с функциями и предоставляет им доступ к переменным       
+                    </li>
+                    <li>
+                      <b>Рекурсия</b> - это когда в выполнение функции заложено выполнять саму себя n к-во раз как в примере со степенью числа.
+                    </li>
+                    <li>
+                      <b>Этерация</b> - повторение цикла Для нового вызова создаётся свой контекст выполнения, и управление переходит в него, а когда он завершён – старый контекст достаётся из стека и выполнение внешней функции возобновляется.
+                    </li>
+                    <li>
+                      <b>Контекст</b> - это служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные
+                      функции и конкретное место в коде, на котором находится интерпретатор.
+                    </li>
+                    <li>
+                      <b>Стэк</b> - Порядок вызова функций где компьютер запоминает контекст, называется стеком. Будущие и прошедшие операции в очереди.
+                    </li>
+                    <li>
+                      <b>Литералы</b> test=new Array()
+                    </li>
+                    <li>     
+                      <b>let</b> - let, которое работает как var, но создает переменные, локальные для любого данного блока, а не только для функции. Блок имеется ввиду все что стоит в фигурных скобках - {}
+                    </li>
+                    <li>
+                      Function-<b>Declaration</b> : function func() { //... }); 
+                      Function-<b>Expression</b> : func = function() { //... });
+                    </li>
+                    <li>
+                      <b>Hoisting</b> - процесс доступа компилятора к переменным
+                    </li>
+                  </ol>
                 </code>
               </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Рекурсия</legend>
+              <h5><b>Peкурсия</b> - это когда в выполнение функции заложено выполнять саму себя n к-во раз как в примере со степенью числа.</h5>
+              <blockquote>
+                Говорят, что «функция pow рекурсивно вызывает сама себя» до n == 1. Значение, на котором рекурсия заканчивается, называют
+                базисом рекурсии. pow(x, n) = x * pow(x, n - 1) x - число; n - степень
+                <ol>Например, вычислим pow(2, 4), последовательно переходя к более простой задаче:
+                  <li>pow(2, 4) = 2 * pow(2, 4)</li>
+                  <li>pow(2, 3) = 2 * pow(2, 3)</li>
+                  <li>pow(2, 3) = 2 * pow(2, 2)</li>
+                  <li>pow(2, 3) = 2 * pow(2, 1)</li>
+                </ol>
+                При выполнении pow(2, 1), в отличие от предыдущих запусков, выражение n != 1 будет равно false, поэтому сработает else гле
+                х == самому числу
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function pow(x, n) { 
+                    if (n != 1) { 
+                      // пока n != 1, сводить вычисление pow(x,n) к pow(x,n-1) 
+                      return x * pow(x, n - 1); 
+                    } else { 
+                      return x; 
+                    } 
+                  } 
+                  
+                  alert( pow(2, 3) ); // 8
+
+                  <b>Вариант с циклом намного экономнее</b>
+                  let quoxx = function(x,y) { 
+                    let foo = x; 
+                    for (; y >= 1; y--) { 
+                      foo *= x; 
+                    } 
+                    return foo; 
+                  } 
+                  quoxx(2, 4)
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. LexicalEnvironment</legend>
+              <h5><b>LexicalEnvironment</b> - все переменные внутри функции - это свойства специального внутреннего объекта LexicalEnvironment, который создается при ее запуске.</h5>
+              <blockquote>
+                До выполнения первой строчки её кода, на стадии инициализации, интерпретатор создает пустой объект LexicalEnvironment и заполняет
+                его. Во время выполнения происходит присвоение локальной переменной phrase, то есть, другими словами, присвоение свойству
+                LexicalEnvironment.phrase нового значения:
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function sayHi(name) { 
+                    // LexicalEnvironment = { name: 'Вася', phrase: undefined } 
+                    var phrase = "Привет, " + name; 
+                    
+                    // LexicalEnvironment = { name: 'Вася', phrase: 'Привет, Вася' } 
+                    alert( phrase ); 
+                  } 
+                  
+                  sayHi('Вася');
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Стек</legend>
+                <h5><b>Стэк</b> - Порядок вызова функций где компьютер запоминает контекст, называется стеком. Будущие и прошедшие итерации в очереди.</h5>
+                <ul>
+                  n--
+                  <li>Контекст: { x: 2, n: 3, строка 1 } // Контекст</li>
+                  <li>Контекст: { x: 2, n: 2, строка 2 } // Стек </li>
+                  <li>Контекст: { x: 2, n: 1, строка 3 } // Стек </li>
+                </ul>
+                <blockquote>
+                  pow(2, 1) Опять вложенный вызов в строке 3, на этот раз – с аргументами x=2, n=1. Создаётся новый текущий контекст, предыдущий
+                  добавляется в стек (в стеке уже два старых контекста) Kаждый раз при вызове функции, текущий контекст помещается наверх
+                  стека. Тогда функция возвращается, она забирает верхний контекст из стека и использует его для продолжения работы.
+                </blockquote>
             </fieldset>
             <!-- end 6 -->
           </li>
           <li id="mark7" class="tabs-content-item">
             <!-- 7 -->
             <div class="sub-title">Main</div>
-            <div class="title">Напоминалка</div>
+            <div class="title">Метапеременные</div>
             <fieldset>
-              <legend>1. Заголовок</legend>
-              <pre class="code">
-                <code>     
-                  function example() { 
-                    function a() {} // Нормуль 
-                    if (something) { 
-                      function b() {} // Ай-яй-яй! 
-                    }
-                  }
-                  <hr>
-                  В конце функции обязательно писать return
-                  Если значений на выход больше одного то его нужно передать или обьектом или массивом
+              <legend>Слова получающие значение в зависимости от контекста</legend>
+              <pre>
+                <code>
+                  <h4>RFC - журнал  <a href="https://tools.ietf.org/html/rfc3092">ссылка на статью</a>
+                  </h4>
+                    <b>foo</b>(bar) - первая. army slang FUBAR((`Fucked Up Beyond All Repair'))
+                    <b>bar</b> - вторая 
+                    <b>baz</b> - третья 
+                    <b>bat, qux, quux</b> — четвертая
+                     
+                  <h5>First on the standard list of metasyntactic variables</h5>
+                    <b>corge</b>
+                    <b>grault</b>
+                    <b>garply</b>
+                    <b>waldo</b>
+                    <b>thud</b>
+
+                  <h4>Whoop! Восклицание</h4> 
+                   <b>Many smoke but foo men chew</b>
+                   <b>SILENCE IS FOO!</b> - Whoop!(Восклицание)
+                   <b>Many smoke but foo men chew</b>
+
+                  <h4>Funny hystorical</h4>
+                    <b>spam и eggs</b> — канонические метапеременные, используемые в языке программирования Python.
+                    <b>xyzzy и plugh</b> — волшебные слова в старой текстовой игре ADVENT.
                   
+                  <h4>Иголка в стоге сена - haystack(needle)</h4> 
+                    <b>needle (иголка) и haystack (стог сена)</b> могут использоваться в примерах, объясняющих синтаксис команд или функций поиска; благодаря идиоме «искать иголку в стоге сена», становится понятно, что в чём ищется.
+                    <b>qwe, asd, zxc</b> — набор символов для ввода информации в текстовые поля для быстрого заполнения
+                  
+                  <h4>переменные действия</h4>
+                    <b>mv</b> - переименовать ск move
+                    <b>rm</b> - удалить remove
+                    <b>view</b> - посмотреть
+                  
+                  <h4>переменные элементов</h4>
+                    <b>source</b> - источник
+                    <b>target</b> - цель
+                    <b>ls</b> - список list
+                  
+                  <h4>пользователь - somebody</h4>
+                    <b>DaffyDoc</b> - User. Warner Bros later - daffyduck
+                    <b>fred</b> 
+                    <b>jRand</b>
+                    <b>JohnDoe</b> - неизвестный
                 </code>
               </pre>
             </fieldset>
@@ -306,19 +413,92 @@
           <li id="mark8" class="tabs-content-item">
             <!-- 8 -->
             <div class="sub-title">Main</div>
-            <div class="title">Чаво</div>
+            <div class="title">Тестовые</div>
             <fieldset>
-              <legend>1. Хз</legend>
-              <blockquote>Почему стрелочная функция не работает а обычная работает?</blockquote>
+              <legend>Из центра наружу</legend>
+              <blockquote>Очередность вызова переменных</blockquote>
+              <pre>
+                <code>
+                  var foo = 6; 
+
+                  function test() { 
+                    var foo = 7; 
+                    function more() { 
+                      var foo = 8; 
+                      console.log(foo); // 1 
+                    } 
+                    more(); 
+                    console.log(foo); // 2 
+                  }; 
+                  test(); ​
+                  console.log(foo);​ // 3
+                  </code>
+                </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. true / false</legend>
+              <blockquote>
+                Здесь колбеком принимается массив аргументов. В нем же применяется reverse. 
+                А при вызове, где мы передаем аргументы мы приравниваем элементы массива аргументов - с конца.
+              </blockquote>
               <pre class="code">
-                <code>     
-                  let MyApp = { 
-                    name: 'zerro', 
-                    age: 12, 
-                    size: 3, 
-                    diff: () => this.age+this.size 
-                    // diff: function() { return this.age + this.size } 
-                  }     
+                <code>
+                  function largest() { 
+                    return toArray(arguments).sort(function (a, b) { 
+                      return b - a; 
+                    }); 
+                  } 
+
+                  function toArray(array) { 
+                    return Array().slice.call(array); 
+                  } 
+                    
+                  console.log(largest(1, 1, 2, 3)[0] == 3); //true
+                  console.log(largest(3, 1, 2, 3, 4, 5)[1] == 4); //true
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Конструктор</legend>
+              <blockquote>Foo.counter = 0 - //этот момент мне не до конца понятен мы имеем переменную, которая приклеена к конструктору</blockquote>
+              <pre class="code">
+                <code>
+                   function Foo() { 
+                     Foo.counter++; 
+                     console.log(Foo.counter); 
+                    } 
+
+                    Foo.counter = 0;
+
+                    var bar = new Foo; //1 
+                    var buz = new Foo; //2
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. "Всплытие переменной"</legend>
+              <blockquote>Перезапись глобальной переменной</blockquote>
+              <pre class="code">
+                <code>
+                  var foo = 0;
+                  var bar = function () { 
+                    var baz = function () { 
+                      foo = 31337; 
+                    }; 
+                    baz(); 
+                    console.log(foo); 
+                  }; 
+                  
+                  bar(); //31337
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. </legend>
+              <blockquote></blockquote>
+              <pre class="code">
+                <code>
+                  
                 </code>
               </pre>
             </fieldset>

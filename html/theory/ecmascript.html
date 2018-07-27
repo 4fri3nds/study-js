@@ -111,12 +111,14 @@
               <p>Не обязательно писать все в одну строку</p>
               <pre>
                 <code>
-                  const getVerifiedToken = selector => 
-                  getUsers() 
-                  .then(users => users[0]) 
-                  .then(verifyUser) 
-                  .then((user, verifiedToken) => verifiedToken) 
-                  .catch(err => log(err.stack));
+                   let MyApp = { 
+                     name: 'zerro', 
+                     age: 12, 
+                     size: 3, 
+                     //diff: () => this.age+this.size //в стрелочной ф-и this работать не будет
+                     (будет равняться window) 
+                     diff: function() { return this.age + this.size } 
+                    }
                 </code>
               </pre>
             </fieldset>
@@ -151,7 +153,7 @@
               <pre class="code">
                   <code>
                     var a = 10; 
-                    { let a = 20; console.log(a); // 20 } 
+                    { let a = 20; console.log(a) } // 20
                     console.log(a); // 10
                   </code>
                 </pre>

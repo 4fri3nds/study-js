@@ -12,20 +12,29 @@
 </head>
 
 <body>
-<div class="nav">
-  <div id="bread-crumps"></div>
-  <div class="search">
-    <span>&#64;</span>
-    <input type="text">
-    <button>search</button>
+  <div class="nav">
+    <div id="bread-crumps"></div>
+    <div class="search">
+      <span>&#64;</span>
+      <input type="text">
+      <button>search</button>
+    </div>
   </div>
-</div>
-<div class="header">
-  <div id="menu"></div>
-</div>
+  <div class="header">
+    <div id="menu"></div>
+  </div>
   <blockquote>
-    <h3>Num, Sort</h3>
+    <h3>Data Types</h3>
     <ol>
+      <li>
+        Инпут срабатывающий на клик и ентер
+      </li>
+      <li>
+        Даны 3 инпута и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в четвертый инпут.
+      </li>
+      <li>
+        Посчитает сумму чисел в инпутах и запишет ее в 4 инпут
+      </li>
       <li>
         Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31
       </li>
@@ -45,33 +54,69 @@
       <li>
         Даны N абзацев с числами. По нажатию на кнопку выведите эти числа в инпут через запятую в порядке возрастания.
       </li>
+      <li>
+        Дан инпут. В него вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в отдельные инпуты.
+      </li>
+      <li>
+        Зделайте через функцию при потере фокуса все символы стали заглавными.
+      </li>
+      <li>
+        Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы. Сделайте так, чтобы по потери фокуса инпутом,
+        введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в том же инпуте).
+      </li>
     </ol>
   </blockquote>
 
   <div class="container">
     <fieldset>
-      <legend>преобразование даты</legend>
+      <legend>1. введите что-нибудь</legend>
+      <p>срабатывает при нажатии на enter выводит алерт - c input.value</p>
+      <pre>
+        function a_value(o) { 
+          alert(o.value); 
+        }
+        <h5>в html в input мы this передаем параметром и вешаем событие</h5>
+        <b>onchange="a_value(this);</b>
+      </pre>
+      <input type="text" id="find" name="plz" onchange="a_value(this);" />
+    </fieldset>
+    <fieldset id="include1">
+      <legend>2. Введите число</legend>
+      <p> Посчитает квадрат числа</p>
+      <input class="num" type="text" value="">
+      <button id="but">click</button>
+    </fieldset>
+    <fieldset id="include3">
+      <legend>3. введите числа</legend>
+      <p>получите сумму чисел записаных в инпуты</p>
+      <input class="num3" type="text" value="">
+      <input class="num3" type="text" value="">
+      <input class="num3" type="text" value="">
+      <button id="but3">click</button>
+    </fieldset>
+    <fieldset>
+      <legend>4. преобразование даты</legend>
       <p>Введите дату в формате пример 01.01.2001</p>
       <input id="input" type="text" value="">
     </fieldset>
     <fieldset>
-      <legend>узнать возраст</legend>
+      <legend>5. узнать возраст</legend>
       <p>Введите ваш год рождения</p>
       <input id="input2" type="text" value="">
     </fieldset>
     <fieldset>
-      <legend>Слово палиндром?</legend>
+      <legend>6. Слово палиндром?</legend>
       <p>Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково
         (например, мадам). - результат в консоль</p>
       <input id="input3" type="text" value="">
     </fieldset>
     <fieldset>
-      <legend>Проверка на число 3</legend>
+      <legend>7. Проверка на число 3</legend>
       <p>Дан инпут. В него вводится число. Проверьте по вводу, что это число содержит внутри себя цифру 3.</p>
       <input id="input4" type="text" value="">
     </fieldset>
     <fieldset>
-      <legend>Проставить номер абзацов</legend>
+      <legend>8. Проставить номер абзацов</legend>
       <p>Нажмите на кнопку для про</p>
       <div>
         <p>aбзац первый</p>
@@ -81,9 +126,8 @@
         <button id="button">count</button>
       </div>
     </fieldset>
-   
     <fieldset>
-      <legend>Отсортировать числа</legend>
+      <legend>9. Отсортировать числа</legend>
       <p>Нажмите на кнопку для сортировки</p>
       <div>
         <p>255</p>
@@ -93,7 +137,24 @@
         <button id="button2">sort</button>
       </div>
     </fieldset>
-
+    <fieldset id="include">
+      <legend>10. Введите ФИО через пробел</legend>
+      <p> Разбивает массив методом el.value.split("_") на отдельные слова, добавляет и убирает div по классу hidden </p>
+      <input id="input10" type="text" value="">
+      <div class="error hidden">Допустимые значиния: только буквы и один пробел</div>
+    </fieldset>
+    <fieldset>
+      <legend>11. Введите ФИО через пробел c маленькой буквы</legend>
+      <p> Делает все буквы заглавными. Здесь уже используется независимая функция и метод elem.toUpperCase() </p>
+      <input id="input11" type="text" value="">
+    </fieldset>
+    <fieldset>
+      <legend>12. Введите ФИО через пробел c маленькой буквы</legend>
+      <p> Делает первые буквы заглавными.
+        <br>Здесь я использовал методы split(' ')[разбивает строку на массив по знаку] и slice(1)[печатает оставшийся текст с заданного
+        символа]. Также к первой букве я обращался arr[i][0] </p>
+      <input id="input12" type="text" value="">
+    </fieldset>
   </div>
   <script src="../../js/main/hilight.js"></script>
   <script src="./../../js/main/dynamic.js"></script>

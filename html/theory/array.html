@@ -31,8 +31,8 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Методы</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Сортировка</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Код</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Перебор</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Sort</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -44,7 +44,7 @@
             <div class="sub-title">Main</div>
             <div class="title">МАССИВЫ - Array</div>
             <fieldset>
-              <legend>Методы</legend>
+              <legend>1. Методы</legend>
               <pre>
                 <code>
                   <b>Добавить</b>
@@ -80,21 +80,124 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>2. indexOf</legend>
+              <blockquote>
+                Индекс, с которого начинать поиск. Если индекс больше или равен длине массива, возвращается -1, что означает, что массив
+                даже не просматривается. Если индекс является отрицательным числом, он трактуется как смещение с конца массива.
+                Обратите внимание: если индекс отрицателен, массив всё равно просматривается от начала к концу. Если рассчитанный
+                индекс оказывается меньше 0, поиск ведётся по всему массиву. Значение по умолчанию равно 0, что означает,
+                что просматривается весь массив.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <p>
+                    arr.indexOf(
+                      searchElement(искомый эл.), 
+                      fromIndex(с, какого эл. искать)
+                      )
+                  </p>
+                   var array = [2, 5, 9]; 
+
+                   array.indexOf(2); // 0 
+                   array.indexOf(7); // -1 
+                   array.indexOf(9, 2); // 2 
+                   array.indexOf(2, -1); //-1 
+                   array.indexOf(2, -3); // 0
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Сортировка</div>
+            <div class="title">Методы перебора массива</div>
             <fieldset>
-              <legend>Сортировка чисел</legend>
+              <legend>1. forEach</legend>
+              <blockquote>Этой функции он передаёт три параметра callback(item, i, arr) 
+                <ul>
+                  <li>item – очередной элемент массива. </li>
+                  <li>i – его номер. </li>
+                  <li>arr – массив, который перебирается.</li>
+                </ul>
+              </blockquote>
               <pre class="code">
                 <code>
-                  function compareNumbers(a, b) { 
-                    return a - b; 
-                  } -- Функция для сортировки чисел, используется с методом sort
+                  var arr = ["Яблоко", "Апельсин", "Груша"]; 
                   
-                  arr.sort(compareNumbers) -- метод .Sort()
+                  arr.forEach(function(item, i, arr) { 
+                    alert( i + ": " + item + " (массив:" + arr + ")" ); 
+                  });
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. filter()</legend>
+              <blockquote>
+                <b>Filter -- Метод filter()</b> создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в
+                передаваемой функции.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <h5> Можно использовать, чтобы получить разницу чисел одного массива</h5>
+                  let difference = arr1.filter(x => arr2.indexOf(x) == -1);
+                  
+                  аналог: 
+                  let difference = arr1.filter(
+                    function(x) { 
+                      return arr2.indexOf(x) == -1; 
+                    });
+                 
+                  <h5>Чтобы получить разницу обоих массивов</h3>
+                  
+                  let difference = arr1 
+                    .filter(x => arr2.indexOf(x) == -1) 
+                    .concat(arr2.filter(x => arr1.indexOf(x) == -1));
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Map</legend>
+              <blockquote>
+                Он создаёт новый массив, который будет состоять из результатов вызова callback(item, i, arr) для каждого элемента arr
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <h4>Map - для каждого элемента массива делает тоже самое</h4>
+                  var names = ['HTML', 'CSS', 'JavaScript']; 
+                  
+                  var nameLengths = names.map(function(name) { 
+                    return name.length; 
+                  }); // получили массив с длинами 
+                  
+                  alert( nameLengths ); // 4,3,10
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Every/some</legend>
+              <h3>every/some</h3>
+              <blockquote>
+                <ul>
+                  <li>
+                    every возвращает true if callback == true для каждого элемента arr.
+                  </li>
+                  <li>
+                    some возвращает true if callback == true для какого-нибудь элемента arr.
+                  </li>
+                </ul>
+              </blockquote>
+              <pre class="code">
+                <code>
+                  var arr = [1, -1, 2, -2, 3]; 
+                  
+                  function isPositive(number) { 
+                    return number > 0; 
+                  };
+                  
+                  alert( arr.every(isPositive) ); // false, не все положительные
+                  alert( arr.some(isPositive) ); // true, есть хоть одно положительное
                 </code>
               </pre>
             </fieldset>
@@ -103,20 +206,74 @@
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Код</div>
+            <div class="title">Метод Sort</div>
             <fieldset>
-              <legend>3. Проверка на уникальность элементов массива</legend>
-              <p>
-                Cлучай из задачника. Нужно зделать уникальные елементы и чтобы они не повторялись. Я назначил провел их через обьект назначая
-                каждому уникальному значению массива true в обьекте.
-              </p>
-              <pre>
+              <legend>1. Sort</legend>
+              <blockquote>Выстроить массив по возрастанию</blockquote>
+              <pre class="code">
                 <code>
-                  <b>obj[arr[i]] = true</b> -- уникальным элементам массива мы в обьекте даем значение true. Tак они больше не повторяются
+                    arr.sort(function (a, b) { 
+                      // return a - b; // 
+                    });
                 </code>
               </pre>
             </fieldset>
-            <!-- end -->
+            <fieldset>
+              <legend>2. Sort Reverse</legend>
+              <blockquote>Отсортировать массив с конца в начало</blockquote>
+              <pre class="code">
+                <code>
+                  arr.sort(function (a, b) { 
+                    // return b - a; // 
+                  });
+                  
+                  <b>Или методом reverse</b>
+                    var arr = [1, 2, 3]; 
+                    arr.reverse(); 
+                    
+                    alert( arr ); // 3,2,1
+                  </code>
+                </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Arr Sort Random</legend>
+              <blockquote>Перемешать числа в массиве</blockquote>
+              <pre class="code">
+                <code>
+                  var points = [40, 100, 1, 5, 25, 10]; 
+                  points.sort(function(a, b){
+                    return 0.5 - Math.random()
+                  });
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Min/Max Arr</legend>
+              <blockquote>Кустарный метод найти max/min числа в массиве</blockquote>
+              <pre class="code">
+                <code>
+                  //Min/max методом
+                  function myArrayMin(arr) { 
+                    return Math.min.apply(null, arr); 
+                  }
+
+                  Math.min.apply([1, 2, 3]) == Math.min(1, 2, 3) // the same
+
+                  //-------Min/max кодом
+                  function myArrayMax(arr) { 
+                      var len = arr.length;
+                      var max = -Infinity; 
+                      while (len--) { 
+                        if (arr[len] > max) { 
+                          max = arr[len];
+                      } 
+                    } 
+                    return max; 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 3-->
           </li>
         </ul>
       </div>

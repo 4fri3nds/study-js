@@ -33,7 +33,9 @@
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Методы перебора
           </li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Методы перебора массивов</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">getRandom</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Random</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Unique</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Sort</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -45,7 +47,7 @@
             <div class="sub-title">Main</div>
             <div class="title">Методы перебора</div>
             <fieldset>
-              <legend>1. For</legend>
+              <legend>1. For - anything</legend>
               <pre>
                 <code>
                   for(let i=0; i < 5; i++) { ... }
@@ -53,7 +55,29 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>2. For in</legend>
+              <legend>2. For...in - arr, obj</legend>
+              <pre class="code">
+                <code>
+                  for( key in item) { ... }
+
+                  <b>Пример</b>
+                  let str = 'hello world'; 
+
+                  for (i in str) { 
+                    console.log(str[i]); // 'hello world'
+                  };
+
+                  <b>остаток от деления</b>
+                  for (var i = 2; i <=1 0; i++) { 
+                    if (i % 2==0 ) { 
+                      alert( i ); 
+                    } 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3 Object.keys(obj) - only Arr().prototype</legend>
               <pre class="code">
                 <code>
                   for( key in item) { ... }
@@ -68,12 +92,12 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>5. WHILE</legend>
-              <p>
-                Всегда число будет трех-значное.
-              </p>
+              <legend>4. WHILE</legend>
               <pre class="code">
                 <code>
+                  <h5>
+                    Всегда число будет трех-значное.
+                  </h5>
                   <b>result: 004, 044, 444</b>        
                   function inventory (cows) { 
                     let x = 0; 
@@ -92,11 +116,33 @@
                   while (true) { 
                     // ... 
                   }
+
+                  <b>while true</b>
+                     let i = 3; 
+                     while(i) { console.log(i--) } // 3,2,1
+                     while(i) { console.log(--i) } // 2,1,0
                 </code>
               </pre>
             </fieldset>
             <fieldset>
-              <legend>4. forEach</legend>
+              <legend>4.5 DO...WHILE</legend>
+              <pre class="code">
+                <code>
+                  <h4>Спрашивать с пользователя можно и через цикл</h4>
+                  let num; 
+                  do { num = prompt('введите число 5') 
+                  } while (num != 5 && num != null);
+                <b> num != null - на случай если пользователь введет null </b>
+            
+                  <b>синтаксис</b>
+                  do {
+                    // ... 
+                  } while (true); // пока false будет выполнятся do
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. forEach</legend>
               <pre>
                 <code>
                   let someArr = ['значение1', 'значение2', 'значение3'];
@@ -136,10 +182,53 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>6. Break</legend>
-              <pre>
+              <legend>6. Switch-case</legend>
+              <blockquote>
+                Конструкция switch заменяет собой сразу несколько if. Она представляет собой более наглядный способ сравнить выражение сразу
+                с несколькими вариантами.
+              </blockquote>
+              <pre class="code">
                 <code>
+                  <b>Позволяет работать с переменными</b>
+                  var a = 1; 
+                  var b = 0; 
+                  switch (a) { 
+                    case b + 1: 
+                      alert( 1 ); 
+                      break; 
+                    default: 
+                      alert('нет-нет, выполнится вариант выше') 
+                    }
 
+                  <b>Можно положить несколько значений в один case</b>
+                    var a = 2+2; 
+                    switch(a) { 
+                      case 4: alert('Верно!'); break; 
+                      case 3: // (*) 
+                      case 5: // (**) 
+                        alert('Неверно!'); 
+                        alert('Немного ошиблись, бывает.'); 
+                        break; 
+                      default: 
+                        alert('Странный результат, очень странный'); 
+                      }
+                      
+                  <b>Если в конце не ставить break то будут выполнятся все условия после правильного</b>
+                  switch (foo) { 
+                    case 3: console.log(1) break 
+                    case 4: console.log(2) break 
+                    case 5: console.log(3) break 
+                    default: console.log(4) break 
+                  }
+
+                  <b>Нужен правильный тип данных. switch предполагает строгое равенство === </b>
+                  var arg = prompt("Введите arg?")  //передается строка
+                  switch (arg) {
+                    case "2": 
+                      alert( 'Выполнится 2' );
+                    case 3: 
+                      alert( '3 Никогда не выполнится' );
+                  }
                 </code>
               </pre>
             </fieldset>
@@ -149,113 +238,7 @@
             <!-- 2 -->
             <div class="sub-title">Main</div>
             <div class="title">Методы перебора массивов</div>
-            <fieldset>
-              <legend>1. forEach</legend>
-              <h3>forEach</h3>
-              <b>Этой функции он передаёт три параметра callback(item, i, arr) </b>
-              <ul>
-                <li>item – очередной элемент массива. </li>
-                <li>i – его номер. </li>
-                <li>arr – массив, который перебирается.</li>
-              </ul>
-              <pre>
-              <code>
-                var arr = ["Яблоко", "Апельсин", "Груша"]; 
-                arr.forEach(function(item, i, arr) { 
-                  alert( i + ": " + item + " (массив:" + arr + ")" ); });
-                </code>
-              </pre>
-            </fieldset>
-            <fieldset>
-              <legend>2. filter()</legend>
-              <p>
-                <h3>Filter -- Метод filter()</h3> создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в
-                передаваемой функции.
-              </p>
-              Можно использовать, чтобы получить разницу чисел одного массива
-              <pre class="code">
-              <code>
-                let difference = arr1.filter(x => arr2.indexOf(x) == -1);
-                
-                аналог: 
-                let difference = arr1.filter(
-                  function(x) { 
-                    return arr2.indexOf(x) == -1; 
-                  });
-                </code>
-              </pre>
-              <h3>
-                Чтобы получить разницу обоих массивов
-              </h3>
-              <pre class="code">
-                <code>
-                  let difference = arr1 
-                  .filter(x => arr2.indexOf(x) == -1) 
-                  .concat(arr2.filter(x => arr1.indexOf(x) == -1));
-                </code>
-              </pre>
-            </fieldset>
-            <fieldset>
-              <legend>3. Map</legend>
-              <p>
-                <h3>Map</h3> - для каждого элемента массива делает тоже самое</p>
-              <b>
-                Он создаёт новый массив, который будет состоять из результатов вызова callback(item, i, arr) для каждого элемента arr
-              </b>
-              <pre class="code">
-                  <code>
-                    var names = ['HTML', 'CSS', 'JavaScript']; 
-                    
-                    var nameLengths = names.map(function(name) { 
-                      return name.length; 
-                    }); // получили массив с длинами 
-                    
-                    alert( nameLengths ); // 4,3,10
-                  </code>
-                </pre>
-            </fieldset>
-            <fieldset>
-              <legend>4. Every/some</legend>
-              <h3>every/some</h3>
-              <b>
-                Эти методы используются для проверки массива.
-              </b>
-              <ul>
-                <li>
-                  every возвращает true if callback == true для каждого элемента arr.
-                </li>
-                <li>
-                  some возвращает true if callback == true для какого-нибудь элемента arr.
-                </li>
-              </ul>
-              <pre class="code">
-                <code>
-                  var arr = [1, -1, 2, -2, 3]; 
-                  
-                  function isPositive(number) { 
-                    return number > 0; 
-                  };
-                  
-                  alert( arr.every(isPositive) ); // false, не все положительные
-                  alert( arr.some(isPositive) ); // true, есть хоть одно положительное
-                </code>
-              </pre>
-            </fieldset>
-            <fieldset>
-              <legend>5. Случайное число из массива</legend>
-              <p>
-                <b>Случайное число из массива</b>
-              </p>
-              <pre>
-                <code>
-                  var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"]; 
-                  
-                  var rand = Math.floor(Math.random() * arr.length); 
-                  
-                  alert( arr[rand] );
-                </code>
-              </pre>
-            </fieldset>
+           
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
@@ -264,9 +247,9 @@
             <div class="title">Получить случайное число в этом промежутке</div>
             <fieldset>
               <legend>1. GetRandom num</legend>
-              <p>
+              <blockquote>
                 Получить случайное число в этом промежутке
-              </p>
+              </blockquote>
               <pre class="code">
                 <code>
                   <b>result: ~min-max</b>        
@@ -277,12 +260,11 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>2. GetRandom arr</legend>
-              <li>
-                <p>
-                  <b>Случайное число из массива</b>
-                </p>
-                <pre class="code">
+              <legend>2. GetRandom Num from Arr</legend>
+              <blockquote>
+                <b>Случайное число из массива</b>
+              </blockquote>
+              <pre class="code">
                   <code>
                     var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"]; 
                     
@@ -292,16 +274,29 @@
                   </code>
                 </pre>
             </fieldset>
+            <fieldset>
+              <legend>3. Перемешать массив</legend>
+              <h4>Перемешать(случайно) числа в массиве</h4>
+              <pre class="code">
+                  <code>
+                    var points = [40, 100, 1, 5, 25, 10]; 
+                    
+                    points.sort(function(a, b){
+                      return 0.5 - Math.random()
+                    });
+                  </code>
+                </pre>
+            </fieldset>
             <!-- end 3-->
-            </li>
-            <li id="mark4" class="tabs-content-item">
-              <!-- 4 -->
-              <div class="sub-title">Main</div>
-              <div class="title">Уникальные числа из массива</div>
-              <fieldset>
-                <legend>1. Unique - Уникальные числа/слова перебором</legend>
-                <blockquote>Этот метод медленнее чем обьектом</blockquote>
-                <pre class="code">
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Уникальные числа из массива</div>
+            <fieldset>
+              <legend>1. Unique - Уникальные числа/слова перебором</legend>
+              <blockquote>Этот метод медленнее чем обьектом</blockquote>
+              <pre class="code">
                 <code>
                   function unique(arr) { 
                     var result = [];
@@ -320,15 +315,14 @@
                     "кришна", "кришна", "8-()" ]; console.log(unique(strings));
                 </code>
               </pre>
-              </fieldset>
-              <fieldset>
-                <legend>2. Unique - Уникальные слова массива</legend>
-                <li>
-                  <p>
-                    <b>Уникальные
-                      <u>слова!</u> из массива</b>
-                  </p>
-                  <pre class="code">
+            </fieldset>
+            <fieldset>
+              <legend>2. Unique - Уникальные слова массива</legend>
+              <blockquote>
+                <b>Уникальные
+                  <u>слова!</u> из массива</b>
+              </blockquote>
+              <pre class="code">
                   <code>
                       function unique(arr) { 
                         var obj = {}; 
@@ -341,19 +335,20 @@
                         return Object.keys(obj); 
                       }
 
-                      var strings=["кришна", "кришна", "харе", "харе", "харе", "харе", "кришна", "кришна", "8-()" ]; 
+                      var strings=["кришна", "кришна", "харе", "харе", "харе", 
+                      "харе", "кришна", "кришна", "8-()" ]; 
                       
                       alert( unique(strings) );
                   </code>
                 </pre>
-              </fieldset>
-              <fieldset>
-                <legend>3. Unique - Уникальные числа массива</legend>
-                <li>
-                  <p>
-                    <b>Уникальные <u>числа!</u> из массива</b>
-                  </p>
-                  <pre class="code">
+            </fieldset>
+            <fieldset>
+              <legend>3. Unique - Уникальные числа массива</legend>
+              <blockquote>
+                <b>Уникальные
+                  <u>числа!</u> из массива</b>
+              </blockquote>
+              <pre class="code">
                   <code>
                     var obj = {}; 
 
@@ -365,8 +360,10 @@
                         }
                     }
 
-                    var strings = ['t5','t2','t5','t8','t3','t2','t5','t7','t4','t5','t4'];
-                    // к массив чисел нужно преобразовать в строку иначе они отсортируются в obj
+                    var strings = ['t5','t2','t5','t8','t3'
+                        ,'t2','t5','t7','t4','t5','t4'];
+                    // к массив чисел нужно преобразовать 
+                    в строку иначе они отсортируются в obj
                     
                     unique(strings); 
                     
@@ -375,9 +372,16 @@
                     }
                   </code>
                 </pre>
-              </fieldset>
-              <!-- end 4-->
-              </li>
+            </fieldset>
+            <!-- end 4-->
+          </li>
+          <li id="mark5" class="tabs-content-item">
+            <!-- 5 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Метод Sort</div>
+            
+            <!-- end 5-->
+          </li>
         </ul>
       </div>
     </div>

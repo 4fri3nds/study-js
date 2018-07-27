@@ -2,27 +2,27 @@ var JSON = {
   menu: [
     { title: 'Practice Module 1', 
       submenu: [
-        { linkname: 'DOM, elems', link: '../practice/lesson1.html'},
-        { linkname: 'input, events', link: '../practice/lesson2.html'},
-        { linkname: 'array, string', link: '../practice/lesson3.html'},
-        { linkname: 'length, functions', link: '../practice/lesson4.html'},
-        { linkname: 'numbers, sort', link: '../practice/lesson5.html'},
-        { linkname: 'interval, imgs, clone', link: '../practice/lesson6.html'},
-        { linkname: 'Mouse&key-events', link: '../practice/lesson7.html' }, 
-        { linkname: 'num, timers', link: '../practice/lesson8.html' }, 
-        { linkname: 'check, radio', link: '../practice/lesson9.html' }]
+        { linkname: '1. logic, drawing', link: '../practice/lesson1.html'},
+        { linkname: '2. Рекурсия', link: '../practice/lesson2.html'},
+        { linkname: '3. empty yet', link: '../practice/lesson3.html'},
+        { linkname: '4. length, functions', link: '../practice/lesson4.html'},
+        { linkname: '5. numbers, sort', link: '../practice/lesson5.html'},
+        { linkname: '6. interval, imgs, clone', link: '../practice/lesson6.html'},
+        { linkname: '7. Mouse&key-events', link: '../practice/lesson7.html' }, 
+        { linkname: '8. num, timers', link: '../practice/lesson8.html' }, 
+        { linkname: '9. check, radio', link: '../practice/lesson9.html' }]
     },
     { title: 'Practice Module 2',
       submenu: [
-        { linkname: 'tables, random, sort', link: '../practice/lesson10.html' },
-        { linkname: 'this', link: '../practice/lesson11.html' }, 
-        { linkname: 'array', link: '../practice/lesson12.html' },
-        { linkname: 'functions', link: '../practice/lesson13.html' },
-        { linkname: 'closures', link: '../practice/lesson14.html' },
-        { linkname: 'lesson-15', link: '../practice/lesson15.html' },
-        { linkname: 'lesson-16', link: '../practice/lesson16.html' },
-        { linkname: 'lesson-17', link: '../practice/lesson17.html' },
-        { linkname: 'lesson-18', link: '../practice/lesson18.html' }]
+        { linkname: '11. random, sort', link: '../practice/lesson10.html' },
+        { linkname: '12. this', link: '../practice/lesson11.html' }, 
+        { linkname: '13. array', link: '../practice/lesson12.html' },
+        { linkname: '14. functions', link: '../practice/lesson13.html' },
+        { linkname: '15. closures', link: '../practice/lesson14.html' },
+        { linkname: '16. lesson-15', link: '../practice/lesson15.html' },
+        { linkname: '17. lesson-16', link: '../practice/lesson16.html' },
+        { linkname: '18. lesson-17', link: '../practice/lesson17.html' },
+        { linkname: '19. lesson-18', link: '../practice/lesson18.html' }]
     },
     { title: 'Theory Primary',
       submenu: [
@@ -71,7 +71,7 @@ var JSON = {
 };
 
 function parseDom(elem, parse) {
-  let ul = document.createElement('ol');
+  let ul = document.createElement('ul');
   
   elem.appendChild(ul);
   
