@@ -48,16 +48,16 @@ for (let x = 0; x < imgs.length; x++) {
 let printNumbersInterval = function () {
   let i = 1;
   let timerId = setInterval(function () {
-    console.log(i);
+    div(i, result5);
     i++;
     if (i > 5) {
-      console.log('stop');
+      div('stop', result5);
       clearInterval(timerId);
     }
   }, 300);
 };
 printNumbersInterval();
-
+let result5 = document.getElementById('result5');
 // 6 task
 let imgs2 = document.getElementsByClassName('img-container')[1].children;
 
@@ -105,3 +105,108 @@ for (let x = 0; x < imgsCtrl.length; x++) {
 
   })
 }
+
+// 9 task
+let input9 = document.getElementById('input9');
+let countWrap = document.getElementById('countdown')
+
+input9.onblur = function () {
+  let that = this.value;
+  input9.setAttribute('disabled', 'disabled');
+
+  function countdown() {
+    let count = that--;
+    if (count >= 0) {
+      countWrap.innerHTML = count;
+    } else {
+      input9.value = 'done!';
+      input9.style.color = 'blue';
+      countWrap.innerHTML = 'done!';
+      countWrap.style.color = 'blue';
+      stop();
+    }
+  }
+
+  let interval = setInterval(countdown, 500)
+
+  function stop() {
+    window.clearInterval(interval);
+  }
+};
+
+// 10 task
+let colorWrap2 = document.getElementById('color-wrap2'),
+  colorSwitch2 = document.getElementById('color-switch2'),
+  countColorsArr = 0,
+  colorArr = ['red', 'green', 'blue'];
+
+colorSwitch2.addEventListener('click', startSortArr);
+
+function startSortArr() {
+  sortColorsBreak = setInterval(sortColors, 500);
+  this.removeEventListener('click', startSortArr);
+  this.addEventListener('click', dismissSortArr);
+  div('on', result11, true);
+}
+
+function dismissSortArr() {
+  clearInterval(sortColorsBreak);
+  colorWrap2.style.backgroundColor = "transparent";
+  this.removeEventListener('click', dismissSortArr);
+  this.addEventListener('click', startSortArr);
+  div('off', result11, true);
+}
+
+function sortColors() {
+  colorWrap2.style.backgroundColor = colorArr[countColorsArr];
+
+  countColorsArr++;
+
+  if (countColorsArr >= colorArr.length) {
+    countColorsArr = 0;
+  }
+}
+
+// 11 task
+let textWrap = document.getElementById('text-wrap'),
+  textSwitch = document.getElementById('text-switch'),
+  textNumArr = ['one', 'two', 'three'],
+  originalText = textWrap.innerHTML,
+  textCountCtrl = 0;
+
+textSwitch.addEventListener('click', function () {
+  textWrap.innerHTML = originalText;
+
+  textWrap.innerHTML = textNumArr[textCountCtrl] + textWrap.innerHTML;
+
+  textCountCtrl++;
+
+  if (textCountCtrl == textNumArr.length) {
+    textCountCtrl = 0;
+  }
+});
+
+let result11 = document.getElementById('result11');
+// 12 task
+let inputWrap = document.getElementById('input-wrap').children,
+  inputNumStart = document.getElementById('input-num-start'),
+  inputNumBreak = document.getElementById('input-num-break'),
+  inputNumLength = 0;
+inputNumCount = 0;
+
+inputNumStart.addEventListener('click', function () {
+  inputIndicatorInterval = setInterval(indicationStart, 300);
+});
+
+function indicationStart() {
+  inputWrap[inputNumLength].value = inputNumCount;
+  inputNumCount++;
+  inputNumLength++;
+  if (inputNumLength == inputWrap.length) {
+    inputNumLength = 0;
+  }
+};
+
+inputNumBreak.addEventListener('click', function () {
+  clearInterval(inputIndicatorInterval);
+});

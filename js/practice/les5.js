@@ -166,3 +166,38 @@ function toUpperFirstLetter(str) {
 function toUpper() {
   this.value = toUpperFirstLetter(this.value);
 }
+
+// 13 задание
+let input13 = document.getElementById('input13');
+
+input13.addEventListener('blur', function () {
+  const value = this.value;
+  longestWord(value);
+});
+
+function longestWord(count, word) {
+  const arr = count.split(' ');
+  let emptyWord = '';
+  let emptyCount = 0;
+
+  for (let x = 0; x < arr.length; x++) {
+    let y = arr[x].length;
+
+    if (y > emptyCount) {
+      emptyCount = y;
+    }
+
+    if (y == emptyCount) {
+      emptyWord = arr[x];
+    }
+  }
+  count = emptyCount;
+  word = emptyWord;
+
+  div("Самое длинное слово - " + word, result13);
+  div("и кол-во символов в нем - " + count, result13);
+
+  return count, word
+};
+
+let result13 = document.getElementById('result13');

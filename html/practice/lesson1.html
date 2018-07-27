@@ -25,6 +25,7 @@
   </div>
 
   <blockquote>
+    <h3>1. Логические задачки</h3>
     <ol>
       <li>
         С помощью цикла for сформируйте строку '-9-8-7-6-5-4-3-2-1-' и запишите ее в переменную str.
@@ -118,18 +119,19 @@
       <legend>Пирамидка</legend>
       <pre class="code" style="margin-left: 50px;">
         <code>
-          let pyr5 = function () { for (let i = 1; i < 10; i++) { 
-            let div = document.createElement('div'); 
-            for (let z=1; z<=i; z++) { 
-              let span = document.createElement('span'); 
-              span.innerHTML='x'; 
-              div.appendChild(span); 
-              result5.appendChild(div); 
-            } 
+          let pyr5 = function () { 
+            for (let i = 1; i < 10; i++) { 
+              let div = document.createElement('div'); 
+              for (let z=1; z<=i; z++) { 
+                let span = document.createElement('span'); 
+                span.innerHTML='x'; 
+                div.appendChild(span); 
+                result5.appendChild(div); 
+              } 
+            }
           }
-        };
-        
-        but5.onclick=()=> pyr5();
+          
+          but5.onclick=()=> pyr5();
         </code>
       </pre>
       <button id="but5">click</button>

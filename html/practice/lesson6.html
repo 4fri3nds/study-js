@@ -24,7 +24,7 @@
   <div id="menu"></div>
 </div>
   <blockquote>
-    <h3>Interval, Img, Clone</h3>
+    <h3>Interval</h3>
     <ol>
       <li>Даны ссылки. По загрузке страницы добавьте в конец каждой ссылки ее href в круглых скобках.</li>
       <li>Даны ссылки. По загрузке страницы, если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так:
@@ -35,6 +35,13 @@
       <li>По (setInterval) делает отчет до 5 с интервалом 3 милисекунды и прекращает.</li>
       <li>Даны картинки. По первому нажатию на любую картинку увеличьте ее в 2 раза. По второму нажатию - уменьшите обратно.</li>
       <li>Даны N картинок размера 50px. По нажатию на картинку под ними эта картинка появляется размером в 70px.</li>
+      <li>Дан инпут. В него вводится число. По потери фокуса сделайте так, чтобы в абзаце ниже начал тикать обратный отсчет, начиная
+        с введенного числа. Когда отсчет дойдет до нуля - он должен закончится.</li>
+      <li>Дан абзац. Дан массив цветов ['red', 'green', 'blue']. Сделайте так, чтобы каждую секунду абзац менял свой цвет на определенное
+        значение их массива: сначала 'red', потом 'green' и так далее. Как только цвета в массиве закончатся - все начнется сначала.
+        Количество цветов в массиве может быть любым.</li>
+      <li>Дан абзац. Дан массив строк ['один', 'два', 'три']. Под абзацем ссылка 'следующая строка'. По заходу на страницу в абзаце
+        должен стоять нулевой элемент этого массива, а по нажатию на ссылку - вставлятся следующий элемент.</li>
     </ol>
   </blockquote>
 
@@ -79,7 +86,8 @@
 
     <fieldset>
       <legend>5. setInterval</legend>
-      <p>Выводит в консоль числа с интервалом .3сек до 5 -> break</p>
+      <p>Выводит числа с интервалом .3сек до 5 -> break</p>
+      <div id="result5"></div>
     </fieldset>
 
     <fieldset>
@@ -124,11 +132,41 @@
         </div>
       </div> 
     </fieldset>
+    <fieldset>
+      <legend>9. Наберите число от 1-10</legend>
+      <p>Начнется отбратный отсчет до 0</p>
+      <input id="input9" type="text" value="">
+      <h2 id="countdown" style="color: green;"></h2>
+    </fieldset>
+    <fieldset>
+      <legend>11. Вкл./выкл. смены состояния абзаца</legend>
+      <p>Начнут менятся цвета. Цвета берет из массива. </p>
+      <h2 id="color-wrap2">Color wrap</h2>
+      <button id="color-switch2">Color switch</button>
+      <div id="result11"></div>
+    </fieldset>
+    <fieldset>
+      <legend>12. Кликните на кнопку для смены состояния абзаца</legend>
+      <p>Добавляйте по клику нумерацию из массива</p>
+      <h2 id="text-wrap">Text wrap</h2>
+      <button id="text-switch">Add number</button>
+    </fieldset>
+    <fieldset>
+      <legend>13. Кликните на кнопку старта таймера</legend>
+      <p>В каждый инпут начнет записыватся отсчет</p>
+      <div id="input-wrap">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+      </div>
+      <button id="input-num-start">ON</button>
+      <button id="input-num-break">OFF</button>
+    </fieldset>
   </div>
   <script src="../../js/main/hilight.js"></script>
   <script src="./../../js/main/dynamic.js"></script>
-  <script src="./../../js/practice/les6.js"></script>
   <script src="./../../js/main/main.js"></script>
+  <script src="./../../js/practice/les6.js"></script>
 </body>
 
 </html>
