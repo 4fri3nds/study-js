@@ -6,6 +6,8 @@
 * {
   box-sizing: border-box;
   outline: none;
+  margin: 0;
+  padding: 0;
 }
 
 .db {
@@ -40,7 +42,7 @@ ol li {
 }
 
 pre {
-  margin: 10px 0 10px 0px;
+  margin: 0px 0 10px 0px;
   padding: 0 0 5px 50px;
   white-space: pre-line;
   word-wrap: break-word;
@@ -52,9 +54,10 @@ pre.code {
 }
 
 pre b {
-  color: black;
+  color: seagreen;
+  font-family: sans-serif;
   font-weight: bold;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid seagreen;
 }
 
 h4 span {
@@ -62,7 +65,7 @@ h4 span {
 }
 
 b span {
-  color: royalblue !important;
+  color: seagreen !important;
 }
 a {
   display: inline-block;
@@ -100,16 +103,15 @@ h5 {
 }
 
 fieldset {
-  /* background: #f0f0f0 url(http://htmlbook.ru/files/check-bg.png) no-repeat 100% 8%; */
-  background: #f0f0f0 url(../assets/school-book.png) repeat;
+  background: url(../assets/fieldset/7.gif) repeat;
   margin-bottom: 20px;
+  padding: 0 20px;
 }
 
 legend {
-  text-transform: uppercase;
-  color: #A35D43;
-  font-size: 18px;
-  font-weight: bold;
+  color: indigo;
+  font-size: 22px;
+  padding: 10px 40px;
 }
 
 blockquote {
@@ -160,6 +162,10 @@ h3 {
   color: lightcoral;
   font-size: 10px;
   font-style: italic;
+}
+
+#extra-menu li {
+  border-bottom: none;
 }
 
 .focus-brd {
@@ -413,14 +419,14 @@ input {
 /* end hightlight */
 
 .nav {
+  background: url('../assets/nav/11.jpg') repeat;
   border: 2px solid black;
-  padding: 5px 20px;
 }
 
 #bread-crumps li a {
   margin: 0;
-  color: steelblue;
-  padding-left: 7px;
+  color: dimgray;
+  padding-left: 45px;
 }
 
 #bread-crumps li a:after {
@@ -441,7 +447,6 @@ input {
 
 .nav .search {
   float: right;
-  line-height: 80px;
 }
 
 .nav .search input {
@@ -467,8 +472,7 @@ input {
 }
 
 .links-themes-title {
-  font-size: 55px;
-  font-weight: 300;
+  font-size: 35px;
   margin: 0;
 }
 
@@ -486,7 +490,7 @@ input {
 
 .links-themes-list li a {
   text-transform: capitalize;
-  color: cornflowerblue;
+  color: black;
 }
 
 .links-themes-list li:last-child {
@@ -502,6 +506,10 @@ input {
 
 .info {
   overflow: hidden;
+}
+
+.info-right {
+  padding-right: 9px;
 }
 
 .info-left,
@@ -559,17 +567,23 @@ input {
   cursor: pointer;
 }
 
+#menu {
+  padding-left: 50px;
+}
+
 #menu * {
   user-select: none;
   border-bottom: none;
 }
 
 #menu h5 {
-  font-size: 1em;
-  line-height: 50px;
-  font-family: fantasy;
-  margin: 0;
-  cursor: pointer;
+    font-size: 1em;
+    line-height: 50px;
+    font-family: fantasy;
+    margin: 0;
+    font-weight: 700;
+    color: black;
+    cursor: pointer;
 }
 
 #menu.active h5:after {
@@ -606,6 +620,7 @@ input {
 #menu>ul>li>ul>li {
   padding-bottom: 3px;
   position: relative;
+  margin: 0;
 }
 
 #menu>ul>li>ul>li:hover a:after {
@@ -635,26 +650,39 @@ input {
 
 /* tabs */
 
+.tabs-content-list {
+  padding-right: 8px;
+}
+
 .tabs-nav-list,
 .tabs-content-list {
   list-style-type: none;
 }
 
 .tabs-nav-list {
-  padding-top: 50px;
+  padding-top: 20px;
+  margin-top: 20px;
   margin-right: -2px;
   border-right: 2px solid;
   background: white;
+  width: 292px;
+  /* position: fixed; */
 }
 
 .tabs-nav-item {
   border-bottom: 2px solid #000 !important;
-  border-radius: 5px 0 0 5px;
+  border-radius: 0 0 0 5px;
   list-style: none;
-  margin-bottom: 3px;
+  margin: 0px;
   padding: 10px;
   font-size: 22px;
   border-right: none;
+  position: relative;
+}
+
+.paint * {
+  margin: 0;
+  padding: 0;
 }
 
 .tabs-content-item {
@@ -688,12 +716,17 @@ input {
 }
 
 .tabs-nav-item.active {
-  background-color: #f6f6ae;
+  background: url(../assets/fieldset/4.jpg);
+  color: black;
   display: block;
 }
 
 .tabs-nav-item:hover {
   cursor: pointer;
+}
+
+#bread-crumps li {
+  border-bottom: none;
 }
 
 #bread-crumps li a i {

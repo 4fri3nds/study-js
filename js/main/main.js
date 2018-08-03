@@ -9,11 +9,16 @@ function notNumber() {
 }
 
 //button 'click' create div with scenario
-function div(str, location, cleaner) {
+function div(str, location, cleaner, lab) {
   let divEl = document.createElement('div');
+  let lable = 'Ваш результат: ' + '<br/>';
+
+  if (lab != true) {
+    lable = '';
+  }
 
   divEl.className = "includer";
-  divEl.innerHTML = 'Ваш результат: ' + '<br/>' + str;
+  divEl.innerHTML = lable + str;
 
   if (cleaner == true) {
     empty(location);
@@ -113,3 +118,14 @@ function openMark(evt, mark) {
   evt.currentTarget.className += ' active';
   document.getElementById(mark).className += ' active';
 };
+
+//sticky aside
+let sticky = {
+  elem: document.getElementsByClassName('tabs-nav-list')[0],
+  stick: function(){
+    // if (this.elem)
+    console.log(this.elem.getBoundingClientRect());
+  }
+};
+
+sticky.stick();

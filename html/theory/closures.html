@@ -74,7 +74,7 @@
                     return function() { 
                       alert('Hello, ' + name); 
                     } 
-                  }
+                  };
                   
                   var sayHelloHabrahabr = createHelloFunction('Habrahabr');
                   sayHelloHabrahabr(); //alerts «Hello, Habrahabr»
@@ -130,6 +130,30 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>5. циклы в замыканиях</legend>
+              <blockquote>
+                Иначе, при клике на любую ссылку выводится одно и то же число — значение links.length. Почему так происходит?
+                В связи с замыканием объявленная вспомогательная переменная i продолжает существовать, при чём и в тот момент, когда мы кликаем
+                по ссылке. Поскольку к тому времени цикл уже прошёл, i остаётся равным кол-ву ссылок — это значение мы и видим при кликах.
+
+                Здесь с помощью еще одного замыкания мы «затеняем» переменную i, создавая ее копию в его локальной области видимости на
+                каждом шаге цикла. Благодаря этому всё теперь работает как задумывалось.
+              </blockquote>
+              <pre class="code">
+                <code>
+                   for (var i = 0; i < links.length; i++) { 
+                     (function(i) { 
+                       links[i].onclick=function() { 
+                         alert(i); 
+                        } 
+                      })(i); 
+                    }
+
+                    <b>https://habr.com/post/38642/</b>
+                </code>
+              </pre>
+            </fieldset>
             
             <!-- end 1 -->
           </li>
@@ -159,7 +183,6 @@
   <script src="../../js/main/hilight.js"></script>
   <script src="../../js/main/dynamic.js"></script>
   <script src="../../js/main/main.js"></script>
-  <script src="../../js/theory/dom.js"></script>
 
 </body>
 

@@ -44,35 +44,43 @@
             <div class="sub-title">Main</div>
             <div class="title">Прикольные практики или просто красивый код</div>
             <fieldset>
-              <legend>1. Короткая запись</legend>
-              <pre>
+              <legend>1. AJAX для загрузки XML-файла</legend>
+              <blockquote>
+                Вот более детальный пример, в котором используется AJAX для загрузки XML-файла и используется функция call() для вызова callback-функции в контексте запрошенного объекта (это значит, что когда мы укажем ключевое слово this внутри callback-функции, оно будет ссылаться на запрошенный объект)
+              </blockquote>
+              <pre class="code">
                 <code>
+                  function some_function2(url, callback) { 
+                    var httpRequest; // создаём наш XMLHttpRequest-объект 
+                    if (window.XMLHttpRequest) { 
+                      httpRequest = new XMLHttpRequest(); 
+                    } else if (window.ActiveXObject) { 
+                      // для дурацкого Internet Explorer'а 
+                      httpRequest = new ActiveXObject("Microsoft.XMLHTTP"); 
+                    } 
+                    
+                    httpRequest.onreadystatechange = function () { 
+                      // встраиваем функцию проверки статуса нашего запроса 
+                      // это вызывается при каждом изменении статуса 
+                      if (httpRequest.readyState === 4 && httpRequest.status === 200) { callback.call(httpRequest.responseXML); // вызываем колбек 
+                      } 
+                    }; 
+                    httpRequest.open('GET', url); 
+                    httpRequest.send();
+                  } // вызываем функцию 
                   
-
-                  
+                  some_function2("text.xml", function () { 
+                    console.log(this); 
+                  }); 
+                  console.log("это выполнится до вышеуказанного колбека");
                 </code>
               </pre>
             </fieldset>
             <fieldset>
-              <legend>2. Проверить повторяющийся код</legend>
-              <h3>
-                Вот так засунуть выполнение функции в true - false
-              </h3>
+              <legend>2. ...</legend>
               <pre class="code">
                 <code>
-                  var bool = true;
-                  
-                  if (bool) { 
-                    var func = function () { 
-                      alert('!'); 
-                    } 
-                  } else { 
-                    var func = function () { 
-                      alert('!!'); 
-                    } 
-                  };
-                  
-                  func();
+                 
                 </code>
               </pre>
             </fieldset>
@@ -104,7 +112,6 @@
   <script src="../../js/main/hilight.js"></script>
   <script src="../../js/main/dynamic.js"></script>
   <script src="../../js/main/main.js"></script>
-  <script src="../../js/theory/native.js"></script>
 
 </body>
 

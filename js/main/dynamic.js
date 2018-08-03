@@ -32,7 +32,7 @@ var JSON = {
         { linkname: 'Функции', link: '../theory/functions.html'},
         { linkname: 'Dom, Bom', link: '../theory/dom.html' },
         { linkname: 'Events', link: '../theory/events.html' },
-        { linkname: 'Sort, Enum', link: '../theory/enumeration.html' },
+        { linkname: 'Enumeration', link: '../theory/enumeration.html' },
         { linkname: 'Styles', link: '../theory/styles.html' },
         { linkname: 'Animation', link: '../theory/animation.html' }]
       },
@@ -40,6 +40,7 @@ var JSON = {
       submenu: [
         { linkname: 'Callback', link: '../theory/callback.html' },
         { linkname: 'Замыкания', link: '../theory/closures.html' },
+        { linkname: 'Конструкторы', link: '../theory/constructors.html' },
         { linkname: 'Классы', link: '../theory/clases.html' },
         { linkname: 'OOP', link: '../theory/oop.html' },
         { linkname: 'Прототипы', link: '../theory/proto.html' },

@@ -23,7 +23,6 @@
   <div class="header">
     <div id="menu"></div>
   </div>
-
   <blockquote>
     <h3>1. Логические задачки</h3>
     <ol>
@@ -98,90 +97,175 @@
   </blockquote>
 
   <div class="container">
-    <fieldset id="include4">
-      <legend>Склеит числа в цикле</legend>
-      <p>-9-8-7-6-5-4-3-2-1-'</p>
-      <pre>
-        <code>
-           let el4 = '-'; 
-           
-           for (let i = 9; i >= 1; i--) { 
-             el4 += (i+'-'); 
-            } 
-            
-            but4.onclick = () => div(el4, result4);
-        </code>
-      </pre>
-      <button id="but4">click</button>
-      <div id="result4"></div>
-    </fieldset>
-    <fieldset id="include5">
-      <legend>Пирамидка</legend>
-      <pre class="code" style="margin-left: 50px;">
-        <code>
-          let pyr5 = function () { 
-            for (let i = 1; i < 10; i++) { 
-              let div = document.createElement('div'); 
-              for (let z=1; z<=i; z++) { 
-                let span = document.createElement('span'); 
-                span.innerHTML='x'; 
-                div.appendChild(span); 
-                result5.appendChild(div); 
-              } 
-            }
-          }
-          
-          but5.onclick=()=> pyr5();
-        </code>
-      </pre>
-      <button id="but5">click</button>
-      <div id="result5"></div>
-    </fieldset>
-    <fieldset id="include6">
-      <legend>Пирамидка из чисел</legend>
-      <button id="but6">click</button>
-      <div id="result6"></div>
-    </fieldset>
-    <fieldset id="include7">
-      <legend>Пирамидка с интервалом</legend>
-      <button id="but7">click</button>
-      <div id="result7"></div>
-    </fieldset>
-    <fieldset id="include8">
-      <legend>Решетка</legend>
-      <p></p>
-      <pre class="code">
-        <code>
-           let cell8 = function (str, eter) { 
-             for (let i = 0; i< eter; i++) { 
-               let div=document.createElement('div'); 
-               if (i % 2 !==0) { 
-                 div.innerHTML='&nbsp;'; 
+    <ol>
+      <li>
+        <fieldset id="include4">
+          <legend>Склеит числа в цикле</legend>
+          <p>[1,2,3,4,5,6,7,8,9]</p>
+          <button id="but4">click</button>
+          <div id="result4"></div>
+          <pre>
+            <code>
+                let el4 = '-'; 
+                
+                for (let i = 9; i >= 1; i--) { 
+                  el4 += (i+'-'); 
                 } 
                 
-                for (let z=0; z < eter; z++) { 
-                  let span=document.createElement('span'); 
-                  span.innerHTML=str; 
-                  div.appendChild(span); 
-                  result8.appendChild(div); 
+                but4.onclick = () => div(el4, result4);
+            </code>
+          </pre>
+        </fieldset>
+      </li>
+      <li>
+        <fieldset id="include5">
+          <legend>Пирамидка</legend>
+          <button id="but5">click</button>
+          <div id="result5"></div>
+          <pre class="code" style="margin-left: 50px;">
+            <code>
+              let pyr5 = function () { 
+                for (let i = 1; i < 10; i++) { 
+                  let div = document.createElement('div'); 
+                  for (let z=1; z<=i; z++) { 
+                    let span = document.createElement('span'); 
+                    span.innerHTML='x'; 
+                    div.appendChild(span); 
+                    result5.appendChild(div); 
+                  } 
+                }
+              }
+              
+              but5.onclick=()=> pyr5();
+            </code>
+          </pre>
+        </fieldset>
+      </li>
+      <li>
+        <fieldset id="include6">
+          <legend>Пирамидка из чисел</legend>
+          <button id="but6">click</button>
+          <div id="result6"></div>
+        </fieldset>
+      </li>
+      <li>
+        <fieldset id="include7">
+          <legend>Пирамидка с интервалом</legend>
+          <button id="but7">click</button>
+          <div id="result7"></div>
+        </fieldset>
+      </li>
+      <li>
+        <fieldset id="include8">
+          <legend>Решетка</legend>
+          <p></p>
+          <button id="but8">click</button>
+          <div id="result8"></div>
+          <pre class="code">
+            <code>
+               let cell8 = function (str, eter) { 
+                 for (let i = 0; i< eter; i++) { 
+                   let div=document.createElement('div'); 
+                   if (i % 2 !==0) { 
+                     div.innerHTML='&nbsp;'; 
+                    } 
+                    
+                    for (let z=0; z < eter; z++) { 
+                      let span=document.createElement('span'); 
+                      span.innerHTML=str; 
+                      div.appendChild(span); 
+                      result8.appendChild(div); 
+                    } 
+                  } 
+                }; 
+                but8.onclick=()=> cell8('# ', 5);
+            </code>
+          </pre>
+        </fieldset>
+      </li>
+      <li>
+        <fieldset id="include9">
+          <legend>Квадрат</legend>
+          <blockquote>
+            Введите цифры - величина квадрата.
+          </blockquote>
+          <input type="text" id="input9" value=''>
+          <button id="but9">click</button>
+          <div id="result9" class="paint"></div>
+    
+          <pre class="code">
+            <code>
+               let quoter9 = function(leng) { 
+                 let st = '|'; 
+                 let ly = '_'; 
+                 let sp = 'здесь символ пробела utf-8'; 
+                 for (let z = 0; z < leng/2; z++) { 
+                   let str=''; 
+                   for (let i=0 ; i < leng; i++) { 
+                     if (z==0) { 
+                       str=sp + ly.repeat(leng); 
+                       break; 
+                      } 
+                      if (z==Math.round(leng/2-1) ) { 
+                        str=st + ly.repeat(leng) + st; 
+                        break; 
+                      } 
+                      str=st + sp.repeat(leng*2) + st; 
+                    } 
+                    div(str, result9, false, false); 
+                  } 
+                }; 
+                but9.onclick=()=>quoter9(9);
+            </code>
+          </pre>
+        </fieldset>
+      </li>
+      <li>
+        <fieldset id="include10">
+          <legend>Треугольник</legend>
+          <blockquote>
+            Введите цифры - величина пирамиды. 
+          </blockquote>
+          <input type="text" id="input10" value=''>
+          <button id="but10">click</button>
+          <div id="result10" class="paint"></div>
+          <pre class="code">
+            <code>
+               let triangle10 = function(len) { 
+                 let sp = '&nbsp;'; 
+                 let lt = '&#92;'; 
+                 let rt = '&frasl;'; 
+                 let ly = '_'; 
+                 
+                 let lenIn = (size) => '&nbsp;'.repeat(size * 4); 
+                 let lenOut = (size) => '&nbsp;'.repeat(size * 2); 
+
+                 let str = lenOut(len) + rt + lt; 
+                 for (let i = 0; i < len; i++) { 
+                   let outK=len; 
+                   let inK=0; 
+                   for (let z=0; z < i; z++) { 
+                     outK--; inK++; 
+                     
+                     if(i==len-1) { 
+                      str=sp + sp + rt + ly.repeat(inK*2) + lt; 
+                      continue; 
+                    }; 
+                    str=lenOut(outK) + rt + lenIn(inK) + lt; 
+                  } 
+                  div(str, result10, false, false);
                 } 
-              } 
-            }; 
-            but8.onclick=()=> cell8('# ', 5);
-        </code>
-      </pre>
-      <button id="but8">click</button>
-      <div id="result8"></div>
-    </fieldset>
-    <fieldset id="include9">
-      <legend>Треугольник</legend>
-      <pre class="code">
-        <code>
-        </code>
-      </pre>
-      <button id="but9">click</button>
-      <div id="result9"></div>
-    </fieldset>
+              }; 
+              
+              input10.addEventListener('change', 
+                function createTriangle10() { 
+                  return triangle10(parseInt(this.value)); 
+                });
+            </code>
+          </pre>
+        </fieldset>
+      </li>
+    </ol>
   </div>
 
   <script src="../../js/main/hilight.js"></script>

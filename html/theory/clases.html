@@ -30,7 +30,7 @@
         <h4 class="links-themes-title">Контекст</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">title</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Введение</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">title</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">title</li>
         </ul>
@@ -42,10 +42,62 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Использование классов ES5</div>
             <fieldset>
-              <legend>1. Заголовок</legend>
+              <legend>1. Синтаксис</legend>
+              <blockquote>
+                Новая конструкция class – удобный «синтаксический сахар» для задания конструктора вместе с прототипом.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  class Название [extends Родитель] { 
+                    constructor методы 
+                  }
+
+                class Rand { 
+                  constructor (name) { 
+                    this.yourName = name; 
+                    // это что-то вроде переменной в которую мы ложим аргумент 
+                  }; 
+                  sayHi() { //'это метод'
+                    console.log('​Rand -> sayHi -> name', this.yourName);
+                  } 
+                } 
+                 
+                let user1 = new Rand('Vasya'); 
+                let user2 = new Rand('Masha'); 
+                user1.sayHi(); 
+                user2.sayHi();
+                </code>
+              </pre>
             </fieldset>
+            <fieldset>
+              <legend>2. Синтаксис</legend>
+              <blockquote>
+                Новая конструкция class – удобный «синтаксический сахар» для задания конструктора вместе с прототипом.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  class Название [extends Родитель] { 
+                    constructor методы 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>1. Синтаксис</legend>
+              <blockquote>
+                Новая конструкция class – удобный «синтаксический сахар» для задания конструктора вместе с прототипом.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  class Название [extends Родитель] { 
+                    constructor методы 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+           
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
@@ -74,8 +126,6 @@
   <script src="../../js/main/hilight.js"></script>
   <script src="../../js/main/dynamic.js"></script>
   <script src="../../js/main/main.js"></script>
-  <script src="../../js/theory/clases.js"></script>
-
 </body>
 
 </html>

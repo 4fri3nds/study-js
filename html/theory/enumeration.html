@@ -163,7 +163,14 @@
             </fieldset>
             <fieldset>
               <legend>5. Continue</legend>
-              <blockquote>Директива continue прекращает выполнение текущей итерации цикла.</blockquote>
+              <blockquote>
+                Директива continue прекращает выполнение текущей итерации цикла.
+
+                -- компилятор не идет дальше по условиям кода в текущей итерации.
+
+                Метки для break/continue Бывает нужно выйти одновременно из нескольких уровней цикла. Например, внутри цикла по i находится
+                цикл по j, и при выполнении некоторого условия мы бы хотели выйти из обоих циклов сразу:
+              </blockquote>
               <pre>
                 <code>        
                   for( key in item) { ... }
@@ -178,6 +185,33 @@
                       console.log(str[i]); //'hell wrld'
                     } 
                   }
+
+                  <b>Метка с FOR</b>
+                   iteration: for (let i = 0; i < arr5.length; i++) { 
+                     let x=arr5[i];
+
+                     for (let z=0; z < altArr.length; z++) { 
+                       let y = altArr[z]; 
+                       if(x == y) continue iteration; 
+                      } 
+                     altArr.push(arr5[i]); 
+                    };
+                  
+                  <b>Метка WHILE</b>
+                   checkiandj: while (i < 4) { 
+                     console.log(i); 
+                     i+=1 ; 
+                     checkj: while (j > 4) { 
+                       console.log(j); 
+                       j-=1; 
+                       if ((j % 2) != 0) { 
+                         continue checkj; 
+                        } 
+                        console.log(j + "чётное."); 
+                      } 
+                      console.log("i = " + i);
+                    console.log("j = " + j); 
+                   }
                 </code>
               </pre>
             </fieldset>
@@ -390,7 +424,6 @@
   <script src="../../js/main/hilight.js"></script>
   <script src="../../js/main/dynamic.js"></script>
   <script src="../../js/main/main.js"></script>
-  <script src="../../js/theory/enumeration.js"></script>
 
 </body>
 
