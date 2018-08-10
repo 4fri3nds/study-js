@@ -17,6 +17,7 @@ function div(str, location, cleaner, lab) {
     lable = '';
   }
 
+  divEl.style.transition = 0.5 + "s";
   divEl.className = "includer";
   divEl.innerHTML = lable + str;
 
@@ -59,11 +60,6 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// getRandom function
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-};
-
 // флаг. Наличия элемента в массиве
 function hasElem(mass, num) {
   for (let i = 0; i < mass.length; i++) {
@@ -93,39 +89,3 @@ function dispArr(mass, elem) {
 function randNumArr(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
-
-//collapse menu in header
-for (let i = 0; i < menu.querySelectorAll('h5').length; i++) {
-  menu.querySelectorAll('h5')[i].addEventListener('click', function () {
-    if (menu.className != 'active') {
-      menu.className = 'active';
-    } else {
-      menu.className = '';
-    }
-  });
-};
-
-//tabs
-function openMark(evt, mark) {
-  let nav = document.getElementsByClassName('tabs-nav-item'),
-      content = document.getElementsByClassName('tabs-content-item');
-
-  for (let i = 0; i < nav.length; i++) {
-    nav[i].className = nav[i].className.replace(' active', '');
-    content[i].className = content[i].className.replace(' active', '');
-  };
-
-  evt.currentTarget.className += ' active';
-  document.getElementById(mark).className += ' active';
-};
-
-//sticky aside
-let sticky = {
-  elem: document.getElementsByClassName('tabs-nav-list')[0],
-  stick: function(){
-    // if (this.elem)
-    console.log(this.elem.getBoundingClientRect());
-  }
-};
-
-sticky.stick();

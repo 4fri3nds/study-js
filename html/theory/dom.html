@@ -30,10 +30,10 @@
         <h4 class="links-themes-title">Dom</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Найти дом элементы</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Добавление и удаление узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Добавить и удалить классы</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Стили через скрипты</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Поиск</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Узлы(Nodes)</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Классы</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Стили</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Аттрибуты</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Фишки</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark7')">Теги</li>
@@ -145,12 +145,36 @@
           <li id="mark4" class="tabs-content-item">
             <!-- 4 -->
             <div class="sub-title">Main</div>
-            <div class="title">Стили через скрипты</div>
+            <div class="title">Style</div>
             <fieldset>
               <legend>1. Назначить стили динамичесски</legend>
               <pre>
               <code>
                 elem.style.display = 'none'; // скрыть элемент
+
+                <b> через браузер назначить цвет общего фона</b>
+                document.body.style.backgroundColor = prompt('background color?', 'green');   
+                
+                <b>збросить стиль</b>
+                elem.style.width=""
+
+                <b>I. Несколько стилей: вариант 1 (предыдущие свойства удаляются)</b>
+                div.style.cssText="
+                  color: red !important; \ 
+                  background-color: yellow; \ 
+                  width: 100px; \ 
+                  text-align: center; \
+                  this_str: проигнорируется; \ 
+                ";
+
+                <b>II. Несколько стилей: вариант 2 (предыдущие свойства удаляются)</b>
+                elem.setAttribute("style", ...)
+
+                <b>I. Узнать стили</b>
+                getComputedStyle(element[, pseudo]).marginTop
+
+                <b>II. Узнать стили</b>
+                elem.currentStyle
               </code>
             </pre>
             </fieldset>

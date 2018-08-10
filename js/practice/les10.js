@@ -58,7 +58,7 @@ function fillCells() {
 
 function fill(cells, arr) {
   for (let x = 0; x < cells.length; x++) {
-    cells[x].innerHTML = getRandomInt(1, 100);
+    cells[x].innerHTML = getRandom(1, 100);
 
     if (arr !== null) {
       arr.push(cells[x].innerHTML);

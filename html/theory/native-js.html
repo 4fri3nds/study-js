@@ -31,8 +31,9 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Интерессный код</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Main.js</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Dynamic.js</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Оптимизация</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -62,7 +63,8 @@
                     httpRequest.onreadystatechange = function () { 
                       // встраиваем функцию проверки статуса нашего запроса 
                       // это вызывается при каждом изменении статуса 
-                      if (httpRequest.readyState === 4 && httpRequest.status === 200) { callback.call(httpRequest.responseXML); // вызываем колбек 
+                      if (httpRequest.readyState === 4 && httpRequest.status === 200) { 
+                        callback.call(httpRequest.responseXML); // вызываем колбек 
                       } 
                     }; 
                     httpRequest.open('GET', url); 
@@ -77,7 +79,7 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>2. ...</legend>
+              <legend>2. </legend>
               <pre class="code">
                 <code>
                  
@@ -89,20 +91,335 @@
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">title</div>
+            <div class="title">Main.js</div>
             <fieldset>
-              <legend>1. title</legend>
+              <legend>1. Div function</legend>
+              <blockquote>Эта функция создает div с информацией внутри. 
+                Принимает 4 параметра:
+                <ul>
+                  <li>str - передаваемая строка</li>
+                  <li>location - расположение</li>
+                  <li>cleaner - убирает старый результат</li>
+                  <li>lable - убирает текст "ваш результат"</li>
+                </ul>
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function div(str, location, cleaner, lable) { 
+                    let divEl = document.createElement('div'); 
+                    let text = 'Ваш результат: ' + '<br/>'; 
+                    if (lable != true) { 
+                      text = ''; 
+                    } 
+                    divEl.style.transition = 0.5 + "s"; 
+                    divEl.className = "includer"; 
+                    divEl.innerHTML = text + str; 
+                    
+                    if (cleaner == true) { 
+                      empty(location); //вызов функции чистильщика
+                      //oна удаляет все дивы кроме одного
+                    } 
+                    
+                    if (location !== undefined) { 
+                      location.appendChild(divEl) 
+                    } else { 
+                      document.body.appendChild(divEl) 
+                    } 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Create table</legend>
+              <blockquote>
+                Заносит массив mass в табличку, котору создает в elem
+              </blockquote>
+              <pre class="code">
+                <code>
+                function dispArr(mass, elem) { 
+                  let table = document.createElement('table'), 
+                  tr = document.createElement('tr');
+                  elem.parentElement.insertBefore(table, elem); 
+                  table.appendChild(tr); 
+                  for (let i = 0; i < mass.length; i++) { 
+                    let td=document.createElement('td'); 
+                    tr.appendChild(td); 
+                    td.innerHTML=mass[i]; 
+                  } 
+                };
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Маленькие, но очень полезные ф-ции</legend>
+              <pre class="code">
+                <code>
+                  <b>Удаляет всех потомков в теге</b>
+                  function empty(wrap) { 
+                    while (wrap.children.length > 0) { 
+                      wrap.removeChild(wrap.lastChild); 
+                    } 
+                  };
+
+                  <b>Сортирует числа</b>
+                  function compareNumbers(a, b) { 
+                    return a - b; 
+                  } 
+                  
+                  <b>Случайное число</b> 
+                  function getRandom(min, max) { 
+                    return Math.floor(Math.random() * (max - min) + min); 
+                  }
+
+                  <b>флаг. Наличия элемента в массиве</b>
+                  function hasElem(mass, num) { 
+                    for (let i = 0; i < mass.length; i++) { 
+                      if (num==m ass[i]) { 
+                        return true; 
+                      } 
+                    } 
+                    return false; 
+                  };
+
+                  <b>Получить случайное число из массива</b>
+                  function randNumArr(arr) { 
+                    return arr[Math.floor(Math.random() * arr.length)]; 
+                  };
+                </code>
+              </pre>
             </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">title</div>
+            <div class="title">Dynamic.js</div>
             <fieldset>
-              <legend>1. title</legend>
+              <legend>1. Формат JSON скриптового меню</legend>
+              <blockquote>Ниже скрипт который будет его парсить</blockquote>
+              <pre class="code">
+                <code>
+                  var JSON = { 
+                    menu: [ 
+                      { title: 'Module 1', submenu: [ 
+                        { linkname: '1. logic, drawing', link: '../practice/lesson1.html'},
+                        { linkname: '2. Рекурсия', link: '../practice/lesson2.html'}, 
+                        { linkname: '3. empty yet', link: '../practice/lesson3.html'}
+                      ] }, 
+                      { title: 'Module 2', submenu: [ 
+                        { linkname: '11. random, sort', link: '../practice/lesson10.html' }, 
+                        { linkname: '12. this', link: '../practice/lesson11.html' }, 
+                        { linkname: '13. array', link: '../practice/lesson12.html' }
+                      ] } 
+                    ], 
+                    breadcrumps: [ 
+                      { linkname: 'i class="fas fa-home"',link: '../index.html'}, 
+                      { linkname: 'i class="fas fa-home"',link: '../index.html'}, 
+                      { linkname: 'i class="fas fa-home"',link: '../index.html'}
+                    ], 
+                    extramenu: [ 
+                      { linkname: 'dom',link: '#'}, 
+                      { linkname: 'history',link: '#'},
+                      { linkname: 'preforences',link: '#'}
+                    ] 
+                  };
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Меню парсинг json</legend>
+              <blockquote>Ниже скрипт который будет его парсить</blockquote>
+              <pre class="code">
+                <code>
+                  parseDom(document.getElementById('menu'), JSON.menu);
+
+                  if (breadcrumps) {
+                    parseDom(breadcrumps, JSON.breadcrumps);
+                  }
+
+                  if (extramenu) {
+                    parseDom(extramenu, JSON.extramenu);
+                  }
+                  
+                  function parseDom(elem, parse) { 
+                    let ul = document.createElement('ul'); 
+                    elem.appendChild(ul); 
+
+                    for(let i = 0; i < parse.length; i++) { 
+                      let a=document.createElement('a'), 
+                      h5=document.createElement('h5'), 
+                      li=document.createElement('li'); 
+                      
+                      ul.appendChild(li);
+                    
+                      if(parse[i].title) { 
+                        li.appendChild(h5);
+                        h5.innerHTML=parse[i].title; 
+                      }; 
+                      
+                      if(parse[i].linkname) { 
+                        li.appendChild(a); 
+                        a.innerHTML=parse[i].linkname; 
+                        a.setAttribute('href', parse[i].link); 
+                      }; 
+                      
+                      if(parse[i].submenu) { 
+                        parseDom(li, parse[i].submenu) 
+                      }; 
+                    } 
+                    hljs.initHighlightingOnLoad();
+                  };                 
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Collapse menu in header</legend>
+              <blockquote>Закрыть раскрыть меню</blockquote>
+              <pre class="code">
+                <code> 
+                  for (let i = 0; i < menu.querySelectorAll('h5').length; i++) {    
+                    menu.querySelectorAll('h5')[i].addEventListener('click', function () { 
+                      if (menu.className != 'active' ) { 
+                        menu.className = 'active'; 
+                      } else { 
+                        menu.className = ''; 
+                      } 
+                    }); 
+                  };
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Tabs</legend>
+              <blockquote>Табы aside</blockquote>
+              <pre class="code">
+                <code> 
+                  function openMark(evt, mark) { 
+                    window.scrollTo(0,80); 
+                    window.addEventListener('scroll', unstickAside); 
+
+                    let nav = document.getElementsByClassName('tabs-nav-item'), 
+                        content = document.getElementsByClassName('tabs-content-item'); 
+                    
+                    for (let i = 0; i < nav.length; i++) { 
+                      nav[i].className=nav[i].className.replace(' active', ''); 
+                      content[i].className=content[i].className.replace(' active', ''); 
+                    }; 
+                    
+                    evt.currentTarget.className +=' active' ; 
+                    document.getElementById(mark).className +=' active' ; 
+                  };
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Sticky Aside</legend>
+              <blockquote>При прокрутке приклеивает aside</blockquote>
+              <pre class="code">
+                <code> 
+                  let sticky = { 
+                    elem: document.getElementsByClassName('tabs-nav-list')[0], 
+                    mt: function() { 
+                      return this.elem.getBoundingClientRect().top;
+                    }, 
+                    stick: function() { 
+                      return this.mt() 
+                    }, 
+                  }; 
+                  
+                  function stickAside() { 
+                    let offsetCollapseMenu = 227; 
+                    let offsetOpenMenu = 477; 
+                    let marginTop = 50; 
+                    sticky.elem.style.position = 'fixed'; 
+                    
+                    if (menu.className != 'active') { 
+                      if (window.pageYOffset < offsetCollapseMenu - marginTop) {       
+                        window.removeEventListener('scroll', stickAside); 
+                        window.addEventListener('scroll', unstickAside);
+                      } 
+                    } else { 
+                      if (window.pageYOffset < offsetOpenMenu - marginTop) { 
+                        window.removeEventListener('scroll', stickAside); 
+                        window.addEventListener('scroll', unstickAside); 
+                      } 
+                    } 
+                  }; 
+                  
+                  function unstickAside() { 
+                    sticky.elem.style.position='relative'; 
+                    if (sticky.mt() < marginTop) {
+                      window.addEventListener('scroll', stickAside); 
+                      window.removeEventListener('scroll', unstickAside); 
+                    } 
+                  }; 
+                  
+                  window.addEventListener('scroll', unstickAside); 
+                  
+                  if (sticky.elem) sticky.stick; 
+                  
+                </code>
+              </pre>
             </fieldset>
             <!-- end 3-->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Оптимизация странички</div>
+            <fieldset>
+              <legend>1. Когда много картинок</legend>
+              <blockquote>
+                Мы меняем все картинки на серые квадраты. grey gif 1x1<br>
+                В realsrc лежит настоящий src. <br><br>
+                Код при прокрутке окна загружает ставшие видимыми изображения. 
+                То есть, как только изображение попало в видимую часть документа – в src нужно прописать правильный URL из realsrc.
+              </blockquote>
+              <pre>
+                  <b>Заменяем такую картинку</b>
+                  img src="yozhik.jpg" width="128" height="128">
+                  <b>На такую</b>
+                  img src="1.gif" width="128" height="128" realsrc="yozhik.jpg">
+              </pre>
+              <br>
+              <pre class="code">
+                <code>
+                  let imgs = document.getElementsByTagName('img'); 
+                  let winH = window.innerHeight; 
+                  
+                  for(let i=0; i < imgs.length; i++) { 
+                    if (imgs[i].offsetTop < winH) { 
+                      let fooSrc=imgs[i].getAttribute('src'); 
+                      let trueSrc=imgs[i].getAttribute('realsrc'); 
+                      imgs[i].setAttribute('src', trueSrc); 
+                    } 
+                  } 
+                  
+                  window.onscroll=function() { 
+                    let pageScrl=window.pageYOffset; 
+                    let elScrl=imgs[4].getBoundingClientRect().x;
+                        
+                    for(let i=0; i < imgs.length; i++) { 
+                      if (pageScrl==imgs[i].getBoundingClientRect().x) { 
+                        let fooSrc=imgs[i].getAttribute( 'src'); 
+                        let trueSrc=imgs[i].getAttribute( 'realsrc'); 
+                        imgs[i].setAttribute( 'src', trueSrc);
+                        } 
+                      } 
+                    }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. </legend>
+              <blockquote>///</blockquote>
+              <pre class="code">
+                <code>
+                          
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 4 -->
           </li>
         </ul>
       </div>

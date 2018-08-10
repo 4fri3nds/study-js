@@ -4,7 +4,7 @@ var JSON = {
       submenu: [
         { linkname: '1. logic, drawing', link: '../practice/lesson1.html'},
         { linkname: '2. Рекурсия', link: '../practice/lesson2.html'},
-        { linkname: '3. empty yet', link: '../practice/lesson3.html'},
+        { linkname: '3. Конструктор', link: '../practice/lesson3.html'},
         { linkname: '4. empty yet', link: '../practice/lesson4.html'},
         { linkname: '5. numbers, sort', link: '../practice/lesson5.html'},
         { linkname: '6. interval', link: '../practice/lesson6.html'},
@@ -30,7 +30,7 @@ var JSON = {
         { linkname: 'Массивы', link: '../theory/Array.html' },
         { linkname: 'Обьекты', link: '../theory/object.html' },
         { linkname: 'Функции', link: '../theory/functions.html'},
-        { linkname: 'Dom, Bom', link: '../theory/dom.html' },
+        { linkname: 'Dom', link: '../theory/dom.html' },
         { linkname: 'Events', link: '../theory/events.html' },
         { linkname: 'Enumeration', link: '../theory/enumeration.html' },
         { linkname: 'Styles', link: '../theory/styles.html' },
@@ -40,7 +40,6 @@ var JSON = {
       submenu: [
         { linkname: 'Callback', link: '../theory/callback.html' },
         { linkname: 'Замыкания', link: '../theory/closures.html' },
-        { linkname: 'Конструкторы', link: '../theory/constructors.html' },
         { linkname: 'Классы', link: '../theory/clases.html' },
         { linkname: 'OOP', link: '../theory/oop.html' },
         { linkname: 'Прототипы', link: '../theory/proto.html' },
@@ -71,6 +70,7 @@ var JSON = {
 
 };
 
+//parse menu
 function parseDom(elem, parse) {
   let ul = document.createElement('ul');
   
@@ -94,9 +94,7 @@ function parseDom(elem, parse) {
       a.setAttribute('href', parse[i].link);
     };
 
-    if(parse[i].submenu) {
-      parseDom(li, parse[i].submenu)
-    };
+    if(parse[i].submenu) parseDom(li, parse[i].submenu)
   }
   
   hljs.initHighlightingOnLoad();
@@ -104,15 +102,86 @@ function parseDom(elem, parse) {
 
 parseDom(document.getElementById('menu'), JSON.menu);
 
+//breadcrumps
 let breadcrumps = document.getElementById('bread-crumps');
 let extramenu = document.getElementById('extra-menu');
 
-if (breadcrumps) {
-  parseDom(breadcrumps, JSON.breadcrumps);
+if (breadcrumps) parseDom(breadcrumps, JSON.breadcrumps);
+
+if (extramenu) parseDom(extramenu, JSON.extramenu);
+
+//collapse menu in header
+let headerMenu = {
+  menu: document.getElementById('menu'),
+  h5: this.menu.getElementsByTagName('h5')
 }
 
-if (extramenu) {
-  parseDom(extramenu, JSON.extramenu);
-}
+for (let i = 0; i < headerMenu.h5.length; i++) {
+  headerMenu.h5[i].addEventListener('click', function () {
+    if (headerMenu.menu.className != 'active') {
+      headerMenu.menu.className = 'active';
+    } else {
+      headerMenu.menu.className = '';
+    }
+  });
+};
 
+//tabs
+function openMark(evt, mark) {
+  window.scrollTo(0,80);
+
+  window.addEventListener('scroll', unstickAside);
+
+  let nav = document.getElementsByClassName('tabs-nav-item'),
+    content = document.getElementsByClassName('tabs-content-item');
+
+  for (let i = 0; i < nav.length; i++) {
+    nav[i].className = nav[i].className.replace(' active', '');
+    content[i].className = content[i].className.replace(' active', '');
+  };
+
+  evt.currentTarget.className += ' active';
+  document.getElementById(mark).className += ' active';
+};
+
+//sticky aside
+let sticky = {
+  elem: document.getElementsByClassName('tabs-nav-list')[0],
+  offsetCollapseMenu : 227,
+  offsetOpenMenu : 477,
+  marginTop : 51,
+  mt: function() {
+    return this.elem.getBoundingClientRect().top;
+  },
+  stick: function() {
+    return this.mt() 
+  },
+};
+
+
+function stickAside() {
+  sticky.elem.style.position = 'fixed';
+
+  if (menu.className != 'active') {
+    if (window.pageYOffset < sticky.offsetCollapseMenu - sticky.marginTop) {
+      window.removeEventListener('scroll', stickAside);
+      window.addEventListener('scroll', unstickAside);
+    }
+  } else {
+    if (window.pageYOffset < sticky.offsetOpenMenu - 80) {
+      window.removeEventListener('scroll', stickAside);
+      window.addEventListener('scroll', unstickAside);
+    }
+  }
+};
+
+function unstickAside() {
+  sticky.elem.style.position = 'relative';
   
+  if (sticky.mt() < sticky.marginTop) { 
+    window.addEventListener('scroll', stickAside);
+    window.removeEventListener('scroll', unstickAside);
+  }
+};
+
+if (sticky.elem) window.addEventListener('scroll', unstickAside);

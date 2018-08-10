@@ -31,7 +31,7 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">setInterval & setTimeout</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Позиция эл</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Scroll</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">title</li>
         </ul>
         <!-- END NAV -->
@@ -75,19 +75,77 @@
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Scroll, Position</div>
             <fieldset>
-              <legend>1. Позиция элемента по отношению краев браузера</legend>
+              <legend>1. Подробно о позиции</legend>
               <h3>Основной метод для управления свойствами – Object.defineProperty.</h3>
               <pre>
-                Object.defineProperty(obj, prop, descriptor)
+                elem.getBoundingClientRect() // получить координаты
+                var elem = document.elementFromPoint(centerX, centerY); // по координатам получить элемент
               </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Плавная прокрутка вверх по кнопке</legend>
+              <h3>Основной метод для управления свойствами – Object.defineProperty.</h3>
+              <pre>
+                setTimeout(function() { window.scrollTo(0,80); }, 1000);
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Найти координаты элемента функцией</legend>
               <blockquote>
-                
+                Отступы и величина – Object.defineProperty. 
+                pageY(X)Offset - насколько проскролилась страничка
               </blockquote>
-              <pre class="code">
+              <pre>
+                function getCoords(elem) { 
+                  var box = elem.getBoundingClientRect(); 
+                  return { 
+                    top: box.top + pageYOffset, 
+                    left: box.left + pageXOffset 
+                  }; 
+                };
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Scroll</legend>
+              <pre>
                 <code>
-                  
+                  <b>Величина скрола</b>
+                  window.onscroll = function() { 
+                    console.log(this.pageYOffset) 
+                  }
+
+                  <b>Величина скрола в элементе</b>
+                  window.onscroll = function () { 
+                    var scrolled = window.pageYOffset || document.documentElement.scrollTop; document.getElementById('showScroll').innerHTML = scrolled + 'px'; 
+                  }
+
+                  <b>Страницу вверх(без замедления)</b>
+                  window.scrollTo(0,0);
+
+                  <b>Проскролить элемент вниз на 10px</b>
+                  elem.scrollTop += 10
+
+                  <b>Получить инфу по расположению элемента</b>
+                  elem.getBoundingClientRect()
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend></legend>
+              <pre>
+                <code>
+                  <ul>
+                    <li> offsetParent – «родитель по дереву рендеринга» – ближайшая ячейка таблицы, body для статического позиционирования или ближайший позиционированный элемент для других типов позиционирования.</li>
+                    <li>offsetLeft/offsetTop – позиция в пикселях левого верхнего угла блока, относительно его offsetParent.</li>
+                    <li>offsetWidth/offsetHeight – «внешняя» ширина/высота блока, включая рамки.</li>
+                    <li>clientLeft/clientTop – отступ области содержимого от левого-верхнего угла элемента. Если операционная система располагает
+                    вертикальную прокрутку справа, то равны ширинам левой/верхней рамки, если же слева (ОС на иврите, арабском), то clientLeft включает в себя прокрутку.</li>
+                    <li>clientWidth/clientHeight – ширина/высота содержимого вместе с полями padding, но без полосы прокрутки. scrollWidth/scrollHeight
+                    – ширина/высота содержимого, включая прокручиваемую область. Включает в себя padding и не включает полосы прокрутки</li>
+                    <li>scrollLeft/scrollTop – ширина/высота прокрученной части документа, считается от верхнего левого угла.</li>
+                  </ul>
                 </code>
               </pre>
             </fieldset>

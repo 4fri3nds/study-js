@@ -44,12 +44,24 @@
             <div class="sub-title">Main</div>
             <div class="title">addEventListener события</div>
             <fieldset>
-              <legend>1. Title</legend>
+              <legend>1. События</legend>
               <pre>
                 <code>
-                  checkbox.addEventListener('change') -- вешается на checkbox'ы
-                  checkbox.addEventListener('checked') -- вешается на checkbox'ы
+                  .checkbox.addEventListener('change') -- вешается на checkbox'ы
+                  .checkbox.addEventListener('checked') -- вешается на checkbox'ы
                   .addEventListener('mouseup', func) -- срабатывает при отжатии мышки
+
+                  <b> так можно повесить по-одному событию</b>
+                  elem.onclick = func;
+                  window.onscroll = func;
+                  input.onchange = func;
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. </legend>
+              <pre>
+                <code>
                 </code>
               </pre>
             </fieldset>

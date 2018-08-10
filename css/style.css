@@ -103,7 +103,7 @@ h5 {
 }
 
 fieldset {
-  background: url(../assets/fieldset/7.gif) repeat;
+  background: url(../assets/fieldset/5.jpg) repeat;
   margin-bottom: 20px;
   padding: 0 20px;
 }
@@ -522,6 +522,9 @@ input {
   padding-right: 0;
   padding-left: 10px;
   position: relative;
+  height: -webkit-fill-available;
+  height: -moz-fill-available;
+  height: fill-available;
 }
 
 .info-right {
@@ -649,7 +652,6 @@ input {
 }
 
 /* tabs */
-
 .tabs-content-list {
   padding-right: 8px;
 }
@@ -660,13 +662,12 @@ input {
 }
 
 .tabs-nav-list {
-  padding-top: 20px;
-  margin-top: 20px;
   margin-right: -2px;
   border-right: 2px solid;
   background: white;
   width: 292px;
-  /* position: fixed; */
+  top: 50px;
+  position: relative;
 }
 
 .tabs-nav-item {

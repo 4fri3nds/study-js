@@ -396,9 +396,84 @@
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Return</div>
+            <div class="title">Конструкторы</div>
             <fieldset>
-              <legend>1. title</legend>
+              <legend>1. Синтаксис</legend>
+              <blockquote>
+                Функции-конструкторы это те, которые мы определяем через new экземпляр.
+                Конструктор потому-что на выходе мы получаем обьект, сколько угодно обьектов.
+                Любая функция может быть вызвана как конструктор.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <b>Конструкторы принаято называем с большой Буквы</b>
+                  function Animal(name) { 
+                    this.kind = name; 
+                    this.walk = false; 
+                    this.fly = false; 
+                    this.sweem = false; 
+                  } 
+                  
+                  let monk = new Animal('Monkey');
+                  monk.walk = true;
+
+                  let eagle = new Animal(); //name = undef 
+                  eagle.kind = ('Eagle'); 
+                  eagle.fly = true; 
+                  
+                  console.log(typeof eagle); // object 
+                  console.log(eagle); 
+                  // Animal {kind: "Eagle", walk: false, fly: true, sweem: false}
+
+                  <b>Можно без скобок</b>
+                  var animal = new BigAnimal; // <-- без скобок 
+                  var animal = new BigAnimal(); // то же самое
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Методы Конструктора</legend>
+              <blockquote>
+                ..
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <b>В Конструкторе удобно хранить локальные переменные и функции</b>
+                  function People() { 
+                    let year = 2018; // вспомогательная переменная
+                    this.age = 21; // значение по умолчанию 
+                    
+                    function foo(name) { 
+                      return 'Age ' + name + ' is : ' 
+                    }; // это вспомогательная функция
+                    
+                    this.burn = function() { 
+                      return foo(this.name) + (year - this.age) 
+                    }; //это метод обькта что на выходе 
+                  }; 
+                  
+                  let Ann = new People; 
+                  Ann.name = 'Anna'; 
+                  Ann.age = 32; 
+                  
+                  console.log(Ann.burn()); //вызов метода 
+                  console.log(Ann);
+                  //People {age: 32, burn: ƒ, name: "Anna"}
+                  
+                  <b>как видно в обьект все локальные переменные и ф-ции не записались</b>
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>1. Локальные переменные Конструктора</legend>
+              <blockquote>
+                ..
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <b></b>
+                </code>
+              </pre>
             </fieldset>
             <!-- end 3 -->
           </li>
@@ -414,19 +489,19 @@
                 нет ссылки на исходный объект exampleObject, отчего this начинает ссылаться на объект window.
               </p>
               <pre class="code">
-                  <code>
-                    var title = "Global Title"; 
-                    var exampleObject = { 
-                      "title": "Example Title", 
-                      "showTitle": function(){ 
-                        alert(this.title);
-                      } 
-                    }; 
-                    
-                    var showTitle = exampleObject.showTitle; // вначале забираем ссылку на функцию
-                    showTitle(); // а тут вызываем функцию без ссылки на объект
-                  </code>
-                </pre>
+                <code>
+                  var title = "Global Title"; 
+                  var exampleObject = { 
+                    "title": "Example Title", 
+                    "showTitle": function(){ 
+                      alert(this.title);
+                    } 
+                  }; 
+                  
+                  var showTitle = exampleObject.showTitle; // вначале забираем ссылку на функцию
+                  showTitle(); // а тут вызываем функцию без ссылки на объект
+                </code>
+              </pre>
             </fieldset>
             <!-- end 4 -->
           </li>
@@ -500,13 +575,65 @@
             <div class="sub-title">Main</div>
             <div class="title">Get/Set/Decriptor свойств</div>
             <fieldset>
-              <legend>1. Основной метод для управления свойствами – Object.defineProperty.</legend>
-              <blockquote>
-
-              </blockquote>
+              <legend>1. Задать функцию аргументом в свойстве обьекта</legend>
               <pre>
                 <code>
+                  Они нужны для ограничения доступа извне, также с их помощью можно обычное свойство превратить в функцию.
 
+                  Object.defineProperty(obj, prop, descriptor)
+                </code>
+              </pre>
+              <blockquote>
+                <b>obj</b> Объект, в котором объявляется свойство. 
+                <b>prop</b> Имя свойства, которое нужно объявить или модифицировать. 
+                <b>descriptor</b> Дескриптор – объект, который описывает поведение свойства. В нём могут быть следующие поля: 
+                <ol>
+                  <li>
+                    value |или| get/set – значение свойства, по умолчанию undefined
+                  </li>
+                  <li>
+                    writable |или| get/set – значение свойства можно менять, если true. По умолчанию false.
+                  </li>
+                  <li>
+                    configurable – если true, то свойство можно удалять, а также менять его в дальнейшем при помощи новых вызовов defineProperty. По умолчанию false.</li>
+                  <li>
+                    enumerable – если true, то свойство просматривается в цикле for..in и методе Object.keys(). По умолчанию false.
+                  </li>
+                  <li>
+                    get – функция, которая возвращает значение свойства. По умолчанию undefined.
+                  </li>
+                  <li>
+                    set – функция, которая записывает значение свойства. По умолчанию undefined.
+                  </li>
+                </ol>    
+              </blockquote>
+              <pre>
+                Object.defineProperty(obj, prop, descriptor)
+              </pre>
+              <blockquote>
+                get - считывает 
+                set - записывает что нужно с ним зделать
+              </blockquote>
+              <pre class="code">
+                <code>
+                  var user = { 
+                    firstName: "Вася", 
+                    surname: "Петров", 
+                    
+                    get fullName() { 
+                      return this.firstName + ' ' + this.surname; 
+                    }, 
+                    set fullName(value) { 
+                      var split = value.split(' '); 
+                      this.firstName = split[0]; 
+                      this.surname = split[1]; 
+                    } 
+                  }; 
+                  alert( user.fullName ); // Вася Петров (из геттера) 
+                  
+                  user.fullName = "Петя Иванов"; 
+                  alert( user.firstName ); // Петя (поставил сеттер) 
+                  alert( user.surname ); // Иванов (поставил сеттер)
                 </code>
               </pre>
             </fieldset>

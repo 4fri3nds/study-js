@@ -72,6 +72,30 @@
                   </code>
                 </pre>
             </fieldset>
+            <fieldset>
+              <legend>2. Обьектное ООП</legend>
+              <pre class="code">
+                <code>
+            
+                </code>
+              </pre>
+              <h3>Использование конструктора ......</h3>
+              <pre class="code">
+                  <code>
+                    class Elem { 
+                      constructor(selector) { 
+                        this.menu = document.querySelector(selector); 
+                      }; 
+                      html(text) { 
+                        this.menu.innerHTML = text; 
+                      } 
+                    }; 
+                    
+                    let menu = new Elem('#menu'); 
+                    menu.html('hello');
+                  </code>
+                </pre>
+            </fieldset>
 
             <!-- end 1 -->
           </li>

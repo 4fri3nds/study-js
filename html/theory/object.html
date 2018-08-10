@@ -148,18 +148,46 @@
                 <code>
                   <b>result: Hello, Петя.</b>        
                    let MyApp = { 
-                     name: 'zerro', 
+                     name: 'Max', 
                      age: 12, 
                      size: 3, 
                      sayName: function(name) { 
-                       return "Hello " + name.toUpperCase() 
+                       return console.log("Hello " + name.toUpperCase())
                       }, 
-                    sayPreved: function() { 
+                     sayPreved: function() { 
                       return this.sayName(this.name) 
                     } 
                   } 
                   
                   MyApp.sayPreved()
+                  <b>дописать отдельно метод</b>
+                  <blockquote>Большым плюсом является доступ this к обьекту и его свойствам</blockquote>
+                  MyApp.sayPreved = function() {
+                    return this.sayName(this.name);
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>6. Правописание переменных, ф-й, м-в</legend>
+              <blockquote>
+                Это функции в обьекте. И судя по тому что доступ они имеют только к свойствам этого обьекта они изолированые от глобальной видимости.
+              </blockquote>
+              <pre>
+                <code>
+                  <b>Для методов: Get - Set</b>        
+                   // плохо dragon.age(); 
+                   // хорошо dragon.getAge(); 
+                   // плохо dragon.age(25); 
+                   // хорошо dragon.setAge(25);
+
+                  <b>Для Boolean: Is - Has</b>
+                    // плохо if (!dragon.age()) { 
+                     return false; 
+                    } 
+                    // хорошо if (!dragon.hasAge()) { 
+                      return false; 
+                    }
                 </code>
               </pre>
             </fieldset>
@@ -170,7 +198,28 @@
             <div class="sub-title">Main</div>
             <div class="title">Методы обьектов</div>
             <fieldset>
-              <legend>1. title</legend>
+              <legend>1. Синтаксис методов, их использование</legend>
+              <pre class="code">
+                <code>
+                  let sticky = { 
+                    elem: document.getElementsByClassName('tabs-nav-list')[0], 
+                    mt: function() { 
+                      return this.elem.getBoundingClientRect().top;
+                    }, 
+                    ml: function( el ) { 
+                      return el.getBoundingClientRect().left; 
+                    }, 
+                    stick: function() { 
+                      return this.mt() 
+                    }, 
+                  };
+
+                  window.addEventListener('scroll', function () { 
+                    console.log( sticky.mt() ); 
+                    console.log( sticky.ml( sticky.elem )); 
+                  });
+                </code>
+              </pre>
             </fieldset>
             <!-- end 2 -->
           </li>

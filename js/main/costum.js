@@ -1,14 +1,18 @@
-class Rand {
-  constructor (name) {
-    this.yourName = name;
+function People() {
+  let year = 2018;
+
+  function foo(name) { // это вспомогательная функция
+    return 'Age ' + name + ' is : '
   };
 
-  sayHi() {
-    console.log('​Rand -> sayHi -> name', this.yourName);
-  }
-}
+  this.burn = function() {
+    return foo(this.name) + (year - this.age)
+  }; 
+};
 
-let user1 = new Rand('Vasya');
-let user2 = new Rand('Masha');
-user1.sayHi();
-user2.sayHi();
+let Ann = new People;
+Ann.name = 'Anna';
+Ann.age = 32;
+
+console.log(Ann.burn());
+console.log(Ann); 
