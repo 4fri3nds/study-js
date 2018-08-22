@@ -30,10 +30,10 @@
         <h4 class="links-themes-title">HTML/CSS</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Интерессные селекторы</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Итерессные теги</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Селекторы, теги</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Элементы</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Анимация css</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Код</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Undef</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Reset</li>
         </ul>
         <!-- END NAV -->
@@ -49,9 +49,14 @@
               <legend>1. Селекторы</legend>
               <pre>
                 <code>
-                  text-transform: capitalize;  // заглавные буквы во всех новых словах
-                  user-select: none; // отмена выделения пользователем
-                  white-space: pre(pre-line...) //как будет переносится текст
+                  <b>заглавные буквы во всех новых словах</b>
+                  text-transform: capitalize;
+                  <b>отмена выделения пользователем</b>
+                  user-select: none;
+                  <b>как будет переносится текст</b>
+                  white-space: pre(pre-line...)
+                  <b>Уголок</b>
+                  background:linear-gradient(-45deg, transparent 15px, #58a 0);
 
                   <b>colors</b>
                   <span style="font-weight: bold; color: dimgray;">color: dimgray;</span>
@@ -74,6 +79,23 @@
                   'section' --
                   'nav' --
                   'aside' --
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Для шрифтов</legend>
+              <pre>
+                <code>
+                <b>Подключить шрифт</b>
+                @font-face { 
+                  font-family: 'Font'; 
+                  src: url('../fonts/name.ttf'); 
+                }
+            
+                <b>Шрифты</b>
+                -webkit-font-smoothing: antialiased; 
+                -webkit-tap-highlight-color: transparent; 
+                -webkit-font-smoothing: subpixel-antialiased;
                 </code>
               </pre>
             </fieldset>
@@ -138,6 +160,339 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>4. Геометрические фигуры CSS</legend>
+              <pre>
+                <code>
+                  <b>Овал</b>
+                  <div id="oval"></div>
+                  #oval { 
+                    width: 200px; 
+                    height: 100px; 
+                    background: 
+                    red; -moz-border-radius: 100px / 50px; 
+                    -webkit-border-radius: 100px / 50px;
+                    border-radius: 100px / 50px; 
+                  }
+                  <b>Треугольник вверх</b>
+                  <div id="triangle-up"></div>
+                  #triangle-up { 
+                    width: 0; 
+                    height: 0; 
+                    border-left: 50px solid transparent; 
+                    border-right: 50px solid transparent; 
+                    border-bottom: 100px solid red; 
+                  }
+
+                  <b>Треугольник вниз</b>
+                  <div id="triangle-down"></div>
+                  #triangle-down { 
+                    width: 0; 
+                    height: 0; 
+                    border-left: 50px solid transparent; 
+                    border-right: 50px solid transparent; 
+                    border-top: 100px solid red; 
+                  }
+
+                  <b>Треугольник влево</b>
+                  <div id="triangle-left"></div>
+                  #triangle-left { 
+                    width: 0; 
+                    height: 0; 
+                    border-top: 50px solid transparent; 
+                    border-right: 100px solid red; 
+                    border-bottom: 50px solid transparent; 
+                  }
+
+                  <b>Треугольник вправо</b>
+                  <div id="triangle-right"></div>
+                  #triangle-right { 
+                    width: 0; 
+                    height: 0; 
+                    border-top: 50px solid transparent; 
+                    border-left: 100px solid red; 
+                    border-bottom: 50px solid transparent; 
+                  }
+
+                  <b>Развернутый треугольник</b>
+                  <div id="triangle-topleft"></div>
+                  #triangle-topleft { 
+                    width: 0; 
+                    height: 0; 
+                    border-top: 100px solid red; 
+                    border-right: 100px solid transparent; 
+                  }
+                  <b>Развернутый треугольник</b>
+                  <div id="triangle-topright"></div>
+                  #triangle-topright { 
+                    width: 0; 
+                    height: 0; 
+                    border-top: 100px solid red; 
+                    border-left: 100px solid transparent; 
+                  }
+                  
+                  <b>Развернутый треугольник</b>
+                  <div id="triangle-bottomleft"></div>
+                  #triangle-bottomleft { 
+                    width: 0; 
+                    height: 0; 
+                    border-bottom: 100px solid red; 
+                    border-right: 100px solid transparent; 
+                  }
+                  <b>Развернутый треугольник</b>
+                  <div id="triangle-topleft"></div>
+                  #triangle-topleft { 
+                    width: 0; 
+                    height: 0; 
+                    border-bottom: 100px solid red;
+                    border-left: 100px solid transparent; 
+                  }
+                  <b>Паралелограм</b>
+                  <div id="parallelogram"></div>
+                  #parallelogram { 
+                    width: 150px; 
+                    height: 100px; 
+                    -webkit-transform: skew(20deg); 
+                    -moz-transform: skew(20deg); 
+                    -o-transform: skew(20deg); 
+                    background: red; 
+                  }
+                  <b>Трапеция</b>
+                  #trapezoid { 
+                    border-bottom: 100px solid red; 
+                    border-left: 50px solid transparent; 
+                    border-right: 50px solid transparent;
+                    height: 0; width: 100px; 
+                  }
+                  <b>Звезда (6-конечная)</b>
+                  <div id="star-six"></div>
+                  #star-six { 
+                    width: 0; 
+                    height: 0; 
+                    border-left: 50px solid transparent; 
+                    border-right: 50px solid transparent; 
+                    border-bottom: 100px solid red; 
+                    position: relative; 
+                  } 
+                  #star-six:after { 
+                    width: 0; 
+                    height: 0; 
+                    border-left: 50px solid transparent; 
+                    border-right: 50px solid transparent; 
+                    border-top: 100px solid red;
+                    position: absolute; 
+                    content: ""; 
+                    top: 30px; 
+                    left: -50px; 
+                  }
+                  <b>Звезда (5-конечная)</b>
+                  <div id="star-five"></div>
+                  #star-five { 
+                    margin: 50px 0; 
+                    position: relative; 
+                    display: block; 
+                    color: red; 
+                    width: 0px; 
+                    height: 0px; 
+                    border-right: 100px solid transparent; 
+                    border-bottom: 70px solid red; 
+                    border-left: 100px solid transparent; 
+                    -moz-transform: rotate(35deg); 
+                    -webkit-transform: rotate(35deg); 
+                    -ms-transform: rotate(35deg); 
+                    -o-transform: rotate(35deg); 
+                  } 
+                  #star-five:before { 
+                    border-bottom: 80px solid red; 
+                    border-left: 30px solid transparent; 
+                    border-right: 30px solid transparent; 
+                    position: absolute; 
+                    height: 0; 
+                    width: 0; 
+                    top: -45px; 
+                    left: -65px; 
+                    display: block; 
+                    content: ''; 
+                    -webkit-transform: rotate(-35deg); 
+                    -moz-transform: rotate(-35deg);
+                    -ms-transform: rotate(-35deg); 
+                    -o-transform: rotate(-35deg); 
+                  } 
+                  #star-five:after { 
+                    position: absolute; 
+                    display: block; 
+                    color: red; 
+                    top: 3px; 
+                    left: -105px; 
+                    width: 0px; 
+                    height: 0px; 
+                    border-right: 100px solid transparent; 
+                    border-bottom: 70px solid red;
+                    border-left: 100px solid transparent; -webkit-transform: rotate(-70deg); 
+                    -moz-transform: rotate(-70deg); 
+                    -ms-transform: rotate(-70deg);
+                    -o-transform: rotate(-70deg); 
+                    content: ''; 
+                  }
+                  
+                  <b>Пятиугольник</b>
+                  <div id="arrow"></div>
+                  #arrow { 
+                    position: relative; 
+                    width: 54px; 
+                    border-width: 50px 18px 0; 
+                    border-style: solid; 
+                    border-color: red transparent;
+                  } 
+                  #arrow:before { 
+                    content: ""; 
+                    position: absolute; 
+                    height: 0; 
+                    width: 0; 
+                    top: -85px; 
+                    left: -18px; 
+                    border-width: 0 45px 35px; 
+                    border-style: solid; 
+                    border-color: transparent transparent red; 
+                  }
+                  <b>Шестиугольник</b>
+                  <div id="hexagon"></div>
+                  #hexagon { 
+                    width: 100px; 
+                    height: 55px; 
+                    background: red; 
+                    position: relative; 
+                  } 
+                  #hexagon:before { 
+                    content: ""; 
+                    position: absolute;
+                    top: -25px; 
+                    left: 0; 
+                    width: 0; 
+                    height: 0; 
+                    border-left: 50px solid transparent; 
+                    border-right: 50px solid transparent; 
+                    border-bottom: 25px solid red; 
+                  } #hexagon:after { 
+                    content: ""; 
+                    position: absolute; 
+                    bottom: -25px; 
+                    left: 0; 
+                    width: 0; 
+                    height: 0; 
+                    border-left: 50px solid transparent; 
+                    border-right: 50px solid transparent; 
+                    border-top: 25px solid red; 
+                  }
+                  <b>Восьмиугольник</b>
+                  <div id="octagon"></div>
+                  #octagon { 
+                    width: 100px; 
+                    height: 100px; 
+                    background: red; 
+                    position: relative; 
+                  } 
+                  #octagon:before { 
+                    content: ""; 
+                    position: absolute; 
+                    top: 0; 
+                    left: 0; 
+                    border-bottom: 29px solid red; 
+                    border-left: 29px solid #eee; 
+                    border-right: 29px solid #eee; 
+                    width: 42px; 
+                    height: 0; 
+                  } 
+                  #octagon:after { 
+                    content: ""; 
+                    position: absolute; 
+                    bottom: 0; 
+                    left: 0; 
+                    border-top: 29px solid red; 
+                    border-left: 29px solid #eee; 
+                    border-right: 29px solid #eee; 
+                    width: 42px; 
+                    height: 0; 
+                  }
+                  <b>Сердечко</b>
+                  <div id="heart"></div>
+                  #heart { 
+                    position: relative; 
+                    width: 100px; 
+                    height: 90px; 
+                  } 
+                  #heart:before, 
+                  #heart:after { 
+                    position: absolute; 
+                    content: "";
+                    left: 50px; 
+                    top: 0; 
+                    width: 50px; 
+                    height: 80px; 
+                    background: red; 
+                    -moz-border-radius: 50px 50px 0 0; 
+                    border-radius: 50px 50px 0 0; 
+                    -webkit-transform: rotate(-45deg); 
+                    -moz-transform: rotate(-45deg); 
+                    -ms-transform: rotate(-45deg); 
+                    -o-transform: rotate(-45deg);
+                    transform: rotate(-45deg); 
+                    -webkit-transform-origin: 0 100%; -moz-transform-origin: 0 100%; 
+                    -ms-transform-origin: 0 100%;
+                    -o-transform-origin: 0 100%; 
+                    transform-origin: 0 100%; 
+                  } 
+                  
+                  #heart:after { 
+                    left: 0; 
+                    -webkit-transform: rotate(45deg); 
+                    -moz-transform: rotate(45deg); 
+                    -ms-transform: rotate(45deg); 
+                    -o-transform: rotate(45deg); 
+                    transform: rotate(45deg); 
+                    -webkit-transform-origin: 100% 100%; -moz-transform-origin: 100% 100%; -ms-transform-origin: 100% 100%; 
+                    -o-transform-origin: 100% 100%; 
+                    transform-origin :100% 100%; 
+                  }
+
+                  <b>Бесконечность</b>
+                  <div id="infinity"></div>
+                  #infinity { 
+                    position: relative; 
+                    width: 212px; 
+                    height: 100px; 
+                  } 
+                  #infinity:before, 
+                  #infinity:after { 
+                    content: ""; 
+                    position: absolute; 
+                    top: 0; 
+                    left: 0; 
+                    width: 60px; 
+                    height: 60px; 
+                    border: 20px solid red; 
+                    -moz-border-radius: 50px 50px 0 50px; 
+                    border-radius: 50px 50px 0 50px; 
+                    -webkit-transform: rotate(-45deg); 
+                    -moz-transform: rotate(-45deg); 
+                    -ms-transform: rotate(-45deg); 
+                    -o-transform: rotate(-45deg); 
+                    transform: rotate(-45deg); 
+                  } 
+                  #infinity:after { 
+                    left: auto; 
+                    right: 0; 
+                    -moz-border-radius: 50px 50px 50px 0;
+                    border-radius: 50px 50px 50px 0; 
+                    -webkit-transform:rotate(45deg); 
+                    -moz-transform:rotate(45deg); 
+                    -ms-transform:rotate(45deg);
+                    -o-transform:rotate(45deg); 
+                    transform:rotate(45deg); 
+                  }
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
@@ -171,6 +526,21 @@
                     from {opacity: 0;} 
                     to {opacity: 1;} 
                   }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>1. Повесить анимацию</legend>
+              <ul>
+                <li>
+                  <b>Трюки css aнимации на хабре(в тч. мигающая витрина)</b>
+                  <a href="https://habr.com/company/nordavind/blog/209462/">
+                    https://habr.com/company/nordavind/blog/209462/</a>
+                </li>
+              </ul>
+              <pre class="code">
+                <code>
+                  
                 </code>
               </pre>
             </fieldset>

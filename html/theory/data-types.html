@@ -256,7 +256,7 @@
           <li id="mark6" class="tabs-content-item">
             <!-- 6 -->
             <div class="sub-title">Main</div>
-            <div class="title">Словарь</div>
+            <div class="title">Словарик</div>
             <fieldset>
               <legend>1. Термины</legend>
               <pre>
@@ -302,6 +302,10 @@
                       <blockquote>
                         Чаще всего наследование в JavaScript реализуется с помощью функции Object.create(),позволяющий создать новый объект с заданным прототипом.
                       </blockquote>
+                    </li>
+                    <li>
+                      <b>Статические переменные</b> - переменные, которые сохраняют промежуточные значения между вызовами. 
+                      <br>Прим. func 1.15 counter но не через callback, а через вложеную функцию, которая считает и перезапысывает внешнюю переменную, которую и возвращает функция. 
                     </li>
                   </ol>
                 </code>
@@ -491,18 +495,20 @@
             </fieldset>
             <fieldset>
               <legend>3. Конструктор</legend>
-              <blockquote>Foo.counter = 0 - //этот момент мне не до конца понятен мы имеем переменную, которая приклеена к конструктору</blockquote>
+              <blockquote>Почему move не находит, а с name все ок?</blockquote>
               <pre class="code">
                 <code>
-                   function Foo() { 
-                     Foo.counter++; 
-                     console.log(Foo.counter); 
-                    } 
+                  let Animal = function() { 
+                    this.name = name; 
+                    // this.move = move; -- move is not defined
+                  }; 
+                  
+                  let gorilla = new Animal(); 
+                  
+                  gorilla.name = 'gorilla'; 
+                  gorilla.move = 'jump';
 
-                    Foo.counter = 0;
-
-                    var bar = new Foo; //1 
-                    var buz = new Foo; //2
+                  console.log(gorilla);
                 </code>
               </pre>
             </fieldset>

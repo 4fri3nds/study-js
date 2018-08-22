@@ -31,7 +31,7 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Примеры кода</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">title</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Ф-й и Прото ооп</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">title</li>
         </ul>
         <!-- END NAV -->
@@ -79,7 +79,7 @@
             
                 </code>
               </pre>
-              <h3>Использование конструктора ......</h3>
+              <h3>Использование класса</h3>
               <pre class="code">
                   <code>
                     class Elem { 
@@ -96,15 +96,203 @@
                   </code>
                 </pre>
             </fieldset>
-
+            <fieldset>
+              <legend>3. Обьект с замыкающим методом</legend>
+              <pre class="code">
+                <code>
+                  let Count = function () { 
+                    let num = 0; 
+                    return { 
+                      getNext: function() { 
+                        return ++num 
+                      }, 
+                      set: function(number) { 
+                        num = number;
+                      }, 
+                      reset: function() { 
+                        num = 0; 
+                      } 
+                    } 
+                  } 
+        
+                  let counter = Count(); 
+                  counter.getNext() // 1
+                  counter.getNext() // 2
+                  
+                  counter.set(10); 
+                  counter.getNext() // 11
+                  counter.getNext() // 12
+                  
+                  counter.reset(); 
+                  counter.getNext() // 1
+                  counter.getNext() // 2
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Замыкающая функция со своими методами</legend>
+              <pre class="code">
+                <code>
+                  let countFunc = function() { 
+                    let num = 0; 
+                    function count() { 
+                      return ++num 
+                    } 
+                    count.set = function(number) { 
+                      num = number;
+                    } 
+                    count.reset = function() { 
+                      num = 0; 
+                    } 
+                    return count; 
+                  }; 
+                  let countFoo = countFunc();
+        
+                  but4.onclick = function() { 
+                    div(countFoo(), result4); // 1
+                    countFoo.set(10); 
+                    div(countFoo(), result4); // 11
+                    div(countFoo(), result4); // 12
+                    countFoo.reset(); 
+                    div(countFoo(), result4); // 1
+                    div(countFoo(), result4); // 2
+                  }
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">title</div>
+            <div class="title">Разница между функциональным ООП и прототипным</div>
             <fieldset>
-              <legend>1. title</legend>
+              <legend>1. Функциональный стиль</legend>
+              <blockquote>Берем обычный конструктор и ниже переделываем все его методы на прототипы</blockquote>
+              <pre class="code">
+                <code>
+                  let Animal = function() { 
+                    let move = 'How its happend here?'; 
+                    
+                    this.name = name; 
+                    this.move = move; 
+                    this.speed = 0;
+
+                    this.dang = function(dang) { 
+                      switch (dang) { 
+                        case 1: 
+                          return 'It so sweety you can touct it ' + this.name; 
+                        case 2: 
+                          return 'It not dangerous but better watch out ' + this.name; 
+                        case 3: 
+                          return 'Give me a riffle I found something to eat for diner' + this.name
+                        default: 
+                          return 'Dont stay closer' + this.name; 
+                      } 
+                    };
+
+                    this.run = function(speed) { 
+                      return this.speed += speed; 
+                    };
+                  }; 
+
+                  let gorilla = new Animal(); 
+
+                  gorilla.name = 'gorilla'; 
+                  gorilla.move = 'jump'; 
+                  gorilla.run(6); 
+                  gorilla.run(6); // они приплюсуются
+                  gorilla.dang(3);
+                  
+                  console.log(gorilla); 
+                  //Animal {name: "gorilla", move: "jump", speed: 12, dang: ƒ, run: ƒ}
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Протопиный стиль</legend>
+              <blockquote>Воспользовавшись SomeConstructor.prototype.method делаем все методы конструктора протопипами. А свойства будут хранится в обьекте экземпляра Animal. Кстати прототипное ООП работает быстрее функционального </blockquote>
+              <pre class="code">
+                <code>
+                  let Animal = function() { 
+                    let move = 'How its happend here?'; 
+                    this.name = 'name'; 
+                    this.move = move; 
+                    this.speed = 0; 
+                  }; 
+                  
+                  Animal.prototype.dang = function(dang) { 
+                    switch (dang) { 
+                      case 1: 
+                        return 'It so sweety you can touct it ' + this.name; 
+                      case 2: 
+                        return 'It not dangerous but better watch out ' + this.name; 
+                      case 3: 
+                        return 'Give me a riffle I found something to eat for diner' + this.name; 
+                        
+                      default:
+                        return 'Dont stay closer ' + this.name; 
+                    } 
+                  } 
+                    
+                  Animal.prototype.run = function(speed) { 
+                    return this.speed += speed; 
+                  } 
+                  Animal.prototype.stop = function() { 
+                    return this.speed = 0; 
+                  } 
+                  
+                  let gorilla = new Animal(); 
+                  gorilla.name = 'gorilla'; 
+                  gorilla.run(6); 
+                  gorilla.run(6);
+                  gorilla.dang(); 
+                  
+                  console.log(gorilla.move); 
+                  // Стандартная переменная move не затерлась 'How its happend here?' 
+                  
+                  gorilla.move = 'jump'; 
+                  console.log(gorilla); 
+                  //Animal { name: "gorilla", move: "jump", speed: 12 }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Приватное свойство name в обоих стилях</legend>
+              <blockquote>this.name = name; такой переобределение аргумента в переменную сохранит ее значение для обоих стилей</blockquote>
+              <pre class="code">
+                <code>
+                  <b>Функциональный стиль</b>
+                  let Animal = function(name) { 
+                    // this.name = name; //если эту строку убрать 
+                    this.sayHi = function () { 
+                      return name + ' Said ' + this.noise; // а здесь использовать приватное свойство
+                      // без переопределения то в функциональном стиле будет работать
+                      // но в прототипном нет
+                    } 
+                  }
+
+                  let raven = new Animal('raven'); 
+                  raven.noise = 'kar-kar'; 
+                  console.log(raven.sayHi());
+
+                  <b>Протопипный стиль</b>
+                  let Animal = function(name) { 
+                    this.name = name; //Такое переопределение в конструкторах must-have
+                    // так как прокидывает ссылки на наши свойства
+                  } 
+
+                  Animal.prototype.sayHi = function () { 
+                    // return name + ' said ' + this.noise; так бы оно уже не работало так как мы потеряли ссылку на свойство обьекта
+                    return this.name + ' said ' + this.noise; // так все ок
+                  } 
+                  
+                  let raven = new Animal('Raven'); 
+                  raven.noise = 'kar-kar';
+
+                  console.log(raven.sayHi()); // Raven said kar-kar
+                </code>
+              </pre>
             </fieldset>
             <!-- end 2 -->
           </li>

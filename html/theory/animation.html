@@ -42,33 +42,90 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Итервалы и Стопы</div>
-            
+            <div class="title">Синтаксис</div>
+            <fieldset>
+              <legend>setTimeout</legend>
+              <blockquote>
+              </blockquote>
+              <pre class="code">
+                <code>
+                  setTimeout(function() { 
+                    i = 0; 
+                    console.log(i++);
+                  }, 1000);
+
+                  <b>Можно задать параметры, которые перейдут ф-ции</b>
+                  setTimeout(func, 1000, "Привет", "Вася"); // Привет, Вася
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>setInterval</legend>
+              <blockquote>Будет выполнять ф-ю с интервалом в 1 сек</blockquote>
+              <pre class="code">
+                <code>     
+                  let i = 0; 
+                  function timer() { 
+                    return console.log(i++) 
+                  }; 
+                  
+                  setInterval(timer, 1000);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>clearInterval</legend>
+              <blockquote>clearInterval - остановит setInterval. Его нужно использовать в связке setTimeout</blockquote>
+              <pre class="code">
+                <code>     
+                  clearInterval(timerId)
+                  <b>Пример</b>
+                  let i = 0; 
+                  let timer = setInterval(function timerFunc() { 
+                    return console.log(i++) 
+                  }, 500); 
+                  
+                  setTimeout(function() { 
+                    clearInterval(timer);
+                  }, 2000);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>setTimeout - рекурсивный вызов</legend>
+              <blockquote>setTimeout гарантирует паузу между вызовами так как он рекурсивный</blockquote>
+              <pre class="code">
+                <code>     
+                  let timerId = setTimeout(function tic() { 
+                    console.log('tic'); 
+                    timerId = setTimeout(tic, 500); 
+                  }, 500);
+                </code>
+              </pre>
+            </fieldset>
+
             <fieldset>
               <legend>setInterval ^ setTimeout</legend>
-
               <h3>setInterval</h3> - назначает повторяет выполнение одной функции n-е к-во раз
-              <p>
+              <blockquote>
                 setInterval - задает интервал повторного выполнения функции, setTimeout - прекращает это. Третий пример с использованием
                 рекурсивного setTimeout - true way.
-              </p>
+              </blockquote>
               <pre class="code">
-                  <code>
-                    <b id="wrap-set-interval">result</b>        
-                    getIntervalgetTimeout.addEventListener('click', startTimer); 
-                    function timerId() { 
-                      div('spoon', setIntervalSetTimeout); 
-                    };
-                    function startTimer() { 
-                      let variableTimerId = setInterval(timerId, 500); 
-                      setTimeout(function () { 
-                        clearInterval(variableTimerId);
-                        div('stop', setIntervalSetTimeout); 
-                      }, 1999); 
-                    }
-                  </code>
-                </pre>
-              <button id="btn-get-interval">get Interval</button>
+                <code>     
+                  getIntervalgetTimeout.addEventListener('click', startTimer); 
+                  function timerId() { 
+                    div('spoon', setIntervalSetTimeout); 
+                  };
+                  function startTimer() { 
+                    let variableTimerId = setInterval(timerId, 500); 
+                    setTimeout(function () { 
+                      clearInterval(variableTimerId);
+                      div('stop', setIntervalSetTimeout); 
+                    }, 1999); 
+                  }
+                </code>
+              </pre>
             </fieldset>
             <!-- end 1 -->
           </li>

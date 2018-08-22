@@ -413,7 +413,23 @@
             <!-- 5 -->
             <div class="sub-title">Main</div>
             <div class="title">Метод Sort</div>
-            
+            <fieldset>
+              <legend>1. Methods sort for OBJECT for num & str</legend>
+              <blockquote></blockquote>
+              <pre class="code">
+                <code>
+                  // по полю name! (Вася, Маша, Петя) 
+                  users.sort(function(a, b) { 
+                    return a.name > b.name ? 1 : -1; 
+                  }); 
+                  
+                  // по полю age! (Маша, Вася, Петя) 
+                  users.sort(function(a, b) { 
+                    return a.age > b.age ? 1 : -1; 
+                  });
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 5-->
           </li>
         </ul>

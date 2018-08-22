@@ -1,4 +1,13 @@
+.calc-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+.code-calc {
+  float: left;
+  width: calc( 100% - 450px);
+}
 .calc {
+  float: right; 
   width: 450px;
   border-radius: 13em/1em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

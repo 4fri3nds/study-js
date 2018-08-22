@@ -154,6 +154,25 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>6. В конце замыкания нужно обязательно создать переменную</legend>
+              <pre class="code">
+                <code>
+                  function count() { 
+                    let num = 0; 
+                    return function() { 
+                      return num++ 
+                    } 
+                  }; 
+                  
+                  let counter = count(); // !!! создаем переменную 
+
+                  console.log(counter()); // 1
+                  console.log(counter()); // 2
+                  console.log(counter()); // 3
+                </code>
+              </pre>
+            </fieldset>
             
             <!-- end 1 -->
           </li>

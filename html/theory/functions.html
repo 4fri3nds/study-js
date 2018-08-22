@@ -126,7 +126,7 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>7. Функция как часть обьекта</legend>
+              <legend>7. Функция как часть обьекта - метод</legend>
               <h3>Вызов функций из обьекта</h3>
               <pre class="code">
                 <code>
@@ -301,6 +301,50 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>15. Функция js - это обьект</legend>
+              <blockquote>
+                Функция в JavaScript является объектом, поэтому можно присваивать свойства прямо к ней.
+              </blockquote>
+              <ul>
+                <li>Создать переменную в функции, будет видно только в ф-ции. Это использование функции <b>«как функции»</b>.</li>
+                <li>А свойство у функции – доступно отовсюду и всегда. Это – использование функции <b>«как объекта».</b></li>
+              </ul>
+              <pre class="code">
+                <code>    
+                <b>// 1. Задать свойство снаружи</b>
+                 function f() {} 
+                 
+                 f.test = 5;
+                 alert( f.test );
+
+                <b>// 2. Задать свойство изнутри</b>
+                function makeCounter() { 
+                  function counter() { 
+                    return counter.currentCount++; 
+                  }; 
+                  counter.currentCount = 1; 
+                  return counter;
+                } 
+                var counter = makeCounter(); 
+                alert( counter() ); // 1 
+                alert( counter() ); // 2
+
+                </code>
+              </pre>
+              <blockquote>
+                При запуске пример работает также как из замыкания. 
+                <br>Принципиальная разница – во внутренней механике и в том, что свойство функции, в отличие от переменной из замыкания – общедоступно, к нему имеет доступ любой, у кого есть объект функции. Например, можно взять и поменять счётчик из внешнего кода вот так:
+              </blockquote>
+              <pre class="code">
+                <code>
+                  var counter = makeCounter(); 
+                  alert( counter() ); // 1 
+                  counter.currentCount = 5; 
+                  alert( counter() ); // 5
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
@@ -375,22 +419,45 @@
                 </code>
               </pre>
             </fieldset>
-                <fieldset>
-                  <legend>4. Дать и забрать аттр по клику</legend>
-                  <p>
-                    Только при вызове функции мы указывает this(где мы указываем элементы с которымм что-то должна зделать функция). В сасой
-                    функции универсальной фун-ции this будет window или undefined.
-                  </p>
-                  <pre class="code">
-                    <code>
-                      function addEvent(remove, add, elem) { 
-                        elem.removeEventListener('click', remove); 
-                        elem.addEventListener('click', add); 
-                      };
-                      addEvent(this, first, lost);
-                    </code>
-                  </pre>
-                </fieldset>
+            <fieldset>
+              <legend>4. Дать и забрать аттр по клику</legend>
+              <p>
+                Только при вызове функции мы указывает this(где мы указываем элементы с которымм что-то должна зделать функция). В сасой
+                функции универсальной фун-ции this будет window или undefined.
+              </p>
+              <pre class="code">
+                <code>
+                  function addEvent(remove, add, elem) { 
+                    elem.removeEventListener('click', remove); 
+                    elem.addEventListener('click', add); 
+                  };
+                  addEvent(this, first, lost);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Своя армия функций</legend>
+              <p>
+                Если функция в цикле то она присваивает i только последнее значение. Ибо она запускается, когда цикл уже закончен. Следовательно shooter(i) везде будет одинаковым. Но если запись будет такая то каждой функции призначится свое значение итерации - i. 
+              </p>
+              <pre class="code">
+                <code>
+                  function makeArmy() { 
+                    var shooters = []; 
+                    for (var i = 0; i < 10; i++)(function (i) { 
+                      var shooter=function () { 
+                        alert(i);
+                      }; 
+                      shooters.push(shooter); 
+                    })(i); 
+                    return shooters; 
+                  } 
+                  var army = makeArmy(); 
+                  army[0](); // 0 
+                  army[1](); // 1
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
@@ -471,7 +538,7 @@
               </blockquote>
               <pre class="code">
                 <code>
-                  <b></b>
+                  <b>как видно в обьект все локальные переменные и ф-ции не записались</b>
                 </code>
               </pre>
             </fieldset>

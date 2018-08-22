@@ -47,6 +47,11 @@ var JSON = {
         { linkname: 'Native JS', link: '../theory/native-js.html' },
         { linkname: 'TypeScript', link: '../theory/typescript.html' },
         { linkname: 'EcmaScript', link: '../theory/ecmascript.html' }]
+      },
+      { title: 'My Apps',
+      submenu: [
+        { linkname: 'Калькулятор', link: '../programs/calc.html' },
+        { linkname: 'Кофеварка', link: '../programs/coffe.html' }]
     }],
 
   breadcrumps: [
@@ -185,3 +190,36 @@ function unstickAside() {
 };
 
 if (sticky.elem) window.addEventListener('scroll', unstickAside);
+
+let result1 = document.getElementById('result1'),
+    result2 = document.getElementById('result2'),
+    result3 = document.getElementById('result3'),
+    result4 = document.getElementById('result4'),
+    result5 = document.getElementById('result5'),
+    result6 = document.getElementById('result6'),
+    result7 = document.getElementById('result7'),
+    result8 = document.getElementById('result8'),
+    result9 = document.getElementById('result9'),
+    result10 = document.getElementById('result10');
+
+let but1 = document.getElementById('but1'),
+    but2 = document.getElementById('but2'),
+    but3 = document.getElementById('but3'),
+    but4 = document.getElementById('but4'),
+    but5 = document.getElementById('but5'),
+    but6 = document.getElementById('but6'),
+    but7 = document.getElementById('but7'),
+    but8 = document.getElementById('but8'),
+    but9 = document.getElementById('but9'),
+    but10 = document.getElementById('but10');
+
+let input1 = document.getElementById('input1'),
+    input2 = document.getElementById('input2'),
+    input3 = document.getElementById('input3'),
+    input4 = document.getElementById('input4'),
+    input5 = document.getElementById('input5'),
+    input6 = document.getElementById('input6'),
+    input7 = document.getElementById('input7'),
+    input8 = document.getElementById('input8'),
+    input9 = document.getElementById('input9'),
+    input10 = document.getElementById('input10');

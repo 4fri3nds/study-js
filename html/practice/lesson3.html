@@ -26,20 +26,222 @@
   <blockquote>
     <h3>3. Конструктор</h3>
     <ol>
-     <li></li>
+     <li>Напишите функцию-конструктор Calculator, которая создает объект с тремя методами:</li>
+     <li>
+      - Напишите функцию-конструктор Accumulator(startingValue). 
+      <br>Объекты, которые она создает, должны хранить текущую сумму и прибавлять к ней то, что вводит посетитель.  
+      <br>Oбъект должен:
+        <br>> Хранить текущее значение в своём свойстве value. 
+        <br>> Начальное значение свойства value ставится конструктором равным startingValue. 
+        <br>> Метод read() вызывает prompt, принимает число и прибавляет его к свойству value. 
+      
+      <br>Таким образом, свойство value является текущей суммой всего, что ввел посетитель при вызовах метода read(), с учетом начального значения startingValue.
+     </li>
+     <li>
+      Счётчик получился вполне рабочий, но вот только возможностей ему не хватает. 
+      <br>Хорошо бы, чтобы :
+        <br>- можно было сбрасывать значение счётчика или начинать отсчёт с другого значения вместо 1 или… 
+        <br>Да много чего можно захотеть от простого счётчика и, тем более, в более сложных проектах. Чтобы добавить счётчику возможностей – перейдём с функции на полноценный объект.
+       <pre class="code">
+         <code>
+           <b>callback func</b>
+          function makeCounter() { 
+            var currentCount = 1; 
+            return function() { 
+              return currentCount++; 
+            } 
+          }; 
+          
+          var counter = makeCounter();
+        
+          alert( counter() ); // 1 
+          alert( counter() ); // 2 
+          alert( counter() ); // 3
+         </code>
+       </pre>
+     </li>
+     <li>Переделать прошлую функцию так чтобы счетчик считала функция(как в примере кода 3 задании), а не метод обьекта. Но чтобы методы set, reset принадлежали замыкающей функции. </li>
+     <li>Напишите функцию sum, которая работает так: sum(a)(b) = a+b</li>
     </ol>
   </blockquote>
 
   <div class="container">
     <fieldset>
-      <legend>1. Конструктор</legend>
-      <blockquote></blockquote>
-      <input type="text" id="input1">
-      <button id="but1"></button>
+      <legend>1. Конструктор c методами</legend>
+      <blockquote>Получить результат произведения и умножения</blockquote>
+      <button id="but1">Начать получать результат</button>
       <div id="result1"></div>
       <pre class="code">
         <code>
+          function Calc() { 
+            let result1 = document.getElementById('result1'); 
+            let but1 = document.getElementById('but1');
+            this.sum = () => parseInt(this.a) + parseInt(this.b); 
+            this.X = () => parseInt(this.a) * parseInt(this.b); 
+            
+            this.getNum = function() { 
+              div('', result1, true, false);
+              this.a = prompt('Введите первое число: a'); 
+              this.b = prompt('Введите первое число: b'); 
+              div('Число Х: ' + this.a, result1); 
+              div('Число У: ' + this.b, result1 ); 
+              div('результат произведения: ' 
+                + this.sum(), result1, false, false); 
+              div('результат умножения: ' 
+                + this.X(), result1, false, false); 
+              } 
+              
+              this.getResult = function() { 
+                but1.onclick = () => this.getNum(); 
+              } 
+            };
 
+            let calc = new Calc; 
+            calc.getResult();
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>2. Конструктор c методами NEXT</legend>
+      <blockquote>Конструктор предположительно хранить промежуточные результаты</blockquote>
+      <button id="but2">Подкинуть число в общак</button>
+      <div id="result2"></div>
+      <pre class="code">
+        <code>
+          function Accumulator(startingValue) { 
+            this.value = startingValue; 
+            this.read = function() { 
+              this.value += +prompt('Добавте число в котел чисел', 0); 
+              div('Вы добавили ' + this.value, result2); 
+            } 
+            
+            this.next = function() { 
+              but2.onclick = () => this.read();
+            } 
+          } 
+          
+          let acum = new Accumulator(0); 
+          acum.next();
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>3. Замыкающий обьект вместо функции</legend>
+      <blockquote>Вместо замыкающей функции которая хранит только одно значение. Мы имеем аж три метода. </blockquote>
+      <button id="but3">Получить вызовы см.Код</button>
+      <div id="result3"></div>
+      <pre class="code">
+        <code>
+          let Count = function () { 
+            let num = 0; 
+            return { 
+              getNext: function() { 
+                return ++num 
+              }, 
+              set: function(number) { 
+                num = number;
+              }, 
+              reset: function() { 
+                num = 0; 
+              } 
+            } 
+          } 
+
+          let counter = Count(); 
+          counter.getNext() // 1
+          counter.getNext() // 2
+          
+          counter.set(10); 
+          counter.getNext() // 11
+          counter.getNext() // 12
+          
+          counter.reset(); 
+          counter.getNext() // 1
+          counter.getNext() // 2
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>4. Замыкающий функция со своими методами</legend>
+      <blockquote>Мало того что мы получили рабочую замыкающую функцию, так еще и со своими методами.</blockquote>
+      <button id="but4">Получить вызовы см.Код</button>
+      <div id="result4"></div>
+      <pre class="code">
+        <code>
+          let countFunc = function() { 
+            let num = 0; 
+            function count() { 
+              return ++num 
+            } 
+            count.set = function(number) { 
+              num = number;
+            } 
+            count.reset = function() { 
+              num = 0; 
+            } 
+            return count; 
+          }; 
+          let countFoo = countFunc();
+
+          but4.onclick = function() { 
+            div(countFoo(), result4); // 1
+            countFoo.set(10); 
+            div(countFoo(), result4); // 11
+            div(countFoo(), result4); // 12
+            countFoo.reset(); 
+            div(countFoo(), result4); // 1
+            div(countFoo(), result4); // 2
+          }
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>5. Сумма через замыкание</legend>
+      <blockquote>забиваем sumDeep(4)(3)</blockquote>
+      <button id="but5">sum(a)(b) = a+b</button>
+      <div id="result5"></div>
+      <pre class="code">
+        <code>
+          function sumDeep(num1) { 
+            return function(num2) { 
+              return num1 + num2; 
+            } 
+          };
+          sumDeep(4)(3); //7
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>6. Сортировка обьекта</legend>
+      <blockquote>Сортировка по методу и функции, чтобы не повторятся</blockquote>
+      <button id="but6">результат</button>
+      <div id="result6"></div>
+      <pre class="code">
+        <code>
+          var users = [
+            { name: "Вася", surname: 'Иванов', age: 20 }, 
+            { name: "Петя", surname: 'Чапаев', age: 25 }, 
+            { name: "Маша", surname: 'Медведева', age: 18 }]; 
+            
+            // Традиционная сортировка по возрасту (Маша, Вася, Петя) 
+            let age = users.sort( 
+              function (a, b) { 
+                return a.age > b.age ? 1 : -1; 
+            }); 
+            console.log(age); 
+
+            // Сортировка кастомная по общей функции 
+            function byField(value) { 
+              return function(a,b) { 
+                return a.value > b.value ? 1 : -1; 
+              } 
+            };
+
+            // sort age 
+            users.sort(byField('age')); 
+            users.forEach(function(user) { 
+              div(user.name + ' : ' + user.age); 
+            }); // Маша, Вася, Петя
         </code>
       </pre>
     </fieldset>
@@ -47,8 +249,8 @@
 
   <script src="../../js/main/hilight.js"></script>
   <script src="./../../js/main/dynamic.js"></script>
-  <script src="./../../js/practice/les3.js"></script>
   <script src="./../../js/main/main.js"></script>
+  <script src="./../../js/practice/les3.js"></script>
 </body>
 
 </html>
