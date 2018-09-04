@@ -1,9 +1,16 @@
 :root {
   --bd: 3px solid #2C4756;
+  --bd-c: #2C4756;
   --bg: #EBAC72;
   --bg-c2: #F9DEDF;
   --bg-c3: #be9265;
   --bg-red: #ec6b6c;
+}
+
+.cfx:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 .coffe-wrap {
@@ -15,8 +22,8 @@
 }
 
 .coffe {
-  width: 700px;
-  float: right;
+  width: 500px;
+  float: left;
 }
 
 .coffe-code {
@@ -24,8 +31,14 @@
   width: calc(100% - 500px);
 }
 
+.coffe-machine, .socket {
+  display: inline-block;
+  margin-left: -4px;
+}
+
 /* table */
 .coffe-table {
+  display: block;
   position: relative;
 }
 
@@ -110,19 +123,607 @@
 
 /* socet */
 .socket {
-  background-color: var(--bg-c2);
-  height: 50px;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+}
+.socket-power {
+  position: absolute;
+  background-color: floralwhite;
+  height: 30px;
   width: 30px;
+  bottom: 14px;
+  border-radius: 7px;
+  border: 2px solid #000;
+}
+.socket-in {
+  height: 22px;
+  width: 22px;
+  border: 2px solid;
+  border-radius: 22px;
+  position: absolute;
+  top: 0;
   bottom: 0;
-  border-radius: 20px;
-  border: 1px solid #000;
+  left: 0;
+  right: -6px;
+  margin: auto;
+  text-align: center;
+  border-color: #000;
+}
+.socket-in span {
+  display: inline-block;
+  vertical-align: middle;
+  height: 4px;
+  width: 4px;
+  text-align: center;
+  background-color: #000;
+  border-radius: 5px;
+  margin-top: -6px;
+}
+.socket-indikator {
+  display: inline-block;
+  height: 7px;
+  width: 7px;
+  position: absolute;
+  background-color: crimson;
+  left: 2px;
+  top: 2px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.socket-cable {
+  position: absolute;
+  bottom: 9px;
+  left: 20px;
+  height: 15px;
+  width: 41px;
+  border-bottom: 1px solid crimson;
+  border-left: 1px solid crimson;
+}
+.socket-cable:before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  height: 17px;
+  width: 43px;
+  border-bottom: 1px solid crimson;
+  border-left: 1px solid crimson;
+}
+.socket-cable:after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  height: 11px;
+  width: 37px;
+  border-bottom: 1px solid crimson;
+  border-left: 1px solid crimson;
+}
+.socket.active + .socket-cable, 
+.socket.active + .socket-cable:after, 
+.socket.active + .socket-cable:before {
+  border-bottom: 1px solid limegreen;
+  border-left: 1px solid limegreen;
+}
+.socket.active .socket-indikator {
+  background-color: limegreen;
+}
+.socket.active .socket-in {
+  background: dimgray
 }
 
 /* coffe-machine */
+.coffe-mech {
+  margin-bottom: -4px;
+}
 .coffe-machine {
-  border: 1px solid #000;
   height: 200px;
-  width: 300px;
   position: relative;
 }
 
+.shlang {
+  position: absolute;
+  top: 0;
+  right: 80px;
+  left: 0;
+  width: 45%;
+  height: 15px;
+  border-radius: 20px 20px 0 0;
+  margin: auto;
+  background-color: lightgray;
+  border-bottom: none;
+  z-index: 1;
+  transform: translateY(-100%);
+}
+.shlang:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 5px;
+  width: 91%;
+  height: 10px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 20px 20px 0 0;
+  background-color: white;
+  border-bottom: none;
+  z-index: 2;
+}
+.beans {
+  display: inline-block;
+  margin-left: -4px;
+  height: 100%;
+  vertical-align: bottom;
+}
+.water {
+  display: inline-block;
+  margin-left: -4px;
+  height: 100%;
+  width: 100px;
+  position: relative;
+}
+.water:after {
+  content: '';
+  position: absolute;
+  right: -55px;
+  top: -115px;
+  height: 50%;
+  width: 60px;
+  transform: translateX(100%);
+  background-color: var(--bg-red);
+  z-index: -1;
+
+  -moz-border-radius: 50px 50px 0 0; 
+  border-radius: 50px 50px 0 0; 
+  -webkit-transform: rotate(-198deg); 
+  -moz-transform: rotate(-198deg); 
+  -ms-transform: rotate(-198deg); 
+  -o-transform: rotate(-198deg);
+  transform: rotate(-198deg); 
+  -webkit-transform-origin: 0 100%; -moz-transform-origin: 0 100%; 
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%; 
+  transform-origin: 0 100%; 
+}
+.beans {
+  width: 150px;
+}
+.water > div {
+  width: 100px;
+  position: relative;
+}
+.water-top {
+  height: 80%;
+  background-color: var(--bg-red);
+  border-bottom: var(--bd);
+}
+.water-bottom {
+  background-color: #f2b0b2;
+}
+.water-top:before,
+.water-top:after,
+.water-bottom:before,
+.power-button:before,
+.mounty-beans-wrap:after,
+.mounty-beans-wrap:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.water-top:before {
+  height: 10px;
+  background: #ee8a8a;
+  top: 0;
+}
+.water-top:after {
+  height: 20px;
+  background-color: #d95f5e;
+  bottom: 0;
+}
+.water-bottom:before {
+  height: 10px;
+  bottom: 0;
+  background-color: #ce9796;
+}
+.mounty-beans-wrap:after {
+  height: 7px;
+  top: 0;
+  background-color: #ee8888;
+}
+.mounty-beans-wrap:before {
+  width: 65%;
+  bottom: -2px;
+  background-color: #000;
+  border-radius: 100%;
+  height: 5px;
+  left: 15%;
+}
+.water-bottom {
+  height: 20%;
+  position: relative;
+}
+.water-mount {
+  height: 80%;
+  width: 15px;
+  position: relative;
+  background-color: lightblue;
+  border-radius: 15px;
+  top: 10px;
+  left: 27px;
+}
+/* coffe-beans */
+.mounty-beans-wrap {
+  border-bottom: 70px solid var(--bg-red);
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+  height: 0;
+  top: -4px;
+  width: 100%;
+  transform: rotate(180deg);
+  position: relative;
+}
+.mount-beans {
+  height: 81px;
+  width: 22px;
+  transform: rotate(144deg);
+  overflow: hidden;
+  border-radius: 50px;
+  position: absolute;
+  top: 73px;
+  bottom: 0;
+  left: -24px;
+  right: -64px;
+  margin: auto;
+  border: 3px solid lightcoral;
+}
+
+.mount-beans img {
+  height: 100px;
+  width: 100px;
+}
+.power-button {
+  border-radius: 50px;
+  height: 69%;
+  width: 20px;
+  position: absolute;
+  top: -7px;
+  bottom: 0;
+  margin: auto;
+  left: 6px;
+  z-index: 10;
+  cursor: pointer;
+}
+.power-button.off:hover {
+  background-color: rgba(0,0,0, .6);
+}
+.power-button.on:hover {
+  background-color: greenyellow;
+}
+.power-button.working:hover {
+  background-color: red;
+}
+.power-button.off {
+  background-color: gray;
+}
+.power-button.on {
+  background-color: green;
+}
+.power-button.working {
+  background-color: lightcoral;
+}
+.power-button.off:before {
+  bottom: 0;
+  height: 5px;
+  background-color: darkgray;
+}
+.power-button.on:before {
+  bottom: 0;
+  height: 5px;
+  background-color: darkgreen;
+}
+.power-button.working:before {
+  bottom: 0;
+  height: 5px;
+  background-color: darkred;
+}
+.power-display {
+  font-size: 12px;
+  font-family: 'calc';
+  background-color: lightgray;
+  height: 10px;
+  width: 68px;
+  position: absolute;
+  top: -10px;
+  bottom: 0;
+  margin: auto;
+  right: 3px;
+}
+.mount-coffe {
+  height: 74px;
+  width: 62%;
+  border: var(--bd);
+  border-radius: 100%;
+  margin-top: 4px;
+  margin-left: 20%;
+  position: relative;
+  background-color: #abe4f8;
+}
+.mount-coffe:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(255,255,255,.2), rgba(0,0,0,.2));
+}
+.pot-handler {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 3px;
+  margin: auto;
+  border: 2px solid;
+  background: lightgray;
+  width: 35%;
+  height: 32px;
+  border-radius: 0px 20px 20px 0;
+  transform: translateX(100%);
+  border-left: none;
+  z-index: -1;
+}
+.pot-handler:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 3px;
+  margin: auto;
+  border: 2px solid;
+  width: 78%;
+  height: 20px;
+  border-radius: 0px 20px 20px 0;
+  border-left: none;
+  background-color: white;
+  z-index: 2;
+}
+.pot-cap {
+  position: absolute;
+  top: -3px;
+  background-color: lightgray;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50px; 
+  height: 10px; 
+  border: 3px solid; 
+  border-radius: 0 0 50% 50% / 0 0 100% 100%; 
+}
+.pot-cap:after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  background-color: lightgray;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 18px;
+  height: 2px;
+  border: 3px solid;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.pot-neck {
+  position: absolute;
+  top: -11px;
+  font-size: 22px;
+  left: 6px;
+  transform: rotate(26deg);
+  font-weight: bold;
+  z-index: -1;
+}
+
+.pot-stand {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  height: 7px;
+  width: 50%;
+  left: 0;
+  right: 0;
+  border: 2px solid;
+  background-color: lightgray;
+  margin: auto;
+}
+
+.pot-amount {
+  position: absolute;
+  bottom: 6px;
+  left: 22%;
+  height: 88%;
+  border-left: 1px solid;
+}
+
+.pot-amount li {
+  font-size: 10px;
+  margin: 0;
+  margin-top: 6px;
+  padding: 0;
+  border-bottom: none;
+  border-top: 1px solid;
+}
+.warming {
+  margin-top: 5px;
+  height: 44px;
+  margin-left: -1px;
+  width: 100%;
+  position: relative;
+  border-top: var(--bd);
+  border-right: var(--bd);
+  border-left: var(--bd);
+  background-color: var(--bg-red);
+}          
+.warming:after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  height: 4px;
+  width: 50%;
+  left: 38px;
+  border: var(--bd);
+  background-color: gray;
+}
+.warming input{
+  display: inline-block;
+}
+.warming label{
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1 !important;
+  margin-left: 7px;
+}
+
+.cap-size:checked,
+.cap-size:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+.cap-size:checked + label,
+.cap-size:not(:checked) + label {
+    position: relative;
+    padding-left: 13px;
+    cursor: pointer;
+    display: inline-block;
+    color: #666;
+}
+.cap-size:checked + label:before,
+.cap-size:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+.cap-size:checked + label:after,
+.cap-size:not(:checked) + label:after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #F87DA9;
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.cap-size:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.cap-size:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.coffe-cup-wrap {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 50px;
+  margin-left: 50px;
+}
+.coffe-cup {
+  height: 35px;
+  width: 100%;
+  border-radius: 0 0 23px 23px;
+  border: 2px solid;
+  position: relative;
+  font-size: 12px;
+  font-family: cursive;
+  line-height: 1;
+  text-align: center;
+  font-weight: bold;
+  top: -3px;
+}
+.coffe-cup:before {
+  content: '';
+  position: absolute;
+  right: -13px;
+  top: -15px;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50px;
+  height: 16px;
+  width: 9px;
+  border: 2px solid;
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+}
+.coffe-cup:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -3px;
+  margin: auto;
+  height: 1px;
+  width: 30px;
+  border: 2px solid #000;
+  background-color: lightgrey;
+}
+
+.coffe-cup-limpet {
+  height: 10px;
+  border-radius: 0 0 20px 20px;
+  width: 100%;
+  border: 2px solid #000;
+}
+.coffe-cap-size-switcher {
+  height: 38px;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 38px;
+  border-radius: 30px;
+  border: var(--bd);
+  background-color: lightgray;
+  float: left;
+  position: relative;
+}
+.coffe-cap-size-switcher.sm {
+  transform: rotate(-25deg);
+}
+.coffe-cap-size-switcher.md {
+  transform: rotate(0deg);
+}
+.coffe-cap-size-switcher.lg {
+  transform: rotate(25deg);
+}
+.coffe-cap-size-switcher:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: -15px;
+  width: 0;
+  height: 0;
+  border-top: 2px solid transparent;
+  border-left: 30px solid var(--bd-c);
+  border-bottom: 2px solid transparent;
+}
+.coffe-cap-size-list {
+  margin-top: 1px;
+}
+.cap-size-item {
+  display: block;
+  line-height: .8;
+}

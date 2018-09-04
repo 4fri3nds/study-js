@@ -25,21 +25,75 @@
     <div id="menu"></div>
   </div>
   <!-- here -->
-  <div class="coffe-wrap">
+  <div class="coffe-wrap cfx">
     <div class="coffe-code">
       <pre class="code">
         <code></code>
       </pre>
     </div>
     <div class="coffe">
-      <div class="coffe-machine">
+      <div class="coffe-mech">
         <div class="socket">
-          <div class="socket-indikator"></div>
-          <div class="socket-in">
-            <span></span>
-            <span></span>
-            <span></span>
+          <button class="socket-power">
+            <div class="socket-indikator"></div>
+            <div class="socket-in">
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+          <div class="socket-cable"></div>
+        </div>
+        <div class="coffe-machine">
+          <div class="shlang"></div>
+          <div class="water">
+            <div class="water-top">
+              <div class="water-mount"></div>
+            </div>
+            <div class="water-bottom">
+              <div class="power-button off"></div>
+              <div class="power-display">disconnect</div>
+            </div>
           </div>
+          <div class="beans">
+            <div class="mounty-beans-wrap">
+              <div class="mount-beans">
+                <img src="../../assets/coffe.jpeg" alt="">
+              </div>
+            </div>
+            <div class="mount-coffe">
+              <div class="pot-handler"></div>
+              <div class="pot-cap"></div>
+              <div class="pot-neck">&lt;</div>
+              <div class="pot-coffe-mount"></div>
+              <div class="pot-stand"></div>
+              <ul class="pot-amount">
+                <li>&nbsp; 300 mg</li>
+                <li>&nbsp; 200 mg</li>
+                <li>&nbsp; 100 mg</li>
+              </ul>
+            </div>
+            <div class="warming">
+              <div class="coffe-cap-size-switcher sm">
+              </div>
+              <form action="coffe-cap-size" class="coffe-cap-size-list">
+                <div class="cap-size-item">
+                  <input class="cap-size" name="cap-size" id="sm" type="radio" checked>
+                  <label for="sm">ecspresso</label>
+                </div>
+                <div class="cap-size-item">
+                  <input class="cap-size" name="cap-size" id="md" type="radio">
+                  <label for="md">americano</label>
+                </div>
+                <div class="cap-size-item">
+                  <input class="cap-size" name="cap-size" id="lg" type="radio">
+                  <label for="lg">latte</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="coffe-cup-wrap">
+          <div class="coffe-cup">new good <br> day </div>
         </div>
       </div>
       <div class="coffe-table">

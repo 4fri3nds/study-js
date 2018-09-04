@@ -820,7 +820,7 @@ input {
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	height: 0;
-	width: 100px;
+	width: 200px;
 }
 #star-six {
 	width: 0;
@@ -1040,4 +1040,233 @@ input {
         -ms-transform:rotate(45deg);
          -o-transform:rotate(45deg);
             transform:rotate(45deg);
+}
+
+:root {
+  --blue: #58a;
+  --brown: #655;
+}
+
+.bordered-elem-all-coals {
+  height: 150px;
+  width: 150px;
+
+  background: var(--blue);
+  background: linear-gradient(135deg, transparent 15px, var(--blue) 0) top left,
+
+  linear-gradient(-135deg, transparent 15px, var(--brown) 0) top right,
+
+  linear-gradient(-45deg, transparent 15px, var(--blue) 0) bottom right,
+
+  linear-gradient(45deg, transparent 15px, var(--brown) 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.bordered-elem-all-coals-concave {
+  height: 100px;
+  width: 150px;
+  
+  background: #58a;
+  background: radial-gradient(circle at top left, transparent 15px, #58a 0) top left,
+
+  radial-gradient(circle at top right, transparent 15px, #58a 0) top right,
+
+  radial-gradient(circle at bottom right, transparent 15px, #58a 0) bottom right,
+
+  radial-gradient(circle at bottom left, transparent 15px, #58a 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.bordered-elem-bottom-coals {
+  height: 100px;
+  width: 150px;
+
+  background: #58a;
+  background: linear-gradient(-45deg, transparent 15px, #58a 0) right, linear-gradient(45deg, transparent 15px, #655 0) left;
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+}
+.bordered-elem-right-coal {
+  background: #58a;
+  background:linear-gradient(-45deg, transparent 15px, #58a 0);
+}
+/* palaroid */
+.polaroid {
+ position: relative;
+ width: 220px;
+ text-align: center;
+}
+ 
+.polaroid img {
+  display: block;
+  border: 10px solid #fff;
+  border-bottom: 45px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+  -moz-box-shadow: 3px 3px 3px #777;
+  box-shadow: 3px 3px 3px #777;
+}
+ 
+.polaroid p {
+  text-align: center;
+  color: #888;
+  margin-top: -20px;
+}
+#talkbubble {
+   width: 120px;
+   height: 80px;
+   background: red;
+   position: relative;
+   -moz-border-radius:    10px;
+   -webkit-border-radius: 10px;
+   border-radius:         10px;
+}
+#talkbubble:before {
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 26px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid red;
+   border-bottom: 13px solid transparent;
+}
+.radius-left {
+  width: 5em;
+  height: 10em;
+  border: 2px solid red;
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  background: mistyrose;
+}
+.radius-top {
+  width: 10em;
+  height: 5em;
+  border: 2px solid red;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  overflow: hidden;
+  background: mistyrose;
+}
+.radius-top-flexible {
+  width: 10em;
+  height: 15em;
+  border: 2px solid red;
+  border-radius: 500em 500em 0 0;  /* можно сохранить дугу для элементов разнообразных размеров, если задать очень большое значение для двух углов */
+  background: mistyrose;
+}
+.radius-bottom {
+  width: 10em;
+  height: 5em;
+  border: 2px solid red;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  background: mistyrose;
+}
+.radius-right {
+  width: 5em;  /* ширина в два раза меньше высоты, иначе получится полуовал */
+  height: 10em;
+  border: 2px solid red;
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+  background: mistyrose;
+}
+/* рамка диалога\подсказки */
+.hint {
+  border: 1px solid green;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+}
+.hint::before, .hint::after {
+  content: ''; 
+  position: absolute;
+  left: 20px; bottom: -20px;
+  border: 10px solid transparent;
+  border-top: 10px solid green;
+}
+  .hint::after {
+  border-top: 10px solid white;
+  bottom: -19px; 
+}
+
+/* hint-right */
+.hint-right {
+background: green;
+position: relative;
+width: 100px; height: 50px;
+}
+.hint-right::after {
+content: ''; 
+position: absolute;
+right: -30px; top: 15px;
+border: 10px solid transparent;
+border-left: 20px solid green;
+}
+/* triangle */
+.triangle {
+  height: 20px;
+  width: 20px;
+  position: relative;
+}
+.triangle::before, .triangle::after {
+  content: ''; 
+  position: absolute;
+  left: 20px; bottom: -20px;
+  border: 10px solid transparent;
+  border-top: 10px solid green;
+}
+.triangle::after {
+border-top: 10px solid white;
+bottom: -19px; 
+}
+
+/* radio */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #F87DA9;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }

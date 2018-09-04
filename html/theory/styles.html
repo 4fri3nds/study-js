@@ -30,11 +30,12 @@
         <h4 class="links-themes-title">HTML/CSS</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Селекторы, теги</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Элементы</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Celectors, tags</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Геометрические фигуры</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Анимация css</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Undef</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Reset</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Designe</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -51,12 +52,33 @@
                 <code>
                   <b>заглавные буквы во всех новых словах</b>
                   text-transform: capitalize;
+
+                  <b>Свойство позволяет вписать текст в окружность</b>
+                  shape-inside
+
                   <b>отмена выделения пользователем</b>
                   user-select: none;
+
                   <b>как будет переносится текст</b>
                   white-space: pre(pre-line...)
+
                   <b>Уголок</b>
                   background:linear-gradient(-45deg, transparent 15px, #58a 0);
+                  
+                  <b>Классы</b>
+                  :root { --bg: #2C4756; }
+                  .elem { background: var(--bg); }
+
+                  <b>Clearfix</b>
+                  .cfx:after { 
+                    content: ''; 
+                    display: table; 
+                    clear: both; 
+                  }
+
+                  <b>Единая запись для шрифта</b>
+                  font: 400 18px/1 'Kaushan Script', cursive;
+
 
                   <b>colors</b>
                   <span style="font-weight: bold; color: dimgray;">color: dimgray;</span>
@@ -67,7 +89,7 @@
                   <span style="font-weight: navy; color: royalblue;">color: navy;</span>
                 </code> 
               </pre>
-              
+
             </fieldset>
             <fieldset>
               <legend>2. Теги</legend>
@@ -99,14 +121,8 @@
                 </code>
               </pre>
             </fieldset>
-            <!-- end 1 -->
-          </li>
-          <li id="mark2" class="tabs-content-item">
-            <!-- 2 -->
-            <div class="sub-title">Main</div>
-            <div class="title">Свойства</div>
             <fieldset>
-              <legend>1. PRE</legend>
+              <legend>4. PRE</legend>
               <pre>
                 <code>
                   pre {
@@ -134,8 +150,8 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>2. Для шрифтов</legend>
-              <pre>
+            <legend>5. Для шрифтов</legend>
+            <pre>
                 <code>
                   @font-face { 
                     font-family: 'Font'; 
@@ -152,7 +168,7 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>3. Формы, инпуты, чекбоксы</legend>
+              <legend>6. Формы, инпуты, чекбоксы</legend>
               <pre>
                 <code>
             
@@ -160,10 +176,145 @@
                 </code>
               </pre>
             </fieldset>
+            <!-- end 1 -->
+          </li>
+          <li id="mark2" class="tabs-content-item">
+            <!-- 2 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Геометрические фигуры</div>
             <fieldset>
-              <legend>4. Геометрические фигуры CSS</legend>
+              <legend>1. Геометрические фигуры CSS</legend>
               <pre>
                 <code>
+                  <b>Геометрические фигуры</b>
+                  <a href="https://css-tricks.com/examples/ShapesOfCSS/">https://css-tricks.com/examples/ShapesOfCSS/</a>
+
+                  <a href="https://html5book.ru/css-figury/">https://html5book.ru/css-figury/</a>
+
+                  <b>Triangle &lt; &gt;</b>
+                  <div class="triangle"></div>
+
+                  <b>Подсказка напрaво</b>
+                  <div class="hint-right"></div>
+                  .block { 
+                    background: green; position: relative; width: 100px; 
+                    height: 50px; 
+                  } 
+                  .block::after { 
+                    content: ''; 
+                    position: absolute;
+                    right: -30px; top: 15px; 
+                    border: 10px solid transparent; border-left: 20px solid green; 
+                  }
+
+                  <b>Подсказка</b>
+                  <div class="hint">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto dolores ex eligendi adipisci repellendus labore explicabo tempore. Eos, sapiente.</div>
+                  
+                  .hint { 
+                    border: 1px solid green; border-radius: 10px; 
+                    padding: 20px; 
+                    position: relative; 
+                  } 
+                  .hint::before, .hint::after {
+                  content: ''; 
+                  position: absolute; 
+                  left: 20px; 
+                  bottom: -20px; 
+                  border: 10px solid transparent;
+                  border-top: 10px solid green;
+                  } 
+                  .hint::after { 
+                    border-top: 10px solid white; 
+                    bottom: -19px; 
+                  }
+
+                  <b>Radius top</b>
+                  <div class="radius-top"></div>
+                  .radius-top { 
+                     width: 10em; 
+                     height: 5em; 
+                     border: 2px solid red; 
+                     border-radius: 50% 50% 0 0 / 100% 100% 0 0; 
+                     overflow: hidden; 
+                     background: mistyrose;
+                  }
+
+                  <b>Radius bottom</b>
+                  <div class="radius-bottom"></div>
+                  .radius-bottom { 
+                    width: 10em; 
+                    height: 5em; 
+                    border: 2px solid red; 
+                    border-radius: 0 0 50% 50% / 0 0 100% 100%; 
+                    background: mistyrose; 
+                  }
+
+                  <b>Radius right</b>
+                  <div class="radius-right"></div>
+                  .radius-right { 
+                    width: 5em; /* ширина в два раза меньше высоты, иначе получится полуовал */ height: 10em; border: 2px solid red;
+                    
+                    border-radius: 0 100% 100% 0 / 0 50% 50% 0; background: mistyrose; 
+                  }
+
+                  <b>Полукруг налево</b>
+                  <div class="radius-left"></div>
+                  width: 5em; 
+                  height: 10em; 
+                  border: 2px solid red; 
+                  border-radius: 100% 0 0 100% / 50% 0 0 50%; 
+                  background: mistyrose;
+
+                  <b>talkbubble</b>
+                  <div id="talkbubble"></div>
+                  #talkbubble { 
+                    width: 120px; 
+                    height: 80px; 
+                    background: red; 
+                    position: relative; 
+                    -moz-border-radius: 10px; -webkit-border-radius: 10px; 
+                    border-radius: 10px; 
+                  } 
+                  #talkbubble:before { 
+                    content:""; 
+                    position: absolute; 
+                    right: 100%; 
+                    top: 26px; 
+                    width: 0; 
+                    height: 0; 
+                    border-top: 13px solid transparent; border-right: 26px solid red; border-bottom: 13px solid transparent; 
+                  }
+
+                  <b>Обрезаный нижний правый угол</b>
+                  <div class="bordered-elem-right-coal"></div>
+                  background: #58a; 
+                  background:linear-gradient(-45deg, transparent 15px, #58a 0);
+
+                  <b>Обрезаные нижние углы</b>
+                  <div class="bordered-elem-bottom-coals"></div>
+                  background: #58a; background: linear-gradient(-45deg, transparent 15px, #58a 0) right, linear-gradient(45deg, transparent 15px, #655 0) left; 
+                  background-size: 50% 100%; 
+                  background-repeat: no-repeat;
+
+                  <b>Обрезаные выгнутые углы</b>
+                  <div class="bordered-elem-all-coals-concave"></div>
+                  background: #58a; 
+                  background: radial-gradient(circle at top left, transparent 15px, #58a 0) top left, radial-gradient(circle at top right, transparent 15px, #58a 0) top right, radial-gradient(circle at bottom right, transparent 15px, #58a 0) bottom right, radial-gradient(circle at bottom left, transparent 15px, #58a 0) bottom left; 
+                  background-size: 50% 50%; 
+                  background-repeat: no-repeat;
+
+                  <b>Образаные углы</b>
+                  <div class="bordered-elem-all-coals"></div>
+                  :root { 
+                    --blue: #58a; 
+                    --brown: #655; 
+                  } 
+                  
+                  .bordered-elem-all-coals { 
+                    height: 150px; width: 150px; background: var(--blue);
+                    background: linear-gradient(135deg, transparent 15px, var(--blue) 0) top left, linear-gradient(-135deg, transparent 15px, var(--brown) 0) top right, linear-gradient(-45deg, transparent 15px, var(--blue) 0) bottom right, linear-gradient(45deg, transparent 15px, var(--brown) 0) bottom left; 
+                    background-size: 50% 50%; 
+                    background-repeat: no-repeat;
                   <b>Овал</b>
                   <div id="oval"></div>
                   #oval { 
@@ -258,12 +409,14 @@
                     background: red; 
                   }
                   <b>Трапеция</b>
+                  <div id="trapezoid"></div>
                   #trapezoid { 
                     border-bottom: 100px solid red; 
                     border-left: 50px solid transparent; 
                     border-right: 50px solid transparent;
                     height: 0; width: 100px; 
                   }
+
                   <b>Звезда (6-конечная)</b>
                   <div id="star-six"></div>
                   #star-six { 
@@ -498,8 +651,77 @@
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Код</div>
-
+            <div class="title">Custom elems</div>
+            <fieldset>
+              <legend>1. Radio elements</legend>
+              <form action="#">
+                <p>
+                  <input type="radio" id="test1" name="radio-group" checked>
+                  <label for="test1">Apple</label>
+                </p>
+                <p>
+                  <input type="radio" id="test2" name="radio-group">
+                  <label for="test2">Peach</label>
+                </p>
+                <p>
+                  <input type="radio" id="test3" name="radio-group">
+                  <label for="test3">Orange</label>
+                </p>
+              </form>
+              <pre class="code">
+                <code>
+                  [type="radio"]:checked, 
+                  [type="radio"]:not(:checked) { 
+                    position: absolute; 
+                    left: -9999px; 
+                  } 
+                  [type="radio"]:checked + label,
+                  [type="radio"]:not(:checked) + label { 
+                    position: relative; 
+                    padding-left: 28px; 
+                    cursor: pointer; 
+                    line-height: 20px; 
+                    display: inline-block; 
+                    color: #666; 
+                  } 
+                  [type="radio"]:checked + label:before, 
+                  [type="radio"]:not(:checked) + label:before { 
+                    content:''; 
+                    position: absolute; 
+                    left: 0; 
+                    top: 0; 
+                    width: 10px; 
+                    height: 10px; 
+                    border: 1px solid #ddd; 
+                    border-radius: 100%; 
+                    background: #fff; 
+                  } 
+                  [type="radio"]:checked + label:after, 
+                  [type="radio"]:not(:checked) + label:after { 
+                    content: ''; 
+                    width: 4px; 
+                    height: 4px; 
+                    background: #F87DA9; 
+                    position: absolute; 
+                    top: 4px; 
+                    left: 4px; 
+                    border-radius: 100%; 
+                    -webkit-transition: all 0.2s ease;
+                    transition: all 0.2s ease; 
+                  } 
+                  [type="radio"]:not(:checked) + label:after { 
+                    opacity: 0; 
+                    -webkit-transform: scale(0); 
+                    transform: scale(0); 
+                  } 
+                  [type="radio"]:checked + label:after { 
+                    opacity: 1; 
+                    -webkit-transform: scale(1); 
+                    transform: scale(1); 
+                  }
+                </code>
+              </pre>
+            </fieldset>
             <fieldset>
               <legend>1. Скролл</legend>
               <pre class="code">
@@ -551,7 +773,7 @@
             <div class="sub-title">Main</div>
             <div class="title">Reset</div>
             <fieldset>
-              <legend>1. Повесить анимацию</legend>
+              <legend>1. Сбросить стили</legend>
               <pre class="code">
                 <code>
                   * margin: 0; 
@@ -609,6 +831,47 @@
               </pre>
             </fieldset>
             <!-- end 5-->
+          </li>
+          <li id="mark6" class="tabs-content-item">
+            <!-- 6 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Дизайн</div>
+            <fieldset>
+              <legend>1. Palaroid</legend>
+              <div class="polaroid">
+                <img src="http://www.webmasters.by/images/articles/4-fun-css-image-effects/imagetreatments-1.jpg" />
+                <p>Сара, Дек '02</p>
+              </div>
+              <pre class="code">
+                <code>
+                  .polaroid { 
+                    position: relative; 
+                    width: 220px; 
+                    text-align: center; 
+                  } 
+                  .polaroid img { 
+                    display: block; 
+                    border: 10px solid #fff;
+                    border-bottom: 45px solid #fff; -webkit-box-shadow: 3px 3px 3px #777; -moz-box-shadow: 3px 3px 3px #777; box-shadow: 3px 3px 3px #777; 
+                  } 
+                  .polaroid p { 
+                    text-align: center; 
+                    color: #888; 
+                    margin-top: -20px; 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>1. Grunge effect</legend>
+
+              <pre class="code">
+                <code>
+                
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 6 -->
           </li>
         </ul>
       </div>
