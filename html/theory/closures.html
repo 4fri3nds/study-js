@@ -55,13 +55,16 @@
                      
                      return function inner() { -- замыкающая функция
                        console.log(outerLet, par);
-                       outerLet++;
+                       return outerLet++;
                        <h5>//возваращаемая функция из return имеет доступ 
                          к переменным и параметрам в самой функции</h5>
                       } 
                     };
 
-                    outer(12)();
+                    let outerF = outer(12); 
+                    outerF(); 
+                    outerF(); 
+                    outerF();
                 </code>
               </pre>
             </fieldset>
@@ -173,15 +176,32 @@
                 </code>
               </pre>
             </fieldset>
-            
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Замыкания для событий с дом элементами</div>
             <fieldset>
-              <legend>1. Заголовок</legend>
+              <legend>1. Замыкание на событие по клику</legend>
+              <pre class="code">
+                <code>
+                  function getSmallCoffe() { 
+                    let x = 0; 
+                    return function() { 
+                      x += 25; 
+                      this.style.transform = 'rotate(' + x + 'deg)';
+                      // как ни странно this здесь видно
+                      // возмо изза того что ты замыкание кидаем в обработчик элемента(this);
+                    }; 
+                  };
+
+                  let smallCoffeClossure = getSmallCoffe(); 
+                  //здесь мы переводим обычную функцию в замыкание 
+
+                  elCoffe.selectCoffeCup.addEventListener('click', smallCoffeClossure); // на элемент мы вешаем замыкание
+                </code>
+              </pre>
             </fieldset>
             <!-- end 2 -->
           </li>

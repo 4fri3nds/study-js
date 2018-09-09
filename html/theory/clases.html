@@ -85,28 +85,362 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>1. Синтаксис</legend>
+              <legend>3. Наследование классов</legend>
               <blockquote>
-                Новая конструкция class – удобный «синтаксический сахар» для задания конструктора вместе с прототипом.
+                class Bar extends Foo -- означает что Bar берет себе методы и переменные Foo.
               </blockquote>
               <pre class="code">
                 <code>
-                  class Название [extends Родитель] { 
-                    constructor методы 
+                  class Foo { 
+                    constructor () { 
+                      this.name = "Alex"; 
+                      this.surname = "Bashinskii"; 
+                    } 
                   }
+
+                  class Bar extends Foo { 
+                    showName() { 
+                      return this.name; 
+                    }; 
+
+                    showSur () { 
+                      return this.surname; 
+                    } 
+                  } 
+
+                  let baz = new Bar; 
+                  
+                  console.log(baz.showName()); 
+                  console.log(baz.showSur());
                 </code>
               </pre>
             </fieldset>
-           
+            <fieldset>
+              <legend>4. Часть библиотеки jQuery</legend>
+              <blockquote>
+                Мы передаем элемент через параметр конструктора.
+                И поочередно вызываем два метода, которые применяем к этому элементу.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  class changeElem { 
+                    constructor(selector) { 
+                      this.elem = document.querySelector(selector); 
+                    }; 
+                    setHtml(html) { 
+                      this.elem.innerHTML = html; 
+                    }; 
+                    setAttr(name, cont) { 
+                      this.elem.setAttribute(name, cont); 
+                    } 
+                  } 
+                  let elem = new changeElem('#elem'); 
+                  elem.setHtml('Это содеражание мы переопределили'); 
+                  elem.setAttr('data-attr', 'red');
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Цепочка вызовов</legend>
+              <blockquote>
+                Без return любая функция возвращает undefined. По этому мы прописуем чтобы это функция вернула обьект, который возвращает передаваемый элемент. changeElem { elem: div#elem } elem: div#elem__proto__: Object
+              </blockquote>
+              <pre class="code">
+                <code>
+                  class changeElem { 
+                    constructor(selector) { 
+                      this.elem = document.querySelector(selector); 
+                    }; 
+                    setHtml(html) { 
+                      this.elem.innerHTML = html;
+                      return this;
+                    }; 
+                    setAttr(name, cont) { 
+                      this.elem.setAttribute(name, cont); 
+                      return this;
+                    } 
+                  } 
+                  let elem = new changeElem('#elem'); 
+                  elem.setHtml('Это содеражание мы переопределили').setAttr('data-attr', 'red');
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Цепочка вызовов</legend>
+              <blockquote>
+                Без return любая функция возвращает undefined. По этому мы прописуем чтобы это функция вернула обьект, который возвращает передаваемый элемент. changeElem { elem: div#elem } elem: div#elem__proto__: Object
+              </blockquote>
+              <pre class="code">
+                <code>
+                  class changeElem { 
+                    constructor(selector) { 
+                      this.elem = document.querySelector(selector); 
+                    }; 
+                    setHtml(html) { 
+                      this.elem.innerHTML = html;
+                      return this;
+                    }; 
+                    setAttr(name, cont) { 
+                      this.elem.setAttribute(name, cont); 
+                      return this;
+                    } 
+                  } 
+                  let elem = new changeElem('#elem'); 
+                  elem.setHtml('Это содеражание мы переопределили').setAttr('data-attr', 'red');
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>6. Класс для создания квадратов</legend>
+              <pre class="code">
+                <code>
+                  class Rectangle { 
+                    constructor(height, width) { 
+                      this.div = document.createElement('div'); 
+                      //это свойство обьекта // 
+                      var div = document.createElement('div'); 
+                      //это локальная переменная 
+                      
+                      this.div.style.height = height + 'px';
+                      this.div.style.width = width + 'px'; 
+                      this.div.style.border = '2px solid'; 
+                      document.body.appendChild(this.div); 
+                    } 
+                    setWidth(width) { 
+                      this.div.style.width = width + 'px'; 
+                    } 
+                    getWidth() { 
+                      return this.div.style.width; 
+                    } 
+                  } 
+
+                  let quoter = new Rectangle(100, 200); 
+                  let quoter1 = new Rectangle(50, 100); 
+                  
+                  quoter; 
+                  quoter.setWidth(500); 
+                  console.log(quoter.getWidth()) 
+                  quoter1;
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Наследование классов</div>
             <fieldset>
-              <legend>1. Заголовок</legend>
+              <legend>1. Наследование классов \ extends </legend>
+              <pre class="code">
+                <code>
+                  class User { 
+                    getFullName() { 
+                      return this.name + this.surname; 
+                    } 
+                  }; 
+                  class Worker extends User { 
+                    getSalary(days, rate) { 
+                      return days * rate; 
+                    } 
+                  }; 
+                  let worker = new Worker; 
+
+                  worker.name = "Kola"; 
+                  worker.surname = "Podik"; 
+
+                  console.log(worker.getSalary(30,10)); 
+                  console.log(worker.getFullName());
+                </code>
+              </pre>
             </fieldset>
+            <fieldset>
+              <legend>2. Хранение данных в классах</legend>
+              <pre class="code">
+                <code>
+                  class User { 
+                    constructor() { 
+                      this.name = 'Andrey'; 
+                      this.surname = 'Podik'; 
+                    }
+
+                    getFullName() { 
+                      return this.name + this.surname; 
+                    } 
+                  }; 
+
+                  class Worker extends User { 
+                    // Worker наследует значения и методы конструктора User
+
+                    getSalary(days, rate) { 
+                      return this.days * this.rate; 
+                    } 
+                  }; 
+
+                  let worker = new Worker; 
+
+                  worker.name = "Kola"; 
+                    // эти значения можно легко переписать
+
+                  console.log(worker.getSalary(30,10)); 
+                  console.log(worker.getFullName());
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Наследуемое this через super</legend>
+              <pre class="code">
+                <code>
+                  class User { 
+                    constructor() { 
+                      this.name = 'Andrey'; 
+                      this.surname = 'Podik'; 
+                      this.days = 30; 
+                      this.rate = 4; 
+                    } 
+                    getFullName() { 
+                      return this.name + ' ' + this.surname; 
+                    } 
+                    walk() { 
+                      return console.log('I walk ' + this.getFullName()); 
+                    } 
+                  }; 
+                  class Worker extends User { 
+                    constructor () { 
+                      super() //вызов конструктора родителя
+                      //ЗДЕСЬ появляется this
+                    } 
+                    getSalary() { 
+                      this.walk(); //и здесь функция родителя работает 
+                      // благодаря super() 
+                      // аналог - User.call(this) 
+                      return this.days * this.rate; 
+                    } 
+                  }; 
+                  let worker = new Worker; 
+                  worker.name = 'Kolyan'; 
+                  
+                  worker.walk(); //и здесь работает
+
+                  console.log(worker.getSalary()) 
+                  console.log(worker.getFullName());
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Передать потомком родителю this через super</legend>
+              <pre class="code">
+                <code>
+                  class User { 
+                    constructor(zodiac) { 
+                      this.znak = zodiac; 
+                    } 
+                    goroskop() { 
+                      return console.log('Zodiac : ' + this.znak); 
+                    } 
+                  };
+                  class Worker extends User { 
+                    constructor () { 
+                      super('Lion')  // аналог - User.call(this)
+                    } 
+                  }; 
+                  let worker = new Worker; 
+                  worker.goroskop();
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Прокидывание параметров родительской функции</legend>
+              <blockquote>Чтобы не дублировать код мы прокидываем нужные аргументы в super(...arg) </blockquote>
+              <pre class="code">
+                <code>
+                  class User { 
+                    constructor(name, surname) { 
+                      this.name = name; 
+                      this.surname = surname; 
+                    } 
+                    getFullName() { 
+                      return console.log(this.name + this.surname); 
+                    } 
+                  }; 
+                  class Worker extends User { 
+                    constructor (name, surname, days, rate) { 
+                      super(name, surname); //это и есть Конструктор РОДИТЕЛЯ
+                      //здесь в параметры передаем name&surn чтобы прокинуть наверх
+                      this.days = days; 
+                      this.rate = rate; 
+                    } 
+                    getSalary() { 
+                      return console.log(this.days * this.rate); 
+                    } 
+                  }; 
+                  
+                  let worker = new Worker('Alexey ', 'Bashinskii', 30, 10); worker.getFullName(); 
+                  worker.getSalary();
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>6. Вызов метода родителя в методе потомка</legend>
+              <blockquote>
+                super.getFullName()
+                так мы вызываем методы в children 
+                Это так же может быть super.super.getFullName() - Если у нас два уровня вложености.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  class User { 
+                    constructor(name, surname) { 
+                      this.name = name; 
+                      this.surname = surname; 
+                    } 
+                    getFullName() { 
+                      return this.name + this.surname; 
+                    } 
+                  }; 
+                  class Worker extends User { 
+                    constructor (name, surname, days, rate) { 
+                      super(name, surname); 
+                      this.days = days; 
+                      this.rate = rate; 
+                    } 
+                    getSalary() { 
+                      return 
+                        console.log(
+                          super.getFullName() + 
+                          ' получает в месяц ' + 
+                          this.days * this.rate
+                          + 'грн'
+                        ); 
+                      }  
+                    };
+
+                    let worker = new Worker('Alexey ', 'Bashinskii', 30, 1000);
+                    worker.getSalary();
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>7. Метод в методе</legend>
+              <blockquote>
+                Для того чтобы вызвать метод в существующем методе this в помощь.
+                А чтобы передать аргументы можно передать параметрами использованого метода.
+              </blockquote>
+              <pre class="code">
+                <code>
+                  class Tank { 
+                    moveTo(x, y) { } 
+                    fireTo(x, y) { } 
+                    
+                    moveAndFire(moveX, moveY, fireX, fireY) { 
+                      this.moveTo(moveX, moveY); 
+                      this.fireTo(fireX, fireY); 
+                    } 
+                  }
+                </code>
+              </pre>
+            </fieldset>
+
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">

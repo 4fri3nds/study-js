@@ -26,11 +26,6 @@
   </div>
   <!-- here -->
   <div class="coffe-wrap cfx">
-    <div class="coffe-code">
-      <pre class="code">
-        <code></code>
-      </pre>
-    </div>
     <div class="coffe">
       <div class="coffe-mech">
         <div class="socket">
@@ -47,11 +42,20 @@
           <div class="shlang"></div>
           <div class="water">
             <div class="water-top">
-              <div class="water-mount"></div>
+              <div class="water-mount">
+                <img src="../../assets/water.jpeg" alt="">
+              </div>
             </div>
             <div class="water-bottom">
               <div class="power-button off"></div>
-              <div class="power-display">disconnect</div>
+              <div class="power-display disc">
+                <span class="disc">disconnect</span>
+                <span class="conc">connect</span>
+                <span class="wait">wait</span>
+                <span class="fc">fill coffe</span>
+                <span class="fw">fill water</span>
+                <span class="npow">not power</span>
+              </div>
             </div>
           </div>
           <div class="beans">
@@ -77,15 +81,15 @@
               </div>
               <form action="coffe-cap-size" class="coffe-cap-size-list">
                 <div class="cap-size-item">
-                  <input class="cap-size" name="cap-size" id="sm" type="radio" checked>
-                  <label for="sm">ecspresso</label>
+                  <input class="cap-size" name="cap-size" id="sm" type="radio" disabled="true" checked>
+                  <label for="sm">esspresso</label>
                 </div>
                 <div class="cap-size-item">
-                  <input class="cap-size" name="cap-size" id="md" type="radio">
+                  <input class="cap-size" name="cap-size" id="md" type="radio" disabled="true">
                   <label for="md">americano</label>
                 </div>
                 <div class="cap-size-item">
-                  <input class="cap-size" name="cap-size" id="lg" type="radio">
+                  <input class="cap-size" name="cap-size" id="lg" type="radio" disabled="true">
                   <label for="lg">latte</label>
                 </div>
               </form>
@@ -93,7 +97,7 @@
           </div>
         </div>
         <div class="coffe-cup-wrap">
-          <div class="coffe-cup">new good <br> day </div>
+          <div class="coffe-cup">good day </div>
         </div>
       </div>
       <div class="coffe-table">
@@ -101,6 +105,11 @@
         <div class="coffe-table-foot-left"></div>
         <div class="coffe-table-foot-right"></div>
       </div>
+    </div>
+    <div class="coffe-code">
+      <pre class="code">
+            <code></code>
+          </pre>
     </div>
   </div>
 

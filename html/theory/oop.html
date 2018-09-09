@@ -31,8 +31,9 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Примеры кода</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Ф-й и Прото ооп</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">title</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Разница между стилями</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Функциональный стиль</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Прототипный стиль</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -42,9 +43,9 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Код</div>
+            <div class="title">ООП зачем оно надо</div>
             <fieldset>
-              <legend>1. title</legend>
+              <legend>1. От конструктора</legend>
               <pre class="code">
                 ___________________________
               < I'm an expert in my field. >
@@ -58,7 +59,7 @@
               <h3>Использование конструктора ......</h3>
               <pre class="code">
                   <code>
-                    class Elem { 
+                    class Elem { // класс
                       constructor(selector) { 
                         this.menu = document.querySelector(selector); 
                       }; 
@@ -67,16 +68,18 @@
                       } 
                     }; 
                     
-                    let menu = new Elem('#menu'); 
+                    let menu = new Elem('#menu'); // обьект этого класса
                     menu.html('hello');
                   </code>
                 </pre>
             </fieldset>
             <fieldset>
-              <legend>2. Обьектное ООП</legend>
+              <legend>2. Приватные методы помечаются нижним подчеркиванием</legend>
+              <blockquote>Они доступны снаружи но по мы договорились их не трогать</blockquote>
               <pre class="code">
                 <code>
-            
+                  _canFire(ammunition)
+                  this._name = name
                 </code>
               </pre>
               <h3>Использование класса</h3>
@@ -157,6 +160,27 @@
                     div(countFoo(), result4); // 1
                     div(countFoo(), result4); // 2
                   }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Get - Set </legend>
+              <blockquote>
+                Когда мы напрамую правим свойства это не очень хорошо, так как мы можем передать неадекватные данные или даже тип данных.
+                Если мы будем передавать методом getAge - setAge. То в самой функции мы указываем параметром и диапазоном что нужно передавать в качестве аргумента
+              </blockquote>
+              <pre class="code">
+                <code>
+                  this.age = 1000 // плохо
+                  user.setAge(25) // хорошо
+
+                  setAge(age) { 
+                    if (age < 0 || age > 150) { 
+                      alert('this is fake age') 
+                    } else { 
+                      this._age = age; 
+                    } 
+                  };
                 </code>
               </pre>
             </fieldset>
@@ -299,11 +323,43 @@
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Функциональное ООП</div>
             <fieldset>
-              <legend>1. title</legend>
+              <legend>1. Функциональный стиль</legend>
+              <pre class="code">
+                <code>
+                  function Animal(name) {
+                    this.sayHi = function() { 
+                      alert( name ); 
+                    }; 
+                  } 
+                  var animal = new Animal("Зверь"); 
+                  animal.sayHi(); // Зверь
+                </code>
+              </pre>
             </fieldset>
-            <!-- end -->
+            <!-- end 3 -->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Прототипное ООП</div>
+            <fieldset>
+              <legend>1. Свои классы на прототипах</legend>
+              <pre class="code">
+                <code>
+                  function Animal(name) { 
+                    this._name = name; 
+                  } 
+                  Animal.prototype.sayHi = function() { 
+                    alert( this._name ); 
+                  } 
+                  var animal = new Animal("Зверь"); 
+                  animal.sayHi(); // Зверь
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 4-->
           </li>
         </ul>
       </div>

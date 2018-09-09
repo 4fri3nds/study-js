@@ -72,20 +72,10 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>2. Короткие записи</legend>
+              <legend>2. Poster</legend>
               <pre>
                 <code>
-                   if(y === undefined) y = 5; -- если нету else и условие достаточно короткое 
-                   
-                   (y === undefined) ? (do...) : (else do ...) -- короткая запись if-else 
-                   
-                   mass == [1,2,3]; ...mass // 1 2 3 -- отображает содержание массива 
-                   
-                   func(...mass) == func(1,2,3) //true -- ...(три точки) можно передавать массив в качестве параметров функции 
-                   
-                   var x = v || 10 -- else можно вписать и в переменную
-                  
-                   var direction = (x > 100) ? 1 : -1;
+                   Здесь могла бы быть ваша реклама!
                 </code>
               </pre>
             </fieldset>
@@ -113,6 +103,43 @@
                    false == "false" //false
                 </code>
               </pre>
+            </fieldset>
+            <fieldset>
+              <legend>5. Логические операторы || && </legend>
+              <blockquote>
+                Одно и тоже выражение может записываться по-разному в зависимости от сценария.
+                В позитивном сценарии диапазон попадает на и &&.
+                В негативном он расходится или (x < 0) или (x > 150)
+              </blockquote>
+              <pre>
+                <code>
+                  <b>Негативный сценарий</b>
+                  setAge(age) { 
+                    if (age < 0 || age > 150) { 
+                      alert('this is fake age') 
+                    } else { 
+                      this._age = age;
+                    } 
+                  }
+
+                  <b>Позитивный сценарий</b>
+                  setAge(age) { 
+                    if (age > 0 && age < 150) { 
+                      this._age = age; 
+                    } else { 
+                      alert('this is fake age') 
+                    } 
+                  }
+
+                  <b></b>
+                  if (1 || 0) { // сработает как if( true || false ) alert( 'верно' ); 
+                  }
+                </code>
+              </pre>
+              <blockquote>
+                || запинается на «правде», 
+                && запинается на «лжи».
+              </blockquote>
             </fieldset>
             <!-- end 1 -->
           </li>

@@ -30,8 +30,8 @@
         <h4 class="links-themes-title">Json, Ajax</h4>
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
-          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Нахождение узлов(node)</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Events</li>
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Parse JSON</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">AJAX</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Methods</li>
         </ul>
         <!-- END NAV -->
@@ -51,10 +51,43 @@
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <fieldset>
-              <legend>1. title</legend>
-            </fieldset>
+            <div class="title">AJAX</div>
+              <fieldset>
+                <legend>1. AJAX для загрузки XML-файла</legend>
+                <blockquote>
+                  Вот более детальный пример, в котором используется AJAX для загрузки XML-файла и используется функция call() для вызова callback-функции
+                  в контексте запрошенного объекта (это значит, что когда мы укажем ключевое слово this внутри callback-функции, оно будет
+                  ссылаться на запрошенный объект)
+                </blockquote>
+                <pre class="code">
+                  <code>
+                    function some_function2(url, callback) { 
+                      var httpRequest; // создаём наш XMLHttpRequest-объект 
+                      if (window.XMLHttpRequest) { 
+                        httpRequest = new XMLHttpRequest(); 
+                      } else if (window.ActiveXObject) { 
+                        // для дурацкого Internet Explorer'а 
+                        httpRequest = new ActiveXObject("Microsoft.XMLHTTP"); 
+                      } 
+                      
+                      httpRequest.onreadystatechange = function () { 
+                        // встраиваем функцию проверки статуса нашего запроса 
+                        // это вызывается при каждом изменении статуса 
+                        if (httpRequest.readyState === 4 && httpRequest.status === 200) { 
+                          callback.call(httpRequest.responseXML); // вызываем колбек 
+                        } 
+                      }; 
+                      httpRequest.open('GET', url); 
+                      httpRequest.send();
+                    } // вызываем функцию 
+                    
+                    some_function2("text.xml", function () { 
+                      console.log(this); 
+                    }); 
+                    console.log("это выполнится до вышеуказанного колбека");
+                  </code>
+                </pre>
+              </fieldset>
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">

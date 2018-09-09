@@ -45,44 +45,34 @@
             <div class="sub-title">Main</div>
             <div class="title">Прикольные практики или просто красивый код</div>
             <fieldset>
-              <legend>1. AJAX для загрузки XML-файла</legend>
-              <blockquote>
-                Вот более детальный пример, в котором используется AJAX для загрузки XML-файла и используется функция call() для вызова callback-функции в контексте запрошенного объекта (это значит, что когда мы укажем ключевое слово this внутри callback-функции, оно будет ссылаться на запрошенный объект)
-              </blockquote>
+              <legend>
+                1. Интерессные способы передачи данных в JS
+              </legend>
               <pre class="code">
                 <code>
-                  function some_function2(url, callback) { 
-                    var httpRequest; // создаём наш XMLHttpRequest-объект 
-                    if (window.XMLHttpRequest) { 
-                      httpRequest = new XMLHttpRequest(); 
-                    } else if (window.ActiveXObject) { 
-                      // для дурацкого Internet Explorer'а 
-                      httpRequest = new ActiveXObject("Microsoft.XMLHTTP"); 
-                    } 
-                    
-                    httpRequest.onreadystatechange = function () { 
-                      // встраиваем функцию проверки статуса нашего запроса 
-                      // это вызывается при каждом изменении статуса 
-                      if (httpRequest.readyState === 4 && httpRequest.status === 200) { 
-                        callback.call(httpRequest.responseXML); // вызываем колбек 
-                      } 
-                    }; 
-                    httpRequest.open('GET', url); 
-                    httpRequest.send();
-                  } // вызываем функцию 
+                  <b>Название ф-ции</b>
+                  ["test".toUpperCase()]() { 
+                    alert("PASSED!"); 
+                  }
+
+                  <b>если нету else и условие достаточно короткое</b>
+                  if(y === undefined) y = 5;  
                   
-                  some_function2("text.xml", function () { 
-                    console.log(this); 
-                  }); 
-                  console.log("это выполнится до вышеуказанного колбека");
-                </code>
-              </pre>
-            </fieldset>
-            <fieldset>
-              <legend>2. </legend>
-              <pre class="code">
-                <code>
-                 
+                  <b>короткая запись if-else</b>
+                  (y === undefined) ? (do...) : (else do ...)
+                  
+                  <b>1 2 3 отображает содержание массива</b>
+                  mass == [1,2,3]; ...mass   
+                  
+                  <b>//true</b>
+                  func(...mass) == func(1,2,3)
+                  ...(три точки) можно передавать массив в качестве параметров функции 
+                  
+                  <b>else можно вписать и в переменную</b>
+                  var x = v || 10
+
+                  <b>if else тоже можно вписать в переменную</b>
+                  var direction = (x > 100) ? 1 : -1;
                 </code>
               </pre>
             </fieldset>
