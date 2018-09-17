@@ -361,12 +361,15 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
+.water-mount.active img {
+  transform: translateY(-5%);
+}
 .water-mount:hover img {
-  transition: 1.5s;
   transform: translateY(-5%);
   opacity: .2;
 }
 .water-mount img {
+  transition: 1.5s;
   height: 110%;
   width: 100px;
   transform: translateY(100%);
@@ -395,11 +398,21 @@ body {
   right: -64px;
   margin: auto;
   border: 3px solid lightcoral;
+  cursor: pointer;
 }
-
 .mount-beans img {
+  height: 0px;
+  width: 0px;
+  transition: .3s;
+}
+.mount-beans.active img {
   height: 70px;
   width: 70px;
+}
+.mount-beans:hover img {
+  height: 70px;
+  width: 70px;
+  opacity: .3;
 }
 .power-button {
   border-radius: 50px;

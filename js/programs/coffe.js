@@ -1,9 +1,10 @@
 // obj coffe machine dom elems
 let elCoffe = {
   selectCoffeCup: document.getElementsByClassName('coffe-cap-size-switcher')[0],
-  socket : document.getElementsByClassName('socket')[0],
+  socket: document.getElementsByClassName('socket')[0],
   powerDisp: document.getElementsByClassName('power-display')[0],
-  powerButton: document.getElementsByClassName('power-button')[0],
+  getCoffe: document.getElementsByClassName('power-button')[0],
+  coffeCupMenuItems: document.getElementsByClassName('cap-size-item'),
   coffeCupMenuItems: document.getElementsByClassName('cap-size-item'),
 };
 
@@ -18,41 +19,50 @@ let pow = new Machine;
 
 // class Coffe
 let Coffe = function () {
-  Machine.call(this);
-
   this.mountWater = 4200;
   this.mountCoffe = 1000;
   this.timeWorming = 0;
 
-  this.water= document.querySelector('.water-mount')
+  this.waterMount = document.querySelector('.water-mount');
 
+  this.powerDisplay = document.querySelector('.power-display');
+
+  this.coffeMount = document.querySelector('.mount-beans');
+
+  this.getCoffeCup = document.querySelector('.power-button');
+
+  this.machinePower = document.querySelector('.socket');
 };
 
 Coffe.prototype.fillWater = function () {
-  console.log('fill water');
+  this.classList.toggle('active');
 };
 
 Coffe.prototype.fillCoffe = function () {
-
+  this.classList.toggle('active');
 };
 
-// power
-elCoffe.socket.addEventListener('click', function () {
-  pow.powerOn();
-  
-  elCoffe.powerDisp.classList.toggle('conc');
-  elCoffe.powerDisp.classList.toggle('disc');
+Coffe.prototype.getPower = function () {
+  if (!pow.power) {
+    pow.powerOn()
+  } else {
+    pow.powerOff()
+  }
+
+  coffe.powerDisplay.classList.toggle('conc');
+  coffe.powerDisplay.classList.toggle('disc');
+
   this.classList.toggle('active');
-});
+}
 
 // select coffe closure
 function selectCoffe() {
   let deg = -25,
-      step = -1;
+    step = -1;
 
-  return function() {
+  return function () {
     let elem = elCoffe.coffeCupMenuItems;
-    let last = elem.length-1;
+    let last = elem.length - 1;
 
     deg += 25;
     step++;
@@ -60,14 +70,14 @@ function selectCoffe() {
     if (step == last) {
       step = -1;
       deg = -25;
-      
+
       elem[last].getElementsByTagName('input')[0].removeAttribute('checked', 'checked');
-      elem[0].getElementsByTagName('input')[0].setAttribute('checked', 'checked');   
+      elem[0].getElementsByTagName('input')[0].setAttribute('checked', 'checked');
     } else {
       elem[step].getElementsByTagName('input')[0].removeAttribute('checked', 'checked');
       elem[step].nextElementSibling.getElementsByTagName('input')[0].setAttribute('checked', 'checked');
     }
-    this.style.transform = 'rotate(' + deg + 'deg)';   
+    this.style.transform = 'rotate(' + deg + 'deg)';
   };
 };
 
@@ -76,7 +86,7 @@ let selectCoffeClosure = selectCoffe();
 elCoffe.selectCoffeCup.addEventListener('click', selectCoffeClosure);
 
 // param coffe cup
-Coffe.prototype.setCup = function(cap) {
+Coffe.prototype.setCup = function (cap) {
   switch (cap) {
     case ('small'):
       this.outWater = 100;
@@ -118,16 +128,24 @@ Coffe.prototype.remain = function () {
 
 // prepare coffe
 Coffe.prototype.getCoffe = function (output) {
-  if (!this.power) {
-    return console.log('Включите апарат в розетку');
-  }
+  // if (!this.power) {
+  //   return console.log('Включите апарат в розетку');
+  // }
+  console.log(pow.power);
 
-  this.setCup(output)
-  this.warming(this.timeWorming);
-  this.remain();
+  // this.setCup(output)
+  // this.warming(this.timeWorming);
+  // this.remain();
 };
 
 let coffe = new Coffe();
 
-coffe.getCoffe('small');
-coffe.water.addEventListener('click', coffe.fillWater);
+// coffe.getCoffe('small');
+
+coffe.machinePower.addEventListener('click', coffe.getPower);
+
+coffe.waterMount.addEventListener('click', coffe.fillWater);
+
+coffe.coffeMount.addEventListener('click', coffe.fillCoffe);
+
+coffe.getCoffeCup.addEventListener('click', coffe.getCoffe);
