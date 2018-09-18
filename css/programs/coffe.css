@@ -588,13 +588,13 @@ body {
 .mount-coffe-img-wrap img:last-child {
   transform: rotate(180deg) translateY(-60px) scale(-1, 1);
 }
-.mount-coffe.ex .mount-coffe-img-wrap {
+.mount-coffe.expresso .mount-coffe-img-wrap {
   top: 25%;
 }
-.mount-coffe.am .mount-coffe-img-wrap {
+.mount-coffe.americano .mount-coffe-img-wrap {
   top: 0%;
 }
-.mount-coffe.la .mount-coffe-img-wrap {
+.mount-coffe.latte .mount-coffe-img-wrap {
   top: -30%;
 }
 .mount-coffe:after {
