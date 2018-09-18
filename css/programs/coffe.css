@@ -213,10 +213,19 @@ body {
 .socket.active .socket-indikator {
   background-color: limegreen;
 }
-.socket.active .socket-in {
-  background: dimgray
+.socket.active .socket-cable,
+.socket.active .socket-cable:before,
+.socket.active .socket-cable:after {
+  border-color: limegreen;
 }
 
+.socket.active .socket-in {
+  background: darkgray;
+}
+
+.socket.active .socket-in span {
+  background: none;
+}
 /* coffe-machine */
 .coffe-mech {
   margin-bottom: -4px;
@@ -363,13 +372,14 @@ body {
 }
 .water-mount.active img {
   transform: translateY(-5%);
+  opacity: 1 !important;
 }
 .water-mount:hover img {
   transform: translateY(-5%);
   opacity: .2;
 }
 .water-mount img {
-  transition: 1.5s;
+  transition: .5s;
   height: 110%;
   width: 100px;
   transform: translateY(100%);
@@ -392,6 +402,7 @@ body {
   overflow: hidden;
   border-radius: 50px;
   position: absolute;
+  background-color: #fff;
   top: 73px;
   bottom: 0;
   left: -24px;
@@ -408,6 +419,7 @@ body {
 .mount-beans.active img {
   height: 70px;
   width: 70px;
+  opacity: 1 !important;
 }
 .mount-beans:hover img {
   height: 70px;
@@ -476,16 +488,75 @@ body {
   display: none;
   text-transform: uppercase;
 }
-.power-display.disc .disc,
-.power-display.conc .conc,
-.power-display.wait .wait,
-.power-display.fc .fc,
-.power-display.fw .fw,
-.power-display.npow .npow {
-  display: block;
+.power-display.disc:after {
+  content: 'disconnect';
 }
 .power-display.conc {
-  background-color: darkturquoise;
+  background-color: skyblue;
+}
+.power-display.conc:after {
+  content: 'connected';
+}
+.power-display.wait {
+  background-color: cadetblue;
+}
+.power-display.wait:after{
+  content: 'wait';
+}
+.power-display.fc {
+  background-color: greenyellow;
+}
+.power-display.fc:after {
+  content: 'no coffe'; 
+}
+.power-display.fw {
+  background-color: deepskyblue;
+}
+.power-display.fw:after {
+  content: 'no water';
+}
+.power-display.npow {
+  background-color: darkseagreen;
+}
+.power-display.npow:after {
+  content: 'no power';
+}
+.machine-fill {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 10px;
+}
+.machine-fill-item {
+  position: relative;
+  margin: 0;
+  border-bottom: none;
+}
+.machine-fill-item span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.machine-fill-item img {
+  height: 24px;
+  width: 26px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.machine-fill-item.active:after {
+  background: seagreen;
+}
+.machine-fill-item:after {
+  content: '';
+  background: crimson;
+  position: absolute;
+  display: block;
+  width: 6px;
+  height: 6px;
+  top: 9px;
+  left: 10px;
+  border-radius: 50% 50% 0 50%;
+  transform: rotate(45deg);
 }
 .mount-coffe {
   height: 74px;
@@ -495,7 +566,36 @@ body {
   margin-top: 4px;
   margin-left: 20%;
   position: relative;
-  background-color: #abe4f8;
+  background-color: #fff;
+}
+.mount-coffe-img {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+}
+.mount-coffe-img-wrap {
+  position: relative;
+  top: 60%;
+  transition: .5s ease-in-out; 
+}
+.mount-coffe-img-wrap img {
+  width: 100%;
+  position: absolute;
+  height: 61px;
+}
+.mount-coffe-img-wrap img:last-child {
+  transform: rotate(180deg) translateY(-60px) scale(-1, 1);
+}
+.mount-coffe.ex .mount-coffe-img-wrap {
+  top: 25%;
+}
+.mount-coffe.am .mount-coffe-img-wrap {
+  top: 0%;
+}
+.mount-coffe.la .mount-coffe-img-wrap {
+  top: -30%;
 }
 .mount-coffe:after {
   content: '';

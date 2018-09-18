@@ -1218,7 +1218,23 @@ border-left: 20px solid green;
 border-top: 10px solid white;
 bottom: -19px; 
 }
-
+/* drop */
+.drop{
+  height: 100px;
+  width: 100px;
+  border: 1px solid lightblue;
+  background: lightblue;
+  border-radius: 100% 0% 100% 100%;
+}
+/* tear */
+.tear {
+  width: 50px;
+  height: 50px;
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+  border: 3px solid black;
+  margin-top: 20px;
+}
 /* radio */
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {

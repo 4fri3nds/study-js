@@ -50,6 +50,11 @@
               <legend>1. Селекторы</legend>
               <pre>
                 <code>
+                  <b>Ключевые слова</b>
+                  css tricks (назв свойства напр. linear-gradient, content)
+                  img transparent (если нужно найти картинку без фона)
+                  prop - property
+
                   <b>заглавные буквы во всех новых словах</b>
                   text-transform: capitalize;
 
@@ -79,7 +84,48 @@
                   <b>Единая запись для шрифта</b>
                   font: 400 18px/1 'Kaushan Script', cursive;
 
+                  <b>content - может тянуть значения аттрибутов html</b>
+                  a title="блог о программировании" href="https://tokar.ua">блог Назара Токаря /a>
+                  
+                  a:before { content: attr(title) ": "; }
 
+                  <b>всплывающая подсказка a[title]:hover:after</b>
+                  <b>В результате при наведении на ссылку под ней появится такой блок:</b>
+                  a { 
+                    color: darkred; 
+                  } 
+                  a:hover { 
+                    color: red; 
+                    position: relative; 
+                  } 
+                  a[title]:hover:after { 
+                    content: attr(title); 
+                    box-shadow: 0 0 4px #aaa; 
+                    background: #efefef; 
+                    padding: 7px 15px; 
+                    color: #333; 
+                    left: 0; 
+                    top: 110%; 
+                    position: absolute; 
+                    white-space: nowrap;
+                    border-radius: 3px; 
+                    -moz-border-radius: 3px; 
+                    -webkit-border-radius: 3px; 
+                    -moz-box-shadow: 0 0 4px #aaa; 
+                    -webkit-box-shadow: 0 0 4px #aaa; 
+                  }
+
+                  <b>Нумерация строк</b>
+                  ul
+                    li bla-bla-bla
+                    li bla-bla-bla
+
+                  li { 
+                    counter-increment: my-index; 
+                  } 
+                  li:before { 
+                    content: counter(my-index) ': '; 
+                  }
                   <b>colors</b>
                   <span style="font-weight: bold; color: dimgray;">color: dimgray;</span>
                   <span style="font-weight: bold; color: darkcyan;">color: darkcyan;</span>
@@ -193,6 +239,45 @@
 
                   <b>Triangle &lt; &gt;</b>
                   <div class="triangle"></div>
+                  .triangle { 
+                    height: 20px; 
+                    width: 20px; 
+                    position: relative; 
+                  } 
+                  .triangle::before, 
+                  .triangle::after { 
+                    content: ''; 
+                    position: absolute; 
+                    left: 20px; 
+                    bottom: -20px; 
+                    border: 10px solid transparent; 
+                    border-top: 10px solid green; 
+                  } 
+                  .triangle::after { 
+                    border-top: 10px solid white; 
+                    bottom: -19px; 
+                  }
+
+                  <b>Drop</b>
+                  <div class="drop"></div>
+                  .drop { 
+                    height: 100px; 
+                    width: 100px; 
+                    border: 1px solid lightblue; 
+                    background: lightblue; 
+                    border-radius: 100% 0% 100% 100%;
+                  }
+
+                  <b>Tear</b>
+                  <div class="tear"></div>
+                  .tear { 
+                    width: 50px; 
+                    height: 50px; 
+                    border-radius: 0 50% 50% 50%; 
+                    border: 3px solid black; 
+                    transform: rotate(45deg); 
+                    margin-top: 20px; 
+                  }
 
                   <b>Подсказка напрaво</b>
                   <div class="hint-right"></div>

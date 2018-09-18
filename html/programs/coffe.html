@@ -45,17 +45,24 @@
               <div class="water-mount">
                 <img src="../../assets/water.jpeg" alt="">
               </div>
+              <ul class="machine-fill">
+                <li class="machine-fill-item power-indicator">
+                  <img src="../../assets/lamp.png" alt="">
+                  <span>Power</span>
+                </li>
+                <li class="machine-fill-item water-indicator">
+                  <img src="../../assets/lamp.png" alt="">
+                  <span>Water</span>
+                </li>
+                <li class="machine-fill-item coffe-indicator">
+                  <img src="../../assets/lamp.png" alt="">
+                  <span>Coffe</span>
+                </li>
+              </ul>
             </div>
             <div class="water-bottom">
               <div class="power-button off"></div>
-              <div class="power-display disc">
-                <span class="disc">disconnect</span>
-                <span class="conc">connect</span>
-                <span class="wait">wait</span>
-                <span class="fc">fill coffe</span>
-                <span class="fw">fill water</span>
-                <span class="npow">not power</span>
-              </div>
+              <div class="power-display disc"></div>
             </div>
           </div>
           <div class="beans">
@@ -65,6 +72,12 @@
               </div>
             </div>
             <div class="mount-coffe">
+              <div class="mount-coffe-img">
+                <div class="mount-coffe-img-wrap">
+                  <img src="../../assets/5.jpg" alt="">
+                  <img src="../../assets/5.jpg" alt="">
+                </div>
+              </div>
               <div class="pot-handler"></div>
               <div class="pot-cap"></div>
               <div class="pot-neck">&lt;</div>
@@ -77,19 +90,18 @@
               </ul>
             </div>
             <div class="warming">
-              <div class="coffe-cap-size-switcher sm">
-              </div>
+              <div class="coffe-cap-size-switcher sm"></div>
               <form action="coffe-cap-size" class="coffe-cap-size-list">
                 <div class="cap-size-item">
-                  <input class="cap-size" name="cap-size" id="sm" type="radio" disabled="true" checked>
+                  <input class="cap-size" name="cap-size" data-cup="expresso" type="radio" disabled="true" checked>
                   <label for="sm">esspresso</label>
                 </div>
                 <div class="cap-size-item">
-                  <input class="cap-size" name="cap-size" id="md" type="radio" disabled="true">
+                  <input class="cap-size" name="cap-size" data-cup="americano" type="radio" disabled="true">
                   <label for="md">americano</label>
                 </div>
                 <div class="cap-size-item">
-                  <input class="cap-size" name="cap-size" id="lg" type="radio" disabled="true">
+                  <input class="cap-size" name="cap-size" data-cup="latte" type="radio" disabled="true">
                   <label for="lg">latte</label>
                 </div>
               </form>
