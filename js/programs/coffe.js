@@ -11,6 +11,10 @@ let Machine = function () {
   this.coffe = false;
   this.coffeOn = () => this.coffe = true;
   this.coffeOff = () => this.coffe = false;
+  
+  this.ready = false;
+  this.readyOn = () => this.ready = true;
+  this.readyOff = () => this.ready = false;
 };
 
 let machine = new Machine;
@@ -31,6 +35,8 @@ let Coffe = function () {
   this.waterIndicator = document.querySelector('.water-indicator');
   this.coffeIndicator = document.querySelector('.coffe-indicator');
   this.setCoffeCup = document.getElementsByClassName('coffe-cap-size-switcher')[0];
+  this.elemMountCoffe = document.querySelector('.mount-coffe');
+
 };
 
 Coffe.prototype.fillWater = function () {
@@ -146,7 +152,7 @@ Coffe.prototype.textDisplay = function (cl) {
 
   setTimeout(function(){
     coffe.powerDisplay.classList = className + ' ' + oldClassName;
-  }, 1000);
+  }, 1800);
 };
 
 // check cup size
@@ -154,7 +160,7 @@ Coffe.prototype.checkCupSize = function() {
   let capListItem = document.getElementsByClassName('cap-size-item');
   for (let i = 0; i < capListItem.length; i++) {
     let input = capListItem[i].getElementsByTagName('input')[0];
-    if ( input.hasAttribute('checked', 'checked') ) return console.log(input.getAttribute('data-cup'));
+    if ( input.hasAttribute('checked', 'checked') ) return input.getAttribute('data-cup');
   };
 };
 
@@ -169,21 +175,29 @@ Coffe.prototype.getCoffe = function (output) {
   if (!machine.coffe) {
     return coffe.textDisplay('fc')
   }
-  
-  coffe.checkCupSize(); 
+  if (machine.ready) {
+    return coffe.textDisplay('ready')
+  }
 
+  coffe.textDisplay('wait');
+  coffe.elemMountCoffe.classList = coffe.elemMountCoffe.classList[0] + ' ' + coffe.checkCupSize();
+  machine.ready = true;
   
   // this.setCup(output)
   // this.warming(this.timeWorming);
   // this.remain();
 };
 
+Coffe.prototype.takeCoffe = function () {
+
+
+  machine.ready = false;
+
+}
+
 let coffe = new Coffe();
 
 Coffe.prototype.setCoffeCupClosure = Coffe.prototype.selectCoffe();
-
-// coffe.getCoffe('small');
-
 
 coffe.setCoffeCup.addEventListener('click', coffe.setCoffeCupClosure);
 
@@ -194,3 +208,16 @@ coffe.waterMount.addEventListener('click', coffe.fillWater);
 coffe.coffeMount.addEventListener('click', coffe.fillCoffe);
 
 coffe.getCoffeCup.addEventListener('click', coffe.getCoffe);
+
+
+// у нас готово кофе
+// 1. клацнуть на чайник что бы вылить в чашку
+// 2. после приготовления поставить флаг что чайник не пуст
+// 3. 
+
+
+// Потеря контекста с обработчиками событий
+// С какими проблемами я столкнулся. Если хранить все данные (элементы) в функции-конструкторе при добавлении обработчиков событий this теряется и есть варианты к ним обращатся :
+// 1. Передавать в функ-констр параметрами. 2. Создать независимый обьект и с него тянуть данные obj.elem
+// 3. Или хранить их в функции и обращаться к ним после того как она станет обьектом. Что я и применил.
+// На самом деле ни один из этих вариантов не айс если знаете как это решить красиво буду признательный

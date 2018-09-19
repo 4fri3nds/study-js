@@ -218,11 +218,9 @@ body {
 .socket.active .socket-cable:after {
   border-color: limegreen;
 }
-
 .socket.active .socket-in {
   background: darkgray;
 }
-
 .socket.active .socket-in span {
   background: none;
 }
@@ -234,7 +232,6 @@ body {
   height: 200px;
   position: relative;
 }
-
 .shlang {
   position: absolute;
   top: -4px;
@@ -501,7 +498,7 @@ body {
   background-color: cadetblue;
 }
 .power-display.wait:after{
-  content: 'wait';
+  content: 'preparing';
 }
 .power-display.fc {
   background-color: greenyellow;
@@ -520,6 +517,12 @@ body {
 }
 .power-display.npow:after {
   content: 'no power';
+}
+.power-display.ready {
+  background-color: darkseagreen;
+}
+.power-display.ready:after {
+  content: "take it";
 }
 .machine-fill {
   position: absolute;
@@ -578,7 +581,7 @@ body {
 .mount-coffe-img-wrap {
   position: relative;
   top: 60%;
-  transition: .5s ease-in-out; 
+  transition: 1.5s ease-in-out; 
 }
 .mount-coffe-img-wrap img {
   width: 100%;
@@ -663,7 +666,6 @@ body {
   border: 3px solid;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
-
 .pot-neck {
   position: absolute;
   top: -11px;
@@ -673,7 +675,6 @@ body {
   font-weight: bold;
   z-index: -1;
 }
-
 .pot-stand {
   content: '';
   position: absolute;
@@ -686,7 +687,6 @@ body {
   background-color: lightgray;
   margin: auto;
 }
-
 .pot-amount {
   position: absolute;
   bottom: 6px;
@@ -694,7 +694,6 @@ body {
   height: 88%;
   border-left: 1px solid #2C4756;
 }
-
 .pot-amount li {
   font-size: 10px;
   margin: 0;
