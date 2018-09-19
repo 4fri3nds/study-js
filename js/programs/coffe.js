@@ -189,11 +189,14 @@ Coffe.prototype.getCoffe = function (output) {
 };
 
 Coffe.prototype.takeCoffe = function () {
-
-
+  if (!machine.ready) {
+    return coffe.textDisplay('fc')
+  }
+  console.log(machine.ready);
   machine.ready = false;
 
-}
+
+};
 
 let coffe = new Coffe();
 
@@ -208,6 +211,8 @@ coffe.waterMount.addEventListener('click', coffe.fillWater);
 coffe.coffeMount.addEventListener('click', coffe.fillCoffe);
 
 coffe.getCoffeCup.addEventListener('click', coffe.getCoffe);
+
+coffe.elemMountCoffe.addEventListener('click', coffe.takeCoffe);
 
 
 // у нас готово кофе

@@ -44,7 +44,7 @@
             <div class="sub-title">Main</div>
             <div class="title">Синтаксис</div>
             <fieldset>
-              <legend>setTimeout</legend>
+              <legend>1. setTimeout</legend>
               <blockquote>
                 Сработает через ...ms и прекрат свое существование
               </blockquote>
@@ -61,7 +61,40 @@
               </pre>
             </fieldset>
             <fieldset>
-              <legend>setInterval</legend>
+              <legend>2. setTimeout - рекурсивный</legend>
+              <blockquote>
+                Это удобно потому, что вам не нужно очищать такой тайм-аут, ведь когда анимация закончится, новый тайм-аут просто не будет установлен. И во-вторых, в отличие от интервала, все итерации такого тайм-аута будут выполнены строго последовательно и только тогда, когда изменение параметров одной итерации закончено, поэтому не будет ситуации "гонки выполнения".
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <b>Скелет</b>
+                  setTimeout(function () { 
+                    /* Тут изменение параметров */ 
+                    if ( /* условие срабатывания итерации */ ) setTimeout(arguments.callee, 0); 
+                  }, 0);
+
+                  <b>Примерно так это происходит</b>
+                  var element = document.getElementById("example"); 
+                  var from = 0; // Начальная координата X 
+                  var to = 500; // Конечная координата X 
+                  var duration = 1000; // Длительность - 1 секунда 
+                  var start = new Date().getTime(); // Время старта 
+                  
+                  setTimeout(function() { 
+                    var now = (new Date().getTime()) - start; // Текущее время 
+                    var progress = now / duration; // Прогресс анимации 
+                     
+                    var result = (to - from) * delta(progress) + from; 
+                    element.style.left = result + "px"; 
+                    if (progress < 1) // Если анимация не закончилась, продолжаем 
+                    setTimeout(arguments.callee, 10); 
+                  }, 10);
+
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. setInterval</legend>
               <blockquote>Будет выполнять ф-ю с интервалом в 1 сек</blockquote>
               <pre class="code">
                 <code>     

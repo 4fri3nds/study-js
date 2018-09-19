@@ -31,6 +31,8 @@ body {
 }
 
 .coffe-code {
+  width: 500px;
+  float: right;
 }
 
 .coffe-machine, .socket {
@@ -519,7 +521,7 @@ body {
   content: 'no power';
 }
 .power-display.ready {
-  background-color: darkseagreen;
+  background-color: cyan;
 }
 .power-display.ready:after {
   content: "take it";
@@ -570,6 +572,29 @@ body {
   margin-left: 20%;
   position: relative;
   background-color: #fff;
+  transition: 1s ease-in;
+  cursor: pointer;
+  animation: take-coffe 5s;
+}
+@keyframes take-coffe {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  30% {
+    transform: translate(100px, 0px) rotateY(180deg);
+  }
+  40% {
+    transform: translate(100px, 12px) rotateY(180deg);
+  }
+  60% {
+    transform: translate(100px, 0px) rotateY(180deg) rotate(-60deg);
+  }
+  80% {
+    transform: translate(100px, 0px) rotateY(180deg);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
 .mount-coffe-img {
   overflow: hidden;
