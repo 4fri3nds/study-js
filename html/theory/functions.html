@@ -31,7 +31,7 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Примеры кода</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">This</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">__This__</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Return</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Примеры</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Arguments</li>
@@ -350,7 +350,7 @@
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">This</div>
+            <div class="title">__This__</div>
             <fieldset>
               <legend>1. This</legend>
               <h3>
@@ -360,6 +360,19 @@
                 Также верхнее this можно положить опять таки в переменную, которую передать в функции пониже.
               </p>
               <pre><code>let that = this.value;</code></pre>
+            </fieldset>
+            <fieldset>
+              <legend>1.5 This в addEventListener && OOP</legend>
+              <blockquote>
+                function(){}.bind(this) -- это закрепит за этой функцией this
+
+                this.elem.addEvent( 'click', somefunc.call(this) ) -- это переопределит с this с элемента на тот в котором этот элемент вызвался this.elem  
+              </blockquote>
+              <pre class="code">
+                <code>
+                  
+                </code>
+              </pre>
             </fieldset>
             <fieldset>
               <legend>2. Методы this</legend>

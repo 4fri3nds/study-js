@@ -411,7 +411,7 @@ body {
   background: skyblue;
 }
 .machine-coffe-count:before {
-  content: 'coffe :';
+  content: 'Coffe :';
   display: block;
   margin-bottom: 2px;
 }
@@ -497,7 +497,7 @@ body {
   background-color: darkred;
 }
 .power-display {
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'calc';
   background-color: gray;
   height: 16px;
@@ -532,13 +532,13 @@ body {
   background-color: greenyellow;
 }
 .power-display.fc:after {
-  content: 'no coffe'; 
+  content: 'less coffe'; 
 }
 .power-display.fw {
   background-color: deepskyblue;
 }
 .power-display.fw:after {
-  content: 'no water';
+  content: 'less water';
 }
 .power-display.npow {
   background-color: darkseagreen;
