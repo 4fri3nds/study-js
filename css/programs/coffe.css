@@ -26,6 +26,7 @@ body {
 }
 
 .coffe {
+  float: left;
   width: 500px;
   transform: scale(1.5) translate(30%, 30%);
 }
@@ -349,7 +350,7 @@ body {
 .mounty-beans-wrap:before {
   width: 65%;
   bottom: -2px;
-  background-color: #000;
+  background-color: #2C4756;
   border-radius: 100%;
   height: 5px;
   left: 15%;
@@ -394,6 +395,31 @@ body {
   transform: rotate(180deg);
   position: relative;
 }
+
+.machine-coffe-count {
+  font-size: 11px;
+  position: absolute;
+  width: 44px;
+  right: 22px;
+  transform: rotate(180deg);
+  top: 34px;
+  font-family: 'calc';
+  background: gray;
+  padding: 2px;
+}
+.machine-coffe-count.active {
+  background: skyblue;
+}
+.machine-coffe-count:before {
+  content: 'coffe :';
+  display: block;
+  margin-bottom: 2px;
+}
+.machine-coffe-count:after  {
+  content: 'ml';
+  display: inline-block;
+}
+
 .mount-beans {
   height: 68px;
   width: 15px;
@@ -547,7 +573,27 @@ body {
   display: inline-block;
   vertical-align: middle;
 }
-
+.machine-water-count {
+  font-size: 11px;
+  position: absolute;
+  right: 4px;
+  bottom: 26px;
+  font-family: 'calc';
+  background: gray;
+  padding: 3px;
+}
+.machine-water-count.active {
+  background: skyblue;
+}
+.machine-water-count:before {
+  content: 'Water :';
+  display: block;
+  margin-bottom: 2px;
+}
+.machine-water-count:after  {
+  content: 'ml';
+  display: inline-block;
+}
 .machine-fill-item.active:after {
   background: seagreen;
 }
@@ -574,7 +620,7 @@ body {
   background-color: #fff;
   transition: 1s ease-in;
   cursor: pointer;
-  animation: take-coffe 5s;
+  /* animation: take-coffe 5s; */
 }
 @keyframes take-coffe {
   0% {
@@ -812,6 +858,39 @@ body {
   vertical-align: bottom;
   width: 50px;
   margin-left: 50px;
+}
+.coffe-cup-wrap img{
+  height: 50px;
+  transform: rotate(50deg);
+  top: -5px;
+  right: -20px;
+  position: relative;
+  animation: dim 2.1s infinite;
+  display: none;
+}
+@keyframes dim {
+  0% {
+    top: -5px;
+    right: -20px;
+  }
+  30% {
+    top: -6px;
+    right: -19px;
+  }
+  
+  50% {
+    top: -7px;
+    right: -20px;
+  }
+
+  70% {
+    top: -6px;
+    right: -21px;
+  }
+  100% {
+    top: -5px;
+    right: -20px;
+  }
 }
 .coffe-cup {
   height: 35px;
