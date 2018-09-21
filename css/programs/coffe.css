@@ -395,9 +395,8 @@ body {
   transform: rotate(180deg);
   position: relative;
 }
-
 .machine-coffe-count {
-  font-size: 11px;
+  font-size: 10px;
   position: absolute;
   width: 44px;
   right: 22px;
@@ -419,7 +418,6 @@ body {
   content: 'ml';
   display: inline-block;
 }
-
 .mount-beans {
   height: 68px;
   width: 15px;
@@ -546,6 +544,12 @@ body {
 .power-display.npow:after {
   content: 'no power';
 }
+.power-display.push {
+  background-color: palevioletred;
+}
+.power-display.push:after {
+  content: 'push button';
+}
 .power-display.ready {
   background-color: cyan;
 }
@@ -574,9 +578,9 @@ body {
   vertical-align: middle;
 }
 .machine-water-count {
-  font-size: 11px;
+  font-size: 10px;
   position: absolute;
-  right: 4px;
+  right: 7px;
   bottom: 26px;
   font-family: 'calc';
   background: gray;
