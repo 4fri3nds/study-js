@@ -68,7 +68,6 @@ Coffe.prototype.fillWater = function () {
   if (!this.water) this.waterOn();
 };
 
-
 Coffe.prototype.fillCoffe = function () {
   this.imgCoffeMount.style.transform = 'translateY(0%)';
   this.coffeIndicator.classList.add('active');
@@ -89,6 +88,8 @@ Coffe.prototype.getPower = function () {
   this.waterCountElem.classList.toggle('active');
   this.coffeCountElem.classList.toggle('active');
   this.machinePower.classList.toggle('active');
+  this.getCoffeCup.classList.toggle('active');
+  console.log(this.getCoffeCup);
 };
 
 // select coffe closure
@@ -139,9 +140,6 @@ Coffe.prototype.setCup = function(getCoffeSize) {
 Coffe.prototype.remain = function () {
   this.mountCoffe -= this.outCoffe;
   this.mountWater -= this.outWater;
-
-  // console.log('Остаток кофе : ' + Math.round(this.mountCoffe / this.outCoffe) + ' чашек.');
-  // console.log('Остаток воды : ' + Math.round(this.mountWater / this.outWater) + ' чашек.');
 
   this.rateCoffe = 100 - (this.mountCoffe * 100 / this.maxCoffe);
   this.rateWater = 100 - (this.mountWater * 100 / this.maxWater);

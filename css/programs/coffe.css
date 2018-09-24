@@ -457,35 +457,25 @@ body {
 .power-button.off:hover {
   background-color: rgba(0,0,0, .6);
 }
-.power-button.on:hover {
-  background-color: greenyellow;
-}
-.power-button.working:hover {
-  background-color: red;
-}
-.power-button.off {
-  background-color: gray;
-}
-.power-button.on {
+.power-button.active:hover {
   background-color: green;
 }
-.power-button.working {
-  background-color: lightcoral;
+.power-button {
+  background-color: gray;
 }
-.power-button.off:before {
+.power-button:before {
   bottom: 0;
   height: 5px;
   background-color: darkgray;
 }
-.power-button.on:before {
-  bottom: 0;
-  height: 5px;
-  background-color: darkgreen;
+.power-button.active {
+  background-color: seagreen;
 }
-.power-button.working:before {
+
+.power-button.active:before {
   bottom: 0;
   height: 5px;
-  background-color: darkred;
+  background-color: lightgreen;
 }
 .power-display {
   font-size: 10px;
@@ -990,4 +980,23 @@ body {
   background-color: gray;
   border: 3px solid lightgray;
   cursor: pointer;
+}
+.coffe-instruction {
+  position: absolute;
+  right: -50px;
+  top: 0;
+}
+.coffe-instruction h2 {
+  font-size: 10px;
+}
+.coffe-instruction ul {
+  font-size: 10px;
+}
+.coffe-instruction li {
+  list-style-type: decimal !important;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 2px;
+  border: 0;
+  font-size: 8px;
 }
