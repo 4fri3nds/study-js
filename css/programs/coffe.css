@@ -26,14 +26,9 @@ body {
 }
 
 .coffe {
-  float: left;
+  height: 700px;
   width: 500px;
-  transform: scale(1.5) translate(30%, 30%);
-}
-
-.coffe-code {
-  width: 500px;
-  float: right;
+  transform: scale(2) translate(50%, 30%);
 }
 
 .coffe-machine, .socket {
@@ -376,7 +371,7 @@ body {
 }
 .water-mount:hover img {
   transform: translateY(-5%);
-  opacity: .2;
+  opacity: .6;
 }
 .water-mount img {
   transition: .5s;
@@ -435,19 +430,17 @@ body {
   cursor: pointer;
 }
 .mount-beans img {
-  height: 0px;
-  width: 0px;
-  transition: .3s;
-}
-.mount-beans.active img {
   height: 70px;
   width: 70px;
+  transform: translateY(100%);
+  transition: .5s;
+}
+.mount-beans.active img {
   opacity: 1 !important;
 }
 .mount-beans:hover img {
-  height: 70px;
-  width: 70px;
-  opacity: .3;
+  transform: translateY(0%);
+  opacity: .8;
 }
 .power-button {
   border-radius: 50px;
@@ -550,11 +543,23 @@ body {
 .power-display.push:after {
   content: 'push button';
 }
-.power-display.ready {
+.power-display.kettle-ready {
   background-color: cyan;
 }
-.power-display.ready:after {
-  content: "take it";
+.power-display.kettle-ready:after {
+  content: "kattle r'dy";
+}
+.power-display.coffe-ready {
+  background-color: greenyellow;
+}
+.power-display.coffe-ready:after {
+  content: "coffe r'dy";
+}
+.power-display.empty {
+  background-color: seashell;
+}
+.power-display.empty:after {
+  content: "empty";
 }
 .machine-fill {
   position: absolute;
@@ -862,15 +867,16 @@ body {
   vertical-align: bottom;
   width: 50px;
   margin-left: 50px;
+  cursor: pointer;
 }
 .coffe-cup-wrap img{
   height: 50px;
-  transform: rotate(50deg);
-  top: -5px;
-  right: -20px;
+  top: 5px;
+  right: 0px;
   position: relative;
   animation: dim 2.1s infinite;
-  display: none;
+  opacity: 0;
+  transition: 2s ease-in;
 }
 @keyframes dim {
   0% {
@@ -904,7 +910,6 @@ body {
   position: relative;
   font-size: 12px;
   font-family: cursive;
-  padding-top: 7px;
   line-height: 1;
   text-align: center;
   font-weight: bold;

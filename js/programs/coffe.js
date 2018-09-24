@@ -9,9 +9,13 @@ let Machine = function () {
   this.powerOn = () => this.power = true;
   this.powerOff = () => this.power = false;
   
-  this.ready = false;
-  this.readyOn = () => this.ready = true;
-  this.readyOff = () => this.ready = false;
+  this.readyKettle = false;
+  this.readyKettleOn = () => this.readyKettle = true;
+  this.readyKettleOff = () => this.readyKettle = false;
+  
+  this.readyCoffe = false;
+  this.readyCoffeOn = () => this.readyCoffe = true;
+  this.readyCoffeOff = () => this.readyCoffe = false;
 
   this.water = false;
   this.waterOn = () => this.water = true;
@@ -30,9 +34,12 @@ let Coffe = function () {
   this.waterMount =     document.querySelector('.water-mount');
   this.imgWaterMount =  document.querySelector('.water-mount img');
   this.coffeMount =     document.querySelector('.mount-beans');
+  this.imgCoffeMount =  document.querySelector('.mount-beans img');
   this.getCoffeCup =    document.querySelector('.power-button');
   this.elemKettle =     document.querySelector('.mount-coffe');
   this.powerDisplay =   document.querySelector('.power-display');
+  this.coffeCup =       document.querySelector('.coffe-cup-wrap');
+  this.coffeCupReady =  document.querySelector('.coffe-cup span');
   this.coffeSmoke =     document.querySelector('.coffe-cup-wrap img');
   this.powerIndicator = document.querySelector('.power-indicator');
   this.waterIndicator = document.querySelector('.water-indicator');
@@ -48,31 +55,28 @@ let Coffe = function () {
   this.getCoffeCup.addEventListener('click',  this.getCoffe.bind(this) );
   this.elemKettle.addEventListener('click',   this.takeCoffe.bind(this) );
   this.setCoffeCup.addEventListener('click',  this.setCoffeCupClosure.bind(this) );
+  this.coffeCup.addEventListener('click', this.drinkCoffe.bind(this) );
 };
 
 Coffe.prototype.fillWater = function () {
-  // this.waterMount.classList.toggle('active');
-  this.waterMount.getElementsByTagName('img')[0].style.transform = 'translateY(-5%)';
-  this.waterIndicator.classList.toggle('active');
+  this.imgWaterMount.style.transform = 'translateY(-5%)';
+  this.waterIndicator.classList.add('active');
   
   this.mountWater = this.maxWater;
-
   this.waterCountElem.innerHTML = coffe.mountWater;
   
-  !this.water ? this.waterOn() : this.waterOff();
+  if (!this.water) this.waterOn();
 };
 
 
 Coffe.prototype.fillCoffe = function () {
-  this.coffeMount.classList.toggle('active');
-  this.coffeIndicator.classList.toggle('active');
+  this.imgCoffeMount.style.transform = 'translateY(0%)';
+  this.coffeIndicator.classList.add('active');
+
+  this.mountCoffe = this.maxCoffe;
+  this.coffeCountElem.innerHTML = this.mountCoffe;
   
-  if (!this.coffe) {
-    this.mountCoffe = this.maxCoffe;
-    this.coffeCountElem.innerHTML = this.mountCoffe;
-  }
-  
-  !this.coffe ? this.coffeOn() : this.coffeOff();
+  if (!this.coffe) this.coffeOn();
 };
 
 Coffe.prototype.getPower = function () {
@@ -140,7 +144,7 @@ Coffe.prototype.remain = function () {
   // console.log('Остаток воды : ' + Math.round(this.mountWater / this.outWater) + ' чашек.');
 
   this.rateCoffe = 100 - (this.mountCoffe * 100 / this.maxCoffe);
-  this.rateWater = this.outWater * 100 / this.maxWater;
+  this.rateWater = 100 - (this.mountWater * 100 / this.maxWater);
 
   this.waterCountElem.innerHTML = this.mountWater;
   this.coffeCountElem.innerHTML = this.mountCoffe;
@@ -174,7 +178,7 @@ Coffe.prototype.getCoffe = function () {
   
   if (!this.coffe || this.mountCoffe <= 50) return this.textDisplay('fc');
   
-  if (this.ready) return this.textDisplay('ready');
+  if (this.readyKettle) return this.textDisplay('kettle-ready');
 
   this.textDisplay('wait');
 
@@ -184,23 +188,30 @@ Coffe.prototype.getCoffe = function () {
   this.setCup( this.checkCupSize() );
 
   this.remain();
-  this.readyOn();
+  this.readyKettleOn();
 
-  this.imgWaterMount.style.transform = 'translateY(' + this.rateCoffe + '%)';
+  this.imgWaterMount.style.transform = 'translateY(' + this.rateWater + '%)';
+  this.imgCoffeMount.style.transform = 'translateY(' + this.rateCoffe + '%)';
 };
 
 Coffe.prototype.takeCoffe = function () {
-  if (!this.ready) return this.textDisplay('push');
-  
-  this.readyOff();
+  if (!this.readyKettle) return this.textDisplay('empty');
+  if (this.readyCoffe) return this.textDisplay('coffe-ready');
 
+  this.readyKettleOff();
+  this.readyCoffeOn();
+  this.coffeCupReady.innerHTML = 'ready';
   this.elemKettle.style.animation = 'take-coffe 5s';
   
   setTimeout( () => this.elemKettle.classList = this.elemKettle.classList[0], 2500 );
   setTimeout(() => this.elemKettle.style.animation='', 5000 );
+  setTimeout( () => this.coffeSmoke.style.opacity = 1, 4000 );
+};
 
-  setTimeout( () => this.coffeSmoke.style.display = 'block', 4000 );
-  setTimeout( () => this.coffeSmoke.style.display = 'none', 10000 );
+Coffe.prototype.drinkCoffe = function() {
+  this.readyCoffe ? this.readyCoffeOff() : this.textDisplay('empty');
+  this.coffeSmoke.style.opacity = 0;
+  this.coffeCupReady.innerHTML = '';
 };
 
 Coffe.prototype.setCoffeCupClosure = Coffe.prototype.selectCoffe();
