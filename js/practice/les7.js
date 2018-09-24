@@ -82,11 +82,10 @@ function generate2() {
   let symbols = 'qwertyuiopasdfghjklzxcvbnm';
   let str = '';
 
-  for (let x = 0; x < getRandomArbitrary(3, 35); x++) {
+  for (let x = 0; x < getRandom(3, 35); x++) {
     str += symbols.charAt(Math.random() * symbols.length); }
 
   input6.value = str;
-
 }
 
 //8 task

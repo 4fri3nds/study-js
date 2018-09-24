@@ -643,7 +643,7 @@ input {
 }
 
 #menu>ul>li>ul>li>a {
-  font-family: serif;
+  font-family: sans-serif;
   position: relative;
 }
 

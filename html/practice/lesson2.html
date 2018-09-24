@@ -181,41 +181,24 @@
       </pre>
     </fieldset>
     <fieldset id="fieldset6">
-      <legend>6. </legend>
-      <h3>Ари</h3>
+      <legend>6. Орифметическая прогрессия</legend>
+      <h3>Это когда число 3 разбивается на 1,2,3 и мы получаем их сумму</h3>
       <input type="text" id="input6">
       <button id="but6">Result</button>
       <div id="result6"></div>
       <pre class="code">
         <code>
-          <b>перебором</b>
-
-          <b>рекурсия</b>
-           
-          <b>формула a_n = n * (n + 1)/2</b>
-       
-        </code>
-      </pre>
-    </fieldset>
-    <fieldset id="fieldset7">
-      <legend>7. </legend>
-      <input type="text" id="input7">
-      <button id="but7">Result</button>
-      <div id="result7"></div>
-      <pre class="code">
-        <code>
-
-        </code>
-      </pre>
-    </fieldset>
-    <fieldset id="fieldset8">
-      <legend>8. </legend>
-      <input type="text" id="input8">
-      <button id="but8">Result</button>
-      <div id="result8"></div>
-      <pre class="code">
-        <code>
-
+          let sum6 = function (x) { 
+            let sum = 0; for (let i = 1; i <= x ; i++) { 
+              sum +=i 
+            } 
+            return sum; 
+          }; 
+            
+          inp6.onchange=f unction() { 
+            div( 'Вводимое число - ' + this.value + '; 
+            Pезультат арифметической прогрессии - ' + sum6(this.value), result6 ); 
+          };
         </code>
       </pre>
     </fieldset>

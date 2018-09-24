@@ -20,21 +20,21 @@ let quoter = function(x) {
   return Math.pow(x, 2); 
 };
 
-get1.onclick = () => div(quoterDegry(quoterDegry(2, quoter), quoter), result1 );
+get1.onclick = () => div(quoterDegry(quoterDegry(2, quoter), quoter), result1, true );
 
 // 2 task
 let a = () => 3;
 let b = () => 4;
 let abc = (a, b) => a() + b();
 
-get2.onclick = () => div( abc(a, b), result2);
+get2.onclick = () => div( abc(a, b), result2, true);
 
 //3 task
 let dg2 = (num) => Math.pow(num, 2);
 let dg3 = (num) => Math.pow(num, 3);
 let sumDg = (num, func1, func2) => func1(num) + func2(num);
 
-get3.onclick = () => div(sumDg(3, dg2, dg3), result3);
+get3.onclick = () => div(sumDg(3, dg2, dg3), result3, true);
 
 //4 корень квадратный из каждого числа массива
 let arr4 = [4, 9, 16, 25, 36, 49, 64, 81, 100];

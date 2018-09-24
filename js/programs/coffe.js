@@ -51,7 +51,8 @@ let Coffe = function () {
 };
 
 Coffe.prototype.fillWater = function () {
-  this.waterMount.classList.toggle('active');
+  // this.waterMount.classList.toggle('active');
+  this.waterMount.getElementsByTagName('img')[0].style.transform = 'translateY(-5%)';
   this.waterIndicator.classList.toggle('active');
   
   this.mountWater = this.maxWater;
@@ -138,7 +139,7 @@ Coffe.prototype.remain = function () {
   // console.log('Остаток кофе : ' + Math.round(this.mountCoffe / this.outCoffe) + ' чашек.');
   // console.log('Остаток воды : ' + Math.round(this.mountWater / this.outWater) + ' чашек.');
 
-  this.rateCoffe = this.outCoffe * 100 / this.maxCoffe;
+  this.rateCoffe = 100 - (this.mountCoffe * 100 / this.maxCoffe);
   this.rateWater = this.outWater * 100 / this.maxWater;
 
   this.waterCountElem.innerHTML = this.mountWater;
