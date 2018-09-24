@@ -89,7 +89,6 @@ Coffe.prototype.getPower = function () {
   this.coffeCountElem.classList.toggle('active');
   this.machinePower.classList.toggle('active');
   this.getCoffeCup.classList.toggle('active');
-  console.log(this.getCoffeCup);
 };
 
 // select coffe closure
