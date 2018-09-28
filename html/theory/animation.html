@@ -32,6 +32,7 @@
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">setInterval & setTimeout</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Scroll</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Делегирование</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">title</li>
         </ul>
         <!-- END NAV -->
@@ -245,10 +246,97 @@
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
-            <ul>
+            <div class="title">Делегирование</div>
+              <fieldset>
+                <legend>1. event.target</legend>
+                <blockquote>
+                  Делегирование - позволяет задать для всех потомков событие, которое вешаем только на предка.
+                  Когда у нас например список карточек, которые закрываются по клику. И карточек может быть бесконечно много.
 
-            </ul>
+                  C помощью event.target мы можем узнать на кого имеено мы кликнули в пределах нашего родителя. 
+                </blockquote>
+                <pre class="code">
+                  <code>
+                    table.onclick = () => console.log( event.target )
+                    
+                    table.onclick = foo; 
+                    function foo(target) {
+                    let sm = event.target;
+                    console.log(sm);
+                    }
+                  </code>
+                </pre>
+              </fieldset>
+            <fieldset>
+              <legend>2. list Menu on click</legend>
+              <blockquote>
+                Тут мы обрабатываем пункты меню. 
+              </blockquote>
+              <pre class="code">
+                <code>
+                  <b>html</b>
+                  div id="menu">
+                    button data-action="save">   Сохранить /button>
+                    button data-action="load">   Загрузить /button>
+                    button data-action="search"> Поиск     /button>
+                  /div>
+
+                  <b>js</b>
+                  function Menu(elem) {
+                    this.save =   () => alert( 'сохраняю' );
+                    this.load =   () => alert( 'загружаю' );
+                    this.search = () => alert( 'ищу' );
+                  
+                    var self = this; //!! чтобы сохранить ссылку на объект Menu
+                  
+                    elem.onclick = function(e) {
+                      var target = e.target;
+                      var action = target.getAttribute('data-action');
+
+                      if (action) self[action]();
+                    };
+                  }
+                  
+                  new Menu(menu);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. table.onClick на все td</legend>
+                <pre class="code">
+                  <code>
+                    var selectedTd;
+                    
+                    table.onclick = function(event) {
+                      var target = event.target; // где был клик?
+                    
+                      if (target.tagName != 'TD') return; // не на TD? тогда не интересует
+                    
+                      highlight(target); // подсветить TD
+                    };
+                    
+                    function highlight(node) {
+                      if (selectedTd) selectedTd.classList.remove('highlight');
+                    
+                      selectedTd = node;
+                      selectedTd.classList.add('highlight');
+                    }
+                  </code>
+                </pre>
+            </fieldset>
+            <!-- end -->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Title</div>
+            <fieldset>
+              <legend>1. title</legend>
+              <pre class="code">
+                <code>
+                </code>
+              </pre>
+            </fieldset>
             <!-- end -->
           </li>
         </ul>

@@ -58,10 +58,14 @@
                   - querySelector 
                   - querySelectorAll - ('ul > li:last-child')
                   
+                  --------
                   - elem.matches(css) ничего не ищет, а проверяет, удовлетворяет ли elem селектору css. Он возвращает true либо false.
+                  - parent.contains(child) true / false -- проверяет содержит ли этот элемент child напр.('span')
+                  - elem.parentElement.insertBefore("что вставить", "после чего") -- найти родителя и вставить в него 
+                  - elem.tagName -- определяет тег искомого элемента
                   
                   nextElementSibling!!
-
+                  --------
                   elem.closest(css)
                   parentNode возвращает родитель элемента.
                   parentElement

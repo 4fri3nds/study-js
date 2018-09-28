@@ -35,7 +35,7 @@ var JSON = {
       submenu: [
         { linkname: 'Callback', link: '../theory/callback.html' },
         { linkname: 'Замыкания', link: '../theory/closures.html' },
-        { linkname: 'Классы', link: '../theory/clases.html' },
+        { linkname: 'Class', link: '../theory/clases.html' },
         { linkname: 'OOP', link: '../theory/oop.html' },
         { linkname: 'Прототипы', link: '../theory/proto.html' },
         { linkname: 'json, ajax', link: '../theory/json.html' },
@@ -46,7 +46,9 @@ var JSON = {
       { title: 'My Apps',
       submenu: [
         { linkname: 'Калькулятор', link: '../programs/calc.html' },
-        { linkname: 'Кофеварка', link: '../programs/coffe.html' }]
+        { linkname: 'Кофеварка', link: '../programs/coffe.html' },
+        { linkname: 'Календарь', link: '../programs/calendar.html' }
+      ]
     }],
 
   breadcrumps: [

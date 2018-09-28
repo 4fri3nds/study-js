@@ -73,7 +73,7 @@ function hasElem(mass, num) {
 // вывести массив в табличку dom
 function dispArr(mass, elem) {
   let table = document.createElement('table'),
-    tr = document.createElement('tr');
+      tr = document.createElement('tr');
 
   elem.parentElement.insertBefore(table, elem);
   table.appendChild(tr);
@@ -82,7 +82,7 @@ function dispArr(mass, elem) {
     let td = document.createElement('td');
     tr.appendChild(td);
     td.innerHTML = mass[i];
-  }
+  };
 };
 
 // получить случайное число из массива
