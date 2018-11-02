@@ -86,10 +86,17 @@
               <legend>1. Создать эл. и вставить</legend>
               <pre>
                 <code>
-                  let divEl = document.createElement('div');
-                  divEl.className = "includer"; //divEl.classList = "cl-1 cl-2..."
-                  divEl.innerHTML = str;
-                  location.appendChild(divEl);
+                  <b>создать див</b>
+                    let divEl = document.createElement('div');
+                    divEl.className = "includer"; //divEl.classList = "cl-1 cl-2..."
+                    divEl.innerHTML = str;
+                    location.appendChild(divEl);
+                  
+                  <b>создать img</b>
+                  let img = new Image();
+                  img.height = '100px';
+                  img.src = " src "
+                  document.body.append(img)
                 </code>
               </pre>
             </fieldset>
@@ -184,6 +191,18 @@
               </code>
             </pre>
             </fieldset>
+            <fieldset>
+              <legend>1. Назначить стили динамичесски</legend>
+              <blockquote>
+                очень удобно, Через скрипты активировать элементы у которых в атрибуте уже указано что с ними нужно зделать например:
+                data-atr="//..."
+              </blockquote>
+              <pre>
+                <code>
+                  div type="checkbox" data-atr="color: red;">сделать красным
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 4 -->
           </li>
           <li id="mark5" class="tabs-content-item">
@@ -211,7 +230,7 @@
           <li id="mark6" class="tabs-content-item">
             <!-- 6 -->
             <div class="sub-title">Main</div>
-            <div class="title">Фишки</div>
+            <div class="title">eventListener</div>
             <fieldset>
               <legend>1. Назначить стили динамичесски</legend>
 

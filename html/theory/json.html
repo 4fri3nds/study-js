@@ -53,7 +53,169 @@
             <div class="sub-title">Main</div>
             <div class="title">AJAX</div>
               <fieldset>
-                <legend>1. AJAX для загрузки XML-файла</legend>
+                <legend>1. (GET, POST, HEAD, PUT)</legend>
+                <blockquote>
+                  request.open('GET', url)
+
+                  <b>Объект XMLHttpRequest - свойства</b>
+                  <b>Babel - помогает адаптировать под браузеры : promises, async - await</b>
+                  <b>async - await, promises - помогают работать с асинхронным кодом как с синхронным.</b>
+                  <b>асинхронная загрузка </b>
+                  
+                </blockquote>
+                <pre class="code">
+                  <code>
+                    readystatechange
+                    readyState
+                  </code>
+                </pre>
+              </fieldset> 
+              <fieldset>
+                <legend>2. AJAX параметры, Команды</legend>
+                <blockquote>
+                  
+                </blockquote>
+                <pre class="code">
+                  <code>
+                    <b>Инициализация .open</b>
+                    request.open("GET", "http://localhost/hello.txt", false, "login", "password")
+                    false, true - асинхронный и синхронный режим
+
+                    <b>Отправляем запрос .send</b>
+                    <b>status:</b>содержит статусный код ответа HTTP, который пришел от сервер
+                    <b>statusText:</b>возвращает текст статуса ответа, например, "200 OK"
+                    <b>responseType:</b>возвращает тип ответа. Есть следующие типы:
+                    ""
+                    "arraybuffer"
+                    "blob"
+                    "document"
+                    "json"
+                    "text"
+                    <b>response:</b>возвращает ответ сервера
+                    <b>responseText:</b>возвращает текст ответа сервера
+                    <b>responseXML:</b>возвращает xml, если ответ от сервера в формате xml
+                  </code>
+                </pre>
+              </fieldset> 
+              <fieldset>
+                <legend>3. Request - Response</legend>
+                <blockquote>
+                  Когда отправляем запрос на сервер. Получаем ответ и этот ответ заключается в коде
+                </blockquote>
+                <ul>
+                  <li>
+                    <h3>100 - Информационные</h3>
+                    <div><b>100 Continue</b> — сервер удовлетворён начальными сведениями о запросе, клиент может продолжать пересылать заголовки.</div>
+                    <div><b>101 Switching Protocols</b> — сервер предлагает перейти на более подходящий для указанного ресурса протокол; список
+                    предлагаемых протоколов сервер обязательно указывает в поле заголовка Upgrade</div>
+                    <div><b>102 Processing</b> — запрос принят, но на его обработку понадобится длительное время.</div>
+                  </li>
+                  <li>
+                    <h3>200 - Успех</h3>
+                    <div><b>200 OK</b> — успешный запрос.</div>
+                    <div><b>202 Accepted</b>— запрос был принят на обработку, но она не завершена. На обработку понадобится длительное время</div>
+                    <div><b>203 Non-Authoritative Information</b> — аналогично ответу 200, но в этом случае передаваемая информация была взята не из первичного источника</div>
+                    <div><b>204 No Content</b> — сервер успешно обработал запрос, но в ответе были переданы только заголовки без тела сообщения.</div>
+                    <div><b>206 Partial Content</b> — сервер удачно выполнил частичный GET-запрос, возвратив только часть сообщения.</div>
+                    <div><b></b></div>
+                  </li>
+                  <li>
+                    <h3>300 - Перенаправление</h3>
+                    <div><b>301 Moved Permanently</b> — запрошенный документ был окончательно перенесен на новый URI, указанный в поле Location заголовка.</div>
+                    <div><b>302 Found, 302 Moved Temporarily</b> — запрошенный документ временно доступен по другому URI, указанному в заголовке в поле Location</div>
+                  </li>
+                  <li>
+                    <h3>400 - Ошибка клиента</h3>
+                    <div><b>400 Bad Request</b> — сервер обнаружил в запросе клиента синтаксическую ошибку.</div>
+                    <div><b>401 Unauthorized</b> — для доступа к запрашиваемому ресурсу требуется аутентификация.</div>
+                    <div><b>403 Forbidden</b> — сервер понял запрос, но он отказывается его выполнять из-за ограничений в доступе для клиента к указанному ресурсу.</div>
+                    <div><b>404 Not Found</b> — самая распространённая ошибка при пользовании Интернетом, основная причина — ошибка в написании адреса Web-страницы.</div>
+                    <div><b></b></div>
+                  </li>
+                  <li>
+                    <h3>500 Ошибка сервера</h3>
+                    <div><b>500 Internal Server Error</b> — любая внутренняя ошибка сервера</div>
+                    <div><b>501 Not Implemented</b> — типичный ответ для случаев, когда сервер не
+                    понимает указанный в запросе метод.</div>
+                    <div><b>502 Bad Gateway</b> — сервер, выступая в роли шлюза или прокси-сервера, получил недействительное ответное сообщение от вышестоящего
+                    сервера.</div>
+                    <div><b>503 Service Unavailable</b> — сервер временно не имеет возможности обрабатывать запросы по техническим причинам</div>
+                  </li>
+                </ul>
+              </fieldset> 
+              <fieldset>
+                <legend>4. Асинхронный запрос</legend>
+                <blockquote>
+                  Работа с асинхронными запросами чуть более сложна, чем с синхронными, поскольку нам надо еще обработать событие
+                  readystatechange объекта XMLHttpRequest.
+                  При асинхронном запросе объект XMLHttpRequest использует свойство readyState для хранения состояния запроса.
+                  Событие readystatechange возникает каждый раз, когда изменяется значение свойства readyState. Например, выполним
+                  асинхронный запрос:
+                </blockquote>
+                <pre class="code">
+                  <code>
+                    <b>Состояние запроса представляет собой число:</b>
+                    0: объект XMLHttpRequest создан, но метод open() еще не был вызван для инициализации объекта
+                    1: метод open() был вызван, но запрос еще не был отправлен методом send()
+                    2: запрос был отправлен, заголовки и статус ответа получены и готовы к использованию
+                    3: ответ получен от сервера
+                    4: выполнение запроса полностью завершено (даже если получен код ошибки, например, 404)
+
+                    var request = new XMLHttpRequest();
+                    
+                    function reqReadyStateChange() {
+                      if (request.readyState == 4) {
+                        var status = request.status;
+                        if (status == 200) {
+                          document.write(request.responseText);
+                        } else {
+                          document.write("Ответ сервера " + request.statusText);
+                        }
+                      }
+                    }
+                    
+                    request.open("GET", "http://localhost:8080/hello.txt");
+                    request.onreadystatechange = reqReadyStateChange;
+                    request.send();
+                    <b>Кроме обработки события readystatechange для получения ответа сервера можно также обрабатывать событие load, которое возникает после выполнения запроса. Его использование аналогично:</b>
+                    var request = new XMLHttpRequest();
+                    
+                    function responceLoad() {
+                      if (request.readyState == 4) {
+                        var status = request.status;
+                        if (status == 200) {
+                          document.write(request.responseText);
+                          } else {
+                          document.write("Ответ сервера " + request.statusText);
+                        }
+                      }
+                    }
+                    
+                    request.open("GET", "http://localhost:8080/hello.txt");
+                    request.onload = responceLoad;
+                    request.send();
+                  </code>
+                </pre>
+              </fieldset> 
+              <fieldset>
+                <legend>5. Простой пример запроса и обработки ответа с сервера</legend>
+                <pre class="code">
+                  <code>
+                    var request = new XMLHttpRequest();
+                    request.open("GET", "http://localhost:8080/hello.txt", false);
+                    request.send();
+                    var status = request.status;
+                    if(status==200)
+                    document.write("Текст ответа: " + request.responseText)
+                    else if(status==404)
+                    document.write("Ресурс не найден")
+                    else
+                    document.write(request.statusText)
+                  </code>
+                </pre>
+              </fieldset> 
+              <fieldset>
+                <legend>6. AJAX для загрузки XML-файла</legend>
                 <blockquote>
                   Вот более детальный пример, в котором используется AJAX для загрузки XML-файла и используется функция call() для вызова callback-функции
                   в контексте запрошенного объекта (это значит, что когда мы укажем ключевое слово this внутри callback-функции, оно будет
@@ -87,8 +249,7 @@
                     console.log("это выполнится до вышеуказанного колбека");
                   </code>
                 </pre>
-              </fieldset>
-              
+              </fieldset> 
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">
@@ -193,7 +354,7 @@
                 </code>
               </pre>
             </fieldset>
-            <!-- end -->
+            <!-- end 3-->
           </li>
         </ul>
       </div>

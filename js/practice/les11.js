@@ -1,6 +1,7 @@
 // 1 task
 let elem = document.getElementById('input1');
 let wrap1 = document.getElementById('wrap1');
+
 function func(x1, x2) {
   div(x1 + x2 + "значение инпута " + this.value, wrap1);
 }
