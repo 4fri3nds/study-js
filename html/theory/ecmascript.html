@@ -33,6 +33,8 @@
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Стрелочные функции</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Новые методы</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Let, Const, Var</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Promise: then-catch</li>
+
         </ul>
         <!-- END NAV -->
       </div>
@@ -256,6 +258,90 @@
               </pre>
             </fieldset>
             <!-- end 3-->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Promise: then-catch</div>
+            <fieldset>
+              <legend>1. Синтаксис</legend>
+              <legend>
+                Способ использования, в общих чертах, такой:
+                
+                Код, которому надо сделать что-то асинхронно, создаёт объект promise и возвращает его. Внешний код, получив promise, навешивает на него обработчики. По завершении процесса асинхронный код переводит promise в состояние fulfilled (с результатом) или rejected (с ошибкой). При этом автоматически вызываются соответствующие обработчики во внешнем коде.
+              </legend>
+              <pre class="code">
+                <code>
+                  let checkError = new CheckError(function(resolve, reject){
+                    // Эта функция будет вызвана автоматически
+                    // В ней можно делать любые асинхронные операции,
+                    // А когда они завершатся — нужно вызвать одно из:
+                    // resolve(результат) при успешном выполнении
+                    // reject(ошибка) при ошибке
+                  });
+                  
+                  checkError.then(onFulfilled, onRejected);
+                  
+                  // onFulfilled сработает при успешном выполнении
+                  promise.then(onFulfilled)
+                  // onRejected сработает при ошибке
+                  promise.then(null, onRejected)
+    
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Пример</legend>
+              <legend>
+                Способ использования, в общих чертах, такой:
+                
+                Код, которому надо сделать что-то асинхронно, создаёт объект promise и возвращает его. Внешний код, получив promise, навешивает на него обработчики. По завершении процесса асинхронный код переводит promise в состояние fulfilled (с результатом) или rejected (с ошибкой). При этом автоматически вызываются соответствующие обработчики во внешнем коде.
+              </legend>
+              <pre class="code">
+                <code>
+                  let promise = new Promise(function(suc, rej){
+                    suc('done'); //if suc del then be rej (reason)
+                    rej('false');
+                  });
+                  
+                  promise.then(function(value) {
+                    console.log(value)
+                    console.log("this is value");
+                  }, function(reason){
+                    console.log(reason);
+                    console.log('this is reason');
+                  });
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 4-->
+          </li>
+          <li id="mark4" class="tabs-content-item">
+            <!-- 4 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Map</div>
+            <fieldset>
+              <legend>1. Синтаксис</legend>
+              <legend>
+             
+              </legend>
+              <pre class="code">
+                <code>
+                  Object.values( error.scenarios ).map( (id, name) => { names += name } )
+
+                  <p>Пример</p>
+                  var names = ['HTML', 'CSS', 'JavaScript'];
+                  
+                  var nameLengths = names.map(function(name) {
+                  return name.length;
+                  });
+                  
+                  // получили массив с длинами
+                  alert( nameLengths ); // 4,3,10
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 4-->
           </li>
         </ul>
       </div>

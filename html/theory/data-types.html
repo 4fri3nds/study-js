@@ -68,6 +68,7 @@
                   split(s) - который позволяет превратить строку в массив,разбив ее по разделителю s 
 
                   <b>isNaN(num)</b> -- проверяет является ли строка числом
+
                 </code>
               </pre>
             </fieldset>
@@ -191,6 +192,47 @@
                   String.prototype.constructor -- Определяет функцию, создающую прототип этого объекта. 
                   String.prototype.endsWith() -- Определяет, заканчивается ли строка символами другой строки 
                   String.prototype.match() -- Используется для сопоставления строке регулярного выражения
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Основные методы MUST TO KNOW</legend>
+              <pre class="code">
+                <code>
+        <b>charAt</b>      "str".charAt(2) // "r" 
+            -- возвращает указаный символ 
+
+        <b>concat</b>      "str1".concat("str2", "str3") // "str1str2str3" 
+            -- склеивает строки в одну
+
+        <b>repeat</b>      'r'.repeat(3) // "rrr"
+            -- x раз повторит строку
+
+        <b>replace</b>     "apple is round".replace('apple', 'orange') // "orange is round"
+            -- заменит apple на orange
+
+        <b>search</b>      'cat'.search('t') // 2  
+            -- ищет есть ли в строке совпадение и 
+            -- возвращает индекс || если его нет то -1
+
+        <b>slice</b>        'some to string'.slice(8) // 'string' 
+                            'some to string'.slice(0,8) // 'some to' 
+            -- обрезает строку и возвращает новую по индексу
+
+        <b>split</b>        "some_str".split('_') // ['some', 'str']
+            -- разбивает строку на массив по символу str => []
+
+        <b>substr</b>      'some-string'.substr(5) // "string"
+            -- c 5 символа выведет оставшиеся
+
+        <b>toString</b>     Object.values({ k1: "one", k2: "two" }).toString() // "one,two"
+                            [1,2,3].toString() // "1,2,3"
+            -- преобразует в строку массивы и обьекты
+
+        <b>match</b> str.match(/sometext //["s", index: 0, input: "string", groups: undefined]
+            -- регулярное выражение можно очень гибка изменить строку
+            -- вернет массив с информацией
+
                 </code>
               </pre>
             </fieldset>

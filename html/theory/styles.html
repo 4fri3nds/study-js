@@ -811,7 +811,21 @@
               <legend>1. Скролл</legend>
               <pre class="code">
                 <code>
-
+                    <b>Вставить картинку в селект</b>
+                    option:nth-child(3)::after {
+                        content: " " url(http://www.blogger.com/img/icon_28_followers.png);
+                        vertical-align: middle;
+                    }
+                    ---------
+                    option {
+                      padding: 6px 28px 6px 0;
+                    }
+                    option:nth-child(3) {
+                      background: url(http://www.blogger.com/img/icon_28_followers.png) 100% 50% no-repeat;
+                    }
+                    ---------
+                    symbols unicod работает
+                    
                 </code>
               </pre>
             </fieldset>

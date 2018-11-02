@@ -103,7 +103,8 @@ h5 {
 }
 
 fieldset {
-  background: url(../assets/fieldset/5.jpg) repeat;
+  /* background: url(../assets/fieldset/5.jpg) repeat; */
+  background: #f9f9f9;
   margin-bottom: 20px;
   padding: 0 20px;
 }
@@ -419,7 +420,7 @@ input {
 /* end hightlight */
 
 .nav {
-  background: url('../assets/nav/11.jpg') repeat;
+  /* background: url('../assets/nav/11.jpg') repeat; */
   border: 2px solid black;
 }
 
