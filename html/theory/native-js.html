@@ -34,6 +34,10 @@
           <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Main.js</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Dynamic.js</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Оптимизация</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Асинк. Таймеры</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Асинк. Стек</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark7')">Асинк. Promises</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark8')">async / await</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -419,6 +423,234 @@
               </pre>
             </fieldset>
             <!-- end 4 -->
+          </li>
+          <li id="mark5" class="tabs-content-item">
+            <!-- 5 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Асинхронность. Таймеры</div>
+            <fieldset>
+              <legend>1. Таймеры.</legend>
+              <blockquote>
+                Однопоточная модель - чтобы на один элемент не воздействовало одновременно два потока
+
+                Cуть в том что сначала код должен полностью загрузится, 
+                а timeout сработает сразу если он просрочен.
+                Интерпретатор пробежится по нашему коды вплодь по последней строки.
+                и все задачи станут в очередь
+              </blockquote>
+              <pre>
+                setTimeout(function(){
+                  console.log('timeout 3000')}, 3000) 
+                    // после чтения основного кода, включая for на 2 сек. 
+                    // этот код выполнится через 1 сек после загрузки
+              
+                setTimeout(function(){
+                    console.log('timeout 1000')}, 1000) 
+                    // этот код сработает мгновенно сразу после загрузки
+                
+                for (let i = 0; i < 2000000000; i++) {} 
+                    // эта операция загрузит интерпретатор на 2 сек
+                
+                console.log('after for'); 
+                    // эта строка должна выполнится мгновенно после того как странится загрузится
+                <b>Если немного поменять порядок выполнения</b>
+                console.log('after timeout 1000') // выполнится мгновенно
+                setTimeout(function(){
+                  console.log('before timeout 1000') // через 1 сек(это наш таймер)
+                  for (let i = 0; i < 2000000000; i++) {} // эта операция загрузит интерпретатор на 2 сек
+                  console.log('after timeout 1000') // и еще через 2 сек(так как for загрузит процесс выполнения на 2 сек)
+                }, 1000)
+              </pre>
+            </fieldset>
+            <!-- end 5 -->
+          </li>
+          <li id="mark6" class="tabs-content-item">
+            <!-- 6 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Стек</div>
+              <fieldset>
+                <legend>Стек</legend>
+                <h5><b>Стэк</b> - Порядок вызова функций где компьютер запоминает контекст, называется стеком. Будущие и прошедшие
+                  итерации в очереди.</h5>
+                <ul>
+                  n--
+                  <li>Контекст: { x: 2, n: 3, строка 1 } // Контекст</li>
+                  <li>Контекст: { x: 2, n: 2, строка 2 } // Стек </li>
+                  <li>Контекст: { x: 2, n: 1, строка 3 } // Стек </li>
+                </ul>
+                <blockquote>
+                  pow(2, 1) Опять вложенный вызов в строке 3, на этот раз – с аргументами x=2, n=1. Создаётся новый текущий контекст,
+                  предыдущий
+                  добавляется в стек (в стеке уже два старых контекста) Kаждый раз при вызове функции, текущий контекст помещается
+                  наверх
+                  стека. Тогда функция возвращается, она забирает верхний контекст из стека и использует его для продолжения работы.
+                </blockquote>
+              </fieldset>
+            <!-- end 6 -->
+          </li>
+          <li id="mark7" class="tabs-content-item">
+            <!-- 7 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Асинхронность. Промисы</div>
+              <fieldset>
+                <legend>1. Promises - синтаксис</legend>
+                <blockquote>
+                  При успешном ответе от сервера выполняем первую ф-цию.
+                  При неуспешном ответе выполняем вторую ф-цию.
+                </blockquote>
+                <blockquote>
+                  Вызов delay(2000) создаёт промис, который будет разрешён через 2000 мс., затем мы возвращаем этот промис из
+                  коллбэка
+                  успешного завершения операции в первом then(…), что приводит к тому, что промис второго then(…) будет ожидать эти
+                  2000
+                  мс.
+                </blockquote>
+                <pre>
+                  sum(fetchX(), fetchY())
+                    .then(
+                      // обработчик успешного разрешения промиса
+                      function(sum) {
+                          console.log( sum );
+                      },
+                      // обработчик отклонения промиса
+                      function(err) {
+                        
+                      console.error( err ); // что-то пошло не так
+                    }
+                  );
+                  <b>Цепочки промисов</b>
+                  function delay(time) {
+                    return new Promise(function(resolve, reject){
+                        setTimeout(resolve, time);
+                    });
+                  }
+                  
+                  delay(1000)
+                  .then(function(){
+                      console.log("after 1000ms");
+                      return delay(2000);
+                  })
+                  .then(function(){
+                      console.log("after another 2000ms");
+                  })
+                  .then(function(){
+                      console.log("step 4 (next Job)");
+                      return delay(5000);
+                  })
+  
+                </pre>
+              </fieldset>
+              <fieldset>
+                <legend>2. Промисы. Разбор part1(от loft school)</legend>
+                <blockquote>
+                  При успешном ответе от сервера выполняем первую ф-цию.
+                  При неуспешном ответе выполняем вторую ф-цию.
+                  state(3 состояния):
+                  - Pending - Ожидание 
+                  - Resolve (or Fullfilled) - выполнено Успешно
+                  - Rejected - выполнено Неудача
+                </blockquote>
+                <pre class="code">
+                  <code>
+                    <b>Example 1</b>
+                    const promise = { 
+                      state: ['pending', 'fullfilled', 'rejected']
+                    }
+                    
+                    <b>Example 2 - мы обращаемся к обьекту Promise и его метод-функция имеет еще две функции успех и неудача</b>
+                    const promise = new Promise(function(resolve, reject) {
+                      resolve() // мы вызываем успех в нашем Promise
+                    })
+
+                    <b>Example 3 - list of functions in one promise</b>
+                    const promise = {
+                      state: ['pending', 'fullfilled', 'rejected'],
+                      queue: [ // in this promise quaio funcs
+                        ()=>console.log(1),
+                        ()=>console.log(2),
+                        ()=>console.log(3)
+                      ]
+                    }
+
+                    function delay(timer) {
+                      return new Promise( resolve=>{
+                        setTimeout( ()=> { 
+                          resolve() // если поменять на reject() то then не сработают
+                          console.log('resolved!');
+                        }, timer)
+                      })
+                    }
+                    var promise = delay(2000) //запускаем таймер при успешном выполнении
+                    promise.then(()=>console.log(1)) // при успешном выполнении. 
+                    promise.then(()=>console.log(2)) // Запускается цепь промисов f1,f2,f3
+                    promise.then(()=>console.log(3))
+
+                    <b>Example 4 - chains promises. One function - one promise. </b>
+                      const promise = {
+                        state: ['fullfilled'],
+                        queueResolved: [ // promise 1
+                          ()=>console.log(1)
+                        ]
+                      }
+                      const promise = {
+                        state: ['fullfilled'],
+                        queueResolved: [ // promise 2   
+                          ()=>console.log(2)
+                        ]
+                      }
+                      const promise = {
+                        state: ['fullfilled'],
+                        queueResolved: [ // promise 3
+                          ()=>console.log(3)
+                        ]
+                      }
+
+                      function delay(timer) {
+                      return new Promise( resolve=>{
+                        setTimeout( ()=> { 
+                          resolve() // если поменять на reject() то then не сработают
+                          console.log('resolved!');
+                        }, timer)
+                      })
+                    }
+
+                    var promise = delay(2000) //запускаем таймер при успешном выполнении
+
+                    promise
+                        .then(()=>console.log(1)) // при успешном выполнении. 
+                        .then(()=>console.log(2)) // Запускается цепь промисов f1,f2,f3
+                        .then(()=>console.log(3))
+                  </code>
+                </pre>
+              </fieldset>
+              <fieldset>
+                <legend>3. Промисы. Разбор part2</legend>
+                <blockquote>
+               
+                </blockquote>
+                <pre class="code">
+                  <code>
+
+                  </code>
+                </pre>
+              </fieldset>
+            <!-- end 7 -->
+          </li>
+          <li id="mark8" class="tabs-content-item">
+            <!-- 8 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Асинхронность. Промисы</div>
+              <fieldset>
+                <legend>...</legend>
+                <blockquote>
+                  При успешном ответе от сервера выполняем первую ф-цию.
+                  При неуспешном ответе выполняем вторую ф-цию.
+                </blockquote>
+                <pre>
+                
+                </pre>
+              </fieldset>
+            <!-- end 7 -->
           </li>
         </ul>
       </div>

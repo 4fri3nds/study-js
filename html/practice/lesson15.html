@@ -24,18 +24,106 @@
   <div id="menu"></div>
 </div>
   <blockquote>
-    <h3>lesson-15</h3>
+    <h3>lesson-15 ES6</h3>
     <ol>
-      <li>Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате
-        2016-12-31</li>
+      <li>Promise. Создать очередь выполнений функцией. Вставить картинку, заголовок</li>
     </ol>
   </blockquote>
   
   <div class="container">
     <fieldset>
-      <legend>1.  1</legend>
-      <p> Квадрат числа. Иклудит результат в DOM</p>
-      <input id="input" type="text" value="">
+      <legend>1. Promise.</legend>
+      <blockquote>
+        Создать "chain"(цепь) из 3 промисов. 
+      </blockquote>
+      <h4 id="title1"></h4>
+      <div id="img-container1"></div>
+      <button id="but1">Button 1</button>
+      
+      <pre class="code">
+        <code>
+          let but1 = document.getElementById('but1');
+          let img1 = document.getElementById('img1');
+          let title1 = document.getElementById('title1');
+          
+          let img = new Image();
+          img.height = 100
+          img.src = "longUrl";
+          
+          function delay(timer) {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve()
+                console.log('resolved!');
+              }, timer)
+            })
+          }
+          
+          but1.onclick = function() {
+            const promise = delay(1000)
+            
+            promise
+                .then(() => img1.append(img))
+                .then(() => title1.innerHTML = "Promise Resolved")
+                .then(() => console.log(3))
+          }
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>2. Chain promises.</legend>
+      <blockquote>
+        Создать "chain"(цепь) из 3 промисов. Вывести три картинки. А ту что не получится вывести сообщение об провале
+      </blockquote>
+      <h4 id="title2"></h4>
+      <div id="img-container2"></div>
+      <button id="but2">Button 2</button>
+      <div id="error2"></div>
+      <pre class="code">
+        <code>
+          function loadImg(url) {
+            return new Promise(resolve=> {
+              let img = new Image();
+              img.height = 100
+              img.src = url
+              imgCont2.append(img);
+              img.onload = () => resolve(); // отсюда начинается цепочка промисов
+            })
+          }
+          loadImg(url2)
+            .then(() => loadImg(url3)).catch(() => console.log("url3 - 404"))
+            .then(() => loadImg(url1)).catch(() => console.log("url1 - 404"))
+            .then(() => loadImg(url2)).catch(() => console.log("url2 - 404"))
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>3. async await как альтернатива промисам</legend>
+      <blockquote>
+      </blockquote>
+      <h4 id="title3"></h4>
+      <div id="container3">По нажатию на кнопку вызвать функцию с задержкой 3 раза используя promise в связке async await</div>
+      <button id="but3">Button 3</button>
+      <div id="error3"></div>
+      <pre class="code">
+        <code>
+          function delay3(timer) {
+            return new Promise(resolve =>
+              setTimeout( () => resolve(div("Функция сработала", result3) ), timer))
+          }
+          async function func3 () {
+            let time1 = await delay3(1000);
+            let time2 = await delay3(1000);
+            let time3 = await delay3(1000);
+            console.log(time1);
+            console.log(time2);
+            console.log(time3);
+          }
+          but3.onclick = () => {
+            func3()
+          }
+        </code>
+      </pre>
     </fieldset>
   </div>
   <script src="../../js/main/hilight.js"></script>

@@ -37,6 +37,7 @@
           <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Arguments</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Get/Set/Decriptor</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark7')">John Resig</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark8')">Рекурсия</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -356,6 +357,25 @@
               <legend>1. This</legend>
               <h3>
                 Передача и использование this в функции
+                func.apply(context, args) // this = context (явная передача)
+
+                func.apply( context, [args] )
+                func.call( context, arg1, arg2 )
+                func.bind( context, arg1, arg2 )
+
+                <b>Пример</b>
+                var user = {
+                  name: 'Андрей',
+                  sayHi: function() {
+                    alert('Привет. Меня зовут ' + this.name);
+                  }
+                }
+                
+                var user2 = {
+                  name: 'Вася',
+                }
+                
+                user.sayHi.apply(user2);
               </h3>
               <p>
                 Также верхнее this можно положить опять таки в переменную, которую передать в функции пониже.
@@ -724,7 +744,7 @@
             <!-- 7 -->
             <div class="sub-title">Main</div>
             <div class="title">John Resig</div>
-          <fieldset>
+            <fieldset>
             <legend>Функция-цикл</legend>
             <blockquote>
               Тот же цикл. Только параметром мы передаем занчения индекса.
@@ -762,8 +782,63 @@
                 assert( samurai.yell(4) == "hiyaaaa", "The method correctly calls itself." );
               </code>
             </pre>
-          </fieldset>
+            </fieldset>
             <!-- end 7 -->
+          </li>
+          <li id="mark8" class="tabs-content-item">
+            <!-- 8 -->
+            <div class="title">Рекурсия - ф-я вызывает саму себя</div>
+              <fieldset>
+                <legend>2. Рекурсия</legend>
+                <h5><b>Peкурсия</b> - это когда в выполнение функции заложено выполнять саму себя n к-во раз как в примере со
+                  степенью числа.</h5>
+                <blockquote>
+                  Говорят, что «функция pow рекурсивно вызывает сама себя» до n == 1. Значение, на котором рекурсия заканчивается,
+                  называют
+                  базисом рекурсии. pow(x, n) = x * pow(x, n - 1) x - число; n - степень
+                  <ol>Например, вычислим pow(2, 4), последовательно переходя к более простой задаче:
+                    <li>pow(2, 4) = 2 * pow(2, 4)</li>
+                    <li>pow(2, 3) = 2 * pow(2, 3)</li>
+                    <li>pow(2, 3) = 2 * pow(2, 2)</li>
+                    <li>pow(2, 3) = 2 * pow(2, 1)</li>
+                  </ol>
+                  При выполнении pow(2, 1), в отличие от предыдущих запусков, выражение n != 1 будет равно false, поэтому сработает
+                  else гле
+                  х == самому числу
+                </blockquote>
+                <pre class="code">
+                  <code>
+                    function pow(x, n) { 
+                      if (n != 1) { 
+                        // пока n != 1, сводить вычисление pow(x,n) к pow(x,n-1) 
+                        return x * pow(x, n - 1); 
+                      } else { 
+                        return x; 
+                      } 
+                    } 
+                    
+                    alert( pow(2, 3) ); // 8
+  
+                    <b>Вариант с циклом намного экономнее</b>
+                    let quoxx = function(x,y) { 
+                      let foo = x; 
+                      for (; y >= 1; y--) { 
+                        foo *= x; 
+                      } 
+                      return foo; 
+                    } 
+                    quoxx(2, 4)
+                  </code>
+                </pre>
+              </fieldset>
+            <!-- end 9 -->
+          </li>
+          <li id="mark9" class="tabs-content-item">
+            <!-- 9 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Стек</div>
+         
+            <!-- end 9 -->
           </li>
 
         </ul>

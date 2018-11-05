@@ -16,7 +16,8 @@ var JSON = {
         { linkname: '11. this', link: '../practice/lesson11.html' }, 
         { linkname: '12. array', link: '../practice/lesson12.html' },
         { linkname: '13. functions', link: '../practice/lesson13.html' },
-        { linkname: '14. closures', link: '../practice/lesson14.html' }
+        { linkname: '14. closures', link: '../practice/lesson14.html' },
+        { linkname: '15. ecmascript', link: '../practice/lesson15.html' }
       ]
     },
     { title: 'Theory Primary',

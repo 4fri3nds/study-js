@@ -62,21 +62,51 @@
         let newFunc = func.bind(elem); 
         newFunc("1 аргумент, ", "2 аргумент, "); // это не вызов как не странно,
           а просто передача параметров
+        
+          function func(x1, x2) {
+            div(x1 + x2 + "значение инпута " + this.value, wrap1);
+          } // у этой функции нет this. Но вызвав ее через bind мы это зделали
+          func.bind(elem);
       </pre>
       <input id="input1" type="text" name="input1" value="66">
       <p id="wrap1"></p>
     </fieldset>
     <fieldset>
       <legend>2. Методы this -- call</legend>
-      <pre>funcCall.call(elem2)</pre>
+      <pre>
+          let elem2 = document.getElementById('elem2');
+          let wrap2 = document.getElementById('wrap2');
+           
+          function funcCall() {
+            div(this.value, wrap2);
+          }
+          
+          funcCall.call(elem2); 
+      </pre>
       <input id="elem2" value="привет">
       <p id="wrap2"></p>
     </fieldset>
     <fieldset>
       <legend>3. Методы this -- apply</legend>
       <pre>
-        funcCall.call(elem, name.sur, name.na)
-        funcCall.apply(elem, [arr])
+        let elem3 = document.getElementById('elem3');
+        let wrap3 = document.getElementById('wrap3');
+
+        let name3 = {
+          sur: 'Башинский',
+          na: "Алексей"
+        };
+
+        let arrName3 = ['Башинский', "Алексей"]
+
+        function func3(surname, name) {
+          div(this.value + ', ' + surname + ' ' + name, wrap3);
+        }
+
+        func3.call(elem3, name3.sur, name3.na); 
+        // мы передали параметры в функцию, а взяли их с обьекта
+        // если бы мы здесь использовали метод <i>apply</i> было бы
+        func3.apply(elem3, arrName3); 
       </pre>
       <input id="elem3" value="привет">
       <p id="wrap3"></p>

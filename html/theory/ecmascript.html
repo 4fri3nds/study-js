@@ -316,32 +316,92 @@
             </fieldset>
             <!-- end 4-->
           </li>
-          <li id="mark4" class="tabs-content-item">
-            <!-- 4 -->
+          <li id="mark5" class="tabs-content-item">
+            <!-- 5 -->
             <div class="sub-title">Main</div>
-            <div class="title">Map</div>
+            <div class="title">Массивы и обьекты</div>
             <fieldset>
-              <legend>1. Синтаксис</legend>
-              <legend>
-             
-              </legend>
-              <pre class="code">
+              <legend>1. метод map</legend>
+              <div class="title">Преобразование числового массива в массив обьектов</div>
+              <pre>
                 <code>
-                  Object.values( error.scenarios ).map( (id, name) => { names += name } )
-
-                  <p>Пример</p>
-                  var names = ['HTML', 'CSS', 'JavaScript'];
+                  <b>pairs = (4) [{…}, {…}, {…}, {…}] он перепишет этот массив положив вместо чисел по обьекту</b>
+                  let evens = [2,2,3,3]
+                  let pairs = evens.map((x, y)=>({x, y}))
+                  <hr>
+                  <b>Он запишет в pairs 4 обьекта по 2 ключа even и odd. В even без изменения. А odd ключ + 1</b>
+                  let evens = [2,2,3,3]
+                  let pairs = evens.map(v=>({even: v, odd: v + 1}))
                   
-                  var nameLengths = names.map(function(name) {
-                  return name.length;
-                  });
-                  
-                  // получили массив с длинами
-                  alert( nameLengths ); // 4,3,10
+                  результат:
+                  pairs = [
+                    {even: 2, odd: 3}
+                    {even: 2, odd: 3}
+                    {even: 3, odd: 4}
+                    {even: 3, odd: 4}
+                  ]
                 </code>
               </pre>
             </fieldset>
-            <!-- end 4-->
+            <fieldset>
+              <legend>2. Стрелочные функции</legend>
+              <div class="title"></div>
+              <pre class="code">
+                <code>
+                  odds  = evens.map(v => v + 1) // value увеличит на один
+                  pairs = evens.map(v => ({ even: v, odd: v + 1 })) // [ {}{}{}{} ]
+                  nums  = evens.map((v, i) => v + i) // index + value
+
+                  <b>Метод forEach и стрельчная фун-я</b>
+                  evens.forEach(v => {
+                    if (v % 5 === 0)
+                        fives.push(v)
+                  })
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Параметры в функциях</legend>
+              <div class="title"></div>
+              <pre class="code">
+                <code>
+                  <div class="title">Параметры можно задавать по-дефолту</div>
+                  <b>новый синтаксис</b>
+                    function f (x, y = 7, z = 42) {
+                      return x + y + z
+                    }
+                    f(1) === 50
+                  <b>старый синтаксис</b>
+                    function f (x, y, z) {
+                      if (y === undefined)
+                          y = 7;
+                      if (z === undefined)
+                          z = 42;
+                      return x + y + z;
+                    };
+                    f(1) === 50;
+
+                    <div class="title">Список аргументов можно отслеживать намного проще</div>
+                    function func(x, ...v) {
+                      return v
+                    }
+
+                    более короткая запись: func = (x, ...v) => v
+
+                    func(3, 'asdf', 'qqwer') //(2) ["asdf", "qqwer"]
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. </legend>
+              <div class="title"></div>
+              <pre class="code">
+                <code>
+                 
+                </code>
+              </pre>
+            </fieldset>
+            <!-- end 5-->
           </li>
         </ul>
       </div>
