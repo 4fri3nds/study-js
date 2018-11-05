@@ -339,6 +339,98 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>2. Функциональный стиль</legend>
+              <blockquote>
+                Мы привязали функцию к обьекту. Грубо говоря наша функция возвращает обьет!!
+                Нам даже не нужно писать new Func()
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function makePerson(first, last) {
+                    return {
+                      first: first,
+                      last: last,
+                      fullName: function() {
+                        return this.first + ' ' + this.last;
+                      },
+                      fullNameReversed: function() {
+                        return this.last + ', ' + this.first;
+                      }
+                    }
+                  }
+                  s = makePerson("Simon", "Willison")
+                  s.fullName(); // Simon Willison
+                  s.fullNameReversed(); // Willison, Simon
+
+                  ---------------------------
+                  s = makePerson("Simon", "Willison")
+                  var fullName = s.fullName;
+                  fullName(); // undefined undefined 
+                  <b>При вызове fullName(), 'this' получает ссылку на глобальный объект. А так как в глобальном объекте не определены
+                  переменные first и last, то имеем два undefined.
+                  
+                  Используя особенность ключевого слова 'this' можно улучшить код функции makePerson:</b>
+                  function Person(first, last) {
+                    this.first = first;
+                    this.last = last;
+                    this.fullName = function() {
+                      return this.first + ' ' + this.last;
+                    };
+                    this.fullNameReversed = function() {
+                      return this.last + ', ' + this.first;
+                    };
+                  }
+                  var s = new Person("Simon", "Willison");
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Функциональный стиль</legend>
+              <blockquote>
+                Мы доработали наш код в предыдущем примере, но всё равно остался один неприятный момент. Каждый раз, когда с помощью
+                конструктора создаётся новый объект, мы заново создаём и две новые функции. Гораздо удобнее создать эти функции
+                отдельно и дать доступ к ним конструктору:
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function personFullName() {
+                    return this.first + ' ' + this.last;
+                  }
+                  function personFullNameReversed() {
+                    return this.last + ', ' + this.first;
+                  }
+                  function Person(first, last) {
+                    this.first = first;
+                    this.last = last;
+                    this.fullName = personFullName;
+                    this.fullNameReversed = personFullNameReversed;
+                  }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Функциональный стиль - плавно перетекает в прототипный стиль</legend>
+              <blockquote>
+                Мы доработали наш код в предыдущем примере, но всё равно остался один неприятный момент. Каждый раз, когда с помощью
+                конструктора создаётся новый объект, мы заново создаём и две новые функции. Гораздо удобнее создать эти функции
+                отдельно и дать доступ к ним конструктору:
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function Person(first, last) {
+                    this.first = first;
+                    this.last = last;
+                  }
+                  Person.prototype.fullName = function fullName() {
+                    return this.first + ' ' + this.last;
+                  }
+                  Person.prototype.fullNameReversed = function fullNameReversed() {
+                    return this.last + ', ' + this.first;
+                  }
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 3 -->
           </li>
           <li id="mark4" class="tabs-content-item">

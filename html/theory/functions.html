@@ -36,6 +36,7 @@
           <li class="tabs-nav-item" onclick="openMark(event,'mark4')">Примеры</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark5')">Arguments</li>
           <li class="tabs-nav-item" onclick="openMark(event,'mark6')">Get/Set/Decriptor</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark7')">John Resig</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -718,6 +719,51 @@
               </pre>
             </fieldset>
             <!-- end 6 -->
+          </li>
+          <li id="mark7" class="tabs-content-item">
+            <!-- 7 -->
+            <div class="sub-title">Main</div>
+            <div class="title">John Resig</div>
+          <fieldset>
+            <legend>Функция-цикл</legend>
+            <blockquote>
+              Тот же цикл. Только параметром мы передаем занчения индекса.
+              Циклом делает ее то что мы в теле ее вызываем ее же. Но при этом даем ей условие, когда она должна прекратить сама себя вызывать. 
+            </blockquote>
+            <pre class="code">
+              <code>
+                <b>arguments.callee(n-1) - это тоже самое что yell(n-1)</b>
+                function yell(n){
+                  return n > 0 ? yell(n-1) + "a" : "hiy";
+                }
+
+                log( yell(4) == "hiyaaaa", "Calling the function by itself comes naturally." )
+
+                log( yell(5) )
+              </code>
+            </pre>
+          </fieldset>
+          <fieldset>
+            <legend>Функция-цикл</legend>
+            <blockquote>
+              yell (кричать) это метод у нинзи. Потом мы самураю заводим свойство - и передаем туда метод нинзи кричать. Дальше разучиваем нинзю кричать а самурай уже научился.
+            </blockquote>
+            <pre class="code">
+              <code>
+                var ninja = {
+                  yell: function yell(n){
+                    return n > 0 ? yell(n-1) + "a" : "hiy";
+                  }
+                };
+                assert( ninja.yell(4) == "hiyaaaa", "Works as we would expect it to!" );
+                
+                var samurai = { yell: ninja.yell };
+                var ninja = {};
+                assert( samurai.yell(4) == "hiyaaaa", "The method correctly calls itself." );
+              </code>
+            </pre>
+          </fieldset>
+            <!-- end 7 -->
           </li>
 
         </ul>
