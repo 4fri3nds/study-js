@@ -73,6 +73,18 @@
                   children - только дочерние узлы-элементы, то есть соответствующие тегам
                   firstChild, lastChild -  – соответственно, первый и последний дети-элементы
                   previousElementSibling, nextElementSibling – соседи-элементы
+                  --------
+                  <b>Получить значение атрибута data</b>
+                  div id="elem" data-price="1000" data-product-number="5"
+                  
+                  --> аналог elem.getAttribute('data-price')
+                
+                  function func() {
+                    var elem = document.getElementById('elem');
+
+                    alert(elem.dataset.price); //выведет 1000
+                    alert(elem.dataset.productNumber); //выведет 5
+                  }
                 </code>
               </pre>
             </fieldset>

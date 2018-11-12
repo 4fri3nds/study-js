@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div class="nav">
+    <div id="bread-crumps"></div>
+    <div class="search">
+      <span>&#64;</span>
+      <input type="text">
+      <button>search</button>
+    </div>
+  </div>
+  <div class="header">
+    <div id="menu"></div>
+  </div>
+  <div class="content">
+    <div class="info">
+      <div class="info-left">
+        <h4 class="links-themes-title">Разные практики</h4>
+        <!-- TABS NAV-->
+        <ul class="tabs-nav-list">
+          <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Методы изучение</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Все методы</li>
+        </ul>
+        <!-- END NAV -->
+      </div>
+      <div class="info-right">
+        <div id="extra-menu" class="links-themes-list"></div>
+        <ul class="tabs-content-list info-right-content">
+          <li id="mark1" class="tabs-content-item active">
+          <!-- 1 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Изучение методов</div>
+            <fieldset>
+              <legend>1. Строки</legend>
+              <ul class="meth-list">
+                <li class="meth-item">
+                  <div class="meth-title">charAtcharAtcharAtcharAt</div>
+                  <div class="meth-desc">возвращает указаный символ возвращает указаный символ возвращает указаный символ возвращает указаный символ</div>
+                  <div class="meth-ex">
+                    <div class="ex-syntax">"apple is round".replace('apple', 'orange') </div>
+                    <div class="ex-result">// "orange is round"</div>
+                  </div>
+                  <div class="meth-full_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime eum necessitatibus id
+                    cupiditate voluptas. Consequuntur, ex quam tenetur animi excepturi temporibus sit ipsum quo libero labore a
+                    voluptate eligendi nisi!</div>
+                </li>
+                <li class="meth-item">
+                  <div class="meth-title">charAtcharAtcharAtcharAt</div>
+                  <div class="meth-desc">возвращает указаный символ возвращает указаный символ возвращает указаный символ возвращает указаный символ</div>
+                  <div class="meth-ex">
+                    <div class="ex-syntax">"apple is round".replace('apple', 'orange') </div>
+                    <div class="ex-result">// "orange is round"</div>
+                  </div>
+                  <div class="meth-full_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime eum necessitatibus id
+                    cupiditate voluptas. Consequuntur, ex quam tenetur animi excepturi temporibus sit ipsum quo libero labore a
+                    voluptate eligendi nisi!</div>
+                </li>
+              </ul>
+            </fieldset>
+          <!-- end 1 -->
+          </li>
+          <li id="mark2" class="tabs-content-item">
+          <!-- 2 -->
+            <div class="sub-title">Main</div>
+            <div class="title">Все методы</div>
+            <fieldset>
+              <legend>1. Строки</legend>
+              <pre>
+                <code>
+                  <b>Преобразовать</b>
+                  String.prototype.toString() -- Преобразует в строку
+                  String.prototype.split() -- разбивает строку на массив по символу
+                  String.prototype.quote() -- Оборачивает строку в двойные кавычки ("")
+                  
+                  <b>Трансформировать</b>
+                  String.prototype.concat(str) -- Объединяет 2 строки в одну
+                  String.prototype.repeat(count) -- Дублирует строку
+
+                  <b>Заменить участок</b>
+                  String.prototype.replace() -- Заменяет совпавшую строку на новую
+                  String.prototype.slice() -- Извлекает часть строки и возвращает новую строку  
+
+                  <b>Обрезать</b>
+                  String.prototype.substring() -- Возвращает символы в строке между двумя индексами
+
+                  <b>Вернуть символ</b>
+                  String.prototype.indexOf() -- Возвращает индекс символа в строке (indexOf применяется и к Array.prototype.indexOf)
+                  String.prototype.lastIndexOf() -- Возвращает индекс последнего вхождения
+                  String.prototype.charAt() -- Возвращает символ по указанному индексу
+                  String.prototype.substr() -- Возвращает указанное количество символов в строке, начинающихся с указанной позиции
+                  
+                  <b>Найти</b>
+                  String.prototype.search() -- Выполняет поиск со строкой
+                  
+                  <b>Убрать пробелы, Регистр</b>
+                  String.prototype.trim() -- Обрезает пробелы в начале и в конце строки 
+                  String.prototype.trimLeft() -- Обрезает пробелы с левой стороны строки 
+                  String.prototype.trimRight() -- Обрезает пробелы с правой стороны
+
+                  String.prototype.toLowerCase() -- Переводит в нижний регистр
+                  String.prototype.toUpperCase() -- Переводит в верхний регистр
+                  
+                  <b>Инфо</b>
+                  String.prototype.startsWith() -- Определяет, начинается ли строка символами другой строки
+                  String.prototype.includes() -- Определяет, находится ли строка внутри другой строки 
+                  String.prototype.constructor -- Определяет функцию, создающую прототип этого объекта. 
+                  String.prototype.endsWith() -- Определяет, заканчивается ли строка символами другой строки 
+                  String.prototype.match() -- Используется для сопоставления строке регулярного выражения
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Числа</legend>
+              <pre>
+                <code>
+                  <b>Math.round(x)</b> -- округляет число(стандартно)
+                  <b>Math.ceil(x)</b> -- округляет до большего целого числа
+                  <b>Math.floor(x)</b> -- округляет в меньшую сторону
+                  <b>Math.pow(x, y)</b> -- возвращает степень
+                  <b>Math.random()</b> -- случайное число в диапазоне 0-1
+                  <b>Math.max([x[, y[, …]]])</b> -- Возвращает найбольшее число из своих аргументов
+                  <b>Math.min([x[, y[, …]]])</b> -- Возвращает наименьшее число из своих аргументов
+                  <b>Math.sqrt(x)</b> -- Возвращает квадратный корень числа
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. Массивы</legend>
+              <pre>
+                <code>
+                  <b>Добавить</b>
+                  arr.push(item) -- добавляет новый элемент в конец! массива
+                  arr.unshift('apple') -- Добавляет в начало массива элемент
+                  arr.concat(arr2) -- обьеденяет массивы
+                  <i>-- Методы push и unshift могут добавлять сразу по несколько элементов</i>
+                  
+                  <b>Удалить</b>
+                  arr.pop() -- Удаляет последний элемент из массива и возвращает его
+                  arr.shift() -- Удаляет из массива первый элемент
+                  arr.splice(0, 1); -- с позиции 0 - удаляет один элемент
+                  
+                  <b>Преобразовать</b>
+                  arr.join(', ') -- соеденить массив в строку и поставить кому между ел.
+                  split(s) -- который позволяет превратить строку в массив, разбив ее по разделителю s
+                  arr.join(str) -- делает в точности противоположное split. Он берет массив и склеивает его в строку, используя str как разделитель
+                  
+                  <b>Скопировать</b>
+                  slice(begin, end) -- копирует участок массива от begin до end, не включая end. Если не указать end – копирование будет до конца массива
+                  
+                  <b>Отсортировать</b>
+                  arr.sort(fn) -- нужно передать функцию fn от двух элементов, которая умеет сравнивать их.
+                  arr.reverse() -- меняет порядок элементов в массиве на обратный.
+                  
+                  <b>Поиск</b>
+                  arr.indexOf(searchElement[, fromIndex]) -- возвращает номер элемента searchElement в массиве arr или -1, если его нет.
+                  arr.lastIndexOf(searchElement[, fromIndex]) -- ищет справа-налево: с конца массива или с номера fromIndex, если он указан
+                  
+                  <b>Минимальное и максимальное значение массива</b>
+                  Math.min.apply(null, [3,5,2]) -- минимальное число 2
+                  Math.max.apply(null, [3,5,2]) -- максимальное число 5
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. Обьекты</legend>
+              <pre>
+                <code>
+                  <b>Object.keys</b> - ключи - значение свойств. Объекта в виде массива. // 
+                  <b>Object.values</b> - свойства объекта в виде массива. // 
+                  <b>hasOwnProperty</b> - проверяет, принадлежит ли "НАЗВАНИЕ СВОЙСТВА" самому объекту или нет. user.hasOwnProperty('toString') // false
+                  
+                  <b>сonstructor</b> - содержит ссылку на конструктор, которым объект был создан. obj.constructor // function Constr() {}
+                  <b>Object.entries(obj)</b> - Создает многомерный массив k-ключь v-значение
+                  [[k:v],[k:v]]
+
+                  <b>valueOf</b> - преобразовать обьект в функцию, которая возвращает число.
+                  <b>toString</b> - преобразовать обьект в функцию, которая возвращает строку.
+
+                  <b>defineProperty</b> - позволяет установить правила на одно! свойство обьекта
+                  <b>defineProperties</b> - позволяет установить правила на несколько свойств обьекта
+                  
+                  <b>Object.create</b> - позволяет узнать принадлежит ли объект классу или классу наследующему от него.
+                  <b>instanceof</b> - позволяет узнать принадлежит ли объект классу или классу наследующему от него. fnObj instanceof FnConstructor // true
+                </code>
+              </pre>
+            </fieldset>
+          <!-- end 2 -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="../../js/main/other.js"></script>
+<script src="../../js/main/hilight.js"></script>
+<script src="../../js/main/dynamic.js"></script>
+<script src="../../js/main/main.js"></script>
+
+</body>
+
+</html>

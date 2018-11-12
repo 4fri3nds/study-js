@@ -31,8 +31,8 @@
         <!-- TABS NAV-->
         <ul class="tabs-nav-list">
           <li class="tabs-nav-item active" onclick="openMark(event,'mark1')">Применение</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">заголовок</li>
-          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">заголовок</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark2')">Замыкание по событию</li>
+          <li class="tabs-nav-item" onclick="openMark(event,'mark3')">Модульное программирование</li>
         </ul>
         <!-- END NAV -->
       </div>
@@ -46,6 +46,8 @@
             <fieldset>
               <legend>1. сохранить переменную</legend>
               <blockquote>
+                Замыкание - функция, которая возвращает функцию.
+                callback функция - функция выполняемая в ответ на возникновение события.
                 Вся фишка в том что переменная outerLet внутри outer. Будет сохранять свое значение между вызовами и при этом она инкапсулирована.
               </blockquote>
               <pre class="code">
@@ -176,6 +178,23 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>7. Замыкание в стрелочных функциях</legend>
+              <pre class="code">
+                <code>
+                  let foo = x => y => x + y
+                  let bar = foo(5) // сохраняем х в переменнов bar
+                  bar(3) // 8 - когда вызывает новую переменную, в которую передаем y, х мы уже передали раньше когда создавали эту переменную
+
+                  <b>аналогично</b>
+                  function foo(x) {
+                    return function(y) {
+                      return x + y;
+                    };
+                  };
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
@@ -208,9 +227,23 @@
           <li id="mark3" class="tabs-content-item">
             <!-- 3 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Модульное программирование</div>
             <fieldset>
-              <legend>1. Заголовок</legend>
+              <blockquote>
+                Паттерн «модуль» возвращает только публичную часть API, оставляя всё 'под капотом'. И замыкания идеально прячут функции и переменные с глобальной области.
+              </blockquote>
+              <legend>1. Увеличить и уменьшить текст кнопками</legend>
+              <div class="text_wrap">
+                <h4>Lorem ipsum dolor sit amet.</h4>
+                <h5>Lorem ipsum dolor sit amet.</h5>
+                <h6>Lorem ipsum dolor sit amet.</h6>
+              </div>
+              <button>-</button><button>+</button>
+              <pre class="code">
+                <code>
+
+                </code>
+              </pre>
             </fieldset>
             <!-- end 3-->
           </li>
@@ -218,7 +251,14 @@
       </div>
     </div>
   </div>
-
+  <script>
+    let makeSizer = (function(){
+      return {
+        pr: () => console.log('addddsd')
+      }
+    })()
+    // makeSizer
+  </script>
   <script src="../../js/main/hilight.js"></script>
   <script src="../../js/main/dynamic.js"></script>
   <script src="../../js/main/main.js"></script>

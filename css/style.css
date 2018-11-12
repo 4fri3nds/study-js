@@ -27,7 +27,7 @@ body {
 ul li {
   list-style-type: none;
   border-bottom: 1px solid lightblue;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   margin-top: 10px;
   padding-bottom: 5px;
 }
@@ -82,7 +82,6 @@ h3 {
 }
 
 h4 {
-  color: darkred;
   font-size: 20px;
   margin: 0;
   font-weight: normal;
@@ -103,8 +102,8 @@ h5 {
 }
 
 fieldset {
-  /* background: url(../assets/fieldset/5.jpg) repeat; */
-  background: #f9f9f9;
+  background: url(../assets/fieldset/5.jpg) repeat;
+  /* background: #f9f9f9; */
   margin-bottom: 20px;
   padding: 0 20px;
 }
@@ -420,21 +419,24 @@ input {
 /* end hightlight */
 
 .nav {
-  /* background: url('../assets/nav/11.jpg') repeat; */
-  border: 2px solid black;
+  /* background: url('../assets/nav/11.jpg') repeat;
+  border: 2px solid black; */
+  width: 60px;
+  float: left;
+  text-align: center;
+  margin-right: 20px;
 }
 
 #bread-crumps li a {
   margin: 0;
   color: dimgray;
-  padding-left: 45px;
 }
 
-#bread-crumps li a:after {
+/* #bread-crumps li a:after {
   content: ' \27A4';
   font-size: 14px;
   padding-left: 7px;
-}
+} */
 
 #bread-crumps li:last-child a:after {
   content: '';
@@ -448,6 +450,7 @@ input {
 
 .nav .search {
   float: right;
+  display: none;
 }
 
 .nav .search input {
@@ -470,6 +473,7 @@ input {
   color: white;
   border-color: gray;
   background: gray;
+  height: 27px;
 }
 
 .links-themes-title {
@@ -485,8 +489,6 @@ input {
   list-style: none;
   display: inline-block;
   margin-right: 8px;
-  font-family: cursive;
-  
 }
 
 .links-themes-list li a {
@@ -583,11 +585,14 @@ input {
 #menu h5 {
     font-size: 1em;
     line-height: 50px;
-    font-family: fantasy;
     margin: 0;
     font-weight: 700;
     color: black;
     cursor: pointer;
+    float: left;
+    letter-spacing: 2.5px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
 }
 
 #menu.active h5:after {
@@ -596,7 +601,7 @@ input {
   height: 25px;
 }
 
-#menu h5:after {
+/* #menu h5:after {
   content: '\276F';
   font-style: normal;
   display: inline-block;
@@ -605,24 +610,26 @@ input {
   width: 15px;
   line-height: 1;
   vertical-align: middle;
-}
+} */
 
 #menu>ul {
+  display: flex;
   list-style-type: none;
 }
 
 #menu>ul>li {
-  display: inline-block;
-  width: 230px;
+  display: flex;
+  flex-direction: row;
+  width: 250px;
   vertical-align: top;
 }
 
 #menu>ul>li>ul {
-  display: none;
+  padding-left: 5px;
 }
 
 #menu>ul>li>ul>li {
-  padding-bottom: 3px;
+  padding-bottom: 1px;
   position: relative;
   margin: 0;
 }
@@ -669,6 +676,10 @@ input {
   width: 292px;
   top: 50px;
   position: relative;
+}
+
+.tabs-nav-list.sticky {
+  position: fixed;
 }
 
 .tabs-nav-item {
@@ -1286,4 +1297,37 @@ bottom: -19px;
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
+}
+
+/* list study methods */
+.meth-title {
+  font-size: 22px;
+  color: darkblue;
+  min-width: 100px;
+}
+.meth-text,.meth-ex {
+  display: inline-block;
+  width: 47%;
+}
+.meth-fd {
+  display: none;
+}
+.meth-item {
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.meth-item>div {
+  width: calc(100% / 3);
+}
+.ex-syntax {
+  color: green
+}
+.ex-result {
+  color: orangered
+}
+.meth-check {
+  max-width: 150px;
+  height: 35px;
 }

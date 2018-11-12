@@ -431,6 +431,24 @@
                 </code>
               </pre>
             </fieldset>
+            <fieldset>
+              <legend>5. Функции - это Обьекты</legend>
+              <blockquote>
+                
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function fn() { return fn.x++ } 
+                  fn.x = 0 // мы функции как обычному обьекту даем свойства и методы
+                  fn.print = function () { return this.x } // здесь this работает
+
+                  fn() // 1 - что удивительно что она сама же перезаписывает свое свойство 
+                  fn() // 2 - и при этом это не замыкание
+                  fn() // 3
+
+                </code>
+              </pre>
+            </fieldset>
             <!-- end 3 -->
           </li>
           <li id="mark4" class="tabs-content-item">

@@ -1,26 +1,26 @@
 var JSON = {
   menu: [
-    { title: 'Practice Module 1', 
+    { title: 'Practice', 
       submenu: [
-        { linkname: '1. logic, drawing', link: '../practice/lesson1.html'},
+        { linkname: '1. Logic, drawing', link: '../practice/lesson1.html'},
         { linkname: '2. Рекурсия', link: '../practice/lesson2.html'},
         { linkname: '3. Конструктор', link: '../practice/lesson3.html'},
-        { linkname: '4. numbers, sort', link: '../practice/lesson5.html'},
-        { linkname: '5. interval', link: '../practice/lesson6.html'},
-        { linkname: '6. Mouse&key-events', link: '../practice/lesson7.html' }, 
-        { linkname: '7. check, radio', link: '../practice/lesson9.html' }]
+        { linkname: '4. Sort', link: '../practice/lesson5.html'},
+        { linkname: '5. Interval', link: '../practice/lesson6.html'},
+        { linkname: '6. Events', link: '../practice/lesson7.html' }, 
+        { linkname: '7. Radio', link: '../practice/lesson9.html' }]
     },
-    { title: 'Practice Module 2',
+    { title: 'Practice',
       submenu: [
-        { linkname: '10. random, sort', link: '../practice/lesson10.html' },
-        { linkname: '11. this', link: '../practice/lesson11.html' }, 
-        { linkname: '12. array', link: '../practice/lesson12.html' },
-        { linkname: '13. functions', link: '../practice/lesson13.html' },
-        { linkname: '14. closures', link: '../practice/lesson14.html' },
-        { linkname: '15. ecmascript', link: '../practice/lesson15.html' }
+        { linkname: '10. Random', link: '../practice/lesson10.html' },
+        { linkname: '11. This', link: '../practice/lesson11.html' }, 
+        { linkname: '12. Array', link: '../practice/lesson12.html' },
+        { linkname: '13. Functions', link: '../practice/lesson13.html' },
+        { linkname: '14. Closures', link: '../practice/lesson14.html' },
+        { linkname: '15. Ecmascript', link: '../practice/lesson15.html' }
       ]
     },
-    { title: 'Theory Primary',
+    { title: 'Data',
       submenu: [
         { linkname: 'Data types', link: '../theory/data-types.html'},
         { linkname: 'Массивы', link: '../theory/Array.html' },
@@ -28,28 +28,31 @@ var JSON = {
         { linkname: 'Функции', link: '../theory/functions.html'},
         { linkname: 'Dom', link: '../theory/dom.html' },
         { linkname: 'Events', link: '../theory/events.html' },
-        { linkname: 'Enumeration', link: '../theory/enumeration.html' },
-        { linkname: 'Styles', link: '../theory/styles.html' },
-        { linkname: 'Animation', link: '../theory/animation.html' }]
+        { linkname: 'Styles', link: '../theory/styles.html' }],
       },
-      { title: 'Theory Advanced',
+      { title: 'OOP',
       submenu: [
+        { linkname: 'Enumeration', link: '../theory/enumeration.html' },
         { linkname: 'Callback', link: '../theory/callback.html' },
         { linkname: 'Замыкания', link: '../theory/closures.html' },
         { linkname: 'Class', link: '../theory/clases.html' },
         { linkname: 'OOP', link: '../theory/oop.html' },
-        { linkname: 'Прототипы', link: '../theory/proto.html' },
-        { linkname: 'json, ajax', link: '../theory/json.html' },
+        { linkname: 'Прототипы', link: '../theory/proto.html' }],
+      },
+      { title: 'API',
+      submenu: [
+        { linkname: 'Json, ajax', link: '../theory/json.html' },
         { linkname: 'Native JS', link: '../theory/native-js.html' },
-        { linkname: 'TypeScript', link: '../theory/typescript.html' },
+        { linkname: 'Methods', link: '../theory/methods.html' },
+        { linkname: 'Animation', link: '../theory/animation.html' },
         { linkname: 'EcmaScript', link: '../theory/ecmascript.html' }]
       },
-      { title: 'My Apps',
-      submenu: [
-        { linkname: 'Калькулятор', link: '../programs/calc.html' },
-        { linkname: 'Кофеварка', link: '../programs/coffe.html' },
-        { linkname: 'Календарь', link: '../programs/calendar.html' }
-      ]
+      { title: 'Apps',
+        submenu: [
+          { linkname: 'Калькулятор', link: '../programs/calc.html' },
+          { linkname: 'Кофеварка', link: '../programs/coffe.html' },
+          { linkname: 'Календарь', link: '../programs/calendar.html' }
+        ]
     }],
 
   breadcrumps: [
@@ -70,7 +73,6 @@ var JSON = {
     { linkname: 'log out',link: '#'},
     { linkname: '&#8679;',link: '#'}
   ]
-
 };
 
 //parse menu
@@ -113,27 +115,11 @@ if (breadcrumps) parseDom(breadcrumps, JSON.breadcrumps);
 
 if (extramenu) parseDom(extramenu, JSON.extramenu);
 
-//collapse menu in header
-let headerMenu = {
-  menu: document.getElementById('menu'),
-  h5: this.menu.getElementsByTagName('h5')
-}
-
-for (let i = 0; i < headerMenu.h5.length; i++) {
-  headerMenu.h5[i].addEventListener('click', function () {
-    if (headerMenu.menu.className != 'active') {
-      headerMenu.menu.className = 'active';
-    } else {
-      headerMenu.menu.className = '';
-    }
-  });
-};
-
 //tabs
 function openMark(evt, mark) {
-  window.scrollTo(0,80);
+  window.scrollTo(0,0);
 
-  window.addEventListener('scroll', unstickAside);
+  window.addEventListener('scroll', unstick);
 
   let nav = document.getElementsByClassName('tabs-nav-item'),
     content = document.getElementsByClassName('tabs-content-item');
@@ -149,42 +135,38 @@ function openMark(evt, mark) {
 
 //sticky aside
 let sticky = {
-  elem: document.getElementsByClassName('tabs-nav-list')[0],
-  offsetCollapseMenu : 227,
-  offsetOpenMenu : 477,
-  marginTop : 51,
-  mt: function() {
-    return this.elem.getBoundingClientRect().top;
-  },
-  stick: function() {
-    return this.mt() 
-  },
-};
+  elem: document.getElementsByClassName("tabs-nav-list")[0],
 
+  offsetCollapseMenu: 227,
+  offsetOpenMenu: 477,
+  marginTop: 80,
 
-function stickAside() {
-  sticky.elem.style.position = 'fixed';
-
-  if (menu.className != 'active') {
-    if (window.pageYOffset < sticky.offsetCollapseMenu - sticky.marginTop) {
-      window.removeEventListener('scroll', stickAside);
-      window.addEventListener('scroll', unstickAside);
-    }
-  } else {
-    if (window.pageYOffset < sticky.offsetOpenMenu - 80) {
-      window.removeEventListener('scroll', stickAside);
-      window.addEventListener('scroll', unstickAside);
-    }
+  unstickPosition: 45,
+  getPosition: function() {
+    return this.elem.getBoundingClientRect().top
   }
 };
 
-function unstickAside() {
-  sticky.elem.style.position = 'relative';
-  
-  if (sticky.mt() < sticky.marginTop) { 
-    window.addEventListener('scroll', stickAside);
-    window.removeEventListener('scroll', unstickAside);
-  }
-};
+unstick = () => {
+  window.pageYOffset >= 215
+    ? sticky.elem.classList.add("sticky")
+    : sticky.elem.classList.remove("sticky")
+}
 
-if (sticky.elem) window.addEventListener('scroll', unstickAside);
+if (sticky.elem) window.addEventListener('scroll', unstick);
+
+//collapse menu in header
+// let headerMenu = {
+//   menu: document.getElementById('menu'),
+//   h5: this.menu.getElementsByTagName('h5')
+// }
+
+// for (let i = 0; i < headerMenu.h5.length; i++) {
+//   headerMenu.h5[i].addEventListener('click', function () {
+//     if (headerMenu.menu.className != 'active') {
+//       headerMenu.menu.className = 'active';
+//     } else {
+//       headerMenu.menu.className = '';
+//     }
+//   });
+// };

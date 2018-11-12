@@ -199,33 +199,112 @@
             <div class="title">Методы обьектов</div>
             <fieldset>
               <legend>1. Методы обьектов MUST TO KNOW</legend>
-              <pre class="code">
+              <pre>
                 <code>
-                  Object.entries(obj) // []
+                  <b>Object.keys</b> - ключи - значение свойств. Объекта в виде массива. // 
+                  <b>Object.values</b> - свойства объекта в виде массива. // 
+                  <b>hasOwnProperty</b> - проверяет, принадлежит ли "НАЗВАНИЕ СВОЙСТВА" самому объекту или нет. user.hasOwnProperty('toString') // false
+                  
+                  <b>сonstructor</b> - содержит ссылку на конструктор, которым объект был создан. obj.constructor // function Constr() {}
+                  <b>Object.entries(obj)</b> - Создает многомерный массив k-ключь v-значение
+                  [[k:v],[k:v]]
+
+                  <b>valueOf</b> - преобразовать обьект в функцию, которая возвращает число.
+                  <b>toString</b> - преобразовать обьект в функцию, которая возвращает строку.
+
+                  <b>defineProperty</b> - позволяет установить правила на одно! свойство обьекта
+                  <b>defineProperties</b> - позволяет установить правила на несколько свойств обьекта
+                  
+                  <b>Object.create</b> - позволяет узнать принадлежит ли объект классу или классу наследующему от него.
+                  <b>instanceof</b> - позволяет узнать принадлежит ли объект классу или классу наследующему от него. fnObj instanceof FnConstructor // true
+                  
                 </code>
               </pre>
             </fieldset>
             <fieldset>
-              <legend>2. Синтаксис методов, их использование</legend>
+              <legend>2. defineProperty(ies)</legend>
+              <blockquote>
+                Метод Object.defineProperty - позволяет устанавливать свойствам некоторые настройки (можно ли свойство изменять, удалять и др.)
+                <hr>
+                Дескриптор - это объект, который описывает поведение свойства. В нем могут быть следующие свойства:
+              </blockquote>
+              <ul>
+                <li>
+                  <b>value</b> //значение свойства (undefined)
+                </li>
+                <li>
+                  <b>writable</b> //если true - свойство можно перезаписывать (false)
+                </li>
+                <li>
+                  <b>configurable</b> // если true, то свойство можно удалять (false)
+                </li>
+                <li>
+                  <b>enumerable</b> //если true, то свойство видно в цикле for..in (false)
+                </li>
+                <li>
+                  <b>get</b> //Функции, которая возвращает значение свойства (undefined)
+                </li>
+                <li>
+                  <b>set</b> //Функции, которая записывает значение свойства (undefined);
+                </li>
+              </ul>
               <pre class="code">
                 <code>
-                  let sticky = { 
-                    elem: document.getElementsByClassName('tabs-nav-list')[0], 
-                    mt: function() { 
-                      return this.elem.getBoundingClientRect().top;
-                    }, 
-                    ml: function( el ) { 
-                      return el.getBoundingClientRect().left; 
-                    }, 
-                    stick: function() { 
-                      return this.mt() 
-                    }, 
-                  };
-
-                  window.addEventListener('scroll', function () { 
-                    console.log( sticky.mt() ); 
-                    console.log( sticky.ml( sticky.elem )); 
+                  <b>для defineProperty - одно значение</b>
+                    Object.defineProperty(объект, 'имя свойства', дескриптор);
+                  <b>для defineProperties - много значений</b>
+                  var obj = {
+                    val1: 10, //Обычное свойство
+                  }
+                  
+                  Object.defineProperties(obj, {
+                    val2: {
+                      value: 20,
+                      configurable: false,
+                    },
+                    val3: {
+                      value: 30,
+                      configurable: false,
+                    }
                   });
+                  
+                  alert(obj.val1) //10
+                  alert(obj.val2) //20
+                  alert(obj.val3) //30
+                  
+                  delete obj.val1
+                  delete obj.val2
+                  delete obj.val3
+                  
+                  alert(obj.val1) //undefined
+                  alert(obj.val2) //20
+                  alert(obj.val3) //30
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>3. obj.constructor</legend>
+              <blockquote>
+                Когда мы переназначаем функцию на обьект через NEW. Мы можем узнать из какой функции вышел этот обьект с помощью .constructor
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function FnConstructor() { this.bar = 1 }
+                  let fnObj = new FnConstructor();
+                  fnObj.constructor // function FnConstructor() { this.bar = 1 }
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>4. obj.constructor</legend>
+              <blockquote>
+                Когда мы переназначаем функцию на обьект через NEW. Мы можем узнать из какой функции вышел этот обьект с помощью .constructor
+              </blockquote>
+              <pre class="code">
+                <code>
+                  function FnConstructor() { this.bar = 1 }
+                  let fnObj = new FnConstructor();
+                  fnObj.constructor // function FnConstructor() { this.bar = 1 }
                 </code>
               </pre>
             </fieldset>
@@ -251,6 +330,29 @@
                   } 
                   var rocky = getDog('Rocky', 5); 
                   var jerry = getDog('Jerry', 3);
+                </code>
+              </pre>
+            </fieldset>
+            <fieldset>
+              <legend>2. Так можно заводить новые значения в обьекты </legend>
+              <pre class="code">
+                <code>
+                  let x = 111;
+                  undefined
+                  let obj1 = {a:x}
+                  undefined
+                  obj1
+                  {a: 111}
+                  let y = 222
+                  undefined
+                  let z = 333
+                  undefined
+                  obj = { x1 : y, x2 : z }
+                  {x1: 222, x2: 333}
+                  obj
+                  {x1: 222, x2: 333}
+                  obj = { x, y, z }
+                  {x: 111, y: 222, z: 333}
                 </code>
               </pre>
             </fieldset>
