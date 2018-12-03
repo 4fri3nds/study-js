@@ -42,19 +42,46 @@
           <li id="mark1" class="tabs-content-item active">
             <!-- 1 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Кейсы (случаи употребления)</div>
             <fieldset>
               <legend>1. Заголовок</legend>
+              <pre class="code">
+                <code>
+                  ƒ func3 () {
+                    return {
+                      apple: 'green',
+                      orange: 'orange'
+                    }
+                  }
+                  let co1 = new func3
+                  co1.orange //"orange" (взято в обьекта)
+
+                  co1.fruit = function() { return this } // we created new method
+                  co1.fruit() // {apple: "green", orange: "orange", fruit: ƒ}
+
+                  co1.fruit().apple // "green"
+                </code>
+              </pre>
             </fieldset>
+             
             <!-- end 1 -->
           </li>
           <li id="mark2" class="tabs-content-item">
             <!-- 2 -->
             <div class="sub-title">Main</div>
-            <div class="title">Title</div>
+            <div class="title">Brain storm</div>
             <fieldset>
               <legend>1. Заголовок</legend>
+              <blockquote>
+
+              </blockquote>
+              <pre class="code">
+                <code>
+
+                </code>
+              </pre>
             </fieldset>
+          
             <!-- end 2 -->
           </li>
           <li id="mark3" class="tabs-content-item">

@@ -54,17 +54,17 @@
                   user.size.top -- более глубокое свойство
                   obj[key] -- обратится к свойству обьекта
                   <i>Доступ через точку используется, если мы на этапе написания программы уже знаем название свойства. А если оно будет определено по ходу выполнения, например, введено посетителем и записано в переменную, то единственный выбор – квадратные скобки.</i>
-                  
+
                   <b>Получить значения</b>
                   Object.keys(obj) -- Получить значения обьекта
-                  
+
                   <b>Удалить</b>
                   delete person.age -- удалить age из обьекта obj
-                  
+
                   <b>Перебрать</b>
-                  for (var key in menu) { ... } 
+                  for (var key in menu) { ... }
                   -- for..in -- При этом for..in последовательно переберёт свойства объекта obj, имя каждого свойства будет записано в key
-                  
+
                   <b>более короткий перебор -- !! стоит попробовать</b>
                   Object.keys(menu).length
                 </code>
@@ -76,21 +76,21 @@
                 <code>
                   <h4>Скопировать свойства метод - copy()</h4>
                   test2=new Object() тоже что test = {};
-                  
+
                   <h4>Копирует свойства из объектов src1, src2,... в объект dst</h4>
                   copy(dst, src1, src2…)
-                
+
                   <b>Пример</b>
-                  var vasya = { age: 21, name: 'Вася', surname: 'Петров' }; 
-                  var user = { isAdmin: true, isEmailConfirmed: true }; 
-                  var student = { university: 'My university' }; 
-                  
+                  var vasya = { age: 21, name: 'Вася', surname: 'Петров' };
+                  var user = { isAdmin: true, isEmailConfirmed: true };
+                  var student = { university: 'My university' };
+
                   <h5>//скопирует все свойства</h5>
                   copy(vasya, user, student);
-                  
+
                   alert( vasya.isAdmin); // true
                   alert( vasya.university ); // My university
-                  
+
                   <h5>//вставить скопированные свойства в пустой объект</h5>
                   var userClone = copy({}, user);
                 </code>
@@ -102,17 +102,17 @@
               <p>проверить существование свойства – получив его и сравнив с undefined:</p>
               <pre>
                 <code>
-                  var person = { name: "Василий" }; 
-                  alert( person.lalala === undefined ); // true, свойства нет 
+                  var person = { name: "Василий" };
+                  alert( person.lalala === undefined ); // true, свойства нет
                   alert( person.name === undefined); // false, свойство есть.
                 </code>
               </pre>
               <p>проверить существование свойства – оператором undefined:</p>
               <pre>
                 <code>
-                  var obj = {}; 
-                  obj.test = undefined; 
-                  alert( "test" in obj ); // true 
+                  var obj = {};
+                  obj.test = undefined;
+                  alert( "test" in obj ); // true
                   alert( "blabla" in obj ); // false
                 </code>
               </pre>
@@ -124,17 +124,17 @@
               </p>
               <pre class="code">
                 <code>
-                  <b>result: Hello, Петя.</b>        
-                  test = { 
-                    simple_property: 'Hello', 
-                    object_property: { 
-                      user_1: 'Петя', 
-                      user_2: 'Вася' 
-                    }, 
-                    function_property: function(user) { 
-                    alert(this.simple_property + ', ' + this.object_property[user]); 
-                  } 
-                } 
+                  <b>result: Hello, Петя.</b>
+                  test = {
+                    simple_property: 'Hello',
+                    object_property: {
+                      user_1: 'Петя',
+                      user_2: 'Вася'
+                    },
+                    function_property: function(user) {
+                    alert(this.simple_property + ', ' + this.object_property[user]);
+                  }
+                }
                 test.function_property('user_1'); //Hello, Петя.
                 </code>
               </pre>
@@ -146,19 +146,19 @@
               </blockquote>
               <pre class="code">
                 <code>
-                  <b>result: Hello, Петя.</b>        
-                   let MyApp = { 
-                     name: 'Max', 
-                     age: 12, 
-                     size: 3, 
-                     sayName: function(name) { 
+                  <b>result: Hello, Петя.</b>
+                   let MyApp = {
+                     name: 'Max',
+                     age: 12,
+                     size: 3,
+                     sayName: function(name) {
                        return console.log("Hello " + name.toUpperCase())
-                      }, 
-                     sayPreved: function() { 
-                      return this.sayName(this.name) 
-                    } 
-                  } 
-                  
+                      },
+                     sayPreved: function() {
+                      return this.sayName(this.name)
+                    }
+                  }
+
                   MyApp.sayPreved()
                   <b>дописать отдельно метод</b>
                   <blockquote>Большым плюсом является доступ this к обьекту и его свойствам</blockquote>
@@ -175,18 +175,18 @@
               </blockquote>
               <pre>
                 <code>
-                  <b>Для методов: Get - Set</b>        
-                   // плохо dragon.age(); 
-                   // хорошо dragon.getAge(); 
-                   // плохо dragon.age(25); 
+                  <b>Для методов: Get - Set</b>
+                   // плохо dragon.age();
+                   // хорошо dragon.getAge();
+                   // плохо dragon.age(25);
                    // хорошо dragon.setAge(25);
 
                   <b>Для Boolean: Is - Has</b>
-                    // плохо if (!dragon.age()) { 
-                     return false; 
-                    } 
-                    // хорошо if (!dragon.hasAge()) { 
-                      return false; 
+                    // плохо if (!dragon.age()) {
+                     return false;
+                    }
+                    // хорошо if (!dragon.hasAge()) {
+                      return false;
                     }
                 </code>
               </pre>
@@ -201,10 +201,10 @@
               <legend>1. Методы обьектов MUST TO KNOW</legend>
               <pre>
                 <code>
-                  <b>Object.keys</b> - ключи - значение свойств. Объекта в виде массива. // 
-                  <b>Object.values</b> - свойства объекта в виде массива. // 
+                  <b>Object.keys</b> - ключи - значение свойств. Объекта в виде массива. //
+                  <b>Object.values</b> - свойства объекта в виде массива. //
                   <b>hasOwnProperty</b> - проверяет, принадлежит ли "НАЗВАНИЕ СВОЙСТВА" самому объекту или нет. user.hasOwnProperty('toString') // false
-                  
+
                   <b>сonstructor</b> - содержит ссылку на конструктор, которым объект был создан. obj.constructor // function Constr() {}
                   <b>Object.entries(obj)</b> - Создает многомерный массив k-ключь v-значение
                   [[k:v],[k:v]]
@@ -214,10 +214,10 @@
 
                   <b>defineProperty</b> - позволяет установить правила на одно! свойство обьекта
                   <b>defineProperties</b> - позволяет установить правила на несколько свойств обьекта
-                  
+
                   <b>Object.create</b> - позволяет узнать принадлежит ли объект классу или классу наследующему от него.
                   <b>instanceof</b> - позволяет узнать принадлежит ли объект классу или классу наследующему от него. fnObj instanceof FnConstructor // true
-                  
+
                 </code>
               </pre>
             </fieldset>
@@ -256,7 +256,7 @@
                   var obj = {
                     val1: 10, //Обычное свойство
                   }
-                  
+
                   Object.defineProperties(obj, {
                     val2: {
                       value: 20,
@@ -267,15 +267,15 @@
                       configurable: false,
                     }
                   });
-                  
+
                   alert(obj.val1) //10
                   alert(obj.val2) //20
                   alert(obj.val3) //30
-                  
+
                   delete obj.val1
                   delete obj.val2
                   delete obj.val3
-                  
+
                   alert(obj.val1) //undefined
                   alert(obj.val2) //20
                   alert(obj.val3) //30
@@ -319,16 +319,16 @@
               <p>Если объект, нужно переиспользовать то удобнее будет сделать отдельную функцию, возвращающую объект</p>
               <pre class="code">
                 <code>
-                  function getDog(name, age){ 
-                    return { 
-                      "name": name, 
-                      "age": age, 
-                      "talk": function(){ 
-                        alert('Name: ' + this.name + ', Age: ' + this.age); 
-                      } 
-                    }; 
-                  } 
-                  var rocky = getDog('Rocky', 5); 
+                  function getDog(name, age){
+                    return {
+                      "name": name,
+                      "age": age,
+                      "talk": function(){
+                        alert('Name: ' + this.name + ', Age: ' + this.age);
+                      }
+                    };
+                  }
+                  var rocky = getDog('Rocky', 5);
                   var jerry = getDog('Jerry', 3);
                 </code>
               </pre>
@@ -338,15 +338,15 @@
               <pre class="code">
                 <code>
                   let x = 111;
-                  undefined
+
                   let obj1 = {a:x}
-                  undefined
+
                   obj1
                   {a: 111}
                   let y = 222
-                  undefined
+
                   let z = 333
-                  undefined
+
                   obj = { x1 : y, x2 : z }
                   {x1: 222, x2: 333}
                   obj
@@ -368,9 +368,9 @@
               тонко настроить его особые аспекты, которые никак иначе не изменить.</blockquote>
               <pre><code>
                 <b>Синтаксис:</b>Object.defineProperty(obj, prop, descriptor)
-                 
-                <b>obj</b> Объект, в котором объявляется свойство. 
-                <b>prop</b> Имя свойства, которое нужно объявить или модифицировать. 
+
+                <b>obj</b> Объект, в котором объявляется свойство.
+                <b>prop</b> Имя свойства, которое нужно объявить или модифицировать.
                 <b>descriptor</b> Дескриптор – объект, который описывает поведение свойства.
               </code></pre>
 
@@ -389,14 +389,14 @@
               <pre class="code">
                 <code>
                    var user = {};
-                   <b>1. простое присваивание</b> 
+                   <b>1. простое присваивание</b>
                    user.name = "Вася"; //
-                   <b>2. указание значения через дескриптор</b> 
-                    Object.defineProperty(user, "name", { 
-                      value: "Вася", 
-                      configurable: true, 
-                      writable: true, 
-                      enumerable: true 
+                   <b>2. указание значения через дескриптор</b>
+                    Object.defineProperty(user, "name", {
+                      value: "Вася",
+                      configurable: true,
+                      writable: true,
+                      enumerable: true
                     });
                 </code>
               </pre>

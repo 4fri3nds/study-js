@@ -51,19 +51,19 @@
               <legend>1. Управление DOM елементами</legend>
               <pre>
                 <code>
-                  - getElementById id - везде 
-                  - getElementsByName name - везде   
-                  - getElementsByTagName - тег или '*' - получить всех потомков, 
+                  - getElementById id - везде
+                  - getElementsByName name - везде
+                  - getElementsByTagName - тег или '*' - получить всех потомков,
                   - getElementsByClassName
-                  - querySelector 
+                  - querySelector
                   - querySelectorAll - ('ul > li:last-child')
-                  
+
                   --------
                   - elem.matches(css) ничего не ищет, а проверяет, удовлетворяет ли elem селектору css. Он возвращает true либо false.
                   - parent.contains(child) true / false -- проверяет содержит ли этот элемент child напр.('span')
-                  - elem.parentElement.insertBefore("что вставить", "после чего") -- найти родителя и вставить в него 
+                  - elem.parentElement.insertBefore("что вставить", "после чего") -- найти родителя и вставить в него
                   - elem.tagName -- определяет тег искомого элемента
-                  
+
                   nextElementSibling!!
                   --------
                   elem.closest(css)
@@ -76,9 +76,9 @@
                   --------
                   <b>Получить значение атрибута data</b>
                   div id="elem" data-price="1000" data-product-number="5"
-                  
+
                   --> аналог elem.getAttribute('data-price')
-                
+
                   function func() {
                     var elem = document.getElementById('elem');
 
@@ -103,7 +103,7 @@
                     divEl.className = "includer"; //divEl.classList = "cl-1 cl-2..."
                     divEl.innerHTML = str;
                     location.appendChild(divEl);
-                  
+
                   <b>создать img</b>
                   let img = new Image();
                   img.height = '100px';
@@ -116,8 +116,8 @@
               <legend>2. Clone скопировать эл. и вставить</legend>
               <pre>
                 <code>
-                  var div2 = div.cloneNode(true); // копию можно подправить 
-                  div2.querySelector('strong').innerHTML = 'Супер!';  // вставим её после текущего сообщения 
+                  var div2 = div.cloneNode(true); // копию можно подправить
+                  div2.querySelector('strong').innerHTML = 'Супер!';  // вставим её после текущего сообщения
                   div.parentNode.insertBefore(div2, div.nextSibling);
                 </code>
               </pre>
@@ -127,8 +127,9 @@
               <h3>Вставить до и после конкретного элемента</h3>
               <pre>
                 <code>
-                  // this.parentElement.insertBefore(el, this); мой вариант
-                  
+                  <b>а в начало</b>
+                  document.body.insertBefore(div, document.body.firstChild);
+
                   var insertedElement = parentElement.insertBefore(newElement, referenceElement);
                   <ul style="list-style-type: disc;">
                     <li>"insertedElement" Вставленный элемент.</li>
@@ -136,6 +137,8 @@
                     <li>"newElement" Элемент для вставки.</li>
                     <li>"referenceElement" Элемент, перед которым будет вставлен newElement.</li>
                   </ul>
+
+                  // this.parentElement.insertBefore(el, this); (мой вариант)
                 </code>
               </pre>
             </fieldset>
@@ -160,7 +163,7 @@
                   document.body.classList.add('thisClass'); // добавить класс
                   document.body.classList.remove('thatClass'); // удалить класс
                   document.body.classList.toggle('anotherClass'); // если есть класс то убарать иначе добавить
-                  
+
                   body.classList.contains('thatClass') -- проверка на наличие
                 </code>
               </pre>
@@ -178,18 +181,18 @@
                 elem.style.display = 'none'; // скрыть элемент
 
                 <b> через браузер назначить цвет общего фона</b>
-                document.body.style.backgroundColor = prompt('background color?', 'green');   
-                
+                document.body.style.backgroundColor = prompt('background color?', 'green');
+
                 <b>збросить стиль</b>
                 elem.style.width=""
 
                 <b>I. Несколько стилей: вариант 1 (предыдущие свойства удаляются)</b>
                 div.style.cssText="
-                  color: red !important; \ 
-                  background-color: yellow; \ 
-                  width: 100px; \ 
+                  color: red !important; \
+                  background-color: yellow; \
+                  width: 100px; \
                   text-align: center; \
-                  this_str: проигнорируется; \ 
+                  this_str: проигнорируется; \
                 ";
 
                 <b>II. Несколько стилей: вариант 2 (предыдущие свойства удаляются)</b>
@@ -226,11 +229,11 @@
 
               <pre>
                 <code>
-                  elem.getAttribute() -- получить доступ к атрибуту 
-                  elem.setAttribute() -- дать эл. аттр. 
-                  elem.hasAttribute() -- прoверить на наличие аттрибута 
+                  elem.getAttribute() -- получить доступ к атрибуту
+                  elem.setAttribute() -- дать эл. аттр.
+                  elem.hasAttribute() -- прoверить на наличие аттрибута
                   elem.removeAttribute(name) -- удаляет аттр.
-                  
+
                   input.setAttribute('disabled', 'disabled'); -- зделать input неактывным.
 
                   if (x.hasAttribute("target")) { x.setAttribute("target", "_self") }
@@ -269,11 +272,11 @@
                   form method="POST" action="" id="form_who_should_be_checked">
                   input name="anything" value="text">
                   input type="submit">
-                  
+
                   <b>JS</b>
-                  document.getElementById("form_who_should_be_checked").onsubmit = 
-                  function () { 
-                    alert(this.anything.value); 
+                  document.getElementById("form_who_should_be_checked").onsubmit =
+                  function () {
+                    alert(this.anything.value);
                     return false;
                   }
                 </code>

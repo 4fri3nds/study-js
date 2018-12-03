@@ -4,15 +4,15 @@ let Machine = function () {
   this.mountCoffe = 0;
   this.maxWater = 800;
   this.maxCoffe = 160;
-  
+
   this.power = false;
   this.powerOn = () => this.power = true;
   this.powerOff = () => this.power = false;
-  
+
   this.readyKettle = false;
   this.readyKettleOn = () => this.readyKettle = true;
   this.readyKettleOff = () => this.readyKettle = false;
-  
+
   this.readyCoffe = false;
   this.readyCoffeOn = () => this.readyCoffe = true;
   this.readyCoffeOff = () => this.readyCoffe = false;
@@ -61,10 +61,10 @@ let Coffe = function () {
 Coffe.prototype.fillWater = function () {
   this.imgWaterMount.style.transform = 'translateY(-5%)';
   this.waterIndicator.classList.add('active');
-  
+
   this.mountWater = this.maxWater;
   this.waterCountElem.innerHTML = coffe.mountWater;
-  
+
   if (!this.water) this.waterOn();
 };
 
@@ -74,13 +74,13 @@ Coffe.prototype.fillCoffe = function () {
 
   this.mountCoffe = this.maxCoffe;
   this.coffeCountElem.innerHTML = this.mountCoffe;
-  
+
   if (!this.coffe) this.coffeOn();
 };
 
 Coffe.prototype.getPower = function () {
   this.powerIndicator.classList.toggle('active');
-  
+
   !this.power ? this.powerOn() : this.powerOff();
 
   this.powerDisplay.classList.toggle('conc');
@@ -170,16 +170,16 @@ Coffe.prototype.checkCupSize = function() {
 // prepare coffe
 Coffe.prototype.getCoffe = function () {
   if (!this.power) return this.textDisplay('npow');
-  
+
   if (!this.water || this.mountWater <= 300) return this.textDisplay('fw');
-  
+
   if (!this.coffe || this.mountCoffe <= 50) return this.textDisplay('fc');
-  
+
   if (this.readyKettle) return this.textDisplay('kettle-ready');
 
   this.textDisplay('wait');
 
-  this.elemKettle.classList = 
+  this.elemKettle.classList =
     this.elemKettle.classList[0] + ' ' + this.checkCupSize();
 
   this.setCup( this.checkCupSize() );
@@ -199,7 +199,7 @@ Coffe.prototype.takeCoffe = function () {
   this.readyCoffeOn();
   this.coffeCupReady.innerHTML = 'ready';
   this.elemKettle.style.animation = 'take-coffe 5s';
-  
+
   setTimeout( () => this.elemKettle.classList = this.elemKettle.classList[0], 2500 );
   setTimeout(() => this.elemKettle.style.animation='', 5000 );
   setTimeout( () => this.coffeSmoke.style.opacity = 1, 4000 );

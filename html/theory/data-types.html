@@ -55,17 +55,17 @@
                 <code>
                   <b>Str -> Num</b>
                   parseInt(somestring) to -> number
-                  
+
                   <b>Num -> Str</b>
                   String(num) -> преобразовать в строку
-                  
+
                   <b>Arr -> Str</b>
-                  arr.join(', ') - соеденить массив в строку и поставить кому между ел. 
+                  arr.join(', ') - соеденить массив в строку и поставить кому между ел.
                   arr.join(str) берет массив и склеивает его в строку, используя str как разделитель
-                  
+
                   <b>Str -> Arr</b>
                   [ num(str) ] -> преобразовать в массив
-                  split(s) - который позволяет превратить строку в массив,разбив ее по разделителю s 
+                  split(s) - который позволяет превратить строку в массив,разбив ее по разделителю s
 
                   <b>isNaN(num)</b> -- проверяет является ли строка числом
 
@@ -87,7 +87,7 @@
               </blockquote>
               <pre>
                 <code>
-                  Например: 
+                  Например:
                   alert( 5 % 2 ); // 1
                   alert( 8 % 3 ); // 2
                   alert( 6 % 3 ); // 0
@@ -109,12 +109,12 @@
                   let i = 6
                   if(i & 1)
                   {
-                      // ODD -- нечетное число 
+                      // ODD -- нечетное число
                       console.log('odd');
                     }
                     else
                     {
-                      // EVEN -- четное число 
+                      // EVEN -- четное число
                       console.log('even');
                   }
                 </code>
@@ -124,9 +124,9 @@
               <legend>4. Операторы сравнения</legend>
               <pre>
                 <code>
-                   null == undefined, //true 
-                   "\t\r\n" == 0, //true 
-                   0 == "", //true 
+                   null == undefined, //true
+                   "\t\r\n" == 0, //true
+                   0 == "", //true
                    false == "false" //false
                 </code>
               </pre>
@@ -141,30 +141,30 @@
               <pre>
                 <code>
                   <b>Негативный сценарий</b>
-                  setAge(age) { 
-                    if (age < 0 || age > 150) { 
-                      alert('this is fake age') 
-                    } else { 
+                  setAge(age) {
+                    if (age < 0 || age > 150) {
+                      alert('this is fake age')
+                    } else {
                       this._age = age;
-                    } 
+                    }
                   }
 
                   <b>Позитивный сценарий</b>
-                  setAge(age) { 
-                    if (age > 0 && age < 150) { 
-                      this._age = age; 
-                    } else { 
-                      alert('this is fake age') 
-                    } 
+                  setAge(age) {
+                    if (age > 0 && age < 150) {
+                      this._age = age;
+                    } else {
+                      alert('this is fake age')
+                    }
                   }
 
                   <b></b>
-                  if (1 || 0) { // сработает как if( true || false ) alert( 'верно' ); 
+                  if (1 || 0) { // сработает как if( true || false ) alert( 'верно' );
                   }
                 </code>
               </pre>
               <blockquote>
-                || запинается на «правде», 
+                || запинается на «правде»,
                 && запинается на «лжи».
               </blockquote>
             </fieldset>
@@ -183,14 +183,14 @@
                   String.prototype.toString() -- Преобразует в строку
                   String.prototype.split() -- разбивает строку на массив по символу
                   String.prototype.quote() -- Оборачивает строку в двойные кавычки (""")
-                  
+
                   <b>Трансформировать</b>
                   String.prototype.concat(str) -- Объединяет 2 строки в одну
                   String.prototype.repeat(count) -- Дублирует строку
 
                   <b>Заменить участок</b>
                   String.prototype.replace() -- Заменяет совпавшую строку на новую
-                  String.prototype.slice() -- Извлекает часть строки и возвращает новую строку  
+                  String.prototype.slice() -- Извлекает часть строки и возвращает новую строку
 
                   <b>Обрезать</b>
                   String.prototype.substring() -- Возвращает символы в строке между двумя индексами
@@ -200,23 +200,23 @@
                   String.prototype.lastIndexOf() -- Возвращает индекс последнего вхождения
                   String.prototype.charAt() -- Возвращает символ по указанному индексу
                   String.prototype.substr() -- Возвращает указанное количество символов в строке, начинающихся с указанной позиции
-                  
+
                   <b>Найти</b>
                   String.prototype.search() -- Выполняет поиск со строкой
-                  
+
                   <b>Убрать пробелы, Регистр</b>
-                  String.prototype.trim() -- Обрезает пробелы в начале и в конце строки 
-                  String.prototype.trimLeft() -- Обрезает пробелы с левой стороны строки 
+                  String.prototype.trim() -- Обрезает пробелы в начале и в конце строки
+                  String.prototype.trimLeft() -- Обрезает пробелы с левой стороны строки
                   String.prototype.trimRight() -- Обрезает пробелы с правой стороны
 
                   String.prototype.toLowerCase() -- Переводит в нижний регистр
                   String.prototype.toUpperCase() -- Переводит в верхний регистр
-                  
+
                   <b>Инфо</b>
                   String.prototype.startsWith() -- Определяет, начинается ли строка символами другой строки
-                  String.prototype.includes() -- Определяет, находится ли строка внутри другой строки 
-                  String.prototype.constructor -- Определяет функцию, создающую прототип этого объекта. 
-                  String.prototype.endsWith() -- Определяет, заканчивается ли строка символами другой строки 
+                  String.prototype.includes() -- Определяет, находится ли строка внутри другой строки
+                  String.prototype.constructor -- Определяет функцию, создающую прототип этого объекта.
+                  String.prototype.endsWith() -- Определяет, заканчивается ли строка символами другой строки
                   String.prototype.match() -- Используется для сопоставления строке регулярного выражения
                 </code>
               </pre>
@@ -225,13 +225,13 @@
               <legend>2. Основные методы MUST TO KNOW</legend>
               <pre>
                 <code>
-        <b>charAt</b>      "str".charAt(2) // "r" 
-            -- возвращает указаный символ 
+        <b>charAt</b>      "str".charAt(2) // "r"
+            -- возвращает указаный символ
 
         <b>assert</b>      assert(fn1 == fn2, "результат верный") // результат верный
-            -- проверяет на правописание 
+            -- проверяет на правописание
 
-        <b>concat</b>      "str1".concat("str2", "str3") // "str1str2str3" 
+        <b>concat</b>      "str1".concat("str2", "str3") // "str1str2str3"
             -- склеивает строки в одну
 
         <b>repeat</b>      'r'.repeat(3) // "rrr"
@@ -240,12 +240,12 @@
         <b>replace</b>     "apple is round".replace('apple', 'orange') // "orange is round"
             -- заменит apple на orange
 
-        <b>search</b>      'cat'.search('t') // 2  
-            -- ищет есть ли в строке совпадение и 
+        <b>search</b>      'cat'.search('t') // 2
+            -- ищет есть ли в строке совпадение и
             -- возвращает индекс || если его нет то -1
 
-        <b>slice</b>        'some to string'.slice(8) // 'string' 
-                            'some to string'.slice(0,8) // 'some to' 
+        <b>slice</b>        'some to string'.slice(8) // 'string'
+                            'some to string'.slice(0,8) // 'some to'
             -- обрезает строку и возвращает новую по индексу
 
         <b>split</b>        "some_str".split('_') // ['some', 'str']
@@ -300,16 +300,16 @@
               </p>
               <pre class="code">
                 <code>
-                  <b>result: true or false</b>        
-                  let mas = ['a','b','c','d','e','c']; 
-                  function hasElem(mass, num) { 
-                    for (let i=0; i < mass.length; i++) { 
-                      if (num==m ass[i]) { 
-                        return true; 
-                      } 
-                    } 
-                    return false; 
-                  }; 
+                  <b>result: true or false</b>
+                  let mas = ['a','b','c','d','e','c'];
+                  function hasElem(mass, num) {
+                    for (let i=0; i < mass.length; i++) {
+                      if (num==m ass[i]) {
+                        return true;
+                      }
+                    }
+                    return false;
+                  };
                   alert(hasElem(mas, 'c'));
                 </code>
               </pre>
@@ -320,16 +320,16 @@
                 Мы перезаписываем функцию в зависимости от условия
               </p>
               <pre class="code">
-                <code>    
-                  var bool = true; 
-                  if (bool) { 
-                    var func = function () { 
-                      alert('!'); 
-                    } 
-                  } else { 
-                    var func = function () { 
-                      alert('!!'); 
-                    } 
+                <code>
+                  var bool = true;
+                  if (bool) {
+                    var func = function () {
+                      alert('!');
+                    }
+                  } else {
+                    var func = function () {
+                      alert('!!');
+                    }
                   };
 
                   func();
@@ -364,7 +364,7 @@
                         <b>LexicalEnvironment</b> - все переменные внутри функции
                     </li>
                     <li>
-                      <b>Scope</b> - создается вместе с функциями и предоставляет им доступ к переменным       
+                      <b>Scope</b> - создается вместе с функциями и предоставляет им доступ к переменным
                     </li>
                     <li>
                       <b>Рекурсия</b> - это когда в выполнение функции заложено выполнять саму себя n к-во раз как в примере со степенью числа.
@@ -382,11 +382,11 @@
                     <li>
                       <b>Литералы</b> test=new Array()
                     </li>
-                    <li>     
+                    <li>
                       <b>let</b> - let, которое работает как var, но создает переменные, локальные для любого данного блока, а не только для функции. Блок имеется ввиду все что стоит в фигурных скобках - {}
                     </li>
                     <li>
-                      Function-<b>Declaration</b> : function func() { //... }); 
+                      Function-<b>Declaration</b> : function func() { //... });
                       Function-<b>Expression</b> : func = function() { //... });
                     </li>
                     <li>
@@ -404,7 +404,7 @@
                     <li>
                       <b>Статические переменные</b> - переменные, которые сохраняют промежуточные значения между вызовами.
 
-                      <br>Прим. func 1.15 counter но не через callback, а через вложеную функцию, которая считает и перезапысывает внешнюю переменную, которую и возвращает функция. 
+                      <br>Прим. func 1.15 counter но не через callback, а через вложеную функцию, которая считает и перезапысывает внешнюю переменную, которую и возвращает функция.
                     </li>
                     <li>
                       <b>Дилегирование</b> - Оно заключается в том, что если у нас есть много элементов, события на которых нужно обрабатывать похожим образом, то
@@ -430,14 +430,14 @@
               </blockquote>
               <pre class="code">
                 <code>
-                  function sayHi(name) { 
-                    // LexicalEnvironment = { name: 'Вася', phrase: undefined } 
-                    var phrase = "Привет, " + name; 
-                    
-                    // LexicalEnvironment = { name: 'Вася', phrase: 'Привет, Вася' } 
-                    alert( phrase ); 
-                  } 
-                  
+                  function sayHi(name) {
+                    // LexicalEnvironment = { name: 'Вася', phrase: undefined }
+                    var phrase = "Привет, " + name;
+
+                    // LexicalEnvironment = { name: 'Вася', phrase: 'Привет, Вася' }
+                    alert( phrase );
+                  }
+
                   sayHi('Вася');
                 </code>
               </pre>
@@ -456,10 +456,10 @@
                   <h4>RFC - журнал  <a href="https://tools.ietf.org/html/rfc3092">ссылка на статью</a>
                   </h4>
                     <b>foo</b>(bar) - первая. army slang FUBAR((`Fucked Up Beyond All Repair'))
-                    <b>bar</b> - вторая 
-                    <b>baz</b> - третья 
+                    <b>bar</b> - вторая
+                    <b>baz</b> - третья
                     <b>bat, qux, quux</b> — четвертая
-                     
+
                   <h5>First on the standard list of metasyntactic variables</h5>
                     <b>corge</b>
                     <b>grault</b>
@@ -468,7 +468,7 @@
                     <b>thud</b>
 
 
-                  <h4>Whoop! Восклицание</h4> 
+                  <h4>Whoop! Восклицание</h4>
                    <b>Many smoke but foo men chew</b>
                    <b>SILENCE IS FOO!</b> - Whoop!(Восклицание)
                    <b>Many smoke but foo men chew</b>
@@ -476,24 +476,24 @@
                   <h4>Funny hystorical</h4>
                     <b>spam и eggs</b> — канонические метапеременные, используемые в языке программирования Python.
                     <b>xyzzy и plugh</b> — волшебные слова в старой текстовой игре ADVENT.
-                  
-                  <h4>Иголка в стоге сена - haystack(needle)</h4> 
+
+                  <h4>Иголка в стоге сена - haystack(needle)</h4>
                     <b>needle (иголка) и haystack (стог сена)</b> могут использоваться в примерах, объясняющих синтаксис команд или функций поиска; благодаря идиоме «искать иголку в стоге сена», становится понятно, что в чём ищется.
                     <b>qwe, asd, zxc</b> — набор символов для ввода информации в текстовые поля для быстрого заполнения
-                  
+
                   <h4>переменные действия</h4>
                     <b>mv</b> - переименовать ск move
                     <b>rm</b> - удалить remove
                     <b>view</b> - посмотреть
-                  
+
                   <h4>переменные элементов</h4>
                     <b>source</b> - источник
                     <b>target</b> - цель
                     <b>props</b> - реквизит, опора, подпорка
-                  
+
                   <h4>пользователь - somebody</h4>
                     <b>DaffyDoc</b> - User. Warner Bros later - daffyduck
-                    <b>fred</b> 
+                    <b>fred</b>
                     <b>jRand</b>
                     <b>JohnDoe</b> - неизвестный
                 </code>
@@ -510,17 +510,17 @@
               <blockquote>Очередность вызова переменных</blockquote>
               <pre>
                 <code>
-                  var foo = 6; 
+                  var foo = 6;
 
-                  function test() { 
-                    var foo = 7; 
-                    function more() { 
-                      var foo = 8; 
-                      console.log(foo); // 1 
-                    } 
-                    more(); 
-                    console.log(foo); // 2 
-                  }; 
+                  function test() {
+                    var foo = 7;
+                    function more() {
+                      var foo = 8;
+                      console.log(foo); // 1
+                    }
+                    more();
+                    console.log(foo); // 2
+                  };
                   test(); ​
                   console.log(foo);​ // 3
                   </code>
@@ -529,21 +529,21 @@
             <fieldset>
               <legend>2. true / false</legend>
               <blockquote>
-                Здесь колбеком принимается массив аргументов. В нем же применяется reverse. 
+                Здесь колбеком принимается массив аргументов. В нем же применяется reverse.
                 А при вызове, где мы передаем аргументы мы приравниваем элементы массива аргументов - с конца.
               </blockquote>
               <pre class="code">
                 <code>
-                  function largest() { 
-                    return toArray(arguments).sort(function (a, b) { 
-                      return b - a; 
-                    }); 
-                  } 
+                  function largest() {
+                    return toArray(arguments).sort(function (a, b) {
+                      return b - a;
+                    });
+                  }
 
-                  function toArray(array) { 
-                    return Array().slice.call(array); 
-                  } 
-                    
+                  function toArray(array) {
+                    return Array().slice.call(array);
+                  }
+
                   console.log(largest(1, 1, 2, 3)[0] == 3); //true
                   console.log(largest(3, 1, 2, 3, 4, 5)[1] == 4); //true
                 </code>
@@ -554,14 +554,14 @@
               <blockquote>Почему move не находит, а с name все ок?</blockquote>
               <pre class="code">
                 <code>
-                  let Animal = function() { 
-                    this.name = name; 
+                  let Animal = function() {
+                    this.name = name;
                     // this.move = move; -- move is not defined
-                  }; 
-                  
-                  let gorilla = new Animal(); 
-                  
-                  gorilla.name = 'gorilla'; 
+                  };
+
+                  let gorilla = new Animal();
+
+                  gorilla.name = 'gorilla';
                   gorilla.move = 'jump';
 
                   console.log(gorilla);
@@ -574,14 +574,14 @@
               <pre class="code">
                 <code>
                   var foo = 0;
-                  var bar = function () { 
-                    var baz = function () { 
-                      foo = 31337; 
-                    }; 
-                    baz(); 
-                    console.log(foo); 
-                  }; 
-                  
+                  var bar = function () {
+                    var baz = function () {
+                      foo = 31337;
+                    };
+                    baz();
+                    console.log(foo);
+                  };
+
                   bar(); //31337
                 </code>
               </pre>
@@ -591,7 +591,7 @@
               <blockquote></blockquote>
               <pre class="code">
                 <code>
-                  
+
                 </code>
               </pre>
             </fieldset>

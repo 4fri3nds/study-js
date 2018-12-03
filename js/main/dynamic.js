@@ -1,19 +1,19 @@
 var JSON = {
   menu: [
-    { title: 'Practice', 
+    { title: 'Practice',
       submenu: [
         { linkname: '1. Logic, drawing', link: '../practice/lesson1.html'},
         { linkname: '2. Рекурсия', link: '../practice/lesson2.html'},
         { linkname: '3. Конструктор', link: '../practice/lesson3.html'},
         { linkname: '4. Sort', link: '../practice/lesson5.html'},
         { linkname: '5. Interval', link: '../practice/lesson6.html'},
-        { linkname: '6. Events', link: '../practice/lesson7.html' }, 
+        { linkname: '6. Events', link: '../practice/lesson7.html' },
         { linkname: '7. Radio', link: '../practice/lesson9.html' }]
     },
     { title: 'Practice',
       submenu: [
         { linkname: '10. Random', link: '../practice/lesson10.html' },
-        { linkname: '11. This', link: '../practice/lesson11.html' }, 
+        { linkname: '11. This', link: '../practice/lesson11.html' },
         { linkname: '12. Array', link: '../practice/lesson12.html' },
         { linkname: '13. Functions', link: '../practice/lesson13.html' },
         { linkname: '14. Closures', link: '../practice/lesson14.html' },
@@ -60,7 +60,7 @@ var JSON = {
       linkname: '<i class="fas fa-home home-link"></i>',link: './../../index.html'},
     {
       linkname: '<i class="fab fa-fort-awesome-alt sandbox-link"></i>',link: './../main/costum.html'},
-    { 
+    {
       linkname: '<i class="fas fa-cookie cookie-link"></i>',link: './../theory/data-types.html'
     }
   ],
@@ -78,21 +78,21 @@ var JSON = {
 //parse menu
 function parseDom(elem, parse) {
   let ul = document.createElement('ul');
-  
+
   elem.appendChild(ul);
-  
+
   for(let i = 0; i < parse.length; i++) {
     let a = document.createElement('a'),
         h5 = document.createElement('h5'),
         li = document.createElement('li');
 
-    ul.appendChild(li);   
+    ul.appendChild(li);
 
     if(parse[i].title) {
       li.appendChild(h5)
       h5.innerHTML = parse[i].title;
     };
-    
+
     if(parse[i].linkname) {
       li.appendChild(a);
       a.innerHTML = parse[i].linkname;
@@ -101,7 +101,7 @@ function parseDom(elem, parse) {
 
     if(parse[i].submenu) parseDom(li, parse[i].submenu)
   }
-  
+
   hljs.initHighlightingOnLoad();
 };
 

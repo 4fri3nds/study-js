@@ -58,11 +58,11 @@
     <fieldset name="fieldset1">
       <legend>1. Методы this - метод bind</legend>
       <pre>
-        func.bind(elem); 
-        let newFunc = func.bind(elem); 
+        func.bind(elem);
+        let newFunc = func.bind(elem);
         newFunc("1 аргумент, ", "2 аргумент, "); // это не вызов как не странно,
           а просто передача параметров
-        
+
           function func(x1, x2) {
             div(x1 + x2 + "значение инпута " + this.value, wrap1);
           } // у этой функции нет this. Но вызвав ее через bind мы это зделали
@@ -76,12 +76,12 @@
       <pre>
           let elem2 = document.getElementById('elem2');
           let wrap2 = document.getElementById('wrap2');
-           
+
           function funcCall() {
             div(this.value, wrap2);
           }
-          
-          funcCall.call(elem2); 
+
+          funcCall.call(elem2);
       </pre>
       <input id="elem2" value="привет">
       <p id="wrap2"></p>
@@ -103,10 +103,10 @@
           div(this.value + ', ' + surname + ' ' + name, wrap3);
         }
 
-        func3.call(elem3, name3.sur, name3.na); 
+        func3.call(elem3, name3.sur, name3.na);
         // мы передали параметры в функцию, а взяли их с обьекта
         // если бы мы здесь использовали метод <i>apply</i> было бы
-        func3.apply(elem3, arrName3); 
+        func3.apply(elem3, arrName3);
       </pre>
       <input id="elem3" value="привет">
       <p id="wrap3"></p>
@@ -114,9 +114,114 @@
     <fieldset>
       <legend>4. Методы this -- bind</legend>
       <pre>
-        func = func.bind(elem); 
-        func('Иванов', 'Иван'); //'привет, Иванов Иван' 
+        func = func.bind(elem);
+        func('Иванов', 'Иван'); //'привет, Иванов Иван'
         func('Петров', 'Петр'); //'привет, Петров Петр'
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>TWO objects</legend>
+      <pre class="code">
+        <code>
+          obj1 = {
+            name: 'A$a',
+            func1: () => this, //window
+            func2: function() { return this } //this obj
+          }
+
+          obj2 = {
+            func3: () => this,
+            func4: function() { return this }
+          }
+
+          obj2.func4.call(obj1).func2() //result obj1
+
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>function and object</legend>
+      <pre class="code">
+        <code>
+          obj1 = {
+            name: 'A$a',
+            func1: () => this, //window
+            func2: function() { return this } //this obj
+          }
+
+          obj2 = {
+            func3: () => this,
+            func4: function() { return this }
+          }
+
+          obj2.func4.call(obj1).func2() //result obj1
+
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>2. Привязка при создании</legend>
+      <blockquote>
+        // мы прям в конце функции при ее создании привязываем this
+      </blockquote>
+      <pre class="code">
+        <code>
+          Cs1 = function() {
+            this.color = function() {
+              return this.orange
+            }
+          }.bind(fn3)
+
+          cs1 = new Cs1 // { color: ƒ }
+          cs1.color.call(fn3) //"orange"
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>3. Почему bind a не call. В чем разнича</legend>
+      <blockquote>
+        1. Когда мы используем bind при вызове (ПР.1) мы привязываем функцию к this(если конечно )
+        2. Call(apply) выведет лишь результат но при этом останутся в невединии(грубо говоря они не трансформируют функцию а лишь дадут результат с тем this)
+      </blockquote>
+      <pre class="code">
+        <code>
+          1) func.bind(func1) // у func будет брать(this) у func1.
+          2) func.call(func1) // мы волучим вывод- результат выполнения func
+                              // если результатом будет 'строка' вся эта констр. превратится в // 'строку'
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>4. Call - для массивов</legend>
+      <blockquote>
+        после контекста мы передаем обычные аргументы
+      </blockquote>
+      <pre class="code">
+        <code>
+          let vit = ['ananas', 'mango', 'peneaple'] //наш массив аргументов (fruit)
+
+          function fn2(fruit) {
+            console.log('eating ' + fruit.join() + ' make healthy. Such: ' + this)
+          }
+
+          fn2.call(obj1.key2, vit)
+          eating ananas,mango,peneaple make healthy. Such: value.key2
+        </code>
+      </pre>
+    </fieldset>
+    <fieldset>
+      <legend>4. Вся фишка привязки this</legend>
+      <blockquote>
+        Для использования call,apply,bind нужна функция(или метод) за пределами обьекта
+      </blockquote>
+      <pre class="code">
+        <code>
+          function fn() { return this }
+          let obj = { prop: 'value', meth: function() { return this } }
+
+          fn.call(obj) // ссылка на obj
+          obj.meth() // ссылка на obj
+        </code>
       </pre>
     </fieldset>
   </div>
